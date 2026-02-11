@@ -5271,7 +5271,7 @@ let gt = 0, D = class extends g {
   }
   render() {
     var r;
-    const e = this.sectionCollapsible, t = e && this.togglePosition !== He.None && this.togglePosition !== "none", i = this.togglePosition === He.Right || this.togglePosition === "right", n = [
+    const e = this.sectionCollapsible, t = e && this.togglePosition !== He.None, i = this.togglePosition === He.Right, n = [
       "swim-section__header",
       this.sectionCollapsed ? "swim-section__header--collapsed" : "",
       e ? "swim-section__header--collapsible" : "",
@@ -6950,9 +6950,6 @@ let So = 0, C = class extends g {
       const o = [...this._values];
       o[t] = n, this._values = o, this._syncFormValue(), this._emitChange();
     }
-  }
-  _onInput(e) {
-    this._emitChange();
   }
   _onChange(e) {
     this._emitChange();
