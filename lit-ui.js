@@ -3322,6 +3322,7 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     flex-shrink: 0;
     height: 50px;
     padding: var(--spacing-20) var(--spacing-0);
+    margin-top: 15px;
     margin-bottom: ${pt}px;
     display: flex;
     align-items: center;
@@ -3734,7 +3735,9 @@ const Ui = 25, ts = f`
 
   :host([orientation='vertical']) {
     flex-direction: column;
+    flex-grow: 0;
     padding: var(--spacing-0);
+    margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
     overflow: visible;
@@ -3800,17 +3803,14 @@ const Ui = 25, ts = f`
   .swim-card-header__label {
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
-    color: var(--blue-400);
+    color: var(--card-status-success, #b0e53c);
     border-bottom: 0;
+    margin-bottom: 0.5rem;
     white-space: nowrap;
     width: 100%;
     text-align: center;
-    position: absolute;
     display: flex;
     align-items: center;
-    bottom: -15px;
-    left: 0;
-    z-index: 1;
   }
 
   .swim-card-header__label::before,
@@ -3843,11 +3843,11 @@ const qi = "swim-card-header", ii = class ii extends m {
       <slot name="avatar"></slot>
       <div class="swim-card-header__title-group">
         <slot></slot>
+        ${this.label ? l`<div class="swim-card-header__label">${this.label}</div>` : h}
         <slot name="tag"></slot>
         <slot name="title"></slot>
         <slot name="subtitle"></slot>
       </div>
-      ${this.label ? l`<div class="swim-card-header__label">${this.label}</div>` : h}
     `;
   }
 };
@@ -3873,6 +3873,7 @@ const ns = f`
   .swim-card-footer__label {
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
+    color: var(--blue-400);
     border-bottom: 0;
     white-space: nowrap;
     width: 100%;

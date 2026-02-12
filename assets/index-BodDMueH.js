@@ -3462,6 +3462,7 @@
     flex-shrink: 0;
     height: 50px;
     padding: var(--spacing-20) var(--spacing-0);
+    margin-top: 15px;
     margin-bottom: ${Vt}px;
     display: flex;
     align-items: center;
@@ -3647,7 +3648,9 @@
 
   :host([orientation='vertical']) {
     flex-direction: column;
+    flex-grow: 0;
     padding: var(--spacing-0);
+    margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
     overflow: visible;
@@ -3713,17 +3716,14 @@
   .swim-card-header__label {
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
-    color: var(--blue-400);
+    color: var(--card-status-success, #b0e53c);
     border-bottom: 0;
+    margin-bottom: 0.5rem;
     white-space: nowrap;
     width: 100%;
     text-align: center;
-    position: absolute;
     display: flex;
     align-items: center;
-    bottom: -15px;
-    left: 0;
-    z-index: 1;
   }
 
   .swim-card-header__label::before,
@@ -3745,11 +3745,11 @@
       <slot name="avatar"></slot>
       <div class="swim-card-header__title-group">
         <slot></slot>
+        ${this.label?c`<div class="swim-card-header__label">${this.label}</div>`:h}
         <slot name="tag"></slot>
         <slot name="title"></slot>
         <slot name="subtitle"></slot>
       </div>
-      ${this.label?c`<div class="swim-card-header__label">${this.label}</div>`:h}
     `}};Ni.styles=Ar;let vt=Ni;Qn([a({type:String})],vt.prototype,"label");Qn([a({type:String,reflect:!0})],vt.prototype,"orientation");customElements.get(on)||customElements.define(on,vt);const Tr=f`
   :host {
     position: relative;
@@ -3763,6 +3763,7 @@
   .swim-card-footer__label {
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
+    color: var(--blue-400);
     border-bottom: 0;
     white-space: nowrap;
     width: 100%;
