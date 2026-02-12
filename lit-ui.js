@@ -45,7 +45,7 @@ const en = (n) => new Oo(typeof n == "string" ? n : n + "", void 0, Mt), f = (n,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: on, defineProperty: nn, getOwnPropertyDescriptor: sn, getOwnPropertyNames: rn, getOwnPropertySymbols: an, getPrototypeOf: ln } = Object, _e = globalThis, Ai = _e.trustedTypes, cn = Ai ? Ai.emptyScript : "", St = _e.reactiveElementPolyfillSupport, Xe = (n, e) => n, dt = { toAttribute(n, e) {
+const { is: on, defineProperty: nn, getOwnPropertyDescriptor: sn, getOwnPropertyNames: rn, getOwnPropertySymbols: an, getPrototypeOf: ln } = Object, me = globalThis, Ai = me.trustedTypes, cn = Ai ? Ai.emptyScript : "", St = me.reactiveElementPolyfillSupport, Xe = (n, e) => n, dt = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
       n = n ? cn : null;
@@ -74,7 +74,7 @@ const { is: on, defineProperty: nn, getOwnPropertyDescriptor: sn, getOwnProperty
   }
   return t;
 } }, Dt = (n, e) => !on(n, e), Si = { attribute: !0, type: String, converter: dt, reflect: !1, useDefault: !1, hasChanged: Dt };
-Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), _e.litPropertyMetadata ?? (_e.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
+Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), me.litPropertyMetadata ?? (me.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let Te = class extends HTMLElement {
   static addInitializer(e) {
     this._$Ei(), (this.l ?? (this.l = [])).push(e);
@@ -278,7 +278,7 @@ let Te = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-Te.elementStyles = [], Te.shadowRootOptions = { mode: "open" }, Te[Xe("elementProperties")] = /* @__PURE__ */ new Map(), Te[Xe("finalized")] = /* @__PURE__ */ new Map(), St == null || St({ ReactiveElement: Te }), (_e.reactiveElementVersions ?? (_e.reactiveElementVersions = [])).push("2.1.1");
+Te.elementStyles = [], Te.shadowRootOptions = { mode: "open" }, Te[Xe("elementProperties")] = /* @__PURE__ */ new Map(), Te[Xe("finalized")] = /* @__PURE__ */ new Map(), St == null || St({ ReactiveElement: Te }), (me.reactiveElementVersions ?? (me.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -317,7 +317,7 @@ class et {
       if (i.nodeType === 1) {
         if (i.hasAttributes()) for (const g of i.getAttributeNames()) if (g.endsWith(Po)) {
           const b = y[r++], v = i.getAttribute(g).split(fe), S = /([.?@])?(.*)/.exec(b);
-          d.push({ type: 1, index: s, name: S[2], strings: v, ctor: S[1] === "." ? bn : S[1] === "?" ? fn : S[1] === "@" ? _n : kt }), i.removeAttribute(g);
+          d.push({ type: 1, index: s, name: S[2], strings: v, ctor: S[1] === "." ? bn : S[1] === "?" ? fn : S[1] === "@" ? mn : kt }), i.removeAttribute(g);
         } else g.startsWith(fe) && (d.push({ type: 6, index: s }), i.removeAttribute(g));
         if (Bo.test(i.tagName)) {
           const g = i.textContent.split(fe), b = g.length - 1;
@@ -364,7 +364,7 @@ let gn = class {
     for (; d !== void 0; ) {
       if (r === d.index) {
         let p;
-        d.type === 2 ? p = new He(s, s.nextSibling, this, e) : d.type === 1 ? p = new d.ctor(s, d.name, d.strings, this, e) : d.type === 6 && (p = new mn(s, this, e)), this._$AV.push(p), d = o[++c];
+        d.type === 2 ? p = new He(s, s.nextSibling, this, e) : d.type === 1 ? p = new d.ctor(s, d.name, d.strings, this, e) : d.type === 6 && (p = new _n(s, this, e)), this._$AV.push(p), d = o[++c];
       }
       r !== (d == null ? void 0 : d.index) && (s = ye.nextNode(), r++);
     }
@@ -479,7 +479,7 @@ class fn extends kt {
     this.element.toggleAttribute(this.name, !!e && e !== h);
   }
 }
-class _n extends kt {
+class mn extends kt {
   constructor(e, t, o, i, s) {
     super(e, t, o, i, s), this.type = 5;
   }
@@ -493,7 +493,7 @@ class _n extends kt {
     typeof this._$AH == "function" ? this._$AH.call(((t = this.options) == null ? void 0 : t.host) ?? this.element, e) : this._$AH.handleEvent(e);
   }
 }
-class mn {
+class _n {
   constructor(e, t, o) {
     this.element = e, this.type = 6, this._$AN = void 0, this._$AM = t, this.options = o;
   }
@@ -521,7 +521,7 @@ const xn = (n, e, t) => {
  * SPDX-License-Identifier: BSD-3-Clause
  */
 const $e = globalThis;
-let _ = class extends Te {
+let m = class extends Te {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
   }
@@ -547,9 +547,9 @@ let _ = class extends Te {
   }
 };
 var Io;
-_._$litElement$ = !0, _.finalized = !0, (Io = $e.litElementHydrateSupport) == null || Io.call($e, { LitElement: _ });
+m._$litElement$ = !0, m.finalized = !0, (Io = $e.litElementHydrateSupport) == null || Io.call($e, { LitElement: m });
 const It = $e.litElementPolyfillSupport;
-It == null || It({ LitElement: _ });
+It == null || It({ LitElement: m });
 ($e.litElementVersions ?? ($e.litElementVersions = [])).push("4.2.1");
 /**
  * @license
@@ -588,7 +588,7 @@ function a(n) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function m(n) {
+function _(n) {
   return a({ ...n, state: !0, attribute: !1 });
 }
 /**
@@ -765,7 +765,7 @@ const w = f`
     --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     --shadow-3: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
   }
-`, ua = f`
+`, pa = f`
   * {
     box-sizing: border-box;
   }
@@ -921,10 +921,10 @@ const w = f`
 
   .state-icon {
     position: absolute;
-    display: inline-block;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     pointer-events: none;
   }
@@ -1015,12 +1015,6 @@ const w = f`
   }
 
   .spinner {
-    animation: spin 1s linear infinite;
-  }
-
-  /* State icons (swim-icon): loading spinner animation */
-  .state-icon[font-icon='loading'] {
-    display: inline-block;
     animation: spin 1s linear infinite;
   }
 `;
@@ -2374,6 +2368,24 @@ const Cn = f`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Loading spinner: animate only the inner glyph inside this shadow root */
+  @keyframes swim-icon-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  :host([font-icon='loading']) .swim-icon__i {
+    animation: swim-icon-spin 1s linear infinite;
+  }
+
+  :host([font-icon='loading']) span[part='icon'] {
+    animation: swim-icon-spin 1s linear infinite;
+  }
+
   ${Cn}
 `, An = (n) => `ngx-icon ${n.trim().split(" ").map((t) => {
   const [o, i] = t.split(":");
@@ -2413,7 +2425,7 @@ var Tn = Object.defineProperty, st = (n, e, t, o) => {
     (r = n[s]) && (i = r(e, t, i) || i);
   return i && Tn(e, t, i), i;
 };
-const Bi = "swim-icon", Qt = class Qt extends _ {
+const Bi = "swim-icon", Qt = class Qt extends m {
   constructor() {
     super(...arguments), this.fontIcon = "", this.alt = "", this.fontSet = "ngx", this.iconClass = "", this._cssClasses = [], this._iconClassTokensOnHost = [];
   }
@@ -2485,29 +2497,29 @@ const Bi = "swim-icon", Qt = class Qt extends _ {
   }
 };
 Qt.styles = [w, En];
-let me = Qt;
+let _e = Qt;
 st([
   a({ type: String, attribute: "font-icon" })
-], me.prototype, "fontIcon");
+], _e.prototype, "fontIcon");
 st([
   a({ type: String })
-], me.prototype, "alt");
+], _e.prototype, "alt");
 st([
   a({ type: String, attribute: "font-set" })
-], me.prototype, "fontSet");
+], _e.prototype, "fontSet");
 st([
   a({ type: String, attribute: "icon-class" })
-], me.prototype, "iconClass");
+], _e.prototype, "iconClass");
 st([
-  m()
-], me.prototype, "_cssClasses");
-customElements.get(Bi) || customElements.define(Bi, me);
+  _()
+], _e.prototype, "_cssClasses");
+customElements.get(Bi) || customElements.define(Bi, _e);
 var In = Object.defineProperty, On = Object.getOwnPropertyDescriptor, te = (n, e, t, o) => {
   for (var i = o > 1 ? void 0 : o ? On(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
   return o && i && In(e, t, i), i;
 };
-const Fi = "swim-button", Zt = class Zt extends _ {
+const Fi = "swim-button", Zt = class Zt extends m {
   constructor() {
     super(...arguments), this.variant = "default", this.size = "medium", this._disabled = !1, this._state = R.Active, this.type = "button", this._inProgress = !1, this._success = !1, this._fail = !1;
   }
@@ -2547,7 +2559,7 @@ const Fi = "swim-button", Zt = class Zt extends _ {
         <span class="content">
           <slot></slot>
         </span>
-        <span class="state-icon"> ${this._renderStateIcon()} </span>
+        <span class="state-icon">${this._renderStateIcon()}</span>
       </button>
     `;
   }
@@ -2603,13 +2615,13 @@ te([
   a({ attribute: !1 })
 ], H.prototype, "promise", 1);
 te([
-  m()
+  _()
 ], H.prototype, "_inProgress", 2);
 te([
-  m()
+  _()
 ], H.prototype, "_success", 2);
 te([
-  m()
+  _()
 ], H.prototype, "_fail", 2);
 customElements.get(Fi) || customElements.define(Fi, H);
 const Pn = f`
@@ -2725,7 +2737,7 @@ var Ro = /* @__PURE__ */ ((n) => (n.Horizontal = "horizontal", n.Vertical = "ver
     (r = n[s]) && (i = r(e, t, i) || i);
   return i && Ln(e, t, i), i;
 };
-const Ri = "swim-button-group", Jt = class Jt extends _ {
+const Ri = "swim-button-group", Jt = class Jt extends m {
   constructor() {
     super(...arguments), this.orientation = Ro.Horizontal, this.variant = Ho.Contained, this.buttonGroupStyle = Mo.Default;
   }
@@ -2801,7 +2813,7 @@ var Fn = Object.defineProperty, Rn = Object.getOwnPropertyDescriptor, Me = (n, e
   return o && i && Fn(e, t, i), i;
 };
 let Hn = 0;
-const Hi = "swim-button-toggle", ei = class ei extends _ {
+const Hi = "swim-button-toggle", ei = class ei extends m {
   constructor() {
     super(...arguments), this._uniqueId = `swim-button-toggle-${++Hn}`, this.name = this._uniqueId, this.value = !1, this._checked = !1, this._disabled = !1;
   }
@@ -2866,7 +2878,7 @@ Me([
   a({ type: Boolean, reflect: !0 })
 ], ce.prototype, "checked", 1);
 Me([
-  m()
+  _()
 ], ce.prototype, "_checked", 2);
 Me([
   a({ type: Boolean, reflect: !0 })
@@ -2926,7 +2938,7 @@ var Dn = Object.defineProperty, Nn = Object.getOwnPropertyDescriptor, ze = (n, e
   return o && i && Dn(e, t, i), i;
 };
 let Vn = 0;
-const Mi = "swim-button-toggle-group", _t = class _t extends _ {
+const Mi = "swim-button-toggle-group", mt = class mt extends m {
   constructor() {
     var e;
     super(), this._uniqueId = `swim-button-toggle-group-${++Vn}`, this._animationHolderLeft = 0, this._animationHolderWidth = 0, this.label = "", this._value = void 0, this._disabled = !1, this._slotChangeBound = () => this._onSlotChange(), this._slotForCleanup = null, this._internals = ((e = this.attachInternals) == null ? void 0 : e.call(this)) ?? {}, this.setAttribute("role", "group"), this._boundValueChange = this._onValueChangeEvent.bind(this);
@@ -3033,16 +3045,16 @@ const Mi = "swim-button-toggle-group", _t = class _t extends _ {
     `;
   }
 };
-_t.styles = [w, Mn], _t.formAssociated = !0;
-let Q = _t;
+mt.styles = [w, Mn], mt.formAssociated = !0;
+let Q = mt;
 ze([
   L("slot")
 ], Q.prototype, "_slot", 2);
 ze([
-  m()
+  _()
 ], Q.prototype, "_animationHolderLeft", 2);
 ze([
-  m()
+  _()
 ], Q.prototype, "_animationHolderWidth", 2);
 ze([
   a({ type: String })
@@ -3071,6 +3083,7 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
 
   :host {
     display: flex;
+    position: relative;
     background: var(--grey-800);
     border-radius: var(--radius-6);
     box-sizing: border-box;
@@ -3096,7 +3109,7 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
   }
 
   .swim-card__status--success {
-    background-color: var(--green-500);
+    background-color: var(--card-status-success, #b0e53c);
   }
 
   .swim-card__status--error {
@@ -3117,7 +3130,7 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     margin: 3px var(--spacing-4);
   }
 
-  /* Outline (selected or error) */
+  /* Outline (selected or error) – match ngx-ui */
   .swim-card__outline {
     pointer-events: none;
     position: absolute;
@@ -3188,24 +3201,25 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     background: var(--color-error);
   }
 
-  /* Select checkbox */
+  /* Select checkbox (swim-checkbox round) – match ngx-ui */
   .swim-card__select {
     display: flex;
     align-items: center;
   }
 
-  .swim-card__select input[type='checkbox'] {
-    width: 1rem;
-    height: 1rem;
+  .swim-card__select swim-checkbox {
+    --grey-600: var(--grey-750);
     margin: 0;
-    cursor: pointer;
-    accent-color: var(--blue-400);
+  }
+
+  .swim-card__select swim-checkbox::part(box) {
+    margin-right: 0;
   }
 `, Gn = f`
   :host([orientation='horizontal']) {
     position: relative;
     width: 100%;
-    min-width: 500px;
+    min-width: var(--swim-card-min-width, 500px);
     min-height: 80px;
     height: 80px;
     transition: all 0.2s ease-in-out;
@@ -3267,7 +3281,6 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     max-width: 850px;
     height: 418px;
     color: var(--grey-350);
-    overflow: hidden;
   }
 
   :host([orientation='vertical']) .swim-card__status {
@@ -3289,7 +3302,8 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     align-items: center;
     width: 100%;
     flex-shrink: 0;
-    border-bottom: 2px solid var(--grey-700);
+    z-index: 1;
+    overflow: visible;
   }
 
   :host([orientation='vertical']) ::slotted(swim-card-body) {
@@ -3306,7 +3320,6 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     position: relative;
     width: 100%;
     flex-shrink: 0;
-    border-bottom: 2px solid var(--grey-700);
     height: 50px;
     padding: var(--spacing-20) var(--spacing-0);
     margin-bottom: ${pt}px;
@@ -3315,546 +3328,8 @@ const pt = 4, Ot = 3, Di = 25, jn = 30, Un = 15, Ni = 27, qn = f`
     justify-content: center;
   }
 `, Kn = [w, qn, Gn, Wn];
-var tt = /* @__PURE__ */ ((n) => (n.Success = "success", n.Error = "error", n.Disabled = "disabled", n))(tt || {}), Do = /* @__PURE__ */ ((n) => (n.Horizontal = "horizontal", n.Vertical = "vertical", n))(Do || {}), No = /* @__PURE__ */ ((n) => (n.Normal = "normal", n.Flat = "flat", n))(No || {}), Xn = Object.defineProperty, Yn = Object.getOwnPropertyDescriptor, ie = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Yn(e, t) : e, s = n.length - 1, r; s >= 0; s--)
-    (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Xn(e, t, i), i;
-};
-const Vi = "swim-card", ti = class ti extends _ {
-  constructor() {
-    super(...arguments), this._disabled = !1, this.orientation = Do.Horizontal, this.statusTooltip = "", this._selectable = !1, this._selected = !1, this._error = !1, this.outlineText = "", this.appearance = No.Normal, this._hideAccent = !1;
-  }
-  get disabled() {
-    return this._disabled;
-  }
-  set disabled(e) {
-    this._disabled = u(e);
-  }
-  get selectable() {
-    return this._selectable;
-  }
-  set selectable(e) {
-    this._selectable = u(e);
-  }
-  get selected() {
-    return this._selected;
-  }
-  set selected(e) {
-    this._selected = u(e);
-  }
-  get error() {
-    return this._error;
-  }
-  set error(e) {
-    this._error = u(e);
-  }
-  get hideAccent() {
-    return this._hideAccent;
-  }
-  set hideAccent(e) {
-    this._hideAccent = u(e);
-  }
-  _onOutlineClick(e) {
-    e.stopPropagation(), this.dispatchEvent(new CustomEvent("outline-click", { bubbles: !0, composed: !0 }));
-  }
-  _onSelectChange(e) {
-    e.stopPropagation();
-    const t = e.target;
-    this.selected = t.checked, this.dispatchEvent(
-      new CustomEvent("select", {
-        detail: this.selected,
-        bubbles: !0,
-        composed: !0
-      })
-    );
-  }
-  _onCheckboxClick(e) {
-    e.stopPropagation();
-  }
-  render() {
-    const e = this.selected && !this.outlineText && !this.error, t = this.error && !this.outlineText, o = !!this.outlineText, i = !!this.status, s = this.status === tt.Success ? "swim-card__status--success" : this.status === tt.Error ? "swim-card__status--error" : "";
-    return l`
-      ${e ? l`<div class="swim-card__outline" aria-hidden="true"></div>` : h}
-      ${t ? l`<div class="swim-card__outline swim-card__outline--error" aria-hidden="true"></div>` : h}
-      ${o ? l`
-            <div
-              class="swim-card__outline-text ${this.error ? "swim-card__outline-text--error" : ""}"
-              aria-hidden="true"
-            >
-              <div
-                part="outline-text"
-                class="swim-card__outline-text-inner"
-                role="button"
-                tabindex="${this.disabled ? -1 : 0}"
-                aria-label="${this.outlineText}"
-                @click="${this._onOutlineClick}"
-                @keydown="${(r) => {
-      (r.key === "Enter" || r.key === " ") && (r.preventDefault(), this._onOutlineClick(r));
-    }}"
-              >
-                ${this.outlineText}
-              </div>
-            </div>
-          ` : h}
-      ${i ? l`
-            <div
-              class="swim-card__status ${s}"
-              title="${this.statusTooltip}"
-              role="status"
-              aria-label="${this.statusTooltip || this.status || ""}"
-            ></div>
-          ` : h}
-      ${this.selectable ? l`
-            <div class="swim-card__select" @click="${this._onCheckboxClick}">
-              <input
-                type="checkbox"
-                .checked="${this.selected}"
-                ?disabled="${this.disabled}"
-                aria-label="Select card"
-                @change="${this._onSelectChange}"
-              />
-            </div>
-          ` : h}
-
-      <slot></slot>
-
-      ${this.hideAccent ? h : l`<div class="swim-card__accent" aria-hidden="true"></div>`}
-    `;
-  }
-};
-ti.styles = Kn;
-let M = ti;
-ie([
-  a({ type: Boolean, reflect: !0 })
-], M.prototype, "disabled", 1);
-ie([
-  a({ type: String, reflect: !0 })
-], M.prototype, "orientation", 2);
-ie([
-  a({ type: String, reflect: !0 })
-], M.prototype, "status", 2);
-ie([
-  a({ type: String, attribute: "status-tooltip" })
-], M.prototype, "statusTooltip", 2);
-ie([
-  a({ type: Boolean, reflect: !0 })
-], M.prototype, "selectable", 1);
-ie([
-  a({ type: Boolean, reflect: !0 })
-], M.prototype, "selected", 1);
-ie([
-  a({ type: Boolean, reflect: !0 })
-], M.prototype, "error", 1);
-ie([
-  a({ type: String, attribute: "outline-text" })
-], M.prototype, "outlineText", 2);
-ie([
-  a({ type: String, reflect: !0 })
-], M.prototype, "appearance", 2);
-ie([
-  a({ type: Boolean, attribute: "hide-accent" })
-], M.prototype, "hideAccent", 1);
-customElements.get(Vi) || customElements.define(Vi, M);
-var Vo = /* @__PURE__ */ ((n) => (n.Small = "small", n.Medium = "medium", n.Large = "large", n))(Vo || {});
-const ji = 25, Qn = f`
-  :host {
-    display: flex;
-    align-items: center;
-    padding: var(--spacing-0) ${ji}px;
-    flex-grow: 1;
-    overflow: hidden;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-  :host(.no-click) {
-    cursor: default;
-  }
-
-  :host([orientation='vertical']) {
-    flex-direction: column;
-    padding: var(--spacing-0);
-    border-bottom: 2px solid var(--grey-700);
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  :host([orientation='vertical']) ::slotted(swim-card-avatar) {
-    margin: 15px var(--spacing-0) var(--spacing-20) var(--spacing-0);
-    flex-shrink: 0;
-  }
-
-  .swim-card-header__title-group {
-    margin-left: ${ji}px;
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 79px);
-  }
-
-  :host([orientation='vertical']) .swim-card-header__title-group {
-    margin-left: 0;
-    width: 100%;
-    padding: 0 var(--spacing-16);
-    text-align: center;
-  }
-
-  :host([orientation='vertical']) ::slotted([slot='title']) {
-    text-align: center;
-  }
-
-  :host([orientation='vertical']) ::slotted([slot='subtitle']) {
-    text-align: center;
-  }
-
-  .swim-card-header__tag,
-  .swim-card-header__title,
-  .swim-card-header__subtitle {
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  ::slotted([slot='tag']) {
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xxs);
-    line-height: 12px;
-  }
-
-  ::slotted([slot='title']) {
-    font-weight: var(--font-weight-semibold);
-    font-size: 22px;
-    color: var(--grey-050);
-  }
-
-  ::slotted([slot='subtitle']) {
-    display: inline-block;
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-s);
-    color: var(--grey-300);
-  }
-
-  .swim-card-header__label {
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-xs);
-    border-bottom: 0;
-    white-space: nowrap;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    bottom: -15px;
-    left: 0;
-  }
-
-  .swim-card-header__label::before,
-  .swim-card-header__label::after {
-    content: '';
-    height: 2px;
-    background: var(--grey-700);
-    width: 100%;
-  }
-
-  .swim-card-header__label::before {
-    margin-right: var(--spacing-20);
-  }
-
-  .swim-card-header__label::after {
-    margin-left: var(--spacing-20);
-  }
-`, Zn = [w, Qn];
-var Jn = Object.defineProperty, jo = (n, e, t, o) => {
-  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
-    (r = n[s]) && (i = r(e, t, i) || i);
-  return i && Jn(e, t, i), i;
-};
-const Ui = "swim-card-header", ii = class ii extends _ {
-  constructor() {
-    super(...arguments), this.label = "", this.orientation = "horizontal";
-  }
-  render() {
-    return l`
-      <slot name="avatar"></slot>
-      <div class="swim-card-header__title-group">
-        <slot></slot>
-        <slot name="tag"></slot>
-        <slot name="title"></slot>
-        <slot name="subtitle"></slot>
-      </div>
-      ${this.label ? l`<div class="swim-card-header__label">${this.label}</div>` : h}
-    `;
-  }
-};
-ii.styles = Zn;
-let it = ii;
-jo([
-  a({ type: String })
-], it.prototype, "label");
-jo([
-  a({ type: String, reflect: !0 })
-], it.prototype, "orientation");
-customElements.get(Ui) || customElements.define(Ui, it);
-const es = 4, ts = f`
-  :host {
-    position: relative;
-    border-bottom: 2px solid var(--grey-700);
-    height: 50px;
-    padding: var(--spacing-20) var(--spacing-0);
-    margin-bottom: ${es}px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-
-  .swim-card-footer__label {
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-xs);
-    border-bottom: 0;
-    white-space: nowrap;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: -15px;
-    left: 0;
-  }
-
-  .swim-card-footer__label::before,
-  .swim-card-footer__label::after {
-    content: '';
-    height: 2px;
-    background: var(--grey-700);
-    width: 100%;
-  }
-
-  .swim-card-footer__label::before {
-    margin-right: var(--spacing-20);
-  }
-
-  .swim-card-footer__label::after {
-    margin-left: var(--spacing-20);
-  }
-`, is = [w, ts];
-var os = Object.defineProperty, ns = (n, e, t, o) => {
-  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
-    (r = n[s]) && (i = r(e, t, i) || i);
-  return i && os(e, t, i), i;
-};
-const qi = "swim-card-footer", oi = class oi extends _ {
-  constructor() {
-    super(...arguments), this.label = "";
-  }
-  render() {
-    return l`
-      ${this.label ? l`<div class="swim-card-footer__label">${this.label}</div>` : h}
-      <slot></slot>
-    `;
-  }
-};
-oi.styles = is;
-let ut = oi;
-ns([
-  a({ type: String })
-], ut.prototype, "label");
-customElements.get(qi) || customElements.define(qi, ut);
-const Gi = 3, ss = f`
-  :host {
-    width: 54px;
-    height: 54px;
-    min-width: 54px;
-    min-height: 54px;
-    display: inline-block;
-    box-sizing: border-box;
-  }
-
-  .swim-card-avatar__img:not(.swim-card-avatar__img--no-bg) {
-    background-color: var(--white);
-  }
-
-  .swim-card-avatar__avatar {
-    border: 2px solid var(--grey-100);
-    border-radius: 100%;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    display: flex;
-    box-sizing: border-box;
-  }
-
-  .swim-card-avatar__inner {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border: ${Gi}px solid transparent;
-    border-radius: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .swim-card-avatar__status {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    padding: var(--spacing-4);
-    border-radius: 50%;
-    border: ${Gi}px solid var(--grey-750);
-    background-color: var(--white);
-    z-index: 1;
-  }
-
-  .swim-card-avatar__status--success {
-    background-color: var(--green-500);
-  }
-
-  .swim-card-avatar__status--error {
-    background-color: var(--color-error);
-  }
-
-  .swim-card-avatar__avatar.has-status .swim-card-avatar__status {
-    box-shadow: none;
-  }
-
-  .swim-card-avatar__img {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
-  }
-
-  .swim-card-avatar__img--no-bg {
-    background-color: transparent;
-  }
-
-  .swim-card-avatar__content {
-    margin: auto;
-    font-size: var(--font-size-m);
-    color: var(--grey-100);
-    font-weight: var(--font-weight-bold);
-  }
-`, rs = [w, ss];
-var as = Object.defineProperty, jt = (n, e, t, o) => {
-  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
-    (r = n[s]) && (i = r(e, t, i) || i);
-  return i && as(e, t, i), i;
-};
-const Wi = "swim-card-avatar", ni = class ni extends _ {
-  constructor() {
-    super(...arguments), this.src = "", this.removeImageBackground = !1;
-  }
-  render() {
-    const e = !!this.status, t = this.status === tt.Success ? "swim-card-avatar__status--success" : this.status === tt.Error ? "swim-card-avatar__status--error" : "";
-    return l`
-      <div class="swim-card-avatar__avatar ${e ? "has-status" : ""}">
-        <div class="swim-card-avatar__inner">
-          ${e ? l`<div
-                class="swim-card-avatar__status ${t}"
-                role="status"
-                aria-label="${this.status || ""}"
-              ></div>` : h}
-          ${this.src ? l`
-                <img
-                  class="swim-card-avatar__img ${this.removeImageBackground ? "swim-card-avatar__img--no-bg" : ""}"
-                  src="${this.src}"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                />
-              ` : l`<span class="swim-card-avatar__content"><slot></slot></span>`}
-        </div>
-      </div>
-    `;
-  }
-};
-ni.styles = rs;
-let Fe = ni;
-jt([
-  a({ type: String })
-], Fe.prototype, "src");
-jt([
-  a({ type: String, reflect: !0 })
-], Fe.prototype, "status");
-jt([
-  a({ type: Boolean, attribute: "remove-image-background" })
-], Fe.prototype, "removeImageBackground");
-customElements.get(Wi) || customElements.define(Wi, Fe);
-const ls = f`
-  :host {
-    display: inline-block;
-    background-color: var(--grey-700);
-    border-radius: 11px;
-    box-sizing: border-box;
-  }
-
-  :host([size='small']) {
-    height: 10px;
-    width: 35%;
-  }
-
-  :host([size='medium']) {
-    height: 12px;
-    width: 30%;
-  }
-
-  :host([size='large']) {
-    height: 16px;
-    width: 50%;
-  }
-`, cs = [w, ls];
-var ds = Object.defineProperty, hs = (n, e, t, o) => {
-  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
-    (r = n[s]) && (i = r(e, t, i) || i);
-  return i && ds(e, t, i), i;
-};
-const Ki = "swim-card-placeholder", si = class si extends _ {
-  constructor() {
-    super(...arguments), this.size = Vo.Medium;
-  }
-  render() {
-    return l``;
-  }
-};
-si.styles = cs;
-let gt = si;
-hs([
-  a({ type: String, reflect: !0 })
-], gt.prototype, "size");
-customElements.get(Ki) || customElements.define(Ki, gt);
-const Xi = 27, ps = f`
-  :host {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    padding: var(--spacing-20) var(--spacing-0);
-    padding-left: ${Xi}px;
-    padding-right: ${Xi}px;
-    box-sizing: border-box;
-  }
-
-  ::slotted(*) {
-    font-weight: var(--font-weight-semibold);
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-  }
-`, us = [w, ps], Yi = "swim-card-body", ri = class ri extends _ {
-  render() {
-    return l`<slot></slot>`;
-  }
-};
-ri.styles = us;
-let Lt = ri;
-customElements.get(Yi) || customElements.define(Yi, Lt);
-const gs = f`
+var tt = /* @__PURE__ */ ((n) => (n.Success = "success", n.Error = "error", n.Disabled = "disabled", n))(tt || {}), Do = /* @__PURE__ */ ((n) => (n.Horizontal = "horizontal", n.Vertical = "vertical", n))(Do || {}), No = /* @__PURE__ */ ((n) => (n.Normal = "normal", n.Flat = "flat", n))(No || {});
+const Xn = f`
   :host {
     display: inline-flex;
   }
@@ -3952,15 +3427,15 @@ const gs = f`
     line-height: var(--font-line-height-200);
   }
 `;
-var bs = Object.defineProperty, fs = Object.getOwnPropertyDescriptor, he = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? fs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Yn = Object.defineProperty, Qn = Object.getOwnPropertyDescriptor, he = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Qn(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && bs(e, t, i), i;
+  return o && i && Yn(e, t, i), i;
 };
-let _s = 0;
-const Qi = "swim-checkbox", mt = class mt extends _ {
+let Zn = 0;
+const Vi = "swim-checkbox", _t = class _t extends m {
   constructor() {
-    super(), this.id = `swim-checkbox-${++_s}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
+    super(), this.id = `swim-checkbox-${++Zn}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -4070,8 +3545,8 @@ const Qi = "swim-checkbox", mt = class mt extends _ {
     `;
   }
 };
-mt.styles = [w, gs], mt.formAssociated = !0;
-let q = mt;
+_t.styles = [w, Xn], _t.formAssociated = !0;
+let q = _t;
 he([
   L(".swim-checkbox__roving")
 ], q.prototype, "_roving", 2);
@@ -4099,7 +3574,556 @@ he([
 he([
   a({ type: Boolean, reflect: !0 })
 ], q.prototype, "round", 1);
-customElements.get(Qi) || customElements.define(Qi, q);
+customElements.get(Vi) || customElements.define(Vi, q);
+var Jn = Object.defineProperty, es = Object.getOwnPropertyDescriptor, ie = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? es(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+    (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
+  return o && i && Jn(e, t, i), i;
+};
+const ji = "swim-card", ti = class ti extends m {
+  constructor() {
+    super(...arguments), this._disabled = !1, this.orientation = Do.Horizontal, this.statusTooltip = "", this._selectable = !1, this._selected = !1, this._error = !1, this.outlineText = "", this.appearance = No.Normal, this._hideAccent = !1;
+  }
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(e) {
+    this._disabled = u(e);
+  }
+  get selectable() {
+    return this._selectable;
+  }
+  set selectable(e) {
+    this._selectable = u(e);
+  }
+  get selected() {
+    return this._selected;
+  }
+  set selected(e) {
+    this._selected = u(e);
+  }
+  get error() {
+    return this._error;
+  }
+  set error(e) {
+    this._error = u(e);
+  }
+  get hideAccent() {
+    return this._hideAccent;
+  }
+  set hideAccent(e) {
+    this._hideAccent = u(e);
+  }
+  _onOutlineClick(e) {
+    e.stopPropagation(), this.dispatchEvent(new CustomEvent("outline-click", { bubbles: !0, composed: !0 }));
+  }
+  _onSelectChange(e) {
+    var o, i;
+    e.stopPropagation();
+    const t = ((i = (o = e.detail) == null ? void 0 : o.target) == null ? void 0 : i.checked) ?? !1;
+    this.selected = t, this.dispatchEvent(
+      new CustomEvent("select", {
+        detail: this.selected,
+        bubbles: !0,
+        composed: !0
+      })
+    );
+  }
+  _onCheckboxClick(e) {
+    e.stopPropagation();
+  }
+  render() {
+    const e = this.selected && !this.outlineText && !this.error, t = this.error && !this.outlineText, o = !!this.outlineText, i = !!this.status, s = this.status === tt.Success ? "swim-card__status--success" : this.status === tt.Error ? "swim-card__status--error" : "";
+    return l`
+      ${e ? l`<div class="swim-card__outline" aria-hidden="true"></div>` : h}
+      ${t ? l`<div class="swim-card__outline swim-card__outline--error" aria-hidden="true"></div>` : h}
+      ${o ? l`
+            <div
+              class="swim-card__outline-text ${this.error ? "swim-card__outline-text--error" : ""}"
+              aria-hidden="true"
+            >
+              <div
+                part="outline-text"
+                class="swim-card__outline-text-inner"
+                role="button"
+                tabindex="${this.disabled ? -1 : 0}"
+                aria-label="${this.outlineText}"
+                @click="${this._onOutlineClick}"
+                @keydown="${(r) => {
+      (r.key === "Enter" || r.key === " ") && (r.preventDefault(), this._onOutlineClick(r));
+    }}"
+              >
+                ${this.outlineText}
+              </div>
+            </div>
+          ` : h}
+      ${i ? l`
+            <div
+              class="swim-card__status ${s}"
+              title="${this.statusTooltip}"
+              role="status"
+              aria-label="${this.statusTooltip || this.status || ""}"
+            ></div>
+          ` : h}
+      ${this.selectable ? l`
+            <div class="swim-card__select" @click="${this._onCheckboxClick}">
+              <swim-checkbox
+                round
+                .checked="${this.selected}"
+                ?disabled="${this.disabled}"
+                aria-label="Select card"
+                @change="${this._onSelectChange}"
+              ></swim-checkbox>
+            </div>
+          ` : h}
+
+      <slot></slot>
+
+      ${this.hideAccent ? h : l`<div class="swim-card__accent" aria-hidden="true"></div>`}
+    `;
+  }
+};
+ti.styles = Kn;
+let M = ti;
+ie([
+  a({ type: Boolean, reflect: !0 })
+], M.prototype, "disabled", 1);
+ie([
+  a({ type: String, reflect: !0 })
+], M.prototype, "orientation", 2);
+ie([
+  a({ type: String, reflect: !0 })
+], M.prototype, "status", 2);
+ie([
+  a({ type: String, attribute: "status-tooltip" })
+], M.prototype, "statusTooltip", 2);
+ie([
+  a({ type: Boolean, reflect: !0 })
+], M.prototype, "selectable", 1);
+ie([
+  a({ type: Boolean, reflect: !0 })
+], M.prototype, "selected", 1);
+ie([
+  a({ type: Boolean, reflect: !0 })
+], M.prototype, "error", 1);
+ie([
+  a({ type: String, attribute: "outline-text" })
+], M.prototype, "outlineText", 2);
+ie([
+  a({ type: String, reflect: !0 })
+], M.prototype, "appearance", 2);
+ie([
+  a({ type: Boolean, attribute: "hide-accent" })
+], M.prototype, "hideAccent", 1);
+customElements.get(ji) || customElements.define(ji, M);
+var Vo = /* @__PURE__ */ ((n) => (n.Small = "small", n.Medium = "medium", n.Large = "large", n))(Vo || {});
+const Ui = 25, ts = f`
+  :host {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-0) ${Ui}px;
+    flex-grow: 1;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  :host(.no-click) {
+    cursor: default;
+  }
+
+  :host([orientation='vertical']) {
+    flex-direction: column;
+    padding: var(--spacing-0);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    position: relative;
+  }
+
+  :host([orientation='vertical']) ::slotted(swim-card-avatar) {
+    margin: 15px var(--spacing-0) var(--spacing-20) var(--spacing-0);
+    flex-shrink: 0;
+  }
+
+  .swim-card-header__title-group {
+    margin-left: ${Ui}px;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 79px);
+  }
+
+  :host([orientation='vertical']) .swim-card-header__title-group {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 var(--spacing-16);
+    text-align: center;
+  }
+
+  :host([orientation='vertical']) ::slotted([slot='title']) {
+    text-align: center;
+  }
+
+  :host([orientation='vertical']) ::slotted([slot='subtitle']) {
+    text-align: center;
+  }
+
+  .swim-card-header__tag,
+  .swim-card-header__title,
+  .swim-card-header__subtitle {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--white);
+  }
+
+  ::slotted([slot='tag']) {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xxs);
+    line-height: 12px;
+  }
+
+  ::slotted([slot='title']) {
+    font-weight: var(--font-weight-semibold);
+    font-size: 22px;
+    color: var(--grey-050);
+  }
+
+  ::slotted([slot='subtitle']) {
+    display: inline-block;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-s);
+    color: var(--grey-300);
+  }
+
+  .swim-card-header__label {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-xs);
+    color: var(--blue-400);
+    border-bottom: 0;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: -15px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .swim-card-header__label::before,
+  .swim-card-header__label::after {
+    content: '';
+    height: 2px;
+    background: var(--grey-700);
+    width: 100%;
+  }
+
+  .swim-card-header__label::before {
+    margin-right: var(--spacing-20);
+  }
+
+  .swim-card-header__label::after {
+    margin-left: var(--spacing-20);
+  }
+`, is = [w, ts];
+var os = Object.defineProperty, jo = (n, e, t, o) => {
+  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
+    (r = n[s]) && (i = r(e, t, i) || i);
+  return i && os(e, t, i), i;
+};
+const qi = "swim-card-header", ii = class ii extends m {
+  constructor() {
+    super(...arguments), this.label = "", this.orientation = "horizontal";
+  }
+  render() {
+    return l`
+      <slot name="avatar"></slot>
+      <div class="swim-card-header__title-group">
+        <slot></slot>
+        <slot name="tag"></slot>
+        <slot name="title"></slot>
+        <slot name="subtitle"></slot>
+      </div>
+      ${this.label ? l`<div class="swim-card-header__label">${this.label}</div>` : h}
+    `;
+  }
+};
+ii.styles = is;
+let it = ii;
+jo([
+  a({ type: String })
+], it.prototype, "label");
+jo([
+  a({ type: String, reflect: !0 })
+], it.prototype, "orientation");
+customElements.get(qi) || customElements.define(qi, it);
+const ns = f`
+  :host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .swim-card-footer__label {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-xs);
+    border-bottom: 0;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -15px;
+    left: 0;
+  }
+
+  .swim-card-footer__label::before,
+  .swim-card-footer__label::after {
+    content: '';
+    height: 2px;
+    background: var(--grey-700);
+    width: 100%;
+  }
+
+  .swim-card-footer__label::before {
+    margin-right: var(--spacing-20);
+  }
+
+  .swim-card-footer__label::after {
+    margin-left: var(--spacing-20);
+  }
+
+  /* Center footer action (match ngx-ui); prevent slotted button from stretching */
+  ::slotted(swim-button) {
+    width: auto;
+  }
+`, ss = [w, ns];
+var rs = Object.defineProperty, as = (n, e, t, o) => {
+  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
+    (r = n[s]) && (i = r(e, t, i) || i);
+  return i && rs(e, t, i), i;
+};
+const Gi = "swim-card-footer", oi = class oi extends m {
+  constructor() {
+    super(...arguments), this.label = "";
+  }
+  render() {
+    return l`
+      ${this.label ? l`<div class="swim-card-footer__label">${this.label}</div>` : h}
+      <slot></slot>
+    `;
+  }
+};
+oi.styles = ss;
+let ut = oi;
+as([
+  a({ type: String })
+], ut.prototype, "label");
+customElements.get(Gi) || customElements.define(Gi, ut);
+const Wi = 3, ls = f`
+  :host {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    min-height: 54px;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+
+  .swim-card-avatar__img:not(.swim-card-avatar__img--no-bg) {
+    background-color: var(--white);
+  }
+
+  .swim-card-avatar__avatar {
+    border: 2px solid var(--grey-100);
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  .swim-card-avatar__inner {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border: ${Wi}px solid transparent;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .swim-card-avatar__status {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: ${Wi}px solid var(--grey-800);
+    background-color: var(--white);
+    z-index: 2;
+  }
+
+  .swim-card-avatar__status--success {
+    background-color: var(--card-status-success, #b0e53c);
+  }
+
+  .swim-card-avatar__status--error {
+    background-color: var(--color-error);
+  }
+
+  .swim-card-avatar__avatar.has-status .swim-card-avatar__status {
+    box-shadow: none;
+  }
+
+  .swim-card-avatar__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  .swim-card-avatar__img--no-bg {
+    background-color: transparent;
+  }
+
+  .swim-card-avatar__content {
+    margin: auto;
+    font-size: var(--font-size-m);
+    color: var(--grey-100);
+    font-weight: var(--font-weight-bold);
+  }
+`, cs = [w, ls];
+var ds = Object.defineProperty, jt = (n, e, t, o) => {
+  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
+    (r = n[s]) && (i = r(e, t, i) || i);
+  return i && ds(e, t, i), i;
+};
+const Ki = "swim-card-avatar", ni = class ni extends m {
+  constructor() {
+    super(...arguments), this.src = "", this.removeImageBackground = !1;
+  }
+  render() {
+    const e = !!this.status, t = this.status === tt.Success ? "swim-card-avatar__status--success" : this.status === tt.Error ? "swim-card-avatar__status--error" : "";
+    return l`
+      <div class="swim-card-avatar__avatar ${e ? "has-status" : ""}">
+        ${e ? l`<div
+              class="swim-card-avatar__status ${t}"
+              role="status"
+              aria-label="${this.status || ""}"
+            ></div>` : h}
+        <div class="swim-card-avatar__inner">
+          ${this.src ? l`
+                <img
+                  class="swim-card-avatar__img ${this.removeImageBackground ? "swim-card-avatar__img--no-bg" : ""}"
+                  src="${this.src}"
+                  alt=""
+                  draggable="false"
+                  loading="lazy"
+                />
+              ` : l`<span class="swim-card-avatar__content"><slot></slot></span>`}
+        </div>
+      </div>
+    `;
+  }
+};
+ni.styles = cs;
+let Fe = ni;
+jt([
+  a({ type: String })
+], Fe.prototype, "src");
+jt([
+  a({ type: String, reflect: !0 })
+], Fe.prototype, "status");
+jt([
+  a({ type: Boolean, attribute: "remove-image-background" })
+], Fe.prototype, "removeImageBackground");
+customElements.get(Ki) || customElements.define(Ki, Fe);
+const hs = f`
+  :host {
+    display: inline-block;
+    background-color: var(--grey-750);
+    border-radius: 11px;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+
+  :host([size='small']) {
+    height: 10px;
+    width: 35%;
+    min-width: 80px;
+  }
+
+  :host([size='medium']) {
+    height: 12px;
+    width: 30%;
+    min-width: 100px;
+  }
+
+  :host([size='large']) {
+    height: 16px;
+    width: 50%;
+    min-width: 150px;
+  }
+`, ps = [w, hs];
+var us = Object.defineProperty, gs = (n, e, t, o) => {
+  for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
+    (r = n[s]) && (i = r(e, t, i) || i);
+  return i && us(e, t, i), i;
+};
+const Xi = "swim-card-placeholder", si = class si extends m {
+  constructor() {
+    super(...arguments), this.size = Vo.Medium;
+  }
+  render() {
+    return l``;
+  }
+};
+si.styles = ps;
+let gt = si;
+gs([
+  a({ type: String, reflect: !0 })
+], gt.prototype, "size");
+customElements.get(Xi) || customElements.define(Xi, gt);
+const Yi = 27, bs = f`
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: var(--spacing-20) var(--spacing-0);
+    padding-left: ${Yi}px;
+    padding-right: ${Yi}px;
+    box-sizing: border-box;
+  }
+
+  ::slotted(*) {
+    font-weight: var(--font-weight-semibold);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+`, fs = [w, bs], Qi = "swim-card-body", ri = class ri extends m {
+  render() {
+    return l`<slot></slot>`;
+  }
+};
+ri.styles = fs;
+let Lt = ri;
+customElements.get(Qi) || customElements.define(Qi, Lt);
 const Ut = f`
   /* Only set standard scrollbar props in browsers that don't support -webkit-scrollbar.
    * Chrome 121+ disables ::-webkit-scrollbar (and thumb :hover) when scrollbar-color/width are set. */
@@ -4415,12 +4439,12 @@ const Ut = f`
     }
   `
 ];
-var We = /* @__PURE__ */ ((n) => (n.Regular = "regular", n.Medium = "medium", n.Large = "large", n))(We || {}), vs = Object.defineProperty, xs = Object.getOwnPropertyDescriptor, B = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? xs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var We = /* @__PURE__ */ ((n) => (n.Regular = "regular", n.Medium = "medium", n.Large = "large", n))(We || {}), _s = Object.defineProperty, vs = Object.getOwnPropertyDescriptor, B = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? vs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && vs(e, t, i), i;
+  return o && i && _s(e, t, i), i;
 };
-const Zi = "swim-dialog", ai = class ai extends _ {
+const Zi = "swim-dialog", ai = class ai extends m {
   constructor() {
     super(...arguments), this.dialogTitle = "", this.content = "", this.class = "", this.cssClass = "", this.format = We.Regular, this.showBackdrop = !0, this._closeButton = !0, this._visible = !1, this._zIndex = 991, this._contentId = `swim-dialog-content-${Math.random().toString(36).slice(2, 11)}`, this._titleId = `swim-dialog-title-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null;
   }
@@ -4572,16 +4596,16 @@ B([
   a({ attribute: !1 })
 ], I.prototype, "beforeClose", 2);
 B([
-  m()
+  _()
 ], I.prototype, "_contentId", 2);
 B([
-  m()
+  _()
 ], I.prototype, "_titleId", 2);
 B([
   L(".swim-dialog__content")
 ], I.prototype, "_contentEl", 2);
 customElements.get(Zi) || customElements.define(Zi, I);
-const ws = [
+const xs = [
   w,
   f`
     :host {
@@ -4737,12 +4761,12 @@ const ws = [
     }
   `
 ];
-var ys = Object.defineProperty, De = (n, e, t, o) => {
+var ws = Object.defineProperty, De = (n, e, t, o) => {
   for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = r(e, t, i) || i);
-  return i && ys(e, t, i), i;
+  return i && ws(e, t, i), i;
 };
-const Ji = "swim-large-format-dialog-content", li = class li extends _ {
+const Ji = "swim-large-format-dialog-content", li = class li extends m {
   constructor() {
     super(...arguments), this.format = "large", this.dialogTitle = "", this.dialogSubtitle = "", this.dialogActionTitle = "Close", this.dialogDirtyActionTitle = "Cancel", this.dirty = !1;
   }
@@ -4783,7 +4807,7 @@ const Ji = "swim-large-format-dialog-content", li = class li extends _ {
     `;
   }
 };
-li.styles = [Ut, ws];
+li.styles = [Ut, xs];
 let de = li;
 De([
   a({ type: String, reflect: !0 })
@@ -4804,7 +4828,7 @@ De([
   a({ type: Boolean, reflect: !0 })
 ], de.prototype, "dirty");
 customElements.get(Ji) || customElements.define(Ji, de);
-const $s = [
+const ys = [
   w,
   f`
     :host {
@@ -4821,12 +4845,12 @@ const $s = [
     }
   `
 ];
-var ks = Object.defineProperty, Cs = (n, e, t, o) => {
+var $s = Object.defineProperty, ks = (n, e, t, o) => {
   for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = r(e, t, i) || i);
-  return i && ks(e, t, i), i;
+  return i && $s(e, t, i), i;
 };
-const eo = "swim-large-format-dialog-footer", ci = class ci extends _ {
+const eo = "swim-large-format-dialog-footer", ci = class ci extends m {
   constructor() {
     super(...arguments), this.format = "large";
   }
@@ -4834,13 +4858,13 @@ const eo = "swim-large-format-dialog-footer", ci = class ci extends _ {
     return l` <div class="format-dialog-footer"><slot></slot></div> `;
   }
 };
-ci.styles = $s;
+ci.styles = ys;
 let bt = ci;
-Cs([
+ks([
   a({ type: String, reflect: !0 })
 ], bt.prototype, "format");
 customElements.get(eo) || customElements.define(eo, bt);
-const Es = [
+const Cs = [
   w,
   Ut,
   f`
@@ -4954,12 +4978,12 @@ const Es = [
     }
   `
 ];
-var Qe = /* @__PURE__ */ ((n) => (n.Left = "left", n.Bottom = "bottom", n))(Qe || {}), As = Object.defineProperty, Ss = Object.getOwnPropertyDescriptor, oe = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Ss(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Qe = /* @__PURE__ */ ((n) => (n.Left = "left", n.Bottom = "bottom", n))(Qe || {}), Es = Object.defineProperty, As = Object.getOwnPropertyDescriptor, oe = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? As(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && As(e, t, i), i;
+  return o && i && Es(e, t, i), i;
 };
-const to = "swim-drawer", di = class di extends _ {
+const to = "swim-drawer", di = class di extends m {
   constructor() {
     super(...arguments), this.cssClass = "", this.direction = Qe.Left, this._size = 80, this._zIndex = 998, this._closeOnOutsideClick = !0, this._isRoot = !0, this._open = !1, this._closing = !1, this._contentId = `swim-drawer-content-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null, this._backdropClickBound = () => this._onBackdropClick(), this._keydownBound = (e) => this._onKeydown(e), this._portalTarget = null;
   }
@@ -5078,7 +5102,7 @@ const to = "swim-drawer", di = class di extends _ {
     ` : h;
   }
 };
-di.styles = Es;
+di.styles = Cs;
 let D = di;
 oe([
   a({ type: String, attribute: "css-class" })
@@ -5106,17 +5130,17 @@ oe([
   a({ type: Boolean, reflect: !0 })
 ], D.prototype, "open", 1);
 oe([
-  m()
+  _()
 ], D.prototype, "_closing", 2);
 oe([
-  m()
+  _()
 ], D.prototype, "_contentId", 2);
 oe([
   L(".swim-drawer__content")
 ], D.prototype, "_contentEl", 2);
 customElements.get(to) || customElements.define(to, D);
-var zs = /* @__PURE__ */ ((n) => (n.Fixed = "fixed", n.Absolute = "absolute", n))(zs || {});
-function ga(n) {
+var Ss = /* @__PURE__ */ ((n) => (n.Fixed = "fixed", n.Absolute = "absolute", n))(Ss || {});
+function ua(n) {
   const {
     direction: e = Qe.Left,
     size: t = 80,
@@ -5176,12 +5200,12 @@ class Gt {
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { I: Ts } = vn, Is = (n) => n.strings === void 0, io = () => document.createComment(""), qe = (n, e, t) => {
+const { I: zs } = vn, Ts = (n) => n.strings === void 0, io = () => document.createComment(""), qe = (n, e, t) => {
   var s;
   const o = n._$AA.parentNode, i = e === void 0 ? n._$AB : e._$AA;
   if (t === void 0) {
     const r = o.insertBefore(io(), i), c = o.insertBefore(io(), i);
-    t = new Ts(r, c, n, n.options);
+    t = new zs(r, c, n, n.options);
   } else {
     const r = t._$AB.nextSibling, c = t._$AM, d = c !== n;
     if (d) {
@@ -5197,7 +5221,7 @@ const { I: Ts } = vn, Is = (n) => n.strings === void 0, io = () => document.crea
     }
   }
   return t;
-}, we = (n, e, t = n) => (n._$AI(e, t), n), Os = {}, Uo = (n, e = Os) => n._$AH = e, Ps = (n) => n._$AH, Pt = (n) => {
+}, we = (n, e, t = n) => (n._$AI(e, t), n), Is = {}, Uo = (n, e = Is) => n._$AH = e, Os = (n) => n._$AH, Pt = (n) => {
   n._$AR(), n._$AA.remove();
 };
 /**
@@ -5208,7 +5232,7 @@ const { I: Ts } = vn, Is = (n) => n.strings === void 0, io = () => document.crea
 const oo = qt(class extends Gt {
   constructor(n) {
     if (super(n), n.type !== be.PROPERTY && n.type !== be.ATTRIBUTE && n.type !== be.BOOLEAN_ATTRIBUTE) throw Error("The `live` directive is not allowed on child or event bindings");
-    if (!Is(n)) throw Error("`live` bindings can only contain a single expression");
+    if (!Ts(n)) throw Error("`live` bindings can only contain a single expression");
   }
   render(n) {
     return n;
@@ -5229,7 +5253,7 @@ const oo = qt(class extends Gt {
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const ge = (n) => n ?? h, Ls = f`
+const ge = (n) => n ?? h, Ps = f`
   :host {
     display: block;
     max-width: 100%;
@@ -5570,12 +5594,12 @@ const ge = (n) => n ?? h, Ls = f`
     font-size: 1em;
   }
 `;
-var re = /* @__PURE__ */ ((n) => (n.text = "text", n.password = "password", n.email = "email", n.number = "number", n.tel = "tel", n.url = "url", n.textarea = "textarea", n))(re || {}), Wt = /* @__PURE__ */ ((n) => (n.legacy = "legacy", n.fill = "fill", n))(Wt || {}), Kt = /* @__PURE__ */ ((n) => (n.sm = "sm", n.md = "md", n.lg = "lg", n))(Kt || {}), Bs = Object.defineProperty, Fs = Object.getOwnPropertyDescriptor, k = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Fs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var re = /* @__PURE__ */ ((n) => (n.text = "text", n.password = "password", n.email = "email", n.number = "number", n.tel = "tel", n.url = "url", n.textarea = "textarea", n))(re || {}), Wt = /* @__PURE__ */ ((n) => (n.legacy = "legacy", n.fill = "fill", n))(Wt || {}), Kt = /* @__PURE__ */ ((n) => (n.sm = "sm", n.md = "md", n.lg = "lg", n))(Kt || {}), Ls = Object.defineProperty, Bs = Object.getOwnPropertyDescriptor, k = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Bs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Bs(e, t, i), i;
+  return o && i && Ls(e, t, i), i;
 };
-const no = "swim-input", vt = class vt extends _ {
+const no = "swim-input", vt = class vt extends m {
   constructor() {
     super(), this.type = re.text, this.label = "", this.placeholder = "", this.hint = "", this._value = "", this.name = "", this.id = `swim-input-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._readonly = !1, this._required = !1, this._autofocus = !1, this.autocomplete = "off", this.appearance = Wt.legacy, this.size = Kt.sm, this._withMargin = !0, this._withHint = !0, this._passwordToggleEnabled = !1, this.textareaRows = 3, this.requiredIndicator = "*", this._focused = !1, this._passwordVisible = !1, this._touched = !1, this._dirty = !1, this._invalid = !1, this._internals = this.attachInternals();
   }
@@ -5822,7 +5846,7 @@ const no = "swim-input", vt = class vt extends _ {
     this.disabled = e;
   }
 };
-vt.styles = [w, Ls], vt.formAssociated = !0;
+vt.styles = [w, Ps], vt.formAssociated = !0;
 let x = vt;
 k([
   L(".input-box, .input-textarea")
@@ -5900,22 +5924,22 @@ k([
   a({ type: Number })
 ], x.prototype, "tabindex", 2);
 k([
-  m()
+  _()
 ], x.prototype, "_focused", 2);
 k([
-  m()
+  _()
 ], x.prototype, "_passwordVisible", 2);
 k([
-  m()
+  _()
 ], x.prototype, "_touched", 2);
 k([
-  m()
+  _()
 ], x.prototype, "_dirty", 2);
 k([
-  m()
+  _()
 ], x.prototype, "_invalid", 2);
 customElements.get(no) || customElements.define(no, x);
-const Rs = f`
+const Fs = f`
   :host {
     display: block;
     width: 100%;
@@ -6155,13 +6179,13 @@ const Rs = f`
     background: var(--grey-775);
     border-radius: var(--radius-0) var(--radius-0) var(--radius-8) var(--radius-8);
   }
-`, Hs = [w, Rs];
-var qo = /* @__PURE__ */ ((n) => (n.Legacy = "legacy", n.Outline = "outline", n.Light = "light", n.Minimal = "minimal", n))(qo || {}), lt = /* @__PURE__ */ ((n) => (n.Left = "left", n.Right = "right", n.None = "none", n))(lt || {}), Ms = Object.defineProperty, Ds = Object.getOwnPropertyDescriptor, ne = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Ds(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+`, Rs = [w, Fs];
+var qo = /* @__PURE__ */ ((n) => (n.Legacy = "legacy", n.Outline = "outline", n.Light = "light", n.Minimal = "minimal", n))(qo || {}), lt = /* @__PURE__ */ ((n) => (n.Left = "left", n.Right = "right", n.None = "none", n))(lt || {}), Hs = Object.defineProperty, Ms = Object.getOwnPropertyDescriptor, ne = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Ms(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Ms(e, t, i), i;
+  return o && i && Hs(e, t, i), i;
 };
-const Ns = {
+const Ds = {
   fromAttribute: (n) => n !== "false" && n !== "",
   toAttribute: (n) => n ? "true" : "false"
 }, Go = {
@@ -6169,7 +6193,7 @@ const Ns = {
   toAttribute: (n) => n ? "true" : "false"
 };
 let so = 0;
-const ro = "swim-section", hi = class hi extends _ {
+const ro = "swim-section", hi = class hi extends m {
   constructor() {
     super(...arguments), this._id = `section-${++so}`, this._sectionCollapsed = !1, this._sectionCollapsible = !0, this._headerToggle = !1, this.sectionTitle = "", this.padding = "1.8em", this.appearance = qo.Legacy, this.togglePosition = lt.Left, this._hasHeaderSlot = !1, this._headerSlotChangeBound = () => this._checkHeaderSlot();
   }
@@ -6305,7 +6329,7 @@ const ro = "swim-section", hi = class hi extends _ {
     `;
   }
 };
-hi.styles = Hs;
+hi.styles = Rs;
 let N = hi;
 ne([
   a({ type: String, reflect: !0 })
@@ -6321,7 +6345,7 @@ ne([
   a({
     reflect: !0,
     attribute: "section-collapsible",
-    converter: Ns
+    converter: Ds
   })
 ], N.prototype, "sectionCollapsible", 1);
 ne([
@@ -6344,25 +6368,25 @@ ne([
   a({ type: String, reflect: !0, attribute: "toggle-position" })
 ], N.prototype, "togglePosition", 2);
 ne([
-  m()
+  _()
 ], N.prototype, "_hasHeaderSlot", 2);
 ne([
   L('slot[name="header"]')
 ], N.prototype, "_headerSlot", 2);
 customElements.get(ro) || customElements.define(ro, N);
-const Vs = f`
+const Ns = f`
   :host {
     display: contents;
   }
-`, ao = "swim-section-header", pi = class pi extends _ {
+`, ao = "swim-section-header", pi = class pi extends m {
   render() {
     return l`<slot></slot>`;
   }
 };
-pi.styles = Vs;
+pi.styles = Ns;
 let Bt = pi;
 customElements.get(ao) || customElements.define(ao, Bt);
-const js = f`
+const Vs = f`
   :host {
     display: block;
   }
@@ -6484,7 +6508,7 @@ const js = f`
   :host([disabled]) .swim-radio__checkmark--checked::after {
     opacity: 1;
   }
-`, Us = f`
+`, js = f`
   :host {
     display: block;
   }
@@ -6502,15 +6526,15 @@ const js = f`
     outline: none;
   }
 `;
-var qs = Object.defineProperty, Gs = Object.getOwnPropertyDescriptor, se = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Gs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Us = Object.defineProperty, qs = Object.getOwnPropertyDescriptor, se = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? qs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && qs(e, t, i), i;
+  return o && i && Us(e, t, i), i;
 };
-let Ws = 0;
-const lo = "swim-radio", ui = class ui extends _ {
+let Gs = 0;
+const lo = "swim-radio", ui = class ui extends m {
   constructor() {
-    super(...arguments), this.id = `swim-radio-${++Ws}`, this.name = "", this.radioId = "", this._tabindex = 0, this._checked = !1, this.value = "", this._disabled = !1, this.groupDisabled = !1, this.isInGroup = !1;
+    super(...arguments), this.id = `swim-radio-${++Gs}`, this.name = "", this.radioId = "", this._tabindex = 0, this._checked = !1, this.value = "", this._disabled = !1, this.groupDisabled = !1, this.isInGroup = !1;
   }
   get tabindex() {
     return this._tabindex;
@@ -6617,7 +6641,7 @@ const lo = "swim-radio", ui = class ui extends _ {
     `;
   }
 };
-ui.styles = [w, js];
+ui.styles = [w, Vs];
 let V = ui;
 se([
   L(".swim-radio__roving")
@@ -6650,18 +6674,18 @@ se([
   a({ type: Boolean, attribute: !1 })
 ], V.prototype, "isInGroup", 2);
 customElements.get(lo) || customElements.define(lo, V);
-var Ks = Object.defineProperty, Xs = Object.getOwnPropertyDescriptor, ve = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Xs(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Ws = Object.defineProperty, Ks = Object.getOwnPropertyDescriptor, ve = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Ks(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Ks(e, t, i), i;
+  return o && i && Ws(e, t, i), i;
 };
-let Ys = 0;
-function Qs(n, e) {
+let Xs = 0;
+function Ys(n, e) {
   return (n % e + e) % e;
 }
-const co = "swim-radio-group", xt = class xt extends _ {
+const co = "swim-radio-group", xt = class xt extends m {
   constructor() {
-    super(), this.id = `swim-radio-group-${++Ys}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
+    super(), this.id = `swim-radio-group-${++Xs}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
       if (e.target !== this._slotWrapper) return;
       const t = this._radios.find((o) => o.checked);
       t ? (this._focusIndex = this._radios.indexOf(t), this._focusOn(this._focusIndex)) : this._focusFirst();
@@ -6768,7 +6792,7 @@ const co = "swim-radio-group", xt = class xt extends _ {
     if (this.disabled || !this._radios.length) return;
     const t = this._radios.length;
     for (let o = 1; o <= t; o++) {
-      const i = Qs(this._focusIndex + e * o, t);
+      const i = Ys(this._focusIndex + e * o, t);
       if (!this._radios[i].disabled) {
         this._focusIndex = i, this._focusOn(i);
         return;
@@ -6801,7 +6825,7 @@ const co = "swim-radio-group", xt = class xt extends _ {
     `;
   }
 };
-xt.styles = [w, Us], xt.formAssociated = !0;
+xt.styles = [w, js], xt.formAssociated = !0;
 let X = xt;
 ve([
   L("slot")
@@ -6837,7 +6861,7 @@ const ho = (n, e, t) => {
   const o = /* @__PURE__ */ new Map();
   for (let i = e; i <= t; i++) o.set(n[i], i);
   return o;
-}, Zs = qt(class extends Gt {
+}, Qs = qt(class extends Gt {
   constructor(n) {
     if (super(n), n.type !== be.CHILD) throw Error("repeat() can only be used in text expressions");
   }
@@ -6853,7 +6877,7 @@ const ho = (n, e, t) => {
     return this.dt(n, e, t).values;
   }
   update(n, [e, t, o]) {
-    const i = Ps(n), { values: s, keys: r } = this.dt(e, t, o);
+    const i = Os(n), { values: s, keys: r } = this.dt(e, t, o);
     if (!Array.isArray(i)) return this.ut = r, s;
     const c = this.ut ?? (this.ut = []), d = [];
     let p, y, g = 0, b = i.length - 1, v = 0, S = s.length - 1;
@@ -6882,7 +6906,7 @@ const ho = (n, e, t) => {
     }
     return this.ut = r, Uo(n, d), U;
   }
-}), Js = f`
+}), Zs = f`
   :host {
     display: block;
     max-width: 100%;
@@ -7262,12 +7286,12 @@ const ho = (n, e, t) => {
     font-size: inherit;
   }
 `;
-var er = Object.defineProperty, tr = Object.getOwnPropertyDescriptor, E = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? tr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Js = Object.defineProperty, er = Object.getOwnPropertyDescriptor, E = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? er(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && er(e, t, i), i;
+  return o && i && Js(e, t, i), i;
 };
-const po = "swim-select", wt = class wt extends _ {
+const po = "swim-select", wt = class wt extends m {
   constructor() {
     super(), this.label = "", this.placeholder = "Select...", this.hint = "", this.emptyPlaceholder = "No options available", this.filterPlaceholder = "Filter options...", this.options = [], this._value = [], this.name = "", this.id = `swim-select-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._required = !1, this.appearance = Wt.legacy, this.size = Kt.sm, this._withMargin = !0, this._withHint = !0, this._filterable = !0, this._multiple = !1, this._allowClear = !0, this.requiredIndicator = "*", this._open = !1, this._focused = !1, this._touched = !1, this._invalid = !1, this._filterQuery = "", this._focusedIndex = -1, this._internals = this.attachInternals();
   }
@@ -7402,7 +7426,7 @@ const po = "swim-select", wt = class wt extends _ {
                     ` : h}
                 ${t.length > 0 ? l`
                       <ul class="select-options">
-                        ${Zs(
+                        ${Qs(
       t,
       (i) => this._getOptionValue(i),
       (i, s) => this._renderOption(i, s)
@@ -7594,7 +7618,7 @@ const po = "swim-select", wt = class wt extends _ {
     this.disabled = e;
   }
 };
-wt.styles = [w, Js], wt.formAssociated = !0;
+wt.styles = [w, Zs], wt.formAssociated = !0;
 let $ = wt;
 E([
   L(".select-input")
@@ -7660,29 +7684,29 @@ E([
   a({ type: String, attribute: "required-indicator" })
 ], $.prototype, "requiredIndicator", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_open", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_focused", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_touched", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_invalid", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_filterQuery", 2);
 E([
-  m()
+  _()
 ], $.prototype, "_focusedIndex", 2);
 customElements.get(po) || customElements.define(po, $);
-const ir = 2, or = 4, nr = 16, sr = f`
+const tr = 2, ir = 4, or = 16, nr = f`
   :host {
-    --slider-track-height: ${ir}px;
-    --slider-fill-height: ${or}px;
-    --slider-thumb-size: ${nr}px;
+    --slider-track-height: ${tr}px;
+    --slider-fill-height: ${ir}px;
+    --slider-thumb-size: ${or}px;
     display: inline-block;
   }
 
@@ -7857,15 +7881,15 @@ const ir = 2, or = 4, nr = 16, sr = f`
     transform-origin: top left;
   }
 `;
-var rr = Object.defineProperty, ar = Object.getOwnPropertyDescriptor, F = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? ar(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var sr = Object.defineProperty, rr = Object.getOwnPropertyDescriptor, F = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? rr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && rr(e, t, i), i;
+  return o && i && sr(e, t, i), i;
 };
-let lr = 0;
-const uo = "swim-slider", yt = class yt extends _ {
+let ar = 0;
+const uo = "swim-slider", yt = class yt extends m {
   constructor() {
-    super(), this.id = `swim-slider-${++lr}`, this._min = 0, this._max = 100, this._step = 1, this.orientation = "horizontal", this._filled = !1, this._multiple = !1, this._disabled = !1, this._showTicks = !1, this.ariaLabel = "", this._values = [0], this._active = [], this._internals = this.attachInternals();
+    super(), this.id = `swim-slider-${++ar}`, this._min = 0, this._max = 100, this._step = 1, this.orientation = "horizontal", this._filled = !1, this._multiple = !1, this._disabled = !1, this._showTicks = !1, this.ariaLabel = "", this._values = [0], this._active = [], this._internals = this.attachInternals();
   }
   get min() {
     return this._min;
@@ -8062,7 +8086,7 @@ const uo = "swim-slider", yt = class yt extends _ {
     `;
   }
 };
-yt.styles = [w, sr], yt.formAssociated = !0;
+yt.styles = [w, nr], yt.formAssociated = !0;
 let O = yt;
 F([
   a({ type: String })
@@ -8101,13 +8125,13 @@ F([
   a({ type: String })
 ], O.prototype, "value", 1);
 F([
-  m()
+  _()
 ], O.prototype, "_values", 2);
 F([
-  m()
+  _()
 ], O.prototype, "_active", 2);
 customElements.get(uo) || customElements.define(uo, O);
-const cr = f`
+const lr = f`
   :host {
     display: flex;
     height: 100%;
@@ -8126,7 +8150,7 @@ const cr = f`
   slot {
     display: contents;
   }
-`, dr = [w, cr];
+`, cr = [w, lr];
 var Oe = /* @__PURE__ */ ((n) => (n.Row = "row", n.Column = "column", n))(Oe || {});
 function Re(n) {
   const e = String(n).indexOf("calc") > -1;
@@ -8145,12 +8169,12 @@ function go(n, e, t) {
   const [v, S] = Wo(n.minBasis, n.maxBasis, o, i, p, t);
   return b = Math.max(b, v), b = Math.min(b, S), g = b * t, n.updateBasis(r ? b + "%" : g + "px"), g - y;
 }
-var hr = Object.defineProperty, Ko = (n, e, t, o) => {
+var dr = Object.defineProperty, Ko = (n, e, t, o) => {
   for (var i = void 0, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = r(e, t, i) || i);
-  return i && hr(e, t, i), i;
+  return i && dr(e, t, i), i;
 };
-const bo = "swim-split", gi = class gi extends _ {
+const bo = "swim-split", gi = class gi extends m {
   constructor() {
     super(...arguments), this.direction = Oe.Row, this._areas = [], this._handles = [], this._handleListeners = /* @__PURE__ */ new Map(), this._onSlotChange = () => {
       this._collectAreasAndHandles(), this._removeHandleListeners(), this._attachHandleListeners();
@@ -8230,7 +8254,7 @@ const bo = "swim-split", gi = class gi extends _ {
     return l`<slot></slot>`;
   }
 };
-gi.styles = dr;
+gi.styles = cr;
 let ot = gi;
 Ko([
   a({ type: String, reflect: !0 })
@@ -8239,13 +8263,13 @@ Ko([
   L("slot")
 ], ot.prototype, "slotEl");
 customElements.get(bo) || customElements.define(bo, ot);
-const pr = f`
+const hr = f`
   :host {
     overflow: hidden;
     box-sizing: border-box;
     min-height: 0;
   }
-`, ur = [w, pr];
+`, pr = [w, hr];
 function Xo(n) {
   const [e, t, o] = n;
   return `${e} ${t} ${o}`;
@@ -8254,12 +8278,12 @@ function Pe(n, e, t) {
   const o = t.split(" ");
   return o.length === 3 ? o : [n, e, t];
 }
-var gr = Object.defineProperty, br = Object.getOwnPropertyDescriptor, Ct = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? br(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var ur = Object.defineProperty, gr = Object.getOwnPropertyDescriptor, Ct = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? gr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && gr(e, t, i), i;
+  return o && i && ur(e, t, i), i;
 };
-const Ge = "1 1 1e-9px", fo = "swim-split-area", bi = class bi extends _ {
+const Ge = "1 1 1e-9px", fo = "swim-split-area", bi = class bi extends m {
   constructor() {
     super(...arguments), this._areaBasis = Ge, this.shouldAdjustMaxMin = !1, this.initialFlexParts = Pe("1", "1", Ge), this.currentFlexParts = Pe("1", "1", Ge);
   }
@@ -8286,7 +8310,7 @@ const Ge = "1 1 1e-9px", fo = "swim-split-area", bi = class bi extends _ {
     return l`<slot></slot>`;
   }
 };
-bi.styles = ur;
+bi.styles = pr;
 let Ce = bi;
 Ct([
   a({ type: String, attribute: "area-basis" })
@@ -8301,7 +8325,7 @@ Ct([
   a({ type: Boolean, attribute: "should-adjust-max-min" })
 ], Ce.prototype, "shouldAdjustMaxMin", 2);
 customElements.get(fo) || customElements.define(fo, Ce);
-const fr = f`
+const br = f`
   :host {
     position: relative;
     box-sizing: border-box;
@@ -8347,13 +8371,13 @@ const fr = f`
     top: -3px;
     transform: translateX(-50%) rotate(270deg);
   }
-`, _r = [w, fr];
-var mr = Object.defineProperty, vr = Object.getOwnPropertyDescriptor, Yo = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? vr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+`, fr = [w, br];
+var mr = Object.defineProperty, _r = Object.getOwnPropertyDescriptor, Yo = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? _r(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
   return o && i && mr(e, t, i), i;
 };
-const rt = "0 0 15px", _o = "swim-split-handle", fi = class fi extends _ {
+const rt = "0 0 15px", mo = "swim-split-handle", fi = class fi extends m {
   constructor() {
     super(...arguments), this._handleBasis = rt, this.direction = Oe.Row, this.currentFlexParts = Pe("0", "0", rt), this._boundMouseUp = this._onMouseUp.bind(this), this._boundMouseMove = this._onMouseMove.bind(this);
   }
@@ -8398,7 +8422,7 @@ const rt = "0 0 15px", _o = "swim-split-handle", fi = class fi extends _ {
     `;
   }
 };
-fi.styles = _r;
+fi.styles = fr;
 let nt = fi;
 Yo([
   a({ type: String, attribute: "handle-basis" })
@@ -8406,8 +8430,8 @@ Yo([
 Yo([
   a({ type: String, reflect: !0 })
 ], nt.prototype, "direction", 2);
-customElements.get(_o) || customElements.define(_o, nt);
-const xr = f`
+customElements.get(mo) || customElements.define(mo, nt);
+const vr = f`
   ${w}
 
   @keyframes swim-progress-spinner--rotate {
@@ -8489,12 +8513,12 @@ const xr = f`
     animation: swim-progress-spinner--rotate 1s linear infinite;
   }
 `;
-var Ie = /* @__PURE__ */ ((n) => (n.Indeterminate = "indeterminate", n.Determinate = "determinate", n))(Ie || {}), ae = /* @__PURE__ */ ((n) => (n.Default = "default", n.Icon = "icon", n))(ae || {}), wr = Object.defineProperty, yr = Object.getOwnPropertyDescriptor, j = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? yr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Ie = /* @__PURE__ */ ((n) => (n.Indeterminate = "indeterminate", n.Determinate = "determinate", n))(Ie || {}), ae = /* @__PURE__ */ ((n) => (n.Default = "default", n.Icon = "icon", n))(ae || {}), xr = Object.defineProperty, wr = Object.getOwnPropertyDescriptor, j = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? wr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && wr(e, t, i), i;
+  return o && i && xr(e, t, i), i;
 };
-const $r = 50, kr = 100, Ft = 100, ct = Ft / 2, Cr = ct * 2 * Math.PI, Er = "cloud-upload", Ar = "check", Sr = "x", mo = "swim-progress-spinner", _i = class _i extends _ {
+const yr = 50, $r = 100, Ft = 100, ct = Ft / 2, kr = ct * 2 * Math.PI, Cr = "cloud-upload", Er = "check", Ar = "x", _o = "swim-progress-spinner", mi = class mi extends m {
   constructor() {
     super(...arguments), this.mode = Ie.Indeterminate, this.color = "var(--blue-500)", this.failStatusColor = "var(--red-500)", this.appearance = ae.Default, this.inProgressIconName = "", this.completeIconName = "", this.failIconName = "", this._isFailure = !1, this._value = 0, this._total = 100, this._diameter = 100, this._strokeWidth = 3, this._boundSlotChange = () => this.requestUpdate();
   }
@@ -8534,13 +8558,13 @@ const $r = 50, kr = 100, Ft = 100, ct = Ft / 2, Cr = ct * 2 * Math.PI, Er = "clo
   }
   /** Circumference in viewBox units for stroke-dasharray/offset (fixed viewBox 0 0 100 100). */
   get circumference() {
-    return Cr;
+    return kr;
   }
   get modeValue() {
-    return this.mode === Ie.Determinate || this.isComplete ? this.value : $r;
+    return this.mode === Ie.Determinate || this.isComplete ? this.value : yr;
   }
   get modeTotal() {
-    return this.mode === Ie.Determinate || this.isComplete ? this.total : kr;
+    return this.mode === Ie.Determinate || this.isComplete ? this.total : $r;
   }
   get percentage() {
     return 100 / this.modeTotal * this.modeValue;
@@ -8570,15 +8594,15 @@ const $r = 50, kr = 100, Ft = 100, ct = Ft / 2, Cr = ct * 2 * Math.PI, Er = "clo
   }
   /** Resolved icon name for in-progress: slot/prop or default. */
   get effectiveInProgressIcon() {
-    return this.hasSlotContent("in-progress-icon") ? "" : this.inProgressIconName || (this.appearance === ae.Icon ? Er : "");
+    return this.hasSlotContent("in-progress-icon") ? "" : this.inProgressIconName || (this.appearance === ae.Icon ? Cr : "");
   }
   /** Resolved icon name for complete: slot/prop or default. */
   get effectiveCompleteIcon() {
-    return this.hasSlotContent("complete-icon") ? "" : this.completeIconName || (this.appearance === ae.Icon ? Ar : "");
+    return this.hasSlotContent("complete-icon") ? "" : this.completeIconName || (this.appearance === ae.Icon ? Er : "");
   }
   /** Resolved icon name for failure: slot/prop or default. */
   get effectiveFailIcon() {
-    return this.hasSlotContent("fail-icon") ? "" : this.failIconName || (this.appearance === ae.Icon ? Sr : "");
+    return this.hasSlotContent("fail-icon") ? "" : this.failIconName || (this.appearance === ae.Icon ? Ar : "");
   }
   render() {
     const e = this.appearance === ae.Icon && !this.isComplete && (this.effectiveInProgressIcon || this.hasSlotContent("in-progress-icon")), t = this.appearance === ae.Icon && this.isComplete && !this.isFailure && (this.effectiveCompleteIcon || this.hasSlotContent("complete-icon")), o = this.appearance === ae.Icon && this.isComplete && this.isFailure && (this.effectiveFailIcon || this.hasSlotContent("fail-icon"));
@@ -8635,8 +8659,8 @@ const $r = 50, kr = 100, Ft = 100, ct = Ft / 2, Cr = ct * 2 * Math.PI, Er = "clo
     `;
   }
 };
-_i.styles = xr;
-let P = _i;
+mi.styles = vr;
+let P = mi;
 j([
   a({ type: String, reflect: !0 })
 ], P.prototype, "mode", 2);
@@ -8676,8 +8700,8 @@ j([
 j([
   a({ attribute: "stroke-width", type: Number })
 ], P.prototype, "strokeWidth", 1);
-customElements.get(mo) || customElements.define(mo, P);
-const zr = f`
+customElements.get(_o) || customElements.define(_o, P);
+const Sr = f`
   :host {
     display: block;
   }
@@ -8690,15 +8714,15 @@ const zr = f`
     display: none;
   }
 `;
-var Tr = Object.defineProperty, Ir = Object.getOwnPropertyDescriptor, Ne = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Ir(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var zr = Object.defineProperty, Tr = Object.getOwnPropertyDescriptor, Ne = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Tr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Tr(e, t, i), i;
+  return o && i && zr(e, t, i), i;
 };
-let Or = 0;
-const vo = "swim-tab", mi = class mi extends _ {
+let Ir = 0;
+const vo = "swim-tab", _i = class _i extends m {
   constructor() {
-    super(...arguments), this._instanceId = ++Or, this._generatedPanelId = `tab-panel-${this._instanceId}`, this._generatedTabId = `tab-${this._instanceId}`, this.tabId = this._generatedTabId, this.label = "", this._active = !1, this._disabled = !1;
+    super(...arguments), this._instanceId = ++Ir, this._generatedPanelId = `tab-panel-${this._instanceId}`, this._generatedTabId = `tab-${this._instanceId}`, this.tabId = this._generatedTabId, this.label = "", this._active = !1, this._disabled = !1;
   }
   get id() {
     return this._id ?? this._generatedPanelId;
@@ -8745,8 +8769,8 @@ const vo = "swim-tab", mi = class mi extends _ {
     `;
   }
 };
-mi.styles = [w, zr];
-let Z = mi;
+_i.styles = [w, Sr];
+let Z = _i;
 Ne([
   a({ type: String })
 ], Z.prototype, "id", 1);
@@ -8766,7 +8790,7 @@ Ne([
   a({ type: Boolean, reflect: !0 })
 ], Z.prototype, "disabled", 1);
 customElements.get(vo) || customElements.define(vo, Z);
-const Pr = f`
+const Or = f`
   :host {
     display: block;
     margin-bottom: 2em;
@@ -8923,12 +8947,12 @@ const Pr = f`
     background-color: var(--grey-750);
   }
 `;
-var Qo = /* @__PURE__ */ ((n) => (n.Legacy = "legacy", n.Light = "light", n))(Qo || {}), Lr = Object.defineProperty, Br = Object.getOwnPropertyDescriptor, Et = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Br(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Qo = /* @__PURE__ */ ((n) => (n.Legacy = "legacy", n.Light = "light", n))(Qo || {}), Pr = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, Et = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Lr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Lr(e, t, i), i;
+  return o && i && Pr(e, t, i), i;
 };
-const xo = "swim-tabs", vi = class vi extends _ {
+const xo = "swim-tabs", vi = class vi extends m {
   constructor() {
     super(...arguments), this._vertical = !1, this.appearance = Qo.Legacy, this._tabs = [], this._slotChangeBound = () => this._syncTabs(), this._tabActiveChangeBound = () => this.requestUpdate();
   }
@@ -9027,7 +9051,7 @@ const xo = "swim-tabs", vi = class vi extends _ {
     `;
   }
 };
-vi.styles = [w, Pr];
+vi.styles = [w, Or];
 let Ee = vi;
 Et([
   L("slot")
@@ -9039,10 +9063,10 @@ Et([
   a({ type: String, reflect: !0 })
 ], Ee.prototype, "appearance", 2);
 Et([
-  m()
+  _()
 ], Ee.prototype, "_tabs", 2);
 customElements.get(xo) || customElements.define(xo, Ee);
-const Fr = f`
+const Br = f`
   :host {
     display: inline-block;
   }
@@ -9181,19 +9205,19 @@ const Fr = f`
     margin: 0;
   }
 `;
-var Rr = Object.defineProperty, Hr = Object.getOwnPropertyDescriptor, pe = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Hr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Fr = Object.defineProperty, Rr = Object.getOwnPropertyDescriptor, pe = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Rr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Rr(e, t, i), i;
+  return o && i && Fr(e, t, i), i;
 };
-const Mr = {
+const Hr = {
   fromAttribute: (n) => n !== "false" && n !== "",
   toAttribute: (n) => n ? "true" : "false"
 };
-let Dr = 0;
-const wo = "swim-toggle", $t = class $t extends _ {
+let Mr = 0;
+const wo = "swim-toggle", $t = class $t extends m {
   constructor() {
-    super(), this.id = `swim-toggle-${++Dr}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
+    super(), this.id = `swim-toggle-${++Mr}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -9319,7 +9343,7 @@ const wo = "swim-toggle", $t = class $t extends _ {
     `;
   }
 };
-$t.styles = [w, Fr], $t.formAssociated = !0;
+$t.styles = [w, Br], $t.formAssociated = !0;
 let G = $t;
 pe([
   L(".swim-toggle__roving")
@@ -9343,7 +9367,7 @@ pe([
   a({ type: Boolean, reflect: !0 })
 ], G.prototype, "required", 1);
 pe([
-  a({ type: Boolean, attribute: "show-icons", converter: Mr })
+  a({ type: Boolean, attribute: "show-icons", converter: Hr })
 ], G.prototype, "showIcons", 1);
 pe([
   a({ type: Number })
@@ -9369,7 +9393,7 @@ class Rt extends Gt {
   }
 }
 Rt.directiveName = "unsafeHTML", Rt.resultType = 1;
-const Nr = qt(Rt), Vr = f`
+const Dr = qt(Rt), Nr = f`
   :host {
     display: inline-block;
   }
@@ -9479,7 +9503,7 @@ const Nr = qt(Rt), Vr = f`
   .swim-tooltip__content {
     display: block;
   }
-`, jr = [w, Vr];
+`, Vr = [w, Nr];
 var z = /* @__PURE__ */ ((n) => (n.top = "top", n.bottom = "bottom", n.left = "left", n.right = "right", n))(z || {}), J = /* @__PURE__ */ ((n) => (n.top = "top", n.bottom = "bottom", n.left = "left", n.right = "right", n.center = "center", n))(J || {}), Zo = /* @__PURE__ */ ((n) => (n.popover = "popover", n.tooltip = "tooltip", n))(Zo || {}), le = /* @__PURE__ */ ((n) => (n.all = "all", n.focus = "focus", n.click = "click", n.mouseover = "mouseover", n))(le || {});
 const ee = 7;
 function ft(n, e, t) {
@@ -9496,13 +9520,13 @@ function $o(n, e, t) {
   let o = Xt(n, e, t);
   return o + (e.height ?? 0) > window.innerHeight && (o = window.innerHeight - (e.height ?? 0)), o;
 }
-function Ur(n, e, t, o, i) {
+function jr(n, e, t, o, i) {
   return t === z.right ? ft(n, e, o) + (e.width ?? 0) + i > window.innerWidth : t === z.left ? ft(n, e, o) - i < 0 : t === z.top ? (n.top ?? 0) - (e.height ?? 0) - i < 0 : t === z.bottom ? Xt(n, e, o) + (e.height ?? 0) + i > window.innerHeight : !1;
 }
-function qr(n, e, t, o, i) {
-  return Ur(t, e, n, i, o) ? n === z.right ? z.left : n === z.left ? z.right : n === z.top ? z.bottom : z.top : n;
+function Ur(n, e, t, o, i) {
+  return jr(t, e, n, i, o) ? n === z.right ? z.left : n === z.left ? z.right : n === z.top ? z.bottom : z.top : n;
 }
-function Gr(n, e, t, o, i) {
+function qr(n, e, t, o, i) {
   let s = 0, r = 0;
   return n === z.right ? (r = (t.left ?? 0) + (t.width ?? 0) + o, s = $o(t, e, i)) : n === z.left ? (r = (t.left ?? 0) - (e.width ?? 0) - o, s = $o(t, e, i)) : n === z.top ? (s = (t.top ?? 0) - (e.height ?? 0) - o, r = yo(t, e, i)) : (s = (t.top ?? 0) + (t.height ?? 0) + o, r = yo(t, e, i)), { top: s, left: r };
 }
@@ -9518,16 +9542,16 @@ function Co(n, e, t, o) {
   const s = Xt(n, e, o);
   return s + (e.height ?? 0) > window.innerHeight && (i += s + (e.height ?? 0) - window.innerHeight), i;
 }
-function Wr(n, e, t, o, i) {
+function Gr(n, e, t, o, i) {
   let s = 0, r = 0;
   return n === z.right ? (r = -ee, s = Co(t, e, o, i)) : n === z.left ? (r = e.width ?? 0, s = Co(t, e, o, i)) : n === z.top ? (s = e.height ?? 0, r = ko(t, e, o, i)) : (s = -ee, r = ko(t, e, o, i)), { top: s, left: r };
 }
-var Kr = Object.defineProperty, Xr = Object.getOwnPropertyDescriptor, T = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Xr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Wr = Object.defineProperty, Kr = Object.getOwnPropertyDescriptor, T = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Kr(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && Kr(e, t, i), i;
+  return o && i && Wr(e, t, i), i;
 };
-const Eo = "swim-tooltip", xi = class xi extends _ {
+const Eo = "swim-tooltip", xi = class xi extends m {
   constructor() {
     super(...arguments), this.content = "", this.placement = z.top, this.alignment = J.center, this.type = Zo.popover, this.showEvent = le.all, this._spacing = 10, this._showCaret = !0, this._disabled = !1, this._closeOnClickOutside = !0, this._closeOnMouseLeave = !0, this._hideTimeout = 300, this._showTimeout = 100, this.cssClass = "", this._open = !1, this._panelTop = 0, this._panelLeft = 0, this._effectivePlacement = z.top, this._caretTop = 0, this._caretLeft = 0, this._animate = !1, this._triggerRef = null, this._panelRef = null, this._caretRef = null, this._boundDocumentClick = null, this._openFromClick = !1, this._tooltipId = `swim-tooltip-${Math.random().toString(36).slice(2, 11)}`, this._throttledPosition = () => {
       this._throttleTimeout == null && (this._throttleTimeout = window.setTimeout(() => {
@@ -9656,10 +9680,10 @@ const Eo = "swim-tooltip", xi = class xi extends _ {
     const i = e.getBoundingClientRect();
     if (!i.height && !i.width) return;
     const s = t.getBoundingClientRect();
-    this._effectivePlacement = qr(this.placement, s, i, this.spacing, this.alignment);
-    const { top: r, left: c } = Gr(this._effectivePlacement, s, i, this.spacing, this.alignment);
+    this._effectivePlacement = Ur(this.placement, s, i, this.spacing, this.alignment);
+    const { top: r, left: c } = qr(this._effectivePlacement, s, i, this.spacing, this.alignment);
     if (this._panelTop = r, this._panelLeft = c, this.showCaret && o) {
-      const g = o.getBoundingClientRect(), b = Wr(this._effectivePlacement, s, i, g, this.alignment);
+      const g = o.getBoundingClientRect(), b = Gr(this._effectivePlacement, s, i, g, this.alignment);
       this._caretTop = b.top, this._caretLeft = b.left;
     }
   }
@@ -9724,14 +9748,14 @@ const Eo = "swim-tooltip", xi = class xi extends _ {
                     ></span>
                   ` : ""}
               <div part="content" class="swim-tooltip__content">
-                ${e ? l`<slot name="content"></slot>` : l`${Nr(this.content)}`}
+                ${e ? l`<slot name="content"></slot>` : l`${Dr(this.content)}`}
               </div>
             </div>
           ` : ""}
     `;
   }
 };
-xi.styles = jr;
+xi.styles = Vr;
 let A = xi;
 T([
   a({ type: String })
@@ -9780,31 +9804,31 @@ T([
   a({ type: String, attribute: "css-class" })
 ], A.prototype, "cssClass", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_open", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_panelTop", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_panelLeft", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_effectivePlacement", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_caretTop", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_caretLeft", 2);
 T([
-  m()
+  _()
 ], A.prototype, "_animate", 2);
 customElements.get(Eo) || customElements.define(Eo, A);
-const Yr = 40, Qr = 2, Zr = f`
+const Xr = 40, Yr = 2, Qr = f`
   :host {
-    --swim-navbar-bar-size: ${Yr}px;
-    --swim-navbar-bar-thickness: ${Qr}px;
+    --swim-navbar-bar-size: ${Xr}px;
+    --swim-navbar-bar-thickness: ${Yr}px;
     display: inline-flex;
     align-items: center;
     min-height: 50px;
@@ -9847,7 +9871,7 @@ const Yr = 40, Qr = 2, Zr = f`
     top: 0;
     bottom: auto;
   }
-`, Jr = f`
+`, Zr = f`
   :host {
     display: flex;
     font-size: 15pt;
@@ -9873,12 +9897,12 @@ const Yr = 40, Qr = 2, Zr = f`
     color: var(--blue-400);
   }
 `;
-var ea = Object.defineProperty, ta = Object.getOwnPropertyDescriptor, Yt = (n, e, t, o) => {
-  for (var i = ta(e, t), s = n.length - 1, r; s >= 0; s--)
+var Jr = Object.defineProperty, ea = Object.getOwnPropertyDescriptor, Yt = (n, e, t, o) => {
+  for (var i = ea(e, t), s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = r(e, t, i) || i);
-  return i && ea(e, t, i), i;
+  return i && Jr(e, t, i), i;
 };
-const Ao = "swim-navbar-item", wi = class wi extends _ {
+const Ao = "swim-navbar-item", wi = class wi extends m {
   constructor() {
     super(...arguments), this._active = 0, this._total = 0, this._index = 0, this._clickBound = () => this._handleClick();
   }
@@ -9948,7 +9972,7 @@ const Ao = "swim-navbar-item", wi = class wi extends _ {
     (e.key === "Enter" || e.key === " ") && (e.preventDefault(), this.setActive());
   }
 };
-wi.styles = [w, Jr];
+wi.styles = [w, Zr];
 let Ae = wi;
 Yt([
   a({ type: Number })
@@ -9960,12 +9984,12 @@ Yt([
   a({ type: Number })
 ], Ae.prototype, "index");
 customElements.get(Ao) || customElements.define(Ao, Ae);
-var ia = Object.defineProperty, oa = Object.getOwnPropertyDescriptor, At = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? oa(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var ta = Object.defineProperty, ia = Object.getOwnPropertyDescriptor, At = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? ia(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && ia(e, t, i), i;
+  return o && i && ta(e, t, i), i;
 };
-const na = 40, So = "swim-navbar", yi = class yi extends _ {
+const oa = 40, So = "swim-navbar", yi = class yi extends m {
   constructor() {
     super(...arguments), this._barAtTop = !1, this._active = 0, this._navItems = [], this._slotChangeBound = () => this._syncFromSlot(), this._activeChangeBound = (e) => this._onItemActiveChange(e);
   }
@@ -10044,7 +10068,7 @@ const na = 40, So = "swim-navbar", yi = class yi extends _ {
   }
   _getBarTransform() {
     const e = this._navItems.filter((t, o) => o < this._active).length;
-    return `translateX(${na * e}px)`;
+    return `translateX(${oa * e}px)`;
   }
   render() {
     const e = this._barAtTop;
@@ -10062,7 +10086,7 @@ const na = 40, So = "swim-navbar", yi = class yi extends _ {
     `;
   }
 };
-yi.styles = [w, Zr];
+yi.styles = [w, Qr];
 let Se = yi;
 At([
   L("slot")
@@ -10074,10 +10098,10 @@ At([
   a({ type: Number })
 ], Se.prototype, "active", 1);
 At([
-  m()
+  _()
 ], Se.prototype, "_navItems", 2);
 customElements.get(So) || customElements.define(So, Se);
-const sa = [
+const na = [
   w,
   f`
     :host {
@@ -10163,12 +10187,12 @@ const sa = [
     }
   `
 ];
-var Ke = /* @__PURE__ */ ((n) => (n.Error = "error", n.Success = "success", n.Warning = "warning", n))(Ke || {}), ra = Object.defineProperty, aa = Object.getOwnPropertyDescriptor, ue = (n, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? aa(e, t) : e, s = n.length - 1, r; s >= 0; s--)
+var Ke = /* @__PURE__ */ ((n) => (n.Error = "error", n.Success = "success", n.Warning = "warning", n))(Ke || {}), sa = Object.defineProperty, ra = Object.getOwnPropertyDescriptor, ue = (n, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? ra(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && ra(e, t, i), i;
+  return o && i && sa(e, t, i), i;
 };
-const zo = 44, To = "swim-list", $i = class $i extends _ {
+const zo = 44, To = "swim-list", $i = class $i extends m {
   constructor() {
     super(...arguments), this.columnLayout = "", this.dataSource = [], this.defaultRowStatus = Ke.Error, this.headerLabels = [], this.columns = [], this._hasScrollbar = !1, this._page = 1, this._rowsContainer = null, this._scrollBound = (e) => this._emitScrollChanges(e);
   }
@@ -10250,7 +10274,7 @@ const zo = 44, To = "swim-list", $i = class $i extends _ {
     `;
   }
 };
-$i.styles = sa;
+$i.styles = na;
 let W = $i;
 ue([
   a({ type: String, attribute: "column-layout" })
@@ -10274,13 +10298,13 @@ ue([
   a({ type: Array, attribute: !1 })
 ], W.prototype, "columns", 2);
 ue([
-  m()
+  _()
 ], W.prototype, "_hasScrollbar", 2);
 ue([
-  m()
+  _()
 ], W.prototype, "_page", 2);
 customElements.get(To) || customElements.define(To, W);
-const ba = {
+const ga = {
   // Blue
   blue100: "rgb(224, 239, 255)",
   blue200: "rgb(173, 212, 255)",
@@ -10367,7 +10391,7 @@ const ba = {
   // Base
   white: "rgb(255, 255, 255)",
   black: "rgb(0, 0, 0)"
-}, fa = {
+}, ba = {
   // Font sizes
   fontSizeBase: "16px",
   fontSizeXXS: "0.625rem",
@@ -10402,7 +10426,7 @@ const ba = {
   fontWeightRegular: "400",
   fontWeightSemibold: "600",
   fontWeightBold: "700"
-}, _a = {
+}, fa = {
   spacing0: "0",
   spacing2: "2px",
   spacing4: "4px",
@@ -10428,7 +10452,7 @@ export {
   tt as CardStatus,
   We as DialogFormat,
   Qe as DrawerDirection,
-  zs as DrawerPosition,
+  Ss as DrawerPosition,
   Wt as InputAppearance,
   Kt as InputSize,
   re as InputTypes,
@@ -10453,7 +10477,7 @@ export {
   q as SwimCheckbox,
   I as SwimDialog,
   D as SwimDrawer,
-  me as SwimIcon,
+  _e as SwimIcon,
   x as SwimInput,
   de as SwimLargeFormatDialogContent,
   bt as SwimLargeFormatDialogFooter,
@@ -10483,13 +10507,13 @@ export {
   Wn as cardVerticalStyles,
   u as coerceBooleanProperty,
   C as coerceNumberProperty,
-  ba as colors,
+  ga as colors,
   An as convertClass,
-  ua as globalStyles,
+  pa as globalStyles,
   zn as iconRegistry,
-  ga as openDrawer,
+  ua as openDrawer,
   ma as radius,
   Ut as scrollbarStyles,
-  _a as spacing,
-  fa as typography
+  fa as spacing,
+  ba as typography
 };
