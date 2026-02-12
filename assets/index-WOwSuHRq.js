@@ -2981,7 +2981,7 @@
                 aria-label="Remove ${e.name}"
                 @click="${t=>this._removeChip(t,e)}"
               >
-                <span class="icon-x"></span>
+                <swim-icon font-icon="x"></swim-icon>
               </button>
             `}
       </div>
@@ -3634,8 +3634,8 @@
 
   .swim-checkbox__box::after {
     position: absolute;
-    top: calc(50% - 7px);
-    left: calc(50% - 3px);
+    top: calc(50% - 9px);
+    left: calc(50% - 4px);
     width: 6px;
     height: 12px;
     content: '';
