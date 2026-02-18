@@ -45,10 +45,10 @@ const Ds = (s) => new as(typeof s == "string" ? s : s + "", void 0, si), f = (s,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Ts, defineProperty: Os, getOwnPropertyDescriptor: Ps, getOwnPropertyNames: $s, getOwnPropertySymbols: Fs, getPrototypeOf: Ls } = Object, Se = globalThis, Gi = Se.trustedTypes, Bs = Gi ? Gi.emptyScript : "", Rt = Se.reactiveElementPolyfillSupport, lt = (s, e) => s, kt = { toAttribute(s, e) {
+const { is: Ts, defineProperty: Os, getOwnPropertyDescriptor: Ps, getOwnPropertyNames: $s, getOwnPropertySymbols: Fs, getPrototypeOf: Bs } = Object, ze = globalThis, Gi = ze.trustedTypes, Ls = Gi ? Gi.emptyScript : "", Rt = ze.reactiveElementPolyfillSupport, lt = (s, e) => s, kt = { toAttribute(s, e) {
   switch (e) {
     case Boolean:
-      s = s ? Bs : null;
+      s = s ? Ls : null;
       break;
     case Object:
     case Array:
@@ -73,8 +73,8 @@ const { is: Ts, defineProperty: Os, getOwnPropertyDescriptor: Ps, getOwnProperty
       }
   }
   return t;
-} }, ni = (s, e) => !Ts(s, e), Ki = { attribute: !0, type: String, converter: kt, reflect: !1, useDefault: !1, hasChanged: ni };
-Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), Se.litPropertyMetadata ?? (Se.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
+} }, ni = (s, e) => !Ts(s, e), Ji = { attribute: !0, type: String, converter: kt, reflect: !1, useDefault: !1, hasChanged: ni };
+Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), ze.litPropertyMetadata ?? (ze.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let He = class extends HTMLElement {
   static addInitializer(e) {
     this._$Ei(), (this.l ?? (this.l = [])).push(e);
@@ -82,7 +82,7 @@ let He = class extends HTMLElement {
   static get observedAttributes() {
     return this.finalize(), this._$Eh && [...this._$Eh.keys()];
   }
-  static createProperty(e, t = Ki) {
+  static createProperty(e, t = Ji) {
     if (t.state && (t.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(e) && ((t = Object.create(t)).wrapped = !0), this.elementProperties.set(e, t), !t.noAccessor) {
       const i = Symbol(), o = this.getPropertyDescriptor(e, i, t);
       o !== void 0 && Os(this.prototype, e, o);
@@ -100,11 +100,11 @@ let He = class extends HTMLElement {
     }, configurable: !0, enumerable: !0 };
   }
   static getPropertyOptions(e) {
-    return this.elementProperties.get(e) ?? Ki;
+    return this.elementProperties.get(e) ?? Ji;
   }
   static _$Ei() {
     if (this.hasOwnProperty(lt("elementProperties"))) return;
-    const e = Ls(this);
+    const e = Bs(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
@@ -278,26 +278,26 @@ let He = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-He.elementStyles = [], He.shadowRootOptions = { mode: "open" }, He[lt("elementProperties")] = /* @__PURE__ */ new Map(), He[lt("finalized")] = /* @__PURE__ */ new Map(), Rt == null || Rt({ ReactiveElement: He }), (Se.reactiveElementVersions ?? (Se.reactiveElementVersions = [])).push("2.1.1");
+He.elementStyles = [], He.shadowRootOptions = { mode: "open" }, He[lt("elementProperties")] = /* @__PURE__ */ new Map(), He[lt("finalized")] = /* @__PURE__ */ new Map(), Rt == null || Rt({ ReactiveElement: He }), (ze.reactiveElementVersions ?? (ze.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const ct = globalThis, Ct = ct.trustedTypes, Ji = Ct ? Ct.createPolicy("lit-html", { createHTML: (s) => s }) : void 0, ls = "$lit$", Ee = `lit$${Math.random().toFixed(9).slice(2)}$`, cs = "?" + Ee, qs = `<${cs}>`, Pe = document, dt = () => Pe.createComment(""), ht = (s) => s === null || typeof s != "object" && typeof s != "function", ri = Array.isArray, Hs = (s) => ri(s) || typeof (s == null ? void 0 : s[Symbol.iterator]) == "function", Yt = `[ 	
+const ct = globalThis, Ct = ct.trustedTypes, Ki = Ct ? Ct.createPolicy("lit-html", { createHTML: (s) => s }) : void 0, ls = "$lit$", Ee = `lit$${Math.random().toFixed(9).slice(2)}$`, cs = "?" + Ee, qs = `<${cs}>`, Pe = document, dt = () => Pe.createComment(""), ht = (s) => s === null || typeof s != "object" && typeof s != "function", ri = Array.isArray, Hs = (s) => ri(s) || typeof (s == null ? void 0 : s[Symbol.iterator]) == "function", Yt = `[ 	
 \f\r]`, it = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ji = /-->/g, Wi = />/g, De = RegExp(`>|${Yt}(?:([^\\s"'>=/]+)(${Yt}*=${Yt}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), Qi = /'/g, Zi = /"/g, ds = /^(?:script|style|textarea|title)$/i, Vs = (s) => (e, ...t) => ({ _$litType$: s, strings: e, values: t }), c = Vs(1), Q = Symbol.for("lit-noChange"), u = Symbol.for("lit-nothing"), Xi = /* @__PURE__ */ new WeakMap(), Te = Pe.createTreeWalker(Pe, 129);
 function hs(s, e) {
   if (!ri(s) || !s.hasOwnProperty("raw")) throw Error("invalid template strings array");
-  return Ji !== void 0 ? Ji.createHTML(e) : e;
+  return Ki !== void 0 ? Ki.createHTML(e) : e;
 }
 const Rs = (s, e) => {
   const t = s.length - 1, i = [];
   let o, n = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", r = it;
   for (let l = 0; l < t; l++) {
     const d = s[l];
-    let h, w, g = -1, m = 0;
-    for (; m < d.length && (r.lastIndex = m, w = r.exec(d), w !== null); ) m = r.lastIndex, r === it ? w[1] === "!--" ? r = ji : w[1] !== void 0 ? r = Wi : w[2] !== void 0 ? (ds.test(w[2]) && (o = RegExp("</" + w[2], "g")), r = De) : w[3] !== void 0 && (r = De) : r === De ? w[0] === ">" ? (r = o ?? it, g = -1) : w[1] === void 0 ? g = -2 : (g = r.lastIndex - w[2].length, h = w[1], r = w[3] === void 0 ? De : w[3] === '"' ? Zi : Qi) : r === Zi || r === Qi ? r = De : r === ji || r === Wi ? r = it : (r = De, o = void 0);
+    let h, v, g = -1, m = 0;
+    for (; m < d.length && (r.lastIndex = m, v = r.exec(d), v !== null); ) m = r.lastIndex, r === it ? v[1] === "!--" ? r = ji : v[1] !== void 0 ? r = Wi : v[2] !== void 0 ? (ds.test(v[2]) && (o = RegExp("</" + v[2], "g")), r = De) : v[3] !== void 0 && (r = De) : r === De ? v[0] === ">" ? (r = o ?? it, g = -1) : v[1] === void 0 ? g = -2 : (g = r.lastIndex - v[2].length, h = v[1], r = v[3] === void 0 ? De : v[3] === '"' ? Zi : Qi) : r === Zi || r === Qi ? r = De : r === ji || r === Wi ? r = it : (r = De, o = void 0);
     const k = r === De && s[l + 1].startsWith("/>") ? " " : "";
     n += r === it ? d + qs : g >= 0 ? (i.push(h), d.slice(0, g) + ls + d.slice(g) + Ee + k) : d + Ee + (g === -2 ? l : k);
   }
@@ -308,7 +308,7 @@ class ut {
     let o;
     this.parts = [];
     let n = 0, r = 0;
-    const l = e.length - 1, d = this.parts, [h, w] = Rs(e, t);
+    const l = e.length - 1, d = this.parts, [h, v] = Rs(e, t);
     if (this.el = ut.createElement(h, i), Te.currentNode = this.el.content, t === 2 || t === 3) {
       const g = this.el.content.firstChild;
       g.replaceWith(...g.childNodes);
@@ -316,8 +316,8 @@ class ut {
     for (; (o = Te.nextNode()) !== null && d.length < l; ) {
       if (o.nodeType === 1) {
         if (o.hasAttributes()) for (const g of o.getAttributeNames()) if (g.endsWith(ls)) {
-          const m = w[r++], k = o.getAttribute(g).split(Ee), T = /([.?@])?(.*)/.exec(m);
-          d.push({ type: 1, index: n, name: T[2], strings: k, ctor: T[1] === "." ? Us : T[1] === "?" ? Ns : T[1] === "@" ? Gs : Bt }), o.removeAttribute(g);
+          const m = v[r++], k = o.getAttribute(g).split(Ee), T = /([.?@])?(.*)/.exec(m);
+          d.push({ type: 1, index: n, name: T[2], strings: k, ctor: T[1] === "." ? Us : T[1] === "?" ? Ns : T[1] === "@" ? Gs : Lt }), o.removeAttribute(g);
         } else g.startsWith(Ee) && (d.push({ type: 6, index: n }), o.removeAttribute(g));
         if (ds.test(o.tagName)) {
           const g = o.textContent.split(Ee), m = g.length - 1;
@@ -364,7 +364,7 @@ let Ys = class {
     for (; d !== void 0; ) {
       if (r === d.index) {
         let h;
-        d.type === 2 ? h = new We(n, n.nextSibling, this, e) : d.type === 1 ? h = new d.ctor(n, d.name, d.strings, this, e) : d.type === 6 && (h = new Ks(n, this, e)), this._$AV.push(h), d = i[++l];
+        d.type === 2 ? h = new We(n, n.nextSibling, this, e) : d.type === 1 ? h = new d.ctor(n, d.name, d.strings, this, e) : d.type === 6 && (h = new Js(n, this, e)), this._$AV.push(h), d = i[++l];
       }
       r !== (d == null ? void 0 : d.index) && (n = Te.nextNode(), r++);
     }
@@ -438,7 +438,7 @@ class We {
     this._$AM === void 0 && (this._$Cv = e, (t = this._$AP) == null || t.call(this, e));
   }
 }
-class Bt {
+class Lt {
   get tagName() {
     return this.element.tagName;
   }
@@ -463,7 +463,7 @@ class Bt {
     e === u ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, e ?? "");
   }
 }
-class Us extends Bt {
+class Us extends Lt {
   constructor() {
     super(...arguments), this.type = 3;
   }
@@ -471,7 +471,7 @@ class Us extends Bt {
     this.element[this.name] = e === u ? void 0 : e;
   }
 }
-class Ns extends Bt {
+class Ns extends Lt {
   constructor() {
     super(...arguments), this.type = 4;
   }
@@ -479,7 +479,7 @@ class Ns extends Bt {
     this.element.toggleAttribute(this.name, !!e && e !== u);
   }
 }
-class Gs extends Bt {
+class Gs extends Lt {
   constructor(e, t, i, o, n) {
     super(e, t, i, o, n), this.type = 5;
   }
@@ -493,7 +493,7 @@ class Gs extends Bt {
     typeof this._$AH == "function" ? this._$AH.call(((t = this.options) == null ? void 0 : t.host) ?? this.element, e) : this._$AH.handleEvent(e);
   }
 }
-class Ks {
+class Js {
   constructor(e, t, i) {
     this.element = e, this.type = 6, this._$AN = void 0, this._$AM = t, this.options = i;
   }
@@ -504,7 +504,7 @@ class Ks {
     Ne(this, e);
   }
 }
-const Js = { I: We }, Ut = ct.litHtmlPolyfillSupport;
+const Ks = { I: We }, Ut = ct.litHtmlPolyfillSupport;
 Ut == null || Ut(ut, We), (ct.litHtmlVersions ?? (ct.litHtmlVersions = [])).push("3.3.1");
 const js = (s, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
@@ -613,7 +613,7 @@ function q(s, e) {
     } });
   };
 }
-const y = f`
+const x = f`
   :host {
     /* Colors - Blue */
     --blue-100: rgb(224, 239, 255);
@@ -689,6 +689,7 @@ const y = f`
     --grey-250: rgb(160, 170, 190);
     --grey-300: rgb(144, 156, 180);
     --grey-350: rgb(129, 143, 169);
+    --grey-350-rgb: 129, 143, 169;
     --grey-400: rgb(114, 129, 159);
     --grey-450: rgb(100, 116, 147);
     --grey-500: rgb(90, 104, 132);
@@ -696,6 +697,7 @@ const y = f`
     --grey-550-rgb: 80, 92, 117;
     --grey-600: rgb(69, 80, 102);
     --grey-650: rgb(59, 68, 87);
+    --grey-650-rgb: 59, 68, 87;
     --grey-700: rgb(49, 56, 71);
     --grey-725: rgb(43, 50, 64);
     --grey-750: rgb(38, 44, 56);
@@ -759,6 +761,7 @@ const y = f`
 
     /* Semantic colors */
     --color-error: var(--red-500);
+    --color-success: #b0e53c;
 
     /* Shadows */
     --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -1022,7 +1025,7 @@ var Y = /* @__PURE__ */ ((s) => (s.Active = "active", s.InProgress = "in-progres
 function p(s) {
   return s != null && `${s}` != "false";
 }
-function z(s, e = null) {
+function S(s, e = null) {
   return isNaN(parseFloat(s)) || isNaN(Number(s)) ? e : Number(s);
 }
 const en = f`
@@ -2356,7 +2359,7 @@ const en = f`
 
   /* Modifier: red color for overlay icon (match ngx-ui) */
   .text-red {
-    color: var(--red-500, rgb(255, 69, 20));
+    color: var(--red-500);
   }
 
   /* Font icon base (glyphs in icon-font-glyphs.ts) */
@@ -2510,24 +2513,24 @@ const to = "swim-icon", bi = class bi extends _ {
     `;
   }
 };
-bi.styles = [y, tn];
-let ze = bi;
+bi.styles = [x, tn];
+let Se = bi;
 ft([
   a({ type: String, attribute: "font-icon" })
-], ze.prototype, "fontIcon");
+], Se.prototype, "fontIcon");
 ft([
   a({ type: String })
-], ze.prototype, "alt");
+], Se.prototype, "alt");
 ft([
   a({ type: String, attribute: "font-set" })
-], ze.prototype, "fontSet");
+], Se.prototype, "fontSet");
 ft([
   a({ type: String, attribute: "icon-class" })
-], ze.prototype, "iconClass");
+], Se.prototype, "iconClass");
 ft([
   b()
-], ze.prototype, "_cssClasses");
-customElements.get(to) || customElements.define(to, ze);
+], Se.prototype, "_cssClasses");
+customElements.get(to) || customElements.define(to, Se);
 var dn = Object.defineProperty, hn = Object.getOwnPropertyDescriptor, de = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? hn(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
@@ -2553,7 +2556,7 @@ const io = "swim-button", mi = class mi extends _ {
     return this._timeout === void 0 ? 3e3 : this._timeout;
   }
   set timeout(e) {
-    this._timeout = z(e);
+    this._timeout = S(e);
   }
   get promise() {
     return this._promise;
@@ -2605,7 +2608,7 @@ const io = "swim-button", mi = class mi extends _ {
     this._timer !== void 0 && (clearTimeout(this._timer), this._timer = void 0);
   }
 };
-mi.styles = [y, Xs];
+mi.styles = [x, Xs];
 let U = mi;
 de([
   a({ type: String, reflect: !0 })
@@ -2759,7 +2762,7 @@ const oo = "swim-button-group", fi = class fi extends _ {
     return c`<slot></slot>`;
   }
 };
-fi.styles = [y, un];
+fi.styles = [x, un];
 let Ge = fi;
 ai([
   a({ type: String, reflect: !0 })
@@ -2806,7 +2809,7 @@ const gn = f`
   }
 
   :host(:not([disabled])) .swim-button-toggle:hover:not(.swim-button-toggle--checked) {
-    background: rgba(59, 68, 87, 0.1);
+    background: rgba(var(--grey-650-rgb), 0.1);
   }
 
   .swim-button-toggle:focus {
@@ -2877,7 +2880,7 @@ const so = "swim-button-toggle", _i = class _i extends _ {
     ));
   }
 };
-_i.styles = [y, gn];
+_i.styles = [x, gn];
 let we = _i;
 Qe([
   a({ type: String })
@@ -2916,7 +2919,7 @@ const _n = f`
 
   .swim-button-toggle-group__container__label {
     font-weight: var(--font-weight-semibold);
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     line-height: 12px;
     color: var(--grey-350);
   }
@@ -3059,7 +3062,7 @@ const no = "swim-button-toggle-group", Dt = class Dt extends _ {
     `;
   }
 };
-Dt.styles = [y, _n], Dt.formAssociated = !0;
+Dt.styles = [x, _n], Dt.formAssociated = !0;
 let re = Dt;
 qe([
   q("slot")
@@ -3086,15 +3089,15 @@ customElements.get(no) || customElements.define(no, re);
 const yn = f`
   :host {
     position: relative;
-    font-size: var(--font-size-m, 0.875rem);
-    background: var(--grey-800, #1a202e);
+    font-size: var(--font-size-m);
+    background: var(--grey-800);
     display: inline-block;
-    border: 1px solid var(--grey-700, #2d3544);
+    border: 1px solid var(--grey-700);
     width: 270px;
     padding: 0.5rem 0;
-    border-radius: var(--radius-6, 6px);
+    border-radius: var(--radius-6);
     box-sizing: border-box;
-    color: var(--grey-050, #f0f3f8);
+    color: var(--grey-050);
   }
 
   :host(:focus) {
@@ -3109,35 +3112,35 @@ const yn = f`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--grey-800, #1a202e);
-    color: var(--grey-050, #f0f3f8);
+    background: var(--grey-800);
+    color: var(--grey-050);
     padding: 0.69rem 0;
-    font-weight: var(--font-weight-semibold, 600);
+    font-weight: var(--font-weight-semibold);
     line-height: 1;
   }
 
   .title-row .title {
-    color: var(--blue-400, #1483ff);
+    color: var(--blue-400);
     min-width: 100px;
     padding: 4px 8px;
     cursor: pointer;
-    border-radius: var(--radius-4, 4px);
+    border-radius: var(--radius-4);
     background: none;
     border: none;
     font: inherit;
-    font-weight: var(--font-weight-semibold, 600);
+    font-weight: var(--font-weight-semibold);
     font-size: inherit;
   }
 
   .title-row .title:hover {
-    background: var(--grey-750, #232a38);
+    background: var(--grey-750);
   }
 
   .title-row .prev-month,
   .title-row .next-month {
-    color: var(--grey-350, #72819f);
-    font-size: var(--font-size-xxs, 0.65rem);
-    border-radius: var(--radius-4, 4px);
+    color: var(--grey-350);
+    font-size: var(--font-size-xxs);
+    border-radius: var(--radius-4);
     background: none;
     border: none;
     cursor: pointer;
@@ -3147,7 +3150,7 @@ const yn = f`
 
   .title-row .prev-month:hover,
   .title-row .next-month:hover {
-    color: var(--grey-050, #f0f3f8);
+    color: var(--grey-050);
   }
 
   .title-row .prev-month:disabled,
@@ -3157,11 +3160,11 @@ const yn = f`
   }
 
   button {
-    outline: 0px var(--blue-200, #97c4ff);
+    outline: 0px var(--blue-200);
   }
 
   button:focus-visible {
-    outline: 2px solid var(--blue-200, #97c4ff);
+    outline: 2px solid var(--blue-200);
     outline-offset: 1px;
   }
 
@@ -3170,8 +3173,8 @@ const yn = f`
   /* ------------------------------------------------------------------ */
 
   .day-name-row {
-    color: var(--grey-350, #72819f);
-    font-weight: var(--font-weight-semibold, 600);
+    color: var(--grey-350);
+    font-weight: var(--font-weight-semibold);
     display: flex;
   }
 
@@ -3209,7 +3212,7 @@ const yn = f`
   }
 
   .day {
-    color: var(--grey-050, #f0f3f8);
+    color: var(--grey-050);
     height: 100%;
     width: 100%;
     max-height: 30px;
@@ -3228,22 +3231,22 @@ const yn = f`
 
   .day.prev-month,
   .day.next-month {
-    color: var(--grey-350, #72819f);
+    color: var(--grey-350);
     opacity: 0.2;
   }
 
   .day.today {
-    background: var(--grey-750, #232a38);
+    background: var(--grey-750);
   }
 
   .day.active {
-    background: var(--blue-400, #1483ff);
-    color: var(--grey-050, #f0f3f8);
+    background: var(--blue-400);
+    color: var(--grey-050);
   }
 
   .day:hover:not(.active):not([disabled]) {
-    background: var(--blue-400, #1483ff);
-    color: var(--grey-050, #f0f3f8);
+    background: var(--blue-400);
+    color: var(--grey-050);
     opacity: 1;
   }
 
@@ -3253,7 +3256,7 @@ const yn = f`
   }
 
   .day.focus:not([disabled]) {
-    outline: 2px solid var(--blue-200, #97c4ff);
+    outline: 2px solid var(--blue-200);
     outline-offset: 1px;
   }
 
@@ -3263,7 +3266,7 @@ const yn = f`
 
   .months-container {
     margin: 0.5rem;
-    color: var(--grey-050, #f0f3f8);
+    color: var(--grey-050);
     width: calc(100% - 1rem);
     border-collapse: collapse;
   }
@@ -3271,19 +3274,19 @@ const yn = f`
   .months-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--grey-700, #2d3544);
+    border: 1px solid var(--grey-700);
   }
 
   .month-cell {
     padding: 0;
-    border: 1px solid var(--grey-700, #2d3544);
+    border: 1px solid var(--grey-700);
   }
 
   .month {
     grid-auto-rows: auto;
     text-transform: uppercase;
     text-align: center;
-    font-size: var(--font-size-s, 0.8rem);
+    font-size: var(--font-size-s);
     width: 100%;
     padding: 0.75rem;
     background: none;
@@ -3291,21 +3294,21 @@ const yn = f`
     color: inherit;
     cursor: pointer;
     font: inherit;
-    font-size: var(--font-size-s, 0.8rem);
+    font-size: var(--font-size-s);
     text-transform: uppercase;
   }
 
   .month.active {
-    background-color: var(--blue-400, #1483ff);
+    background-color: var(--blue-400);
   }
 
   .month.current:not(.active) {
-    background-color: var(--grey-750, #232a38);
+    background-color: var(--grey-750);
   }
 
   .month:hover:not(.active):not([disabled]) {
-    background: var(--blue-400, #1483ff);
-    color: var(--grey-050, #f0f3f8);
+    background: var(--blue-400);
+    color: var(--grey-050);
     opacity: 1;
   }
 
@@ -3320,7 +3323,7 @@ const yn = f`
 
   .years-container {
     margin: 0.5rem;
-    color: var(--grey-050, #f0f3f8);
+    color: var(--grey-050);
     width: calc(100% - 1rem);
     border-collapse: collapse;
   }
@@ -3328,19 +3331,19 @@ const yn = f`
   .years-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border: 1px solid var(--grey-700, #2d3544);
+    border: 1px solid var(--grey-700);
   }
 
   .year-cell {
     padding: 0;
-    border: 1px solid var(--grey-700, #2d3544);
+    border: 1px solid var(--grey-700);
   }
 
   .year {
     grid-auto-rows: auto;
     text-transform: uppercase;
     text-align: center;
-    font-size: var(--font-size-s, 0.8rem);
+    font-size: var(--font-size-s);
     width: 100%;
     padding: 0.475rem;
     background: none;
@@ -3348,20 +3351,20 @@ const yn = f`
     color: inherit;
     cursor: pointer;
     font: inherit;
-    font-size: var(--font-size-s, 0.8rem);
+    font-size: var(--font-size-s);
   }
 
   .year.active {
-    background-color: var(--blue-400, #1483ff);
+    background-color: var(--blue-400);
   }
 
   .year.current:not(.active) {
-    background-color: var(--grey-750, #232a38);
+    background-color: var(--grey-750);
   }
 
   .year:hover:not(.active):not([disabled]) {
-    background: var(--blue-400, #1483ff);
-    color: var(--grey-050, #f0f3f8);
+    background: var(--blue-400);
+    color: var(--grey-050);
     opacity: 1;
   }
 
@@ -3396,8 +3399,8 @@ function ie(s) {
   const e = /* @__PURE__ */ new Date(), t = s.getFullYear(), i = s.getMonth(), o = ro(t, i), n = new Date(t, i, 1).getDay(), r = [];
   if (n > 0) {
     const h = ro(t, i - 1);
-    for (let w = n - 1; w >= 0; w--) {
-      const g = new Date(t, i - 1, h - w);
+    for (let v = n - 1; v >= 0; v--) {
+      const g = new Date(t, i - 1, h - v);
       r.push(Gt(g, i, e));
     }
   }
@@ -3406,8 +3409,8 @@ function ie(s) {
   const l = r.length % 7;
   if (l > 0) {
     const h = 7 - l;
-    for (let w = 1; w <= h; w++)
-      r.push(Gt(new Date(t, i + 1, w), i, e));
+    for (let v = 1; v <= h; v++)
+      r.push(Gt(new Date(t, i + 1, v), i, e));
   }
   const d = [];
   for (let h = 0; h < r.length; h += 7)
@@ -3417,7 +3420,7 @@ function ie(s) {
 function ao(s) {
   return Math.floor(s / 20) * 20;
 }
-function Kt(s, e, t = "day") {
+function Jt(s, e, t = "day") {
   if (!e) return !1;
   switch (t) {
     case "year":
@@ -3428,7 +3431,7 @@ function Kt(s, e, t = "day") {
       return new Date(s.getFullYear(), s.getMonth(), s.getDate()) < new Date(e.getFullYear(), e.getMonth(), e.getDate());
   }
 }
-function Jt(s, e, t = "day") {
+function Kt(s, e, t = "day") {
   if (!e) return !1;
   switch (t) {
     case "year":
@@ -3440,7 +3443,7 @@ function Jt(s, e, t = "day") {
   }
 }
 var D = /* @__PURE__ */ ((s) => (s.date = "date", s.time = "time", s.datetime = "datetime", s))(D || {}), oe = /* @__PURE__ */ ((s) => (s.HUMAN = "human", s.TIMEZONE = "timezone", s.LOCAL = "local", s.CUSTOM = "custom", s))(oe || {});
-const En = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], Sn = [
+const En = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], zn = [
   "January",
   "February",
   "March",
@@ -3453,7 +3456,7 @@ const En = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
   "October",
   "November",
   "December"
-], zn = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], In = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], lo = {
+], Sn = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], In = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], lo = {
   L: "MM/DD/YYYY",
   l: "M/D/YYYY",
   LL: "MMMM D, YYYY",
@@ -3579,7 +3582,7 @@ function On(s, e, t, i) {
     case "YY":
       return String(e.year).slice(-2);
     case "MMMM":
-      return Sn[e.month];
+      return zn[e.month];
     case "MMM":
       return En[e.month];
     case "MM":
@@ -3593,7 +3596,7 @@ function On(s, e, t, i) {
     case "dddd":
       return In[e.dow];
     case "ddd":
-      return zn[e.dow];
+      return Sn[e.dow];
     case "HH":
       return H(e.hour);
     case "H":
@@ -3634,35 +3637,35 @@ function ot(s, e, t) {
   const r = bs(s, i);
   return o.replace(Tn, (d) => On(d, r, s, i)).replace(/\x00(\d+)\x00/g, (d, h) => n[parseInt(h, 10)]);
 }
-function Ke(s) {
-  if (s instanceof Date) return L(s) ? s : null;
+function Je(s) {
+  if (s instanceof Date) return B(s) ? s : null;
   if (!s || typeof s != "string") return null;
   const e = s.trim();
   if (!e) return null;
   const t = new Date(e);
-  if (L(t)) return t;
+  if (B(t)) return t;
   const i = e.match(/^(\d{1,2})\/(\d{4})$/);
   if (i) {
     const r = new Date(parseInt(i[2], 10), parseInt(i[1], 10) - 1, 1);
-    if (L(r)) return r;
+    if (B(r)) return r;
   }
   const o = e.match(/^(\d{4})$/);
   if (o) {
     const r = new Date(parseInt(o[1], 10), 0, 1);
-    if (L(r)) return r;
+    if (B(r)) return r;
   }
   const n = e.match(/^(\w{3,})\s+(\d{4})$/);
   if (n) {
     const r = /* @__PURE__ */ new Date(`${n[1]} 1, ${n[2]}`);
-    if (L(r)) return r;
+    if (B(r)) return r;
   }
   return null;
 }
-function L(s) {
+function B(s) {
   return s instanceof Date && !isNaN(s.getTime());
 }
 function uo(s, e) {
-  if (!e || !L(s)) return s;
+  if (!e || !B(s)) return s;
   const t = new Date(s), i = [
     ["millisecond", () => {
     }],
@@ -3773,7 +3776,7 @@ function Zt(s) {
     return s.toLowerCase() === "utc" ? "UTC" : s;
 }
 function gl(s, e) {
-  if (!s || !L(s)) return "";
+  if (!s || !B(s)) return "";
   const t = s.getFullYear(), i = H(s.getMonth() + 1), o = H(s.getDate()), n = H(s.getHours()), r = H(s.getMinutes()), l = H(s.getSeconds());
   switch (e) {
     case "time":
@@ -3788,12 +3791,12 @@ function gl(s, e) {
   }
 }
 function po(s, e, t) {
-  if (!L(s)) return !1;
-  const i = e ? Ke(e) : null, o = t ? Ke(t) : null;
-  return !!(i && L(i) && s < i || o && L(o) && s > o);
+  if (!B(s)) return !1;
+  const i = e ? Je(e) : null, o = t ? Je(t) : null;
+  return !!(i && B(i) && s < i || o && B(o) && s > o);
 }
-var Fn = Object.defineProperty, Ln = Object.getOwnPropertyDescriptor, he = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? Ln(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+var Fn = Object.defineProperty, Bn = Object.getOwnPropertyDescriptor, he = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? Bn(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && Fn(e, t, o), o;
 };
@@ -3900,7 +3903,7 @@ const go = "swim-calendar", vi = class vi extends _ {
   }
   set value(e) {
     const t = this._value;
-    e && L(e) ? this._value = new Date(e) : this._value = null, this.requestUpdate("value", t);
+    e && B(e) ? this._value = new Date(e) : this._value = null, this.requestUpdate("value", t);
   }
   set minView(e) {
     this._minView = e, this._validateView(), this.requestUpdate();
@@ -4130,21 +4133,21 @@ const go = "swim-calendar", vi = class vi extends _ {
     ][e.getMonth()]} ${e.getFullYear()}`;
   }
   _resolveMin() {
-    return this.minDate ? this.minDate instanceof Date ? this.minDate : Ke(this.minDate) : null;
+    return this.minDate ? this.minDate instanceof Date ? this.minDate : Je(this.minDate) : null;
   }
   _resolveMax() {
-    return this.maxDate ? this.maxDate instanceof Date ? this.maxDate : Ke(this.maxDate) : null;
+    return this.maxDate ? this.maxDate instanceof Date ? this.maxDate : Je(this.maxDate) : null;
   }
   _isDayDisabled(e) {
-    return Kt(e, this._resolveMin(), "day") || Jt(e, this._resolveMax(), "day");
+    return Jt(e, this._resolveMin(), "day") || Kt(e, this._resolveMax(), "day");
   }
   _isMonthDisabled(e) {
     const t = new Date(this._focusDate.getFullYear(), e, 1);
-    return Kt(t, this._resolveMin(), "month") || Jt(t, this._resolveMax(), "month");
+    return Jt(t, this._resolveMin(), "month") || Kt(t, this._resolveMax(), "month");
   }
   _isYearDisabled(e) {
     const t = new Date(e, 0, 1);
-    return Kt(t, this._resolveMin(), "year") || Jt(t, this._resolveMax(), "year");
+    return Jt(t, this._resolveMin(), "year") || Kt(t, this._resolveMax(), "year");
   }
   _isMonthActive(e) {
     return this._value ? this._value.getMonth() === e && this._value.getFullYear() === this._focusDate.getFullYear() : !1;
@@ -4219,7 +4222,7 @@ const go = "swim-calendar", vi = class vi extends _ {
     this._focusDate = i, this._weeks = ie(this._focusDate), this._focusDate.getFullYear() < this._startYear ? this._prevTwoDecades() : this._focusDate.getFullYear() > this._startYear + 20 && this._nextTwoDecades(), this.requestUpdate(), this.updateComplete.then(() => this.focusDay());
   }
 };
-vi.styles = [y, yn];
+vi.styles = [x, yn];
 let N = vi;
 he([
   a({ attribute: !1 })
@@ -4252,7 +4255,7 @@ he([
   b()
 ], N.prototype, "_startYear", 2);
 customElements.get(go) || customElements.define(go, N);
-const At = 4, jt = 3, bo = 25, Bn = 30, qn = 15, mo = 27, Hn = f`
+const At = 4, jt = 3, bo = 25, Ln = 30, qn = 15, mo = 27, Hn = f`
   @keyframes cardSlideIn {
     0% {
       opacity: 0;
@@ -4292,7 +4295,7 @@ const At = 4, jt = 3, bo = 25, Bn = 30, qn = 15, mo = 27, Hn = f`
   }
 
   .swim-card__status--success {
-    background-color: var(--card-status-success, #b0e53c);
+    background-color: var(--color-success);
   }
 
   .swim-card__status--error {
@@ -4446,7 +4449,7 @@ const At = 4, jt = 3, bo = 25, Bn = 30, qn = 15, mo = 27, Hn = f`
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: var(--spacing-0) ${Bn}px;
+    padding: var(--spacing-0) ${Ln}px;
   }
 
   :host([orientation='horizontal']) .swim-card__outline,
@@ -4511,7 +4514,7 @@ const At = 4, jt = 3, bo = 25, Bn = 30, qn = 15, mo = 27, Hn = f`
     align-items: center;
     justify-content: center;
   }
-`, Yn = [y, Hn, Vn, Rn];
+`, Yn = [x, Hn, Vn, Rn];
 var pt = /* @__PURE__ */ ((s) => (s.Success = "success", s.Error = "error", s.Disabled = "disabled", s))(pt || {}), ms = /* @__PURE__ */ ((s) => (s.Horizontal = "horizontal", s.Vertical = "vertical", s))(ms || {}), fs = /* @__PURE__ */ ((s) => (s.Normal = "normal", s.Flat = "flat", s))(fs || {});
 const Un = f`
   :host {
@@ -4616,10 +4619,10 @@ var Nn = Object.defineProperty, Gn = Object.getOwnPropertyDescriptor, ye = (s, e
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && Nn(e, t, o), o;
 };
-let Kn = 0;
+let Jn = 0;
 const fo = "swim-checkbox", Mt = class Mt extends _ {
   constructor() {
-    super(), this.id = `swim-checkbox-${++Kn}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
+    super(), this.id = `swim-checkbox-${++Jn}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -4645,7 +4648,7 @@ const fo = "swim-checkbox", Mt = class Mt extends _ {
     return this._tabindex;
   }
   set tabindex(e) {
-    this._tabindex = z(e, 0);
+    this._tabindex = S(e, 0);
   }
   get disabled() {
     return this._disabled;
@@ -4729,7 +4732,7 @@ const fo = "swim-checkbox", Mt = class Mt extends _ {
     `;
   }
 };
-Mt.styles = [y, Un], Mt.formAssociated = !0;
+Mt.styles = [x, Un], Mt.formAssociated = !0;
 let Z = Mt;
 ye([
   q(".swim-checkbox__roving")
@@ -4759,10 +4762,10 @@ ye([
   a({ type: Boolean, reflect: !0 })
 ], Z.prototype, "round", 1);
 customElements.get(fo) || customElements.define(fo, Z);
-var Jn = Object.defineProperty, jn = Object.getOwnPropertyDescriptor, ue = (s, e, t, i) => {
+var Kn = Object.defineProperty, jn = Object.getOwnPropertyDescriptor, ue = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? jn(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
-  return i && o && Jn(e, t, o), o;
+  return i && o && Kn(e, t, o), o;
 };
 const _o = "swim-card", wi = class wi extends _ {
   constructor() {
@@ -4972,7 +4975,7 @@ const vo = 25, Wn = f`
 
   ::slotted([slot='title']) {
     font-weight: var(--font-weight-semibold);
-    font-size: 22px;
+    font-size: var(--font-size-xl);
     color: var(--grey-050);
   }
 
@@ -4986,7 +4989,7 @@ const vo = 25, Wn = f`
   .swim-card-header__label {
     font-weight: var(--font-weight-semibold);
     font-size: var(--font-size-xs);
-    color: var(--card-status-success, #b0e53c);
+    color: var(--color-success);
     border-bottom: 0;
     margin-bottom: 0.5rem;
     white-space: nowrap;
@@ -5011,7 +5014,7 @@ const vo = 25, Wn = f`
   .swim-card-header__label::after {
     margin-left: var(--spacing-20);
   }
-`, Qn = [y, Wn];
+`, Qn = [x, Wn];
 var Zn = Object.defineProperty, vs = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = r(e, t, o) || o);
@@ -5088,7 +5091,7 @@ const Xn = f`
   ::slotted(swim-button) {
     width: auto;
   }
-`, er = [y, Xn];
+`, er = [x, Xn];
 var tr = Object.defineProperty, ir = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = r(e, t, o) || o);
@@ -5160,7 +5163,7 @@ const yo = 3, or = f`
   }
 
   .swim-card-avatar__status--success {
-    background-color: var(--card-status-success, #b0e53c);
+    background-color: var(--color-success);
   }
 
   .swim-card-avatar__status--error {
@@ -5188,7 +5191,7 @@ const yo = 3, or = f`
     color: var(--grey-100);
     font-weight: var(--font-weight-bold);
   }
-`, sr = [y, or];
+`, sr = [x, or];
 var nr = Object.defineProperty, li = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = r(e, t, o) || o);
@@ -5223,17 +5226,17 @@ const ko = "swim-card-avatar", ki = class ki extends _ {
   }
 };
 ki.styles = sr;
-let Je = ki;
+let Ke = ki;
 li([
   a({ type: String })
-], Je.prototype, "src");
+], Ke.prototype, "src");
 li([
   a({ type: String, reflect: !0 })
-], Je.prototype, "status");
+], Ke.prototype, "status");
 li([
   a({ type: Boolean, attribute: "remove-image-background" })
-], Je.prototype, "removeImageBackground");
-customElements.get(ko) || customElements.define(ko, Je);
+], Ke.prototype, "removeImageBackground");
+customElements.get(ko) || customElements.define(ko, Ke);
 const rr = f`
   :host {
     display: inline-block;
@@ -5260,7 +5263,7 @@ const rr = f`
     width: 50%;
     min-width: 150px;
   }
-`, ar = [y, rr];
+`, ar = [x, rr];
 var lr = Object.defineProperty, cr = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = r(e, t, o) || o);
@@ -5275,11 +5278,11 @@ const Co = "swim-card-placeholder", Ci = class Ci extends _ {
   }
 };
 Ci.styles = ar;
-let St = Ci;
+let zt = Ci;
 cr([
   a({ type: String, reflect: !0 })
-], St.prototype, "size");
-customElements.get(Co) || customElements.define(Co, St);
+], zt.prototype, "size");
+customElements.get(Co) || customElements.define(Co, zt);
 const Ao = 27, dr = f`
   :host {
     display: flex;
@@ -5300,7 +5303,7 @@ const Ao = 27, dr = f`
     text-overflow: ellipsis;
     text-align: center;
   }
-`, hr = [y, dr], Eo = "swim-card-body", Ai = class Ai extends _ {
+`, hr = [x, dr], Eo = "swim-card-body", Ai = class Ai extends _ {
   render() {
     return c`<slot></slot>`;
   }
@@ -5341,11 +5344,11 @@ class di {
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { I: ur } = Js, pr = (s) => s.strings === void 0, So = () => document.createComment(""), st = (s, e, t) => {
+const { I: ur } = Ks, pr = (s) => s.strings === void 0, zo = () => document.createComment(""), st = (s, e, t) => {
   var n;
   const i = s._$AA.parentNode, o = e === void 0 ? s._$AB : e._$AA;
   if (t === void 0) {
-    const r = i.insertBefore(So(), o), l = i.insertBefore(So(), o);
+    const r = i.insertBefore(zo(), o), l = i.insertBefore(zo(), o);
     t = new ur(r, l, s, s.options);
   } else {
     const r = t._$AB.nextSibling, l = t._$AM, d = l !== s;
@@ -5356,8 +5359,8 @@ const { I: ur } = Js, pr = (s) => s.strings === void 0, So = () => document.crea
     if (r !== o || d) {
       let h = t._$AA;
       for (; h !== r; ) {
-        const w = h.nextSibling;
-        i.insertBefore(h, o), h = w;
+        const v = h.nextSibling;
+        i.insertBefore(h, o), h = v;
       }
     }
   }
@@ -5370,7 +5373,7 @@ const { I: ur } = Js, pr = (s) => s.strings === void 0, So = () => document.crea
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const zo = ci(class extends di {
+const So = ci(class extends di {
   constructor(s) {
     if (super(s), s.type !== Ae.PROPERTY && s.type !== Ae.ATTRIBUTE && s.type !== Ae.BOOLEAN_ATTRIBUTE) throw Error("The `live` directive is not allowed on child or event bindings");
     if (!pr(s)) throw Error("`live` bindings can only contain a single expression");
@@ -5689,7 +5692,7 @@ const zo = ci(class extends di {
 
   :host([active]) .input-label,
   :host([has-placeholder]) .input-label {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     top: -1.4em;
   }
 
@@ -5735,7 +5738,7 @@ const zo = ci(class extends di {
     bottom: 0;
     right: 10px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: var(--font-size-s);
     color: var(--grey-300);
     transition: color 100ms;
     padding: 0;
@@ -5847,7 +5850,7 @@ const zo = ci(class extends di {
     font-size: 1em;
   }
 `;
-var fe = /* @__PURE__ */ ((s) => (s.text = "text", s.password = "password", s.email = "email", s.number = "number", s.tel = "tel", s.url = "url", s.textarea = "textarea", s))(fe || {}), hi = /* @__PURE__ */ ((s) => (s.legacy = "legacy", s.fill = "fill", s))(hi || {}), ui = /* @__PURE__ */ ((s) => (s.sm = "sm", s.md = "md", s.lg = "lg", s))(ui || {}), fr = Object.defineProperty, _r = Object.getOwnPropertyDescriptor, S = (s, e, t, i) => {
+var fe = /* @__PURE__ */ ((s) => (s.text = "text", s.password = "password", s.email = "email", s.number = "number", s.tel = "tel", s.url = "url", s.textarea = "textarea", s))(fe || {}), hi = /* @__PURE__ */ ((s) => (s.legacy = "legacy", s.fill = "fill", s))(hi || {}), ui = /* @__PURE__ */ ((s) => (s.sm = "sm", s.md = "md", s.lg = "lg", s))(ui || {}), fr = Object.defineProperty, _r = Object.getOwnPropertyDescriptor, z = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? _r(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && fr(e, t, o), o;
@@ -5988,7 +5991,7 @@ const Io = "swim-input", Tt = class Tt extends _ {
         type="${e}"
         id="${this.id}"
         name="${this.name}"
-        .value="${zo(this.value)}"
+        .value="${So(this.value)}"
         placeholder="${this.placeholder}"
         ?disabled="${this.disabled}"
         ?readonly="${this.readonly}"
@@ -6013,7 +6016,7 @@ const Io = "swim-input", Tt = class Tt extends _ {
         class="input-textarea swim-scroll"
         id="${this.id}"
         name="${this.name}"
-        .value="${zo(this.value)}"
+        .value="${So(this.value)}"
         placeholder="${this.placeholder}"
         ?disabled="${this.disabled}"
         ?readonly="${this.readonly}"
@@ -6099,1025 +6102,101 @@ const Io = "swim-input", Tt = class Tt extends _ {
     this.disabled = e;
   }
 };
-Tt.styles = [y, _t, mr], Tt.formAssociated = !0;
+Tt.styles = [x, _t, mr], Tt.formAssociated = !0;
 let A = Tt;
-S([
+z([
   q(".input-box, .input-textarea")
 ], A.prototype, "inputElement", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "type", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "label", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "placeholder", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "hint", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "value", 1);
-S([
+z([
   a({ type: String })
 ], A.prototype, "name", 2);
-S([
+z([
   a({ type: String })
 ], A.prototype, "id", 2);
-S([
+z([
   a({ type: Boolean, reflect: !0 })
 ], A.prototype, "disabled", 1);
-S([
+z([
   a({ type: Boolean, reflect: !0 })
 ], A.prototype, "readonly", 1);
-S([
+z([
   a({ type: Boolean, reflect: !0 })
 ], A.prototype, "required", 1);
-S([
+z([
   a({ type: Boolean })
 ], A.prototype, "autofocus", 1);
-S([
+z([
   a({ type: String })
 ], A.prototype, "autocomplete", 2);
-S([
+z([
   a({ type: String, reflect: !0 })
 ], A.prototype, "appearance", 2);
-S([
+z([
   a({ type: String, reflect: !0 })
 ], A.prototype, "size", 2);
-S([
+z([
   a({ type: Boolean, reflect: !0, attribute: "marginless" })
 ], A.prototype, "marginless", 1);
-S([
+z([
   a({ type: Boolean })
 ], A.prototype, "withHint", 1);
-S([
+z([
   a({ type: Boolean, attribute: "password-toggle-enabled" })
 ], A.prototype, "passwordToggleEnabled", 1);
-S([
+z([
   a({ type: Number })
 ], A.prototype, "min", 2);
-S([
+z([
   a({ type: Number })
 ], A.prototype, "max", 2);
-S([
+z([
   a({ type: Number })
 ], A.prototype, "minlength", 2);
-S([
+z([
   a({ type: Number })
 ], A.prototype, "maxlength", 2);
-S([
+z([
   a({ type: Number, attribute: "textarea-rows" })
 ], A.prototype, "textareaRows", 2);
-S([
+z([
   a({ type: String, attribute: "required-indicator" })
 ], A.prototype, "requiredIndicator", 2);
-S([
+z([
   a({ type: Number })
 ], A.prototype, "tabindex", 2);
-S([
+z([
   b()
 ], A.prototype, "_focused", 2);
-S([
+z([
   b()
 ], A.prototype, "_passwordVisible", 2);
-S([
+z([
   b()
 ], A.prototype, "_touched", 2);
-S([
+z([
   b()
 ], A.prototype, "_dirty", 2);
-S([
+z([
   b()
 ], A.prototype, "_invalid", 2);
 customElements.get(Io) || customElements.define(Io, A);
-const vr = f`
-  :host {
-    position: relative;
-    display: block;
-    max-width: 100%;
-  }
-
-  :host([autosize]) {
-    display: inline-block;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Container                                                          */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__container {
-    position: relative;
-  }
-
-  /* Ensure the inner swim-input leaves space for the calendar button */
-  .swim-date-time__container swim-input {
-    --swim-input-padding-right: 28px;
-  }
-
-  /* Override swim-input display when host is autosize */
-  :host([autosize]) .swim-date-time__container swim-input {
-    display: inline-block;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Calendar / clock button                                            */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__calendar-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    padding: 0;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--grey-200);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-    font-size: 1rem;
-    line-height: 1;
-  }
-
-  .swim-date-time__calendar-btn:hover {
-    color: var(--grey-050);
-  }
-
-  .swim-date-time__calendar-btn:disabled {
-    color: var(--grey-400);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  .swim-date-time__calendar-btn:focus-visible {
-    outline: 2px solid var(--blue-500);
-    outline-offset: 2px;
-    border-radius: var(--radius-2);
-  }
-
-  /* No-label adjustment (button at top instead of center) */
-  :host(:not([has-label])) .swim-date-time__calendar-btn {
-    top: 0.5rem;
-    transform: translateY(0);
-  }
-
-  /* Fill appearance */
-  :host([appearance='fill']) .swim-date-time__calendar-btn {
-    right: 10px;
-  }
-
-  /* Autosize: tweak vertical alignment */
-  :host([autosize]) .swim-date-time__calendar-btn {
-    transform: translateY(-25%);
-  }
-
-  :host([autosize][appearance='fill']) .swim-date-time__calendar-btn {
-    transform: translateY(-15%);
-  }
-
-  :host([autosize][marginless]) .swim-date-time__calendar-btn {
-    transform: translateY(-35%);
-  }
-
-  :host([autosize]:not([has-label])) .swim-date-time__calendar-btn {
-    transform: translateY(0);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Invalid / out-of-range state                                       */
-  /* ------------------------------------------------------------------ */
-
-  :host([date-invalid]) swim-input,
-  :host([date-out-of-range]) swim-input {
-    --swim-input-underline-color: var(--red-500);
-    --swim-input-label-color: var(--red-500);
-    --swim-input-hint-color: var(--red-500);
-    --swim-input-caret-color: var(--red-500);
-  }
-
-  /* Force invalid styling on the inner input via attribute forwarding */
-  :host([date-invalid]) swim-input,
-  :host([date-out-of-range]) swim-input {
-    color: inherit;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Dialog overlay (backdrop)                                          */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 999;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Dialog container                                                    */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__dialog {
-    position: fixed;
-    z-index: 1000;
-    padding: 0;
-    width: auto;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Selected header                                                     */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__dialog-header {
-    border-top: 1px solid var(--grey-700, #2d3544);
-    border-left: 1px solid var(--grey-700, #2d3544);
-    border-right: 1px solid var(--grey-700, #2d3544);
-    border-top-left-radius: var(--radius-6, 6px);
-    border-top-right-radius: var(--radius-6, 6px);
-    padding: 4px 20px;
-    background: var(--blue, #0c6ed6);
-    color: var(--grey-100, #cdd2dd);
-    text-align: center;
-  }
-
-  .swim-date-time__dialog-header h1 {
-    font-size: 1.2rem;
-    white-space: nowrap;
-    margin: 0.5rem 0;
-    font-weight: normal;
-  }
-
-  .swim-date-time__dialog-header h1 small {
-    color: var(--grey-100, #cdd2dd);
-    display: block;
-    margin-top: 2px;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Calendar inside dialog                                              */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__dialog swim-calendar {
-    box-shadow: none;
-    border-radius: 0;
-    border: none;
-    border-left: 1px solid var(--grey-700, #2d3544);
-    border-right: 1px solid var(--grey-700, #2d3544);
-    border-bottom: 1px solid var(--grey-700, #2d3544);
-    display: block;
-    width: auto;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Time row                                                            */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__time-row {
-    background: var(--grey-800, #1a202e);
-    border-left: 1px solid var(--grey-700, #2d3544);
-    border-right: 1px solid var(--grey-700, #2d3544);
-    border-bottom: 1px solid var(--grey-700, #2d3544);
-    padding: 8px 16px;
-    margin-top: 0;
-    height: 80px;
-    flex-direction: row;
-    box-sizing: border-box;
-    display: flex;
-    place-content: stretch center;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-  }
-
-  .swim-date-time__time-input {
-    width: 42px;
-    padding: 4px 2px;
-    text-align: center;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--grey-400, #566076);
-    color: var(--grey-050, #f0f3f8);
-    font-size: var(--font-size-m, 0.875rem);
-    font-family: inherit;
-    outline: none;
-  }
-
-  .swim-date-time__time-input:focus {
-    border-bottom-color: var(--blue-400, #1483ff);
-  }
-
-  .swim-date-time__time-input:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-
-  .swim-date-time__time-input--ms {
-    width: 55px;
-  }
-
-  .swim-date-time__time-hint {
-    font-size: var(--font-size-xxs, 0.65rem);
-    color: var(--grey-400, #566076);
-    text-align: center;
-    margin-top: 2px;
-  }
-
-  .swim-date-time__time-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .swim-date-time__ampm-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .swim-date-time__ampm {
-    background: none;
-    border: none;
-    color: var(--grey-500, #455066);
-    cursor: pointer;
-    padding: 2px 6px;
-    font-size: var(--font-size-s, 0.8rem);
-    font-family: inherit;
-    border-radius: var(--radius-2, 2px);
-  }
-
-  .swim-date-time__ampm:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-
-  .swim-date-time__ampm.selected {
-    color: var(--white, #fff);
-    background-color: rgba(129, 143, 169, 0.2);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Dialog footer (Current / Clear / Apply)                            */
-  /* ------------------------------------------------------------------ */
-
-  .swim-date-time__dialog-footer {
-    background: var(--grey-800, #1a202e);
-    border: 1px solid var(--grey-700, #2d3544);
-    border-bottom-left-radius: var(--radius-6, 6px);
-    border-bottom-right-radius: var(--radius-6, 6px);
-    border-top: 0;
-    padding: 0.5rem 0;
-    flex-direction: row;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-  }
-
-  .swim-date-time__dialog-footer > * {
-    flex: 1 1 50%;
-  }
-
-  .swim-date-time__dialog-footer .text-left {
-    text-align: left;
-  }
-
-  .swim-date-time__dialog-footer .text-right {
-    text-align: right;
-  }
-
-  .swim-date-time__footer-btn {
-    font-size: var(--font-size-m, 0.875rem);
-    color: var(--grey-400, #566076);
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
-  .swim-date-time__footer-btn:hover {
-    color: var(--grey-200, #8e99ae);
-  }
-
-  .swim-date-time__footer-btn--current {
-    margin-left: 16px;
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-
-  .swim-date-time__footer-btn--current[hidden] {
-    display: inline-block !important;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .swim-date-time__footer-btn--apply {
-    margin-right: 16px;
-    color: var(--blue-400, #1483ff);
-  }
-
-  .swim-date-time__footer-btn--apply:hover {
-    color: var(--blue-300, #59a8ff);
-  }
-
-  .swim-date-time__footer-btn--clear {
-    margin-right: 16px;
-  }
-`;
-var wr = Object.defineProperty, xr = Object.getOwnPropertyDescriptor, x = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? xr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
-    (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
-  return i && o && wr(e, t, o), o;
-};
-let yr = 0;
-const Do = "swim-date-time", Ot = class Ot extends _ {
-  // ---------------------------------------------------------------------------
-  // Lifecycle
-  // ---------------------------------------------------------------------------
-  constructor() {
-    super(), this.id = `swim-date-time-${++yr}`, this.name = "", this.label = "", this.hint = "", this.placeholder = "", this.size = "sm", this.appearance = "legacy", this._disabled = !1, this._required = !1, this.requiredIndicator = "*", this._autofocus = !1, this._autosize = !1, this._minWidth = 60, this._marginless = !1, this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._focused = !1, this._dialogOpen = !1, this._dialogModel = null, this._dialogHour = 12, this._dialogMinute = "00", this._dialogSecond = "00", this._dialogMillisecond = "000", this._dialogAmPm = "AM", this._dialogTop = 0, this._dialogLeft = 0, this._modes = ["millisecond", "second", "minute", "hour", "date", "month", "year"], this._apply = () => {
-      this._dialogModel && (this.value = this._dialogModel, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: this.value, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: this.value, bubbles: !0, composed: !0 }))), this._close();
-    }, this._clear = () => {
-      this.value = void 0, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: void 0, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: void 0, bubbles: !0, composed: !0 })), this._close();
-    }, this._selectCurrent = () => {
-      this._setDialogDate(/* @__PURE__ */ new Date());
-    }, this._close = () => {
-      this._dialogOpen = !1, this._removeOverlayListeners(), this._update();
-    }, this._onCalendarChange = (e) => {
-      e.stopPropagation();
-      const t = e.detail;
-      t && L(t) && (this._dialogModel && this._showTime && t.setHours(
-        this._dialogModel.getHours(),
-        this._dialogModel.getMinutes(),
-        this._dialogModel.getSeconds(),
-        this._dialogModel.getMilliseconds()
-      ), this._setDialogDate(t));
-    }, this._onHourChange = (e) => {
-      const t = +e.target.value % 12, i = this._dialogAmPm === "PM" ? 12 + t : t;
-      if (this._dialogModel) {
-        const o = new Date(this._dialogModel);
-        o.setHours(i), this._setDialogDate(o);
-      }
-    }, this._onMinuteChange = (e) => {
-      const t = +e.target.value;
-      if (this._dialogModel) {
-        const i = new Date(this._dialogModel);
-        i.setMinutes(t), this._setDialogDate(i);
-      }
-    }, this._onSecondChange = (e) => {
-      const t = +e.target.value;
-      if (this._dialogModel) {
-        const i = new Date(this._dialogModel);
-        i.setSeconds(t), this._setDialogDate(i);
-      }
-    }, this._onMillisecondChange = (e) => {
-      const t = +e.target.value;
-      if (this._dialogModel) {
-        const i = new Date(this._dialogModel);
-        i.setMilliseconds(t), this._setDialogDate(i);
-      }
-    }, this._onDocumentClick = (e) => {
-    }, this._onDocumentKeyDown = (e) => {
-      e.code === "Escape" && (this._close(), e.stopPropagation());
-    }, this._onDialogKeyDown = (e) => {
-      e.code === "Escape" && (this._close(), e.stopPropagation(), e.preventDefault());
-    }, this._internals = this.attachInternals();
-  }
-  get disabled() {
-    return this._disabled;
-  }
-  set disabled(e) {
-    const t = this._disabled;
-    this._disabled = p(e), this.requestUpdate("disabled", t);
-  }
-  get required() {
-    return this._required;
-  }
-  set required(e) {
-    const t = this._required;
-    this._required = p(e), this.requestUpdate("required", t);
-  }
-  get autofocus() {
-    return this._autofocus;
-  }
-  set autofocus(e) {
-    this._autofocus = p(e);
-  }
-  get autosize() {
-    return this._autosize;
-  }
-  set autosize(e) {
-    const t = this._autosize;
-    this._autosize = p(e), this.requestUpdate("autosize", t);
-  }
-  get minWidth() {
-    return this._minWidth;
-  }
-  set minWidth(e) {
-    this._minWidth = z(e) ?? 60;
-  }
-  set inputType(e) {
-    const t = this._inputType;
-    this._inputType = e, this.requestUpdate("inputType", t);
-  }
-  get inputType() {
-    return this._effectiveInputType;
-  }
-  set displayMode(e) {
-    const t = this._displayMode;
-    this._displayMode = e, this.requestUpdate("displayMode", t);
-  }
-  get displayMode() {
-    return this._effectiveDisplayMode;
-  }
-  get marginless() {
-    return this._marginless;
-  }
-  set marginless(e) {
-    const t = this._marginless;
-    this._marginless = p(e), this.requestUpdate("marginless", t);
-  }
-  get value() {
-    return this._value;
-  }
-  set value(e) {
-    const t = this._value;
-    if (typeof e == "string" && (e = e.trim(), e || (e = null)), !e && !this._value) {
-      this._value = null;
-      return;
-    }
-    if (e === this._value) return;
-    let i = e instanceof Date && L(e);
-    if (typeof e == "string") {
-      const o = Ke(e);
-      o && (e = o, i = !0);
-    }
-    if (i && e instanceof Date && this.precision && (e = uo(e, this.precision)), this._value = e, this._update(), this._internals) {
-      const o = this._value instanceof Date ? this._value.toISOString() : String(this._value ?? "");
-      this._internals.setFormValue(o);
-    }
-    this.requestUpdate("value", t);
-  }
-  // ---------------------------------------------------------------------------
-  // Computed helpers
-  // ---------------------------------------------------------------------------
-  get _effectiveInputType() {
-    return this._inputType ? this._inputType : this.precision === "hour" || this.precision === "minute" ? D.datetime : D.date;
-  }
-  get _effectiveDisplayMode() {
-    return this._displayMode ? this._displayMode : this.timezone ? oe.TIMEZONE : oe.LOCAL;
-  }
-  get _effectiveFormat() {
-    return this.format ? Pn(this.format) : $n(
-      this._effectiveDisplayMode,
-      this._effectiveInputType,
-      this.precision
-    );
-  }
-  get _iconName() {
-    switch (this._effectiveInputType) {
-      case D.time:
-        return "clock";
-      case D.datetime:
-        return "calendar-clock";
-      default:
-        return "calendar";
-    }
-  }
-  get _showCalendar() {
-    return this._effectiveInputType === D.date || this._effectiveInputType === D.datetime;
-  }
-  get _showTime() {
-    return this._effectiveInputType === D.time || this._effectiveInputType === D.datetime;
-  }
-  connectedCallback() {
-    super.connectedCallback(), this._update(), this._onDocumentClick = this._onDocumentClick.bind(this);
-  }
-  disconnectedCallback() {
-    super.disconnectedCallback(), this._removeOverlayListeners();
-  }
-  firstUpdated() {
-    this.autofocus && this._swimInput && requestAnimationFrame(() => {
-      var e, t;
-      (t = (e = this._swimInput) == null ? void 0 : e.focus) == null || t.call(e);
-    });
-  }
-  updated(e) {
-    super.updated(e), this.label ? this.setAttribute("has-label", "") : this.removeAttribute("has-label"), this._dateInvalid ? this.setAttribute("date-invalid", "") : this.removeAttribute("date-invalid"), this._dateOutOfRange ? this.setAttribute("date-out-of-range", "") : this.removeAttribute("date-out-of-range"), this._focused ? this.setAttribute("focused", "") : this.removeAttribute("focused"), (e.has("format") || e.has("precision") || e.has("timezone") || e.has("displayMode") || e.has("inputType")) && this._update(), (e.has("required") || e.has("minDate") || e.has("maxDate")) && this._validate();
-  }
-  /** Delegate focus to the inner input. */
-  focus(e) {
-    var t, i;
-    (i = (t = this._swimInput) == null ? void 0 : t.focus) == null || i.call(t, e);
-  }
-  // ---------------------------------------------------------------------------
-  // Render
-  // ---------------------------------------------------------------------------
-  render() {
-    return c`
-      <div class="swim-date-time__container">
-        <swim-input
-          part="input"
-          .id="${this.id + "-input"}"
-          .name="${this.name}"
-          .label="${this.label}"
-          .hint="${this.hint}"
-          .placeholder="${this.placeholder}"
-          .size="${this.size}"
-          .appearance="${this.appearance}"
-          .disabled="${this.disabled}"
-          .required="${this.required}"
-          .requiredIndicator="${String(this.requiredIndicator)}"
-          .value="${this._displayValue}"
-          ?marginless="${this.marginless}"
-          tabindex="${me(this.tabindex)}"
-          autocomplete="off"
-          @input="${this._handleInput}"
-          @focus="${this._handleFocus}"
-          @blur="${this._handleBlur}"
-          @keydown="${this._handleKeyDown}"
-        ></swim-input>
-
-        <button
-          part="calendar-btn"
-          class="swim-date-time__calendar-btn"
-          type="button"
-          ?disabled="${this.disabled}"
-          @click="${this._openPicker}"
-          title="Show date/time selector"
-          aria-label="Open ${this._effectiveInputType} picker"
-        >
-          <swim-icon font-icon="${this._iconName}"></swim-icon>
-        </button>
-      </div>
-
-      ${this._dialogOpen ? this._renderDialog() : u}
-    `;
-  }
-  _renderDialog() {
-    const e = this._getDialogHeaderText();
-    return c`
-      <div class="swim-date-time__overlay" @click="${this._close}"></div>
-      <div
-        class="swim-date-time__dialog"
-        style="top: ${this._dialogTop}px; left: ${this._dialogLeft}px;"
-        @keydown="${this._onDialogKeyDown}"
-      >
-        <div class="swim-date-time__dialog-header">
-          <h1>${e}</h1>
-        </div>
-
-        ${this._showCalendar ? c`
-              <swim-calendar
-                .value="${this._dialogModel}"
-                .minDate="${this.minDate}"
-                .maxDate="${this.maxDate}"
-                .disabled="${this.disabled}"
-                min-view="${this._calendarMinView}"
-                @change="${this._onCalendarChange}"
-                @day-key-enter="${this._apply}"
-              ></swim-calendar>
-            ` : u}
-        ${this._showTime ? this._renderTimeRow() : u}
-
-        <nav role="navigation" class="swim-date-time__dialog-footer">
-          <div class="text-left">
-            <button
-              type="button"
-              class="swim-date-time__footer-btn swim-date-time__footer-btn--current"
-              ?hidden="${this._isCurrent()}"
-              @click="${this._selectCurrent}"
-            >
-              Current
-            </button>
-          </div>
-          <div class="text-right">
-            <button
-              type="button"
-              class="swim-date-time__footer-btn swim-date-time__footer-btn--clear"
-              @click="${this._clear}"
-            >
-              Clear
-            </button>
-            <button
-              type="button"
-              class="swim-date-time__footer-btn swim-date-time__footer-btn--apply"
-              @click="${this._apply}"
-            >
-              Apply
-            </button>
-          </div>
-        </nav>
-      </div>
-    `;
-  }
-  _renderTimeRow() {
-    const e = this._isTimeDisabled("hour"), t = this._isTimeDisabled("minute"), i = this._isTimeDisabled("second"), o = this._isTimeDisabled("millisecond");
-    return c`
-      <div class="swim-date-time__time-row">
-        <div class="swim-date-time__time-field">
-          <input
-            type="number"
-            class="swim-date-time__time-input"
-            .value="${String(this._dialogHour)}"
-            min="1"
-            max="12"
-            ?disabled="${e}"
-            @change="${this._onHourChange}"
-          />
-          <div class="swim-date-time__time-hint">Hour</div>
-        </div>
-        <div class="swim-date-time__time-field">
-          <input
-            type="number"
-            class="swim-date-time__time-input"
-            .value="${this._dialogMinute}"
-            min="0"
-            max="59"
-            ?disabled="${t}"
-            @change="${this._onMinuteChange}"
-          />
-          <div class="swim-date-time__time-hint">Minute</div>
-        </div>
-        <div class="swim-date-time__time-field">
-          <input
-            type="number"
-            class="swim-date-time__time-input"
-            .value="${this._dialogSecond}"
-            min="0"
-            max="59"
-            ?disabled="${i}"
-            @change="${this._onSecondChange}"
-          />
-          <div class="swim-date-time__time-hint">Second</div>
-        </div>
-        <div class="swim-date-time__time-field">
-          <input
-            type="number"
-            class="swim-date-time__time-input swim-date-time__time-input--ms"
-            .value="${this._dialogMillisecond}"
-            min="0"
-            max="999"
-            ?disabled="${o}"
-            @change="${this._onMillisecondChange}"
-          />
-          <div class="swim-date-time__time-hint">Millisecond</div>
-        </div>
-        <div class="swim-date-time__ampm-group">
-          <button
-            type="button"
-            class="swim-date-time__ampm ${this._dialogAmPm === "AM" ? "selected" : ""}"
-            ?disabled="${e}"
-            @click="${() => this._onAmPmChange("AM")}"
-          >
-            AM
-          </button>
-          <button
-            type="button"
-            class="swim-date-time__ampm ${this._dialogAmPm === "PM" ? "selected" : ""}"
-            ?disabled="${e}"
-            @click="${() => this._onAmPmChange("PM")}"
-          >
-            PM
-          </button>
-        </div>
-      </div>
-    `;
-  }
-  // ---------------------------------------------------------------------------
-  // Dialog helpers
-  // ---------------------------------------------------------------------------
-  get _calendarMinView() {
-    return this.precision === "month" ? "month" : this.precision === "year" ? "year" : "date";
-  }
-  _getDialogHeaderText() {
-    if (!this._dialogModel)
-      return "No value";
-    const e = this._effectiveInputType, t = Zt(this.timezone);
-    if (e === D.time)
-      return ot(this._dialogModel, "h:mm A", t);
-    if (e === D.datetime) {
-      const i = ot(this._dialogModel, "ddd, MMM D YYYY", t), o = ot(this._dialogModel, "h:mm A", t);
-      return c`${i}<small>${o}</small>`;
-    }
-    return ot(this._dialogModel, "ddd, MMM D YYYY", t);
-  }
-  _setDialogDate(e) {
-    this._dialogModel = new Date(e);
-    const t = this._dialogModel.getHours();
-    this._dialogHour = t % 12 || 12, this._dialogMinute = String(this._dialogModel.getMinutes()).padStart(2, "0"), this._dialogSecond = String(this._dialogModel.getSeconds()).padStart(2, "0"), this._dialogMillisecond = String(this._dialogModel.getMilliseconds()).padStart(3, "0"), this._dialogAmPm = t >= 12 ? "PM" : "AM";
-  }
-  _isTimeDisabled(e) {
-    return this.precision ? this._modes.indexOf(this.precision) > this._modes.indexOf(e) : !1;
-  }
-  _isCurrent() {
-    if (!this._dialogModel) return !1;
-    const e = /* @__PURE__ */ new Date(), t = this._effectiveInputType;
-    return t === D.time ? e.getHours() === this._dialogModel.getHours() && e.getMinutes() === this._dialogModel.getMinutes() && e.getSeconds() === this._dialogModel.getSeconds() && e.getMilliseconds() === this._dialogModel.getMilliseconds() : t === D.datetime ? e.getFullYear() === this._dialogModel.getFullYear() && e.getMonth() === this._dialogModel.getMonth() && e.getDate() === this._dialogModel.getDate() && e.getHours() === this._dialogModel.getHours() && e.getMinutes() === this._dialogModel.getMinutes() && e.getSeconds() === this._dialogModel.getSeconds() && e.getMilliseconds() === this._dialogModel.getMilliseconds() : e.getFullYear() === this._dialogModel.getFullYear() && e.getMonth() === this._dialogModel.getMonth() && e.getDate() === this._dialogModel.getDate();
-  }
-  // ---------------------------------------------------------------------------
-  // Dialog actions
-  // ---------------------------------------------------------------------------
-  _openPicker() {
-    var i;
-    if (this.disabled || this._dialogOpen) return;
-    const e = this._value instanceof Date && L(this._value) ? this._value : /* @__PURE__ */ new Date();
-    this._setDialogDate(e);
-    const t = (i = this.shadowRoot) == null ? void 0 : i.querySelector(".swim-date-time__calendar-btn");
-    if (t) {
-      const o = t.getBoundingClientRect();
-      this._dialogTop = o.bottom + 4, this._dialogLeft = Math.max(0, o.right - 272);
-    }
-    this._dialogOpen = !0, this._addOverlayListeners();
-  }
-  _onAmPmChange(e) {
-    if (!this._dialogModel) return;
-    const t = new Date(this._dialogModel), i = t.getHours();
-    e === "AM" && this._dialogAmPm === "PM" ? t.setHours(i - 12) : e === "PM" && this._dialogAmPm === "AM" && t.setHours(i + 12), this._setDialogDate(t);
-  }
-  // ---------------------------------------------------------------------------
-  // Overlay management
-  // ---------------------------------------------------------------------------
-  _addOverlayListeners() {
-    setTimeout(() => {
-      document.addEventListener("keydown", this._onDocumentKeyDown);
-    }, 0);
-  }
-  _removeOverlayListeners() {
-    document.removeEventListener("keydown", this._onDocumentKeyDown);
-  }
-  // ---------------------------------------------------------------------------
-  // Input event handlers
-  // ---------------------------------------------------------------------------
-  _handleInput(e) {
-    e.stopPropagation();
-    const i = e.target.value;
-    this._displayValue = i;
-    const o = Ke(i), n = this._value;
-    if (o) {
-      const r = this.precision ? uo(o, this.precision) : o;
-      this._value = r, this._dateInvalid = !1;
-    } else i ? (this._value = i, this._dateInvalid = !0) : (this._value = null, this._dateInvalid = !1);
-    this._dateOutOfRange = !this._dateInvalid && this._value instanceof Date ? po(this._value, this.minDate, this.maxDate) : !1, this._updateFormValue(), this.dispatchEvent(new CustomEvent("input-change", { detail: this._value, bubbles: !0, composed: !0 })), this._value !== n && this.dispatchEvent(new CustomEvent("value-change", { detail: this._value, bubbles: !0, composed: !0 })), !this._dateInvalid && this._value !== n && this.dispatchEvent(new CustomEvent("change", { detail: this._value, bubbles: !0, composed: !0 }));
-  }
-  _handleFocus(e) {
-    e.stopPropagation(), this._focused = !0, this.dispatchEvent(new FocusEvent("focus", { bubbles: !0, composed: !0 }));
-  }
-  _handleBlur(e) {
-    e.stopPropagation(), this._focused = !1, this._update(), !this._dateInvalid && this._swimInput && this._swimInput.value !== this._displayValue && (this._swimInput.value = this._displayValue), this.dispatchEvent(new FocusEvent("blur", { bubbles: !0, composed: !0 }));
-  }
-  _handleKeyDown(e) {
-    e.code === "ArrowDown" ? (e.preventDefault(), this._openPicker()) : e.code === "Escape" && (this._dialogOpen && this._close(), e.stopPropagation());
-  }
-  // ---------------------------------------------------------------------------
-  // Internal helpers
-  // ---------------------------------------------------------------------------
-  _update() {
-    const e = this._value, t = e instanceof Date && L(e);
-    if (this._dateInvalid = !!e && !t, this._displayValue = e ? String(e) : "", this._dateOutOfRange = !1, !t) return;
-    const i = Zt(this.timezone);
-    this._displayValue = ot(e, this._effectiveFormat, i), this._dateOutOfRange = po(e, this.minDate, this.maxDate);
-  }
-  _validate() {
-    let e = {}, t = "";
-    this._required && !this._value ? (e = { valueMissing: !0 }, t = "A value is required.") : this._dateInvalid ? (e = { typeMismatch: !0 }, t = "Invalid date.") : this._dateOutOfRange && (e = { rangeOverflow: !0 }, t = "Date is out of the allowed range."), t ? this._internals.setValidity(e, t) : this._internals.setValidity({});
-  }
-  _updateFormValue() {
-    if (!this._internals) return;
-    const e = this._value;
-    e instanceof Date && L(e) ? this._internals.setFormValue(e.toISOString()) : this._internals.setFormValue(String(e ?? "")), this._validate();
-  }
-  // ---------------------------------------------------------------------------
-  // Form callbacks
-  // ---------------------------------------------------------------------------
-  formResetCallback() {
-    this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._internals.setFormValue(""), this._internals.setValidity({}), this.requestUpdate();
-  }
-  formDisabledCallback(e) {
-    this.disabled = e;
-  }
-};
-Ot.styles = [y, vr], Ot.formAssociated = !0;
-let v = Ot;
-x([
-  q("swim-input")
-], v.prototype, "_swimInput", 2);
-x([
-  a({ type: String })
-], v.prototype, "id", 2);
-x([
-  a({ type: String })
-], v.prototype, "name", 2);
-x([
-  a({ type: String })
-], v.prototype, "label", 2);
-x([
-  a({ type: String })
-], v.prototype, "hint", 2);
-x([
-  a({ type: String })
-], v.prototype, "placeholder", 2);
-x([
-  a({ type: String, reflect: !0 })
-], v.prototype, "size", 2);
-x([
-  a({ type: String, reflect: !0 })
-], v.prototype, "appearance", 2);
-x([
-  a({ type: Boolean, reflect: !0 })
-], v.prototype, "disabled", 1);
-x([
-  a({ type: Boolean, reflect: !0 })
-], v.prototype, "required", 1);
-x([
-  a({ type: String, attribute: "required-indicator" })
-], v.prototype, "requiredIndicator", 2);
-x([
-  a({ type: Boolean })
-], v.prototype, "autofocus", 1);
-x([
-  a({ type: Boolean, reflect: !0 })
-], v.prototype, "autosize", 1);
-x([
-  a({ type: Number, attribute: "min-width" })
-], v.prototype, "minWidth", 1);
-x([
-  a({ type: Number })
-], v.prototype, "tabindex", 2);
-x([
-  a({ type: String, attribute: "input-type" })
-], v.prototype, "inputType", 1);
-x([
-  a({ type: String })
-], v.prototype, "precision", 2);
-x([
-  a({ type: String })
-], v.prototype, "timezone", 2);
-x([
-  a({ type: String, attribute: "display-mode" })
-], v.prototype, "displayMode", 1);
-x([
-  a({ type: String })
-], v.prototype, "format", 2);
-x([
-  a({ type: Boolean, reflect: !0 })
-], v.prototype, "marginless", 1);
-x([
-  a({ attribute: "min-date" })
-], v.prototype, "minDate", 2);
-x([
-  a({ attribute: "max-date" })
-], v.prototype, "maxDate", 2);
-x([
-  a({ attribute: !1 })
-], v.prototype, "value", 1);
-x([
-  b()
-], v.prototype, "_displayValue", 2);
-x([
-  b()
-], v.prototype, "_dateInvalid", 2);
-x([
-  b()
-], v.prototype, "_dateOutOfRange", 2);
-x([
-  b()
-], v.prototype, "_focused", 2);
-x([
-  b()
-], v.prototype, "_dialogOpen", 2);
-x([
-  b()
-], v.prototype, "_dialogModel", 2);
-x([
-  b()
-], v.prototype, "_dialogHour", 2);
-x([
-  b()
-], v.prototype, "_dialogMinute", 2);
-x([
-  b()
-], v.prototype, "_dialogSecond", 2);
-x([
-  b()
-], v.prototype, "_dialogMillisecond", 2);
-x([
-  b()
-], v.prototype, "_dialogAmPm", 2);
-x([
-  b()
-], v.prototype, "_dialogTop", 2);
-x([
-  b()
-], v.prototype, "_dialogLeft", 2);
-customElements.get(Do) || customElements.define(Do, v);
-const kr = [
-  y,
+const vr = [
+  x,
   _t,
   f`
     :host {
@@ -7242,7 +6321,7 @@ const kr = [
     .swim-dialog__title,
     .swim-dialog__header h1,
     .swim-dialog__header h2 {
-      font-size: 1.8rem;
+      font-size: var(--font-size-3xl);
       font-weight: 400;
       margin: 0 0 1.4rem 0;
       color: var(--swim-dialog-header-color);
@@ -7313,12 +6392,12 @@ const kr = [
     }
   `
 ];
-var rt = /* @__PURE__ */ ((s) => (s.Regular = "regular", s.Medium = "medium", s.Large = "large", s))(rt || {}), Cr = Object.defineProperty, Ar = Object.getOwnPropertyDescriptor, V = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? Ar(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+var rt = /* @__PURE__ */ ((s) => (s.Regular = "regular", s.Medium = "medium", s.Large = "large", s))(rt || {}), wr = Object.defineProperty, xr = Object.getOwnPropertyDescriptor, V = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? xr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
-  return i && o && Cr(e, t, o), o;
+  return i && o && wr(e, t, o), o;
 };
-const Mo = "swim-dialog", Ei = class Ei extends _ {
+const Do = "swim-dialog", Ei = class Ei extends _ {
   constructor() {
     super(...arguments), this.dialogTitle = "", this.content = "", this.class = "", this.cssClass = "", this.format = rt.Regular, this.showBackdrop = !0, this._closeButton = !0, this._visible = !1, this._zIndex = 991, this._contentId = `swim-dialog-content-${Math.random().toString(36).slice(2, 11)}`, this._titleId = `swim-dialog-title-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null;
   }
@@ -7345,7 +6424,7 @@ const Mo = "swim-dialog", Ei = class Ei extends _ {
     return this._zIndex;
   }
   set zIndex(e) {
-    this._zIndex = z(e, 991);
+    this._zIndex = S(e, 991);
   }
   get _contentzIndex() {
     return this.zIndex + 1;
@@ -7426,7 +6505,7 @@ const Mo = "swim-dialog", Ei = class Ei extends _ {
     `;
   }
 };
-Ei.styles = kr;
+Ei.styles = vr;
 let $ = Ei;
 V([
   a({ type: String, attribute: "dialog-title" })
@@ -7478,9 +6557,903 @@ V([
 V([
   q(".swim-dialog__content")
 ], $.prototype, "_contentEl", 2);
-customElements.get(Mo) || customElements.define(Mo, $);
+customElements.get(Do) || customElements.define(Do, $);
+const yr = f`
+  :host {
+    position: relative;
+    display: block;
+    max-width: 100%;
+  }
+
+  :host([autosize]) {
+    display: inline-block;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Container                                                          */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__container {
+    position: relative;
+  }
+
+  /* Ensure the inner swim-input leaves space for the calendar button */
+  .swim-date-time__container swim-input {
+    --swim-input-padding-right: 28px;
+  }
+
+  /* Override swim-input display when host is autosize */
+  :host([autosize]) .swim-date-time__container swim-input {
+    display: inline-block;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Calendar / clock button                                            */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding: 0;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--grey-200);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    font-size: var(--font-size-m);
+    line-height: 1;
+  }
+
+  .swim-date-time__calendar-btn:hover {
+    color: var(--grey-050);
+  }
+
+  .swim-date-time__calendar-btn:disabled {
+    color: var(--grey-400);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .swim-date-time__calendar-btn:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-2);
+  }
+
+  /* No-label adjustment (button at top instead of center) */
+  :host(:not([has-label])) .swim-date-time__calendar-btn {
+    top: 0.5rem;
+    transform: translateY(0);
+  }
+
+  /* Fill appearance */
+  :host([appearance='fill']) .swim-date-time__calendar-btn {
+    right: 10px;
+  }
+
+  /* Autosize: tweak vertical alignment */
+  :host([autosize]) .swim-date-time__calendar-btn {
+    transform: translateY(-25%);
+  }
+
+  :host([autosize][appearance='fill']) .swim-date-time__calendar-btn {
+    transform: translateY(-15%);
+  }
+
+  :host([autosize][marginless]) .swim-date-time__calendar-btn {
+    transform: translateY(-35%);
+  }
+
+  :host([autosize]:not([has-label])) .swim-date-time__calendar-btn {
+    transform: translateY(0);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Invalid / out-of-range state                                       */
+  /* ------------------------------------------------------------------ */
+
+  :host([date-invalid]) swim-input,
+  :host([date-out-of-range]) swim-input {
+    --swim-input-underline-color: var(--red-500);
+    --swim-input-label-color: var(--red-500);
+    --swim-input-hint-color: var(--red-500);
+    --swim-input-caret-color: var(--red-500);
+  }
+
+  /* Force invalid styling on the inner input via attribute forwarding */
+  :host([date-invalid]) swim-input,
+  :host([date-out-of-range]) swim-input {
+    color: inherit;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Dialog: override swim-dialog content padding                        */
+  /* ------------------------------------------------------------------ */
+
+  swim-dialog::part(content) {
+    padding: 0 !important;
+    width: auto;
+    min-width: auto;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .swim-date-time__dialog {
+    padding: 0;
+    width: auto;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Selected header                                                     */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__dialog-header {
+    border-top: 1px solid var(--grey-700);
+    border-left: 1px solid var(--grey-700);
+    border-right: 1px solid var(--grey-700);
+    border-top-left-radius: var(--radius-6);
+    border-top-right-radius: var(--radius-6);
+    padding: 4px 20px;
+    background: var(--grey-800);
+    color: var(--grey-100);
+    text-align: center;
+  }
+
+  .swim-date-time__dialog-header h1 {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    margin: 0.5rem 0;
+    font-weight: normal;
+  }
+
+  .swim-date-time__dialog-header h1 small {
+    color: var(--grey-100);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Calendar inside dialog                                              */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__dialog swim-calendar {
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    border-left: 1px solid var(--grey-700);
+    border-right: 1px solid var(--grey-700);
+    border-bottom: 1px solid var(--grey-700);
+    display: block;
+    width: auto;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Time row                                                            */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__time-row {
+    background: var(--grey-800);
+    border-left: 1px solid var(--grey-700);
+    border-right: 1px solid var(--grey-700);
+    border-bottom: 1px solid var(--grey-700);
+    padding: 8px 16px;
+    margin-top: 0;
+    height: 94px;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch center;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .swim-date-time__time-row > * {
+    flex: 0 0 calc(15% - 6px);
+  }
+
+  .swim-date-time__time-input {
+    width: 42px;
+    padding: 4px 2px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--grey-400);
+    color: var(--grey-050);
+    font-size: var(--font-size-m);
+    font-family: inherit;
+    outline: none;
+  }
+
+  .swim-date-time__time-input:focus {
+    border-bottom-color: var(--blue-400);
+  }
+
+  .swim-date-time__time-input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .swim-date-time__time-input--ms {
+    width: 55px;
+  }
+
+  .swim-date-time__time-hint {
+    font-size: var(--font-size-xxs);
+    color: var(--grey-400);
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .swim-date-time__time-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .swim-date-time__ampm-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .swim-date-time__ampm {
+    background: none;
+    border: none;
+    color: var(--grey-500);
+    cursor: pointer;
+    padding: 2px 6px;
+    font-size: var(--font-size-s);
+    font-family: inherit;
+    border-radius: var(--radius-2);
+  }
+
+  .swim-date-time__ampm:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .swim-date-time__ampm.selected {
+    color: var(--white);
+    background-color: rgba(var(--grey-350-rgb), 0.2);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Dialog footer (Current / Clear / Apply)                            */
+  /* ------------------------------------------------------------------ */
+
+  .swim-date-time__dialog-footer {
+    background: var(--grey-800);
+    border: 1px solid var(--grey-700);
+    border-bottom-left-radius: var(--radius-6);
+    border-bottom-right-radius: var(--radius-6);
+    border-top: 0;
+    padding: 0.5rem 0;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+
+  .swim-date-time__dialog-footer > * {
+    flex: 1 1 50%;
+  }
+
+  .swim-date-time__dialog-footer .text-left {
+    text-align: left;
+  }
+
+  .swim-date-time__dialog-footer .text-right {
+    text-align: right;
+  }
+
+  .swim-date-time__footer-btn {
+    font-size: var(--font-size-m);
+    color: var(--grey-400);
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .swim-date-time__footer-btn:hover {
+    color: var(--grey-200);
+  }
+
+  .swim-date-time__footer-btn--current {
+    margin-left: 16px;
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+
+  .swim-date-time__footer-btn--current[hidden] {
+    display: inline-block !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .swim-date-time__footer-btn--apply {
+    margin-right: 16px;
+    color: var(--blue-400);
+  }
+
+  .swim-date-time__footer-btn--apply:hover {
+    color: var(--blue-300);
+  }
+
+  .swim-date-time__footer-btn--clear {
+    margin-right: 16px;
+  }
+`;
+var kr = Object.defineProperty, Cr = Object.getOwnPropertyDescriptor, y = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? Cr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+    (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
+  return i && o && kr(e, t, o), o;
+};
+let Ar = 0;
+const Mo = "swim-date-time", Ot = class Ot extends _ {
+  // ---------------------------------------------------------------------------
+  // Lifecycle
+  // ---------------------------------------------------------------------------
+  constructor() {
+    super(), this.id = `swim-date-time-${++Ar}`, this.name = "", this.label = "", this.hint = "", this.placeholder = "", this.size = "sm", this.appearance = "legacy", this._disabled = !1, this._required = !1, this.requiredIndicator = "*", this._autofocus = !1, this._autosize = !1, this._minWidth = 60, this._marginless = !1, this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._focused = !1, this._dialogOpen = !1, this._dialogModel = null, this._dialogHour = 12, this._dialogMinute = "00", this._dialogSecond = "00", this._dialogMillisecond = "000", this._dialogAmPm = "AM", this._modes = ["millisecond", "second", "minute", "hour", "date", "month", "year"], this._apply = () => {
+      this._dialogModel && (this.value = this._dialogModel, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: this.value, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: this.value, bubbles: !0, composed: !0 }))), this._close();
+    }, this._clear = () => {
+      this.value = void 0, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: void 0, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: void 0, bubbles: !0, composed: !0 })), this._close();
+    }, this._selectCurrent = () => {
+      this._setDialogDate(/* @__PURE__ */ new Date());
+    }, this._close = () => {
+      this._dialogOpen = !1, this._update();
+    }, this._onCalendarChange = (e) => {
+      e.stopPropagation();
+      const t = e.detail;
+      t && B(t) && (this._dialogModel && this._showTime && t.setHours(
+        this._dialogModel.getHours(),
+        this._dialogModel.getMinutes(),
+        this._dialogModel.getSeconds(),
+        this._dialogModel.getMilliseconds()
+      ), this._setDialogDate(t));
+    }, this._onHourChange = (e) => {
+      const t = +e.target.value % 12, i = this._dialogAmPm === "PM" ? 12 + t : t;
+      if (this._dialogModel) {
+        const o = new Date(this._dialogModel);
+        o.setHours(i), this._setDialogDate(o);
+      }
+    }, this._onMinuteChange = (e) => {
+      const t = +e.target.value;
+      if (this._dialogModel) {
+        const i = new Date(this._dialogModel);
+        i.setMinutes(t), this._setDialogDate(i);
+      }
+    }, this._onSecondChange = (e) => {
+      const t = +e.target.value;
+      if (this._dialogModel) {
+        const i = new Date(this._dialogModel);
+        i.setSeconds(t), this._setDialogDate(i);
+      }
+    }, this._onMillisecondChange = (e) => {
+      const t = +e.target.value;
+      if (this._dialogModel) {
+        const i = new Date(this._dialogModel);
+        i.setMilliseconds(t), this._setDialogDate(i);
+      }
+    }, this._onDialogKeyDown = (e) => {
+      e.code === "Escape" && (this._close(), e.stopPropagation(), e.preventDefault());
+    }, this._internals = this.attachInternals();
+  }
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(e) {
+    const t = this._disabled;
+    this._disabled = p(e), this.requestUpdate("disabled", t);
+  }
+  get required() {
+    return this._required;
+  }
+  set required(e) {
+    const t = this._required;
+    this._required = p(e), this.requestUpdate("required", t);
+  }
+  get autofocus() {
+    return this._autofocus;
+  }
+  set autofocus(e) {
+    this._autofocus = p(e);
+  }
+  get autosize() {
+    return this._autosize;
+  }
+  set autosize(e) {
+    const t = this._autosize;
+    this._autosize = p(e), this.requestUpdate("autosize", t);
+  }
+  get minWidth() {
+    return this._minWidth;
+  }
+  set minWidth(e) {
+    this._minWidth = S(e) ?? 60;
+  }
+  set inputType(e) {
+    const t = this._inputType;
+    this._inputType = e, this.requestUpdate("inputType", t);
+  }
+  get inputType() {
+    return this._effectiveInputType;
+  }
+  set displayMode(e) {
+    const t = this._displayMode;
+    this._displayMode = e, this.requestUpdate("displayMode", t);
+  }
+  get displayMode() {
+    return this._effectiveDisplayMode;
+  }
+  get marginless() {
+    return this._marginless;
+  }
+  set marginless(e) {
+    const t = this._marginless;
+    this._marginless = p(e), this.requestUpdate("marginless", t);
+  }
+  get value() {
+    return this._value;
+  }
+  set value(e) {
+    const t = this._value;
+    if (typeof e == "string" && (e = e.trim(), e || (e = null)), !e && !this._value) {
+      this._value = null;
+      return;
+    }
+    if (e === this._value) return;
+    let i = e instanceof Date && B(e);
+    if (typeof e == "string") {
+      const o = Je(e);
+      o && (e = o, i = !0);
+    }
+    if (i && e instanceof Date && this.precision && (e = uo(e, this.precision)), this._value = e, this._update(), this._internals) {
+      const o = this._value instanceof Date ? this._value.toISOString() : String(this._value ?? "");
+      this._internals.setFormValue(o);
+    }
+    this.requestUpdate("value", t);
+  }
+  // ---------------------------------------------------------------------------
+  // Computed helpers
+  // ---------------------------------------------------------------------------
+  get _effectiveInputType() {
+    return this._inputType ? this._inputType : this.precision === "hour" || this.precision === "minute" ? D.datetime : D.date;
+  }
+  get _effectiveDisplayMode() {
+    return this._displayMode ? this._displayMode : this.timezone ? oe.TIMEZONE : oe.LOCAL;
+  }
+  get _effectiveFormat() {
+    return this.format ? Pn(this.format) : $n(
+      this._effectiveDisplayMode,
+      this._effectiveInputType,
+      this.precision
+    );
+  }
+  get _iconName() {
+    switch (this._effectiveInputType) {
+      case D.time:
+        return "clock";
+      case D.datetime:
+        return "calendar-clock";
+      default:
+        return "calendar";
+    }
+  }
+  get _showCalendar() {
+    return this._effectiveInputType === D.date || this._effectiveInputType === D.datetime;
+  }
+  get _showTime() {
+    return this._effectiveInputType === D.time || this._effectiveInputType === D.datetime;
+  }
+  connectedCallback() {
+    super.connectedCallback(), this._update();
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
+  firstUpdated() {
+    this.autofocus && this._swimInput && requestAnimationFrame(() => {
+      var e, t;
+      (t = (e = this._swimInput) == null ? void 0 : e.focus) == null || t.call(e);
+    });
+  }
+  updated(e) {
+    super.updated(e), this.label ? this.setAttribute("has-label", "") : this.removeAttribute("has-label"), this._dateInvalid ? this.setAttribute("date-invalid", "") : this.removeAttribute("date-invalid"), this._dateOutOfRange ? this.setAttribute("date-out-of-range", "") : this.removeAttribute("date-out-of-range"), this._focused ? this.setAttribute("focused", "") : this.removeAttribute("focused"), (e.has("format") || e.has("precision") || e.has("timezone") || e.has("displayMode") || e.has("inputType")) && this._update(), (e.has("required") || e.has("minDate") || e.has("maxDate")) && this._validate();
+  }
+  /** Delegate focus to the inner input. */
+  focus(e) {
+    var t, i;
+    (i = (t = this._swimInput) == null ? void 0 : t.focus) == null || i.call(t, e);
+  }
+  // ---------------------------------------------------------------------------
+  // Render
+  // ---------------------------------------------------------------------------
+  render() {
+    return c`
+      <div class="swim-date-time__container">
+        <swim-input
+          part="input"
+          .id="${this.id + "-input"}"
+          .name="${this.name}"
+          .label="${this.label}"
+          .hint="${this.hint}"
+          .placeholder="${this.placeholder}"
+          .size="${this.size}"
+          .appearance="${this.appearance}"
+          .disabled="${this.disabled}"
+          .required="${this.required}"
+          .requiredIndicator="${String(this.requiredIndicator)}"
+          .value="${this._displayValue}"
+          ?marginless="${this.marginless}"
+          tabindex="${me(this.tabindex)}"
+          autocomplete="off"
+          @input="${this._handleInput}"
+          @focus="${this._handleFocus}"
+          @blur="${this._handleBlur}"
+          @keydown="${this._handleKeyDown}"
+        ></swim-input>
+
+        <button
+          part="calendar-btn"
+          class="swim-date-time__calendar-btn"
+          type="button"
+          ?disabled="${this.disabled}"
+          @click="${this._openPicker}"
+          title="Show date/time selector"
+          aria-label="Open ${this._effectiveInputType} picker"
+        >
+          <swim-icon font-icon="${this._iconName}"></swim-icon>
+        </button>
+      </div>
+
+      ${this._renderDialog()}
+    `;
+  }
+  _renderDialog() {
+    const e = this._getDialogHeaderText();
+    return c`
+      <swim-dialog
+        css-class="ngx-date-time-dialog"
+        .closeButton="${!1}"
+        .visible="${this._dialogOpen}"
+        @close="${this._close}"
+      >
+        <div class="swim-date-time__dialog" @keydown="${this._onDialogKeyDown}">
+          <div class="swim-date-time__dialog-header">
+            <h1>${e}</h1>
+          </div>
+
+          ${this._showCalendar ? c`
+                <swim-calendar
+                  .value="${this._dialogModel}"
+                  .minDate="${this.minDate}"
+                  .maxDate="${this.maxDate}"
+                  .disabled="${this.disabled}"
+                  min-view="${this._calendarMinView}"
+                  @change="${this._onCalendarChange}"
+                  @day-key-enter="${this._apply}"
+                ></swim-calendar>
+              ` : u}
+          ${this._showTime ? this._renderTimeRow() : u}
+
+          <nav role="navigation" class="swim-date-time__dialog-footer">
+            <div class="text-left">
+              <button
+                type="button"
+                class="swim-date-time__footer-btn swim-date-time__footer-btn--current"
+                ?hidden="${this._isCurrent()}"
+                @click="${this._selectCurrent}"
+              >
+                Current
+              </button>
+            </div>
+            <div class="text-right">
+              <button
+                type="button"
+                class="swim-date-time__footer-btn swim-date-time__footer-btn--clear"
+                @click="${this._clear}"
+              >
+                Clear
+              </button>
+              <button
+                type="button"
+                class="swim-date-time__footer-btn swim-date-time__footer-btn--apply"
+                @click="${this._apply}"
+              >
+                Apply
+              </button>
+            </div>
+          </nav>
+        </div>
+      </swim-dialog>
+    `;
+  }
+  _renderTimeRow() {
+    const e = this._isTimeDisabled("hour"), t = this._isTimeDisabled("minute"), i = this._isTimeDisabled("second"), o = this._isTimeDisabled("millisecond");
+    return c`
+      <div class="swim-date-time__time-row">
+        <div class="swim-date-time__time-field">
+          <input
+            type="number"
+            class="swim-date-time__time-input"
+            .value="${String(this._dialogHour)}"
+            min="1"
+            max="12"
+            ?disabled="${e}"
+            @change="${this._onHourChange}"
+          />
+          <div class="swim-date-time__time-hint">Hour</div>
+        </div>
+        <div class="swim-date-time__time-field">
+          <input
+            type="number"
+            class="swim-date-time__time-input"
+            .value="${this._dialogMinute}"
+            min="0"
+            max="59"
+            ?disabled="${t}"
+            @change="${this._onMinuteChange}"
+          />
+          <div class="swim-date-time__time-hint">Minute</div>
+        </div>
+        <div class="swim-date-time__time-field">
+          <input
+            type="number"
+            class="swim-date-time__time-input"
+            .value="${this._dialogSecond}"
+            min="0"
+            max="59"
+            ?disabled="${i}"
+            @change="${this._onSecondChange}"
+          />
+          <div class="swim-date-time__time-hint">Second</div>
+        </div>
+        <div class="swim-date-time__time-field">
+          <input
+            type="number"
+            class="swim-date-time__time-input swim-date-time__time-input--ms"
+            .value="${this._dialogMillisecond}"
+            min="0"
+            max="999"
+            ?disabled="${o}"
+            @change="${this._onMillisecondChange}"
+          />
+          <div class="swim-date-time__time-hint">Millisecond</div>
+        </div>
+        <div class="swim-date-time__ampm-group">
+          <button
+            type="button"
+            class="swim-date-time__ampm ${this._dialogAmPm === "AM" ? "selected" : ""}"
+            ?disabled="${e}"
+            @click="${() => this._onAmPmChange("AM")}"
+          >
+            AM
+          </button>
+          <button
+            type="button"
+            class="swim-date-time__ampm ${this._dialogAmPm === "PM" ? "selected" : ""}"
+            ?disabled="${e}"
+            @click="${() => this._onAmPmChange("PM")}"
+          >
+            PM
+          </button>
+        </div>
+      </div>
+    `;
+  }
+  // ---------------------------------------------------------------------------
+  // Dialog helpers
+  // ---------------------------------------------------------------------------
+  get _calendarMinView() {
+    return this.precision === "month" ? "month" : this.precision === "year" ? "year" : "date";
+  }
+  _getDialogHeaderText() {
+    if (!this._dialogModel)
+      return "No value";
+    const e = this._effectiveInputType, t = Zt(this.timezone);
+    if (e === D.time)
+      return ot(this._dialogModel, "h:mm a", t);
+    if (e === D.datetime) {
+      const i = ot(this._dialogModel, "ddd, MMM D YYYY", t), o = ot(this._dialogModel, "h:mm a", t);
+      return c`${i} <small>${o}</small>`;
+    }
+    return ot(this._dialogModel, "ddd, MMM D YYYY", t);
+  }
+  _setDialogDate(e) {
+    this._dialogModel = new Date(e);
+    const t = this._dialogModel.getHours();
+    this._dialogHour = t % 12 || 12, this._dialogMinute = String(this._dialogModel.getMinutes()).padStart(2, "0"), this._dialogSecond = String(this._dialogModel.getSeconds()).padStart(2, "0"), this._dialogMillisecond = String(this._dialogModel.getMilliseconds()).padStart(3, "0"), this._dialogAmPm = t >= 12 ? "PM" : "AM";
+  }
+  _isTimeDisabled(e) {
+    return this.precision ? this._modes.indexOf(this.precision) > this._modes.indexOf(e) : !1;
+  }
+  _isCurrent() {
+    if (!this._dialogModel) return !1;
+    const e = /* @__PURE__ */ new Date(), t = this._effectiveInputType;
+    return t === D.time ? e.getHours() === this._dialogModel.getHours() && e.getMinutes() === this._dialogModel.getMinutes() && e.getSeconds() === this._dialogModel.getSeconds() && e.getMilliseconds() === this._dialogModel.getMilliseconds() : t === D.datetime ? e.getFullYear() === this._dialogModel.getFullYear() && e.getMonth() === this._dialogModel.getMonth() && e.getDate() === this._dialogModel.getDate() && e.getHours() === this._dialogModel.getHours() && e.getMinutes() === this._dialogModel.getMinutes() && e.getSeconds() === this._dialogModel.getSeconds() && e.getMilliseconds() === this._dialogModel.getMilliseconds() : e.getFullYear() === this._dialogModel.getFullYear() && e.getMonth() === this._dialogModel.getMonth() && e.getDate() === this._dialogModel.getDate();
+  }
+  // ---------------------------------------------------------------------------
+  // Dialog actions
+  // ---------------------------------------------------------------------------
+  _openPicker() {
+    if (this.disabled || this._dialogOpen) return;
+    const e = this._value instanceof Date && B(this._value) ? this._value : /* @__PURE__ */ new Date();
+    this._setDialogDate(e), this._dialogOpen = !0;
+  }
+  _onAmPmChange(e) {
+    if (!this._dialogModel) return;
+    const t = new Date(this._dialogModel), i = t.getHours();
+    e === "AM" && this._dialogAmPm === "PM" ? t.setHours(i - 12) : e === "PM" && this._dialogAmPm === "AM" && t.setHours(i + 12), this._setDialogDate(t);
+  }
+  // ---------------------------------------------------------------------------
+  // Input event handlers
+  // ---------------------------------------------------------------------------
+  _handleInput(e) {
+    e.stopPropagation();
+    const i = e.target.value;
+    this._displayValue = i;
+    const o = Je(i), n = this._value;
+    if (o) {
+      const r = this.precision ? uo(o, this.precision) : o;
+      this._value = r, this._dateInvalid = !1;
+    } else i ? (this._value = i, this._dateInvalid = !0) : (this._value = null, this._dateInvalid = !1);
+    this._dateOutOfRange = !this._dateInvalid && this._value instanceof Date ? po(this._value, this.minDate, this.maxDate) : !1, this._updateFormValue(), this.dispatchEvent(new CustomEvent("input-change", { detail: this._value, bubbles: !0, composed: !0 })), this._value !== n && this.dispatchEvent(new CustomEvent("value-change", { detail: this._value, bubbles: !0, composed: !0 })), !this._dateInvalid && this._value !== n && this.dispatchEvent(new CustomEvent("change", { detail: this._value, bubbles: !0, composed: !0 }));
+  }
+  _handleFocus(e) {
+    e.stopPropagation(), this._focused = !0, this.dispatchEvent(new FocusEvent("focus", { bubbles: !0, composed: !0 }));
+  }
+  _handleBlur(e) {
+    e.stopPropagation(), this._focused = !1, this._update(), !this._dateInvalid && this._swimInput && this._swimInput.value !== this._displayValue && (this._swimInput.value = this._displayValue), this.dispatchEvent(new FocusEvent("blur", { bubbles: !0, composed: !0 }));
+  }
+  _handleKeyDown(e) {
+    e.code === "ArrowDown" ? (e.preventDefault(), this._openPicker()) : e.code === "Escape" && (this._dialogOpen && this._close(), e.stopPropagation());
+  }
+  // ---------------------------------------------------------------------------
+  // Internal helpers
+  // ---------------------------------------------------------------------------
+  _update() {
+    const e = this._value, t = e instanceof Date && B(e);
+    if (this._dateInvalid = !!e && !t, this._displayValue = e ? String(e) : "", this._dateOutOfRange = !1, !t) return;
+    const i = Zt(this.timezone);
+    this._displayValue = ot(e, this._effectiveFormat, i), this._dateOutOfRange = po(e, this.minDate, this.maxDate);
+  }
+  _validate() {
+    let e = {}, t = "";
+    this._required && !this._value ? (e = { valueMissing: !0 }, t = "A value is required.") : this._dateInvalid ? (e = { typeMismatch: !0 }, t = "Invalid date.") : this._dateOutOfRange && (e = { rangeOverflow: !0 }, t = "Date is out of the allowed range."), t ? this._internals.setValidity(e, t) : this._internals.setValidity({});
+  }
+  _updateFormValue() {
+    if (!this._internals) return;
+    const e = this._value;
+    e instanceof Date && B(e) ? this._internals.setFormValue(e.toISOString()) : this._internals.setFormValue(String(e ?? "")), this._validate();
+  }
+  // ---------------------------------------------------------------------------
+  // Form callbacks
+  // ---------------------------------------------------------------------------
+  formResetCallback() {
+    this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._internals.setFormValue(""), this._internals.setValidity({}), this.requestUpdate();
+  }
+  formDisabledCallback(e) {
+    this.disabled = e;
+  }
+};
+Ot.styles = [x, yr], Ot.formAssociated = !0;
+let w = Ot;
+y([
+  q("swim-input")
+], w.prototype, "_swimInput", 2);
+y([
+  a({ type: String })
+], w.prototype, "id", 2);
+y([
+  a({ type: String })
+], w.prototype, "name", 2);
+y([
+  a({ type: String })
+], w.prototype, "label", 2);
+y([
+  a({ type: String })
+], w.prototype, "hint", 2);
+y([
+  a({ type: String })
+], w.prototype, "placeholder", 2);
+y([
+  a({ type: String, reflect: !0 })
+], w.prototype, "size", 2);
+y([
+  a({ type: String, reflect: !0 })
+], w.prototype, "appearance", 2);
+y([
+  a({ type: Boolean, reflect: !0 })
+], w.prototype, "disabled", 1);
+y([
+  a({ type: Boolean, reflect: !0 })
+], w.prototype, "required", 1);
+y([
+  a({ type: String, attribute: "required-indicator" })
+], w.prototype, "requiredIndicator", 2);
+y([
+  a({ type: Boolean })
+], w.prototype, "autofocus", 1);
+y([
+  a({ type: Boolean, reflect: !0 })
+], w.prototype, "autosize", 1);
+y([
+  a({ type: Number, attribute: "min-width" })
+], w.prototype, "minWidth", 1);
+y([
+  a({ type: Number })
+], w.prototype, "tabindex", 2);
+y([
+  a({ type: String, attribute: "input-type" })
+], w.prototype, "inputType", 1);
+y([
+  a({ type: String })
+], w.prototype, "precision", 2);
+y([
+  a({ type: String })
+], w.prototype, "timezone", 2);
+y([
+  a({ type: String, attribute: "display-mode" })
+], w.prototype, "displayMode", 1);
+y([
+  a({ type: String })
+], w.prototype, "format", 2);
+y([
+  a({ type: Boolean, reflect: !0 })
+], w.prototype, "marginless", 1);
+y([
+  a({ attribute: "min-date" })
+], w.prototype, "minDate", 2);
+y([
+  a({ attribute: "max-date" })
+], w.prototype, "maxDate", 2);
+y([
+  a({ attribute: !1 })
+], w.prototype, "value", 1);
+y([
+  b()
+], w.prototype, "_displayValue", 2);
+y([
+  b()
+], w.prototype, "_dateInvalid", 2);
+y([
+  b()
+], w.prototype, "_dateOutOfRange", 2);
+y([
+  b()
+], w.prototype, "_focused", 2);
+y([
+  b()
+], w.prototype, "_dialogOpen", 2);
+y([
+  b()
+], w.prototype, "_dialogModel", 2);
+y([
+  b()
+], w.prototype, "_dialogHour", 2);
+y([
+  b()
+], w.prototype, "_dialogMinute", 2);
+y([
+  b()
+], w.prototype, "_dialogSecond", 2);
+y([
+  b()
+], w.prototype, "_dialogMillisecond", 2);
+y([
+  b()
+], w.prototype, "_dialogAmPm", 2);
+customElements.get(Mo) || customElements.define(Mo, w);
 const Er = [
-  y,
+  x,
   f`
     :host {
       display: block;
@@ -7586,7 +7559,7 @@ const Er = [
       background: none;
       border: none;
       color: var(--grey-400);
-      font-size: 0.8125rem;
+      font-size: var(--font-size-s);
       line-height: 1;
       padding: 0.25rem 0;
       cursor: pointer;
@@ -7635,12 +7608,12 @@ const Er = [
     }
   `
 ];
-var Sr = Object.defineProperty, Ze = (s, e, t, i) => {
+var zr = Object.defineProperty, Ze = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = r(e, t, o) || o);
-  return o && Sr(e, t, o), o;
+  return o && zr(e, t, o), o;
 };
-const To = "swim-large-format-dialog-content", Si = class Si extends _ {
+const To = "swim-large-format-dialog-content", zi = class zi extends _ {
   constructor() {
     super(...arguments), this.format = "large", this.dialogTitle = "", this.dialogSubtitle = "", this.dialogActionTitle = "Close", this.dialogDirtyActionTitle = "Cancel", this.dirty = !1;
   }
@@ -7681,8 +7654,8 @@ const To = "swim-large-format-dialog-content", Si = class Si extends _ {
     `;
   }
 };
-Si.styles = [_t, Er];
-let xe = Si;
+zi.styles = [_t, Er];
+let xe = zi;
 Ze([
   a({ type: String, reflect: !0 })
 ], xe.prototype, "format");
@@ -7702,8 +7675,8 @@ Ze([
   a({ type: Boolean, reflect: !0 })
 ], xe.prototype, "dirty");
 customElements.get(To) || customElements.define(To, xe);
-const zr = [
-  y,
+const Sr = [
+  x,
   f`
     :host {
       --swim-format-footer-gap: 0.5rem;
@@ -7724,7 +7697,7 @@ var Ir = Object.defineProperty, Dr = (s, e, t, i) => {
     (r = s[n]) && (o = r(e, t, o) || o);
   return o && Ir(e, t, o), o;
 };
-const Oo = "swim-large-format-dialog-footer", zi = class zi extends _ {
+const Oo = "swim-large-format-dialog-footer", Si = class Si extends _ {
   constructor() {
     super(...arguments), this.format = "large";
   }
@@ -7732,14 +7705,14 @@ const Oo = "swim-large-format-dialog-footer", zi = class zi extends _ {
     return c` <div class="format-dialog-footer"><slot></slot></div> `;
   }
 };
-zi.styles = zr;
-let zt = zi;
+Si.styles = Sr;
+let St = Si;
 Dr([
   a({ type: String, reflect: !0 })
-], zt.prototype, "format");
-customElements.get(Oo) || customElements.define(Oo, zt);
+], St.prototype, "format");
+customElements.get(Oo) || customElements.define(Oo, St);
 const Mr = [
-  y,
+  x,
   _t,
   f`
     :host {
@@ -7887,13 +7860,13 @@ const Po = "swim-drawer", Ii = class Ii extends _ {
     return this._size;
   }
   set size(e) {
-    this._size = z(e, 80);
+    this._size = S(e, 80);
   }
   get zIndex() {
     return this._zIndex;
   }
   set zIndex(e) {
-    this._zIndex = z(e, 998);
+    this._zIndex = S(e, 998);
   }
   get closeOnOutsideClick() {
     return this._closeOnOutsideClick;
@@ -7998,42 +7971,42 @@ const Po = "swim-drawer", Ii = class Ii extends _ {
   }
 };
 Ii.styles = Mr;
-let K = Ii;
+let J = Ii;
 pe([
   a({ type: String, attribute: "css-class" })
-], K.prototype, "cssClass", 2);
+], J.prototype, "cssClass", 2);
 pe([
   a({ type: String, reflect: !0 })
-], K.prototype, "direction", 2);
+], J.prototype, "direction", 2);
 pe([
   a({ type: Number })
-], K.prototype, "size", 1);
+], J.prototype, "size", 1);
 pe([
   a({ type: Number })
-], K.prototype, "zIndex", 1);
+], J.prototype, "zIndex", 1);
 pe([
   a({
     type: Boolean,
     attribute: "close-on-outside-click",
     reflect: !0
   })
-], K.prototype, "closeOnOutsideClick", 1);
+], J.prototype, "closeOnOutsideClick", 1);
 pe([
   a({ type: Boolean, attribute: "is-root", reflect: !0 })
-], K.prototype, "isRoot", 1);
+], J.prototype, "isRoot", 1);
 pe([
   a({ type: Boolean, reflect: !0 })
-], K.prototype, "open", 1);
+], J.prototype, "open", 1);
 pe([
   b()
-], K.prototype, "_closing", 2);
+], J.prototype, "_closing", 2);
 pe([
   b()
-], K.prototype, "_contentId", 2);
+], J.prototype, "_contentId", 2);
 pe([
   q(".swim-drawer__content")
-], K.prototype, "_contentEl", 2);
-customElements.get(Po) || customElements.define(Po, K);
+], J.prototype, "_contentEl", 2);
+customElements.get(Po) || customElements.define(Po, J);
 var Pr = /* @__PURE__ */ ((s) => (s.Fixed = "fixed", s.Absolute = "absolute", s))(Pr || {});
 function bl(s) {
   const {
@@ -8141,7 +8114,7 @@ const $r = f`
   .swim-section__header-content ::slotted(h4) {
     margin: 0;
     padding: 0;
-    font-size: 1rem;
+    font-size: var(--font-size-m);
     font-weight: 400;
     line-height: 1.25;
   }
@@ -8181,7 +8154,7 @@ const $r = f`
   }
 
   .swim-section__toggle-icon {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     line-height: 1;
     display: flex;
     align-items: center;
@@ -8190,7 +8163,7 @@ const $r = f`
 
   .swim-section__toggle swim-icon {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
   }
 
   .swim-section__header a {
@@ -8208,7 +8181,7 @@ const $r = f`
   }
 
   .swim-section__header-title {
-    font-size: 1rem;
+    font-size: var(--font-size-m);
     font-weight: 400;
     line-height: 1.25;
     padding: var(--spacing-0);
@@ -8308,11 +8281,11 @@ const $r = f`
     background: var(--grey-775);
     border-radius: var(--radius-0) var(--radius-0) var(--radius-8) var(--radius-8);
   }
-`, Fr = [y, $r];
-var xs = /* @__PURE__ */ ((s) => (s.Legacy = "legacy", s.Outline = "outline", s.Light = "light", s.Minimal = "minimal", s))(xs || {}), xt = /* @__PURE__ */ ((s) => (s.Left = "left", s.Right = "right", s.None = "none", s))(xt || {}), Lr = Object.defineProperty, Br = Object.getOwnPropertyDescriptor, ge = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? Br(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+`, Fr = [x, $r];
+var xs = /* @__PURE__ */ ((s) => (s.Legacy = "legacy", s.Outline = "outline", s.Light = "light", s.Minimal = "minimal", s))(xs || {}), xt = /* @__PURE__ */ ((s) => (s.Left = "left", s.Right = "right", s.None = "none", s))(xt || {}), Br = Object.defineProperty, Lr = Object.getOwnPropertyDescriptor, ge = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? Lr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
-  return i && o && Lr(e, t, o), o;
+  return i && o && Br(e, t, o), o;
 };
 const qr = {
   fromAttribute: (s) => s !== "false" && s !== "",
@@ -8459,62 +8432,62 @@ const Fo = "swim-section", Di = class Di extends _ {
   }
 };
 Di.styles = Fr;
-let J = Di;
+let K = Di;
 ge([
   a({ type: String, reflect: !0 })
-], J.prototype, "id", 1);
+], K.prototype, "id", 1);
 ge([
   a({
     reflect: !0,
     attribute: "section-collapsed",
     converter: ys
   })
-], J.prototype, "sectionCollapsed", 1);
+], K.prototype, "sectionCollapsed", 1);
 ge([
   a({
     reflect: !0,
     attribute: "section-collapsible",
     converter: qr
   })
-], J.prototype, "sectionCollapsible", 1);
+], K.prototype, "sectionCollapsible", 1);
 ge([
   a({
     reflect: !0,
     attribute: "header-toggle",
     converter: ys
   })
-], J.prototype, "headerToggle", 1);
+], K.prototype, "headerToggle", 1);
 ge([
   a({ type: String, reflect: !0, attribute: "section-title" })
-], J.prototype, "sectionTitle", 2);
+], K.prototype, "sectionTitle", 2);
 ge([
   a({ type: String })
-], J.prototype, "padding", 2);
+], K.prototype, "padding", 2);
 ge([
   a({ type: String, reflect: !0 })
-], J.prototype, "appearance", 2);
+], K.prototype, "appearance", 2);
 ge([
   a({ type: String, reflect: !0, attribute: "toggle-position" })
-], J.prototype, "togglePosition", 2);
+], K.prototype, "togglePosition", 2);
 ge([
   b()
-], J.prototype, "_hasHeaderSlot", 2);
+], K.prototype, "_hasHeaderSlot", 2);
 ge([
   q('slot[name="header"]')
-], J.prototype, "_headerSlot", 2);
-customElements.get(Fo) || customElements.define(Fo, J);
+], K.prototype, "_headerSlot", 2);
+customElements.get(Fo) || customElements.define(Fo, K);
 const Hr = f`
   :host {
     display: contents;
   }
-`, Lo = "swim-section-header", Mi = class Mi extends _ {
+`, Bo = "swim-section-header", Mi = class Mi extends _ {
   render() {
     return c`<slot></slot>`;
   }
 };
 Mi.styles = Hr;
 let ei = Mi;
-customElements.get(Lo) || customElements.define(Lo, ei);
+customElements.get(Bo) || customElements.define(Bo, ei);
 const Vr = f`
   :host {
     display: block;
@@ -8661,7 +8634,7 @@ var Yr = Object.defineProperty, Ur = Object.getOwnPropertyDescriptor, be = (s, e
   return i && o && Yr(e, t, o), o;
 };
 let Nr = 0;
-const Bo = "swim-radio", Ti = class Ti extends _ {
+const Lo = "swim-radio", Ti = class Ti extends _ {
   constructor() {
     super(...arguments), this.id = `swim-radio-${++Nr}`, this.name = "", this.radioId = "", this._tabindex = 0, this._checked = !1, this.value = "", this._disabled = !1, this.groupDisabled = !1, this.isInGroup = !1;
   }
@@ -8669,7 +8642,7 @@ const Bo = "swim-radio", Ti = class Ti extends _ {
     return this._tabindex;
   }
   set tabindex(e) {
-    this._tabindex = z(e, 0);
+    this._tabindex = S(e, 0);
   }
   get checked() {
     return this._checked;
@@ -8770,7 +8743,7 @@ const Bo = "swim-radio", Ti = class Ti extends _ {
     `;
   }
 };
-Ti.styles = [y, Vr];
+Ti.styles = [x, Vr];
 let j = Ti;
 be([
   q(".swim-radio__roving")
@@ -8802,19 +8775,19 @@ be([
 be([
   a({ type: Boolean, attribute: !1 })
 ], j.prototype, "isInGroup", 2);
-customElements.get(Bo) || customElements.define(Bo, j);
-var Gr = Object.defineProperty, Kr = Object.getOwnPropertyDescriptor, Ie = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? Kr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+customElements.get(Lo) || customElements.define(Lo, j);
+var Gr = Object.defineProperty, Jr = Object.getOwnPropertyDescriptor, Ie = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? Jr(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && Gr(e, t, o), o;
 };
-let Jr = 0;
+let Kr = 0;
 function jr(s, e) {
   return (s % e + e) % e;
 }
 const qo = "swim-radio-group", Pt = class Pt extends _ {
   constructor() {
-    super(), this.id = `swim-radio-group-${++Jr}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
+    super(), this.id = `swim-radio-group-${++Kr}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
       if (e.target !== this._slotWrapper) return;
       const t = this._radios.find((i) => i.checked);
       t ? (this._focusIndex = this._radios.indexOf(t), this._focusOn(this._focusIndex)) : this._focusFirst();
@@ -8839,13 +8812,13 @@ const qo = "swim-radio-group", Pt = class Pt extends _ {
     return this._focusIndex;
   }
   set focusIndex(e) {
-    this._focusIndex = z(e, -1), this._focusOn(this._focusIndex);
+    this._focusIndex = S(e, -1), this._focusOn(this._focusIndex);
   }
   get tabindex() {
     return this.disabled ? -1 : this._tabindex;
   }
   set tabindex(e) {
-    this._tabindex = z(e, 0);
+    this._tabindex = S(e, 0);
   }
   connectedCallback() {
     super.connectedCallback(), this.addEventListener("change", this._changeHandler), this.addEventListener("focus", this._onGroupFocus), this.addEventListener("blur", this._onGroupBlur);
@@ -8954,7 +8927,7 @@ const qo = "swim-radio-group", Pt = class Pt extends _ {
     `;
   }
 };
-Pt.styles = [y, Rr], Pt.formAssociated = !0;
+Pt.styles = [x, Rr], Pt.formAssociated = !0;
 let se = Pt;
 Ie([
   q("slot")
@@ -9009,15 +8982,15 @@ const Ho = (s, e, t) => {
     const o = br(s), { values: n, keys: r } = this.dt(e, t, i);
     if (!Array.isArray(o)) return this.ut = r, n;
     const l = this.ut ?? (this.ut = []), d = [];
-    let h, w, g = 0, m = o.length - 1, k = 0, T = n.length - 1;
+    let h, v, g = 0, m = o.length - 1, k = 0, T = n.length - 1;
     for (; g <= m && k <= T; ) if (o[g] === null) g++;
     else if (o[m] === null) m--;
     else if (l[g] === r[k]) d[k] = Me(o[g], n[k]), g++, k++;
     else if (l[m] === r[T]) d[T] = Me(o[m], n[T]), m--, T--;
     else if (l[g] === r[T]) d[T] = Me(o[g], n[T]), st(s, d[T + 1], o[g]), g++, T--;
     else if (l[m] === r[k]) d[k] = Me(o[m], n[k]), st(s, o[g], o[m]), m--, k++;
-    else if (h === void 0 && (h = Ho(r, k, T), w = Ho(l, g, m)), h.has(l[g])) if (h.has(l[m])) {
-      const te = w.get(r[k]), et = te !== void 0 ? o[te] : null;
+    else if (h === void 0 && (h = Ho(r, k, T), v = Ho(l, g, m)), h.has(l[g])) if (h.has(l[m])) {
+      const te = v.get(r[k]), et = te !== void 0 ? o[te] : null;
       if (et === null) {
         const tt = st(s, o[g]);
         Me(tt, n[k]), d[k] = tt;
@@ -9198,7 +9171,7 @@ const Ho = (s, e, t) => {
 
   :host([active]) .select-label,
   :host([has-placeholder]) .select-label {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     top: -1.4em;
   }
 
@@ -9746,7 +9719,7 @@ const Vo = "swim-select", $t = class $t extends _ {
     this.disabled = e;
   }
 };
-$t.styles = [y, _t, Qr], $t.formAssociated = !0;
+$t.styles = [x, _t, Qr], $t.formAssociated = !0;
 let E = $t;
 I([
   q(".select-input")
@@ -10023,19 +9996,19 @@ const Ro = "swim-slider", Ft = class Ft extends _ {
     return this._min;
   }
   set min(e) {
-    this._min = z(e, 0);
+    this._min = S(e, 0);
   }
   get max() {
     return this._max;
   }
   set max(e) {
-    this._max = z(e, 100);
+    this._max = S(e, 100);
   }
   get step() {
     return this._step;
   }
   set step(e) {
-    this._step = z(e, 1);
+    this._step = S(e, 1);
   }
   get filled() {
     return this._filled;
@@ -10065,13 +10038,13 @@ const Ro = "swim-slider", Ft = class Ft extends _ {
     return this._tickStep ?? this._step;
   }
   set tickStep(e) {
-    this._tickStep = e != null ? z(e, this._step) : void 0;
+    this._tickStep = e != null ? S(e, this._step) : void 0;
   }
   get value() {
     return this._values.length ? this.multiple ? [...this._values].sort((e, t) => e - t).join(",") : String(this._values[0]) : String(this._min);
   }
   set value(e) {
-    const t = e != null ? String(e) : "", o = (t ? t.split(",").map((r) => z(r.trim(), this._min)) : [this._min]).map((r) => Math.max(this._min, Math.min(this._max, r)));
+    const t = e != null ? String(e) : "", o = (t ? t.split(",").map((r) => S(r.trim(), this._min)) : [this._min]).map((r) => Math.max(this._min, Math.min(this._max, r)));
     let n;
     this.multiple ? n = o.length >= 2 ? o : o.length === 1 ? [o[0], this._max] : [this._min, this._max] : n = o.slice(0, 1), (n.length !== this._values.length || n.some((r, l) => r !== this._values[l])) && (this._values = n, this._syncFormValue());
   }
@@ -10117,7 +10090,7 @@ const Ro = "swim-slider", Ft = class Ft extends _ {
     });
   }
   _setValue(e, t) {
-    const i = z(e, this._min), o = Math.max(this._min, Math.min(this._max, i));
+    const i = S(e, this._min), o = Math.max(this._min, Math.min(this._max, i));
     if (this._values[t] !== o) {
       const n = [...this._values];
       n[t] = o, this._values = n, this._syncFormValue(), this._emitChange();
@@ -10214,7 +10187,7 @@ const Ro = "swim-slider", Ft = class Ft extends _ {
     `;
   }
 };
-Ft.styles = [y, oa], Ft.formAssociated = !0;
+Ft.styles = [x, oa], Ft.formAssociated = !0;
 let F = Ft;
 R([
   a({ type: String })
@@ -10278,7 +10251,7 @@ const aa = f`
   slot {
     display: contents;
   }
-`, la = [y, aa];
+`, la = [x, aa];
 var Ye = /* @__PURE__ */ ((s) => (s.Row = "row", s.Column = "column", s))(Ye || {});
 function je(s) {
   const e = String(s).indexOf("calc") > -1;
@@ -10292,10 +10265,10 @@ function ks(s, e, t, i, o, n) {
   return r = Math.max(r, i === "0" ? o : 0), l = Math.min(l, t === "0" ? o : 100), [r, l];
 }
 function Yo(s, e, t) {
-  const [i, o, n] = s.currentFlexParts, r = je(n), l = ne(n), d = s.initialFlexParts[2], h = je(d) ? ne(d) : ne(d) / t, w = r ? l * t : l;
-  let g = w + e, m = g / t;
+  const [i, o, n] = s.currentFlexParts, r = je(n), l = ne(n), d = s.initialFlexParts[2], h = je(d) ? ne(d) : ne(d) / t, v = r ? l * t : l;
+  let g = v + e, m = g / t;
   const [k, T] = ks(s.minBasis, s.maxBasis, i, o, h, t);
-  return m = Math.max(m, k), m = Math.min(m, T), g = m * t, s.updateBasis(r ? m + "%" : g + "px"), g - w;
+  return m = Math.max(m, k), m = Math.min(m, T), g = m * t, s.updateBasis(r ? m + "%" : g + "px"), g - v;
 }
 var ca = Object.defineProperty, Cs = (s, e, t, i) => {
   for (var o = void 0, n = s.length - 1, r; n >= 0; n--)
@@ -10368,7 +10341,7 @@ const Uo = "swim-split", Oi = class Oi extends _ {
   _onDblClick() {
     const i = (this.direction === Ye.Row ? this.clientWidth : this.clientHeight) / 100, n = this._areas[0];
     if (!n) return;
-    const [r, l, d] = n.currentFlexParts, h = je(d), w = ne(d), m = (h ? w * i : w) / i, k = n.initialFlexParts[2], T = je(k) ? ne(k) : ne(k) / i, [te, et] = ks(
+    const [r, l, d] = n.currentFlexParts, h = je(d), v = ne(d), m = (h ? v * i : v) / i, k = n.initialFlexParts[2], T = je(k) ? ne(k) : ne(k) / i, [te, et] = ks(
       n.minBasis,
       n.maxBasis,
       r,
@@ -10397,7 +10370,7 @@ const da = f`
     box-sizing: border-box;
     min-height: 0;
   }
-`, ha = [y, da];
+`, ha = [x, da];
 function As(s) {
   const [e, t, i] = s;
   return `${e} ${t} ${i}`;
@@ -10462,7 +10435,7 @@ const ga = f`
 
   .swim-split-handle__grip {
     line-height: 0;
-    font-size: 32px;
+    font-size: var(--font-size-4xl);
     position: absolute;
     display: block;
     padding: 0;
@@ -10499,7 +10472,7 @@ const ga = f`
     top: -3px;
     transform: translateX(-50%) rotate(270deg);
   }
-`, ba = [y, ga];
+`, ba = [x, ga];
 var ma = Object.defineProperty, fa = Object.getOwnPropertyDescriptor, Es = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? fa(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
@@ -10560,7 +10533,7 @@ Es([
 ], mt.prototype, "direction", 2);
 customElements.get(Go) || customElements.define(Go, mt);
 const _a = f`
-  ${y}
+  ${x}
 
   @keyframes swim-progress-spinner--rotate {
     0% {
@@ -10615,7 +10588,7 @@ const _a = f`
   .swim-progress-spinner__icon-in-progress swim-icon,
   .swim-progress-spinner__icon-complete swim-icon,
   .swim-progress-spinner__icon-failure swim-icon {
-    font-size: 40px;
+    font-size: var(--font-size-5xl);
     color: var(--spinner-color);
   }
 
@@ -10646,7 +10619,7 @@ var Ve = /* @__PURE__ */ ((s) => (s.Indeterminate = "indeterminate", s.Determina
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && va(e, t, o), o;
 };
-const xa = 50, ya = 100, ti = 100, yt = ti / 2, ka = yt * 2 * Math.PI, Ca = "cloud-upload", Aa = "check", Ea = "x", Ko = "swim-progress-spinner", Fi = class Fi extends _ {
+const xa = 50, ya = 100, ti = 100, yt = ti / 2, ka = yt * 2 * Math.PI, Ca = "cloud-upload", Aa = "check", Ea = "x", Jo = "swim-progress-spinner", Fi = class Fi extends _ {
   constructor() {
     super(...arguments), this.mode = Ve.Indeterminate, this.color = "var(--blue-500)", this.failStatusColor = "var(--red-500)", this.appearance = _e.Default, this.inProgressIconName = "", this.completeIconName = "", this.failIconName = "", this._isFailure = !1, this._value = 0, this._total = 100, this._diameter = 100, this._strokeWidth = 3, this._boundSlotChange = () => this.requestUpdate();
   }
@@ -10660,28 +10633,28 @@ const xa = 50, ya = 100, ti = 100, yt = ti / 2, ka = yt * 2 * Math.PI, Ca = "clo
     return this._value;
   }
   set value(e) {
-    const t = z(e, 0);
+    const t = S(e, 0);
     this._value !== t && (this._value = t);
   }
   get total() {
     return this._total;
   }
   set total(e) {
-    const t = z(e, 100);
+    const t = S(e, 100);
     this._total !== t && (this._total = t);
   }
   get diameter() {
     return this._diameter;
   }
   set diameter(e) {
-    const t = z(e, 100);
+    const t = S(e, 100);
     this._diameter !== t && (this._diameter = t);
   }
   get strokeWidth() {
     return this._strokeWidth;
   }
   set strokeWidth(e) {
-    const t = z(e, 3);
+    const t = S(e, 3);
     this._strokeWidth !== t && (this._strokeWidth = t);
   }
   /** Circumference in viewBox units for stroke-dasharray/offset (fixed viewBox 0 0 100 100). */
@@ -10788,48 +10761,48 @@ const xa = 50, ya = 100, ti = 100, yt = ti / 2, ka = yt * 2 * Math.PI, Ca = "clo
   }
 };
 Fi.styles = _a;
-let B = Fi;
+let L = Fi;
 W([
   a({ type: String, reflect: !0 })
-], B.prototype, "mode", 2);
+], L.prototype, "mode", 2);
 W([
   a({ type: String })
-], B.prototype, "color", 2);
+], L.prototype, "color", 2);
 W([
   a({ attribute: "fail-status-color", type: String })
-], B.prototype, "failStatusColor", 2);
+], L.prototype, "failStatusColor", 2);
 W([
   a({ type: String, reflect: !0 })
-], B.prototype, "appearance", 2);
+], L.prototype, "appearance", 2);
 W([
   a({ type: String, attribute: "in-progress-icon-name" })
-], B.prototype, "inProgressIconName", 2);
+], L.prototype, "inProgressIconName", 2);
 W([
   a({ type: String, attribute: "complete-icon-name" })
-], B.prototype, "completeIconName", 2);
+], L.prototype, "completeIconName", 2);
 W([
   a({ type: String, attribute: "fail-icon-name" })
-], B.prototype, "failIconName", 2);
+], L.prototype, "failIconName", 2);
 W([
   a({ type: Boolean, reflect: !0, attribute: "is-failure" })
-], B.prototype, "isFailure", 1);
+], L.prototype, "isFailure", 1);
 W([
   a({ attribute: !1 })
-], B.prototype, "spinnerLabel", 2);
+], L.prototype, "spinnerLabel", 2);
 W([
   a({ type: Number })
-], B.prototype, "value", 1);
+], L.prototype, "value", 1);
 W([
   a({ type: Number })
-], B.prototype, "total", 1);
+], L.prototype, "total", 1);
 W([
   a({ type: Number })
-], B.prototype, "diameter", 1);
+], L.prototype, "diameter", 1);
 W([
   a({ attribute: "stroke-width", type: Number })
-], B.prototype, "strokeWidth", 1);
-customElements.get(Ko) || customElements.define(Ko, B);
-const Sa = f`
+], L.prototype, "strokeWidth", 1);
+customElements.get(Jo) || customElements.define(Jo, L);
+const za = f`
   :host {
     display: block;
   }
@@ -10842,13 +10815,13 @@ const Sa = f`
     display: none;
   }
 `;
-var za = Object.defineProperty, Ia = Object.getOwnPropertyDescriptor, Xe = (s, e, t, i) => {
+var Sa = Object.defineProperty, Ia = Object.getOwnPropertyDescriptor, Xe = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? Ia(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
-  return i && o && za(e, t, o), o;
+  return i && o && Sa(e, t, o), o;
 };
 let Da = 0;
-const Jo = "swim-tab", Li = class Li extends _ {
+const Ko = "swim-tab", Bi = class Bi extends _ {
   constructor() {
     super(...arguments), this._instanceId = ++Da, this._generatedPanelId = `tab-panel-${this._instanceId}`, this._generatedTabId = `tab-${this._instanceId}`, this.tabId = this._generatedTabId, this.label = "", this._active = !1, this._disabled = !1;
   }
@@ -10897,8 +10870,8 @@ const Jo = "swim-tab", Li = class Li extends _ {
     `;
   }
 };
-Li.styles = [y, Sa];
-let ae = Li;
+Bi.styles = [x, za];
+let ae = Bi;
 Xe([
   a({ type: String })
 ], ae.prototype, "id", 1);
@@ -10917,7 +10890,7 @@ Xe([
 Xe([
   a({ type: Boolean, reflect: !0 })
 ], ae.prototype, "disabled", 1);
-customElements.get(Jo) || customElements.define(Jo, ae);
+customElements.get(Ko) || customElements.define(Ko, ae);
 const Ma = f`
   :host {
     display: block;
@@ -11010,7 +10983,7 @@ const Ma = f`
   :host([appearance='light']) .swim-tabs__list {
     background-color: var(--grey-700);
     border-bottom: 2px solid var(--grey-700);
-    font-size: 13px;
+    font-size: var(--font-size-s);
     line-height: 15px;
     font-weight: var(--font-weight-semibold);
     margin-left: -2px;
@@ -11039,7 +11012,7 @@ const Ma = f`
     height: 53px;
     width: 100%;
     text-align: left;
-    font-size: 13px;
+    font-size: var(--font-size-s);
     line-height: 45px;
     border: none !important;
     border-bottom: 1px solid var(--grey-700) !important;
@@ -11075,14 +11048,14 @@ const Ma = f`
     background-color: var(--grey-750);
   }
 `;
-var Ss = /* @__PURE__ */ ((s) => (s.Legacy = "legacy", s.Light = "light", s))(Ss || {}), Ta = Object.defineProperty, Oa = Object.getOwnPropertyDescriptor, Ht = (s, e, t, i) => {
+var zs = /* @__PURE__ */ ((s) => (s.Legacy = "legacy", s.Light = "light", s))(zs || {}), Ta = Object.defineProperty, Oa = Object.getOwnPropertyDescriptor, Ht = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? Oa(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && Ta(e, t, o), o;
 };
-const jo = "swim-tabs", Bi = class Bi extends _ {
+const jo = "swim-tabs", Li = class Li extends _ {
   constructor() {
-    super(...arguments), this._vertical = !1, this.appearance = Ss.Legacy, this._tabs = [], this._slotChangeBound = () => this._syncTabs(), this._tabActiveChangeBound = () => this.requestUpdate();
+    super(...arguments), this._vertical = !1, this.appearance = zs.Legacy, this._tabs = [], this._slotChangeBound = () => this._syncTabs(), this._tabActiveChangeBound = () => this.requestUpdate();
   }
   get vertical() {
     return this._vertical;
@@ -11179,8 +11152,8 @@ const jo = "swim-tabs", Bi = class Bi extends _ {
     `;
   }
 };
-Bi.styles = [y, Ma];
-let Fe = Bi;
+Li.styles = [x, Ma];
+let Fe = Li;
 Ht([
   q("slot")
 ], Fe.prototype, "slotEl", 2);
@@ -11312,14 +11285,14 @@ const Pa = f`
   .swim-toggle__icon--on swim-icon {
     opacity: 0.5;
     color: var(--white);
-    font-size: 9px;
+    font-size: var(--font-size-xxs);
     padding: 2.5px 3.5px;
   }
 
   .swim-toggle__icon--off swim-icon {
     opacity: 0.7;
     color: var(--grey-400);
-    font-size: 7px;
+    font-size: var(--font-size-xxs);
     font-weight: 900;
     padding: 3.5px 4.5px;
   }
@@ -11338,14 +11311,14 @@ var $a = Object.defineProperty, Fa = Object.getOwnPropertyDescriptor, ke = (s, e
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && $a(e, t, o), o;
 };
-const La = {
+const Ba = {
   fromAttribute: (s) => s !== "false" && s !== "",
   toAttribute: (s) => s ? "true" : "false"
 };
-let Ba = 0;
-const Wo = "swim-toggle", Lt = class Lt extends _ {
+let La = 0;
+const Wo = "swim-toggle", Bt = class Bt extends _ {
   constructor() {
-    super(), this.id = `swim-toggle-${++Ba}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
+    super(), this.id = `swim-toggle-${++La}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -11376,7 +11349,7 @@ const Wo = "swim-toggle", Lt = class Lt extends _ {
     return this._tabindex;
   }
   set tabindex(e) {
-    this._tabindex = z(e, 0);
+    this._tabindex = S(e, 0);
   }
   connectedCallback() {
     super.connectedCallback(), this._syncFormValue();
@@ -11471,8 +11444,8 @@ const Wo = "swim-toggle", Lt = class Lt extends _ {
     `;
   }
 };
-Lt.styles = [y, Pa], Lt.formAssociated = !0;
-let X = Lt;
+Bt.styles = [x, Pa], Bt.formAssociated = !0;
+let X = Bt;
 ke([
   q(".swim-toggle__roving")
 ], X.prototype, "_roving", 2);
@@ -11495,7 +11468,7 @@ ke([
   a({ type: Boolean, reflect: !0 })
 ], X.prototype, "required", 1);
 ke([
-  a({ type: Boolean, attribute: "show-icons", converter: La })
+  a({ type: Boolean, attribute: "show-icons", converter: Ba })
 ], X.prototype, "showIcons", 1);
 ke([
   a({ type: Number })
@@ -11614,7 +11587,7 @@ const qa = ci(ii), Ha = f`
   .swim-tooltip__panel--type-tooltip {
     color: var(--grey-700);
     background: var(--grey-200);
-    font-size: var(--font-size-xs, 12px);
+    font-size: var(--font-size-xs);
     padding: var(--spacing-4, 4px);
     text-align: center;
   }
@@ -11624,15 +11597,15 @@ const qa = ci(ii), Ha = f`
     background: var(--grey-200);
     color: var(--grey-700);
     box-shadow: var(--shadow-2);
-    font-size: 13px;
+    font-size: var(--font-size-s);
     padding: var(--spacing-10, 10px);
   }
 
   .swim-tooltip__content {
     display: block;
   }
-`, Va = [y, Ha];
-var O = /* @__PURE__ */ ((s) => (s.top = "top", s.bottom = "bottom", s.left = "left", s.right = "right", s))(O || {}), le = /* @__PURE__ */ ((s) => (s.top = "top", s.bottom = "bottom", s.left = "left", s.right = "right", s.center = "center", s))(le || {}), zs = /* @__PURE__ */ ((s) => (s.popover = "popover", s.tooltip = "tooltip", s))(zs || {}), ve = /* @__PURE__ */ ((s) => (s.all = "all", s.focus = "focus", s.click = "click", s.mouseover = "mouseover", s))(ve || {});
+`, Va = [x, Ha];
+var O = /* @__PURE__ */ ((s) => (s.top = "top", s.bottom = "bottom", s.left = "left", s.right = "right", s))(O || {}), le = /* @__PURE__ */ ((s) => (s.top = "top", s.bottom = "bottom", s.left = "left", s.right = "right", s.center = "center", s))(le || {}), Ss = /* @__PURE__ */ ((s) => (s.popover = "popover", s.tooltip = "tooltip", s))(Ss || {}), ve = /* @__PURE__ */ ((s) => (s.all = "all", s.focus = "focus", s.click = "click", s.mouseover = "mouseover", s))(ve || {});
 const ce = 7;
 function It(s, e, t) {
   return t === le.left ? (s.left ?? 0) - ce : t === le.right ? (s.left ?? 0) + (s.width ?? 0) - (e.width ?? 0) + ce : (s.left ?? 0) + (s.width ?? 0) / 2 - (e.width ?? 0) / 2;
@@ -11674,14 +11647,14 @@ function Na(s, e, t, i, o) {
   let n = 0, r = 0;
   return s === O.right ? (r = -ce, n = es(t, e, i, o)) : s === O.left ? (r = e.width ?? 0, n = es(t, e, i, o)) : s === O.top ? (n = e.height ?? 0, r = Xo(t, e, i, o)) : (n = -ce, r = Xo(t, e, i, o)), { top: n, left: r };
 }
-var Ga = Object.defineProperty, Ka = Object.getOwnPropertyDescriptor, P = (s, e, t, i) => {
-  for (var o = i > 1 ? void 0 : i ? Ka(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+var Ga = Object.defineProperty, Ja = Object.getOwnPropertyDescriptor, P = (s, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? Ja(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
   return i && o && Ga(e, t, o), o;
 };
 const ts = "swim-tooltip", qi = class qi extends _ {
   constructor() {
-    super(...arguments), this.content = "", this.placement = O.top, this.alignment = le.center, this.type = zs.popover, this.showEvent = ve.all, this._spacing = 10, this._showCaret = !0, this._disabled = !1, this._closeOnClickOutside = !0, this._closeOnMouseLeave = !0, this._hideTimeout = 300, this._showTimeout = 100, this.cssClass = "", this._open = !1, this._panelTop = 0, this._panelLeft = 0, this._effectivePlacement = O.top, this._caretTop = 0, this._caretLeft = 0, this._animate = !1, this._triggerRef = null, this._panelRef = null, this._caretRef = null, this._boundDocumentClick = null, this._openFromClick = !1, this._tooltipId = `swim-tooltip-${Math.random().toString(36).slice(2, 11)}`, this._throttledPosition = () => {
+    super(...arguments), this.content = "", this.placement = O.top, this.alignment = le.center, this.type = Ss.popover, this.showEvent = ve.all, this._spacing = 10, this._showCaret = !0, this._disabled = !1, this._closeOnClickOutside = !0, this._closeOnMouseLeave = !0, this._hideTimeout = 300, this._showTimeout = 100, this.cssClass = "", this._open = !1, this._panelTop = 0, this._panelLeft = 0, this._effectivePlacement = O.top, this._caretTop = 0, this._caretLeft = 0, this._animate = !1, this._triggerRef = null, this._panelRef = null, this._caretRef = null, this._boundDocumentClick = null, this._openFromClick = !1, this._tooltipId = `swim-tooltip-${Math.random().toString(36).slice(2, 11)}`, this._throttledPosition = () => {
       this._throttleTimeout == null && (this._throttleTimeout = window.setTimeout(() => {
         this._throttleTimeout = void 0, this._open && this._position();
       }, 100));
@@ -11713,7 +11686,7 @@ const ts = "swim-tooltip", qi = class qi extends _ {
     return this._spacing;
   }
   set spacing(e) {
-    this._spacing = z(e, 10);
+    this._spacing = S(e, 10);
   }
   get showCaret() {
     return this._showCaret;
@@ -11743,13 +11716,13 @@ const ts = "swim-tooltip", qi = class qi extends _ {
     return this._hideTimeout;
   }
   set hideTimeout(e) {
-    this._hideTimeout = z(e, 300);
+    this._hideTimeout = S(e, 300);
   }
   get showTimeout() {
     return this._showTimeout;
   }
   set showTimeout(e) {
-    this._showTimeout = z(e, 100);
+    this._showTimeout = S(e, 100);
   }
   connectedCallback() {
     super.connectedCallback(), window.addEventListener("resize", this._throttledPosition);
@@ -11802,8 +11775,8 @@ const ts = "swim-tooltip", qi = class qi extends _ {
     this._boundDocumentClick && (document.removeEventListener("click", this._boundDocumentClick, !0), this._boundDocumentClick = null);
   }
   _position() {
-    var d, h, w;
-    const e = this._triggerRef ?? ((d = this.shadowRoot) == null ? void 0 : d.querySelector(".swim-tooltip__trigger")), t = this._panelRef ?? ((h = this.shadowRoot) == null ? void 0 : h.querySelector(".swim-tooltip__panel")), i = this._caretRef ?? ((w = this.shadowRoot) == null ? void 0 : w.querySelector(".swim-tooltip__caret"));
+    var d, h, v;
+    const e = this._triggerRef ?? ((d = this.shadowRoot) == null ? void 0 : d.querySelector(".swim-tooltip__trigger")), t = this._panelRef ?? ((h = this.shadowRoot) == null ? void 0 : h.querySelector(".swim-tooltip__panel")), i = this._caretRef ?? ((v = this.shadowRoot) == null ? void 0 : v.querySelector(".swim-tooltip__caret"));
     if (!e || !t) return;
     const o = e.getBoundingClientRect();
     if (!o.height && !o.width) return;
@@ -11953,9 +11926,9 @@ P([
   b()
 ], M.prototype, "_animate", 2);
 customElements.get(ts) || customElements.define(ts, M);
-const Ja = 40, ja = 2, Wa = f`
+const Ka = 40, ja = 2, Wa = f`
   :host {
-    --swim-navbar-bar-size: ${Ja}px;
+    --swim-navbar-bar-size: ${Ka}px;
     --swim-navbar-bar-thickness: ${ja}px;
     display: inline-flex;
     align-items: center;
@@ -12002,7 +11975,7 @@ const Ja = 40, ja = 2, Wa = f`
 `, Qa = f`
   :host {
     display: flex;
-    font-size: 15pt;
+    font-size: var(--font-size-xl);
     color: var(--grey-400);
     cursor: pointer;
     transition: color 0.2s ease-in-out;
@@ -12038,7 +12011,7 @@ const is = "swim-navbar-item", Hi = class Hi extends _ {
     return this._active;
   }
   set active(e) {
-    const t = z(e, 0);
+    const t = S(e, 0);
     if (this._active !== t) {
       const i = this._active;
       this._active = t, this.requestUpdate("active", i);
@@ -12048,13 +12021,13 @@ const is = "swim-navbar-item", Hi = class Hi extends _ {
     return this._total;
   }
   set total(e) {
-    this._total = z(e, 0);
+    this._total = S(e, 0);
   }
   get index() {
     return this._index;
   }
   set index(e) {
-    const t = z(e, 0);
+    const t = S(e, 0);
     if (this._index !== t) {
       const i = this._index;
       this._index = t, this.requestUpdate("index", i);
@@ -12100,18 +12073,18 @@ const is = "swim-navbar-item", Hi = class Hi extends _ {
     (e.key === "Enter" || e.key === " ") && (e.preventDefault(), this.setActive());
   }
 };
-Hi.styles = [y, Qa];
-let Le = Hi;
+Hi.styles = [x, Qa];
+let Be = Hi;
 gi([
   a({ type: Number })
-], Le.prototype, "active");
+], Be.prototype, "active");
 gi([
   a({ type: Number })
-], Le.prototype, "total");
+], Be.prototype, "total");
 gi([
   a({ type: Number })
-], Le.prototype, "index");
-customElements.get(is) || customElements.define(is, Le);
+], Be.prototype, "index");
+customElements.get(is) || customElements.define(is, Be);
 var el = Object.defineProperty, tl = Object.getOwnPropertyDescriptor, Vt = (s, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? tl(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (o = (i ? r(e, t, o) : r(o)) || o);
@@ -12131,7 +12104,7 @@ const il = 40, os = "swim-navbar", Vi = class Vi extends _ {
     return this._active;
   }
   set active(e) {
-    const t = z(e, 0);
+    const t = S(e, 0);
     t !== this._active && !isNaN(t) && t >= 0 && (!this._navItems.length || t < this._navItems.length) && (this._active = t, this._syncItems(), this.dispatchEvent(
       new CustomEvent("active-change", {
         detail: this._active,
@@ -12160,7 +12133,7 @@ const il = 40, os = "swim-navbar", Vi = class Vi extends _ {
    * Activate the item at the given index (zero-based). No-op if index is out of range or already active.
    */
   goTo(e) {
-    const t = z(e, -1);
+    const t = S(e, -1);
     if (t >= 0 && t < this._navItems.length && t !== this._active) {
       const i = this._navItems[t];
       i && i.setActive();
@@ -12171,7 +12144,7 @@ const il = 40, os = "swim-navbar", Vi = class Vi extends _ {
     const e = this._slotEl ?? ((o = this.shadowRoot) == null ? void 0 : o.querySelector("slot"));
     let t = (e == null ? void 0 : e.assignedElements({ flatten: !0 })) ?? [];
     t.length === 0 && (t = Array.from(this.children));
-    const i = t.filter((n) => n instanceof Le);
+    const i = t.filter((n) => n instanceof Be);
     this._navItems.forEach((n) => {
       n.removeEventListener("active-change", this._activeChangeBound);
     }), this._navItems = i, i.forEach((n) => {
@@ -12214,23 +12187,23 @@ const il = 40, os = "swim-navbar", Vi = class Vi extends _ {
     `;
   }
 };
-Vi.styles = [y, Wa];
-let Be = Vi;
+Vi.styles = [x, Wa];
+let Le = Vi;
 Vt([
   q("slot")
-], Be.prototype, "_slotEl", 2);
+], Le.prototype, "_slotEl", 2);
 Vt([
   a({ type: Boolean, reflect: !0, attribute: "bar-at-top" })
-], Be.prototype, "barAtTop", 1);
+], Le.prototype, "barAtTop", 1);
 Vt([
   a({ type: Number })
-], Be.prototype, "active", 1);
+], Le.prototype, "active", 1);
 Vt([
   b()
-], Be.prototype, "_navItems", 2);
-customElements.get(os) || customElements.define(os, Be);
+], Le.prototype, "_navItems", 2);
+customElements.get(os) || customElements.define(os, Le);
 const ol = [
-  y,
+  x,
   f`
     :host {
       display: block;
@@ -12250,7 +12223,7 @@ const ol = [
 
     .swim-list__header-cell {
       color: var(--white);
-      font-size: 14px;
+      font-size: var(--font-size-s);
       font-weight: var(--font-weight-bold);
       line-height: 22px;
     }
@@ -12328,7 +12301,7 @@ const ss = 44, ns = "swim-list", Ri = class Ri extends _ {
     return this._height;
   }
   set height(e) {
-    this._height = e === void 0 ? void 0 : z(e);
+    this._height = e === void 0 ? void 0 : S(e);
   }
   connectedCallback() {
     super.connectedCallback();
@@ -12595,33 +12568,33 @@ export {
   ve as ShowType,
   _e as SpinnerAppearance,
   Ye as SplitDirection,
-  zs as StyleType,
+  Ss as StyleType,
   U as SwimButton,
   Ge as SwimButtonGroup,
   we as SwimButtonToggle,
   re as SwimButtonToggleGroup,
   N as SwimCalendar,
   G as SwimCard,
-  Je as SwimCardAvatar,
+  Ke as SwimCardAvatar,
   Xt as SwimCardBody,
   Et as SwimCardFooter,
   gt as SwimCardHeader,
-  St as SwimCardPlaceholder,
+  zt as SwimCardPlaceholder,
   Z as SwimCheckbox,
-  v as SwimDateTime,
+  w as SwimDateTime,
   $ as SwimDialog,
-  K as SwimDrawer,
-  ze as SwimIcon,
+  J as SwimDrawer,
+  Se as SwimIcon,
   A as SwimInput,
   xe as SwimLargeFormatDialogContent,
-  zt as SwimLargeFormatDialogFooter,
+  St as SwimLargeFormatDialogFooter,
   ee as SwimList,
-  Be as SwimNavbar,
-  Le as SwimNavbarItem,
-  B as SwimProgressSpinner,
+  Le as SwimNavbar,
+  Be as SwimNavbarItem,
+  L as SwimProgressSpinner,
   j as SwimRadio,
   se as SwimRadioGroup,
-  J as SwimSection,
+  K as SwimSection,
   ei as SwimSectionHeader,
   E as SwimSelect,
   F as SwimSlider,
@@ -12632,15 +12605,15 @@ export {
   Fe as SwimTabs,
   X as SwimToggle,
   M as SwimTooltip,
-  Ss as TabsAppearance,
+  zs as TabsAppearance,
   xt as TogglePosition,
-  y as baseStyles,
+  x as baseStyles,
   Yn as cardComponentStyles,
   Vn as cardHorizontalStyles,
   Hn as cardStyles,
   Rn as cardVerticalStyles,
   p as coerceBooleanProperty,
-  z as coerceNumberProperty,
+  S as coerceNumberProperty,
   ml as colors,
   on as convertClass,
   ot as formatDate,
@@ -12650,16 +12623,16 @@ export {
   ie as getMonth,
   hl as globalStyles,
   nn as iconRegistry,
-  Jt as isAfterDate,
-  Kt as isBeforeDate,
+  Kt as isAfterDate,
+  Jt as isBeforeDate,
   po as isOutOfRange,
   Qt as isSameDay,
   ul as isSameMonth,
   An as isSameYear,
-  L as isValidDate,
+  B as isValidDate,
   Zt as normalizeTimezone,
   bl as openDrawer,
-  Ke as parseDate,
+  Je as parseDate,
   vl as radius,
   Pn as resolveFormat,
   uo as roundToPrecision,
