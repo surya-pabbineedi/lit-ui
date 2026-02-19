@@ -2365,7 +2365,8 @@ const Qo = _`
   }
 
   /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY */
-  .swim-icon {
+  .swim-icon,
+  .swim-icon__i.swim-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2378,7 +2379,8 @@ const Qo = _`
   }
 
   /* Center the glyph regardless of font metrics (fixes vertical misalignment) */
-  .swim-icon::before {
+  .swim-icon::before,
+  .swim-icon__i.swim-icon::before {
     display: block;
     line-height: 1;
   }
