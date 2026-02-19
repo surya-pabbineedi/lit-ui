@@ -2088,7 +2088,8 @@ const Re = j`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
+   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2097,6 +2098,7 @@ const Re = j`
     width: 1em;
     height: 1em;
     font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

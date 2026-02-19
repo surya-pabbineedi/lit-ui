@@ -284,10 +284,10 @@ z.elementStyles = [], z.shadowRootOptions = { mode: "open" }, z[U("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const N = globalThis, G = N.trustedTypes, de = G ? G.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ce = "?" + y, je = `<${Ce}>`, E = document, R = () => E.createComment(""), H = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, Be = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
+const N = globalThis, G = N.trustedTypes, de = G ? G.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ce = "?" + y, je = `<${Ce}>`, S = document, R = () => S.createComment(""), H = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, Be = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
 \f\r]`, M = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, he = />/g, k = RegExp(`>|${Z}(?:([^\\s"'>=/]+)(${Z}*=${Z}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), we = /'/g, ue = /"/g, Se = /^(?:script|style|textarea|title)$/i, Le = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), w = Le(1), T = Symbol.for("lit-noChange"), c = Symbol.for("lit-nothing"), ge = /* @__PURE__ */ new WeakMap(), C = E.createTreeWalker(E, 129);
-function Ee(n, e) {
+\f\r"'\`<>=]|("|')|))|$)`, "g"), we = /'/g, ue = /"/g, Ee = /^(?:script|style|textarea|title)$/i, Le = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), w = Le(1), T = Symbol.for("lit-noChange"), c = Symbol.for("lit-nothing"), ge = /* @__PURE__ */ new WeakMap(), C = S.createTreeWalker(S, 129);
+function Se(n, e) {
   if (!ie(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return de !== void 0 ? de.createHTML(e) : e;
 }
@@ -297,11 +297,11 @@ const De = (n, e) => {
   for (let a = 0; a < t; a++) {
     const l = n[a];
     let d, h, b = -1, g = 0;
-    for (; g < l.length && (s.lastIndex = g, h = s.exec(l), h !== null); ) g = s.lastIndex, s === M ? h[1] === "!--" ? s = fe : h[1] !== void 0 ? s = he : h[2] !== void 0 ? (Se.test(h[2]) && (o = RegExp("</" + h[2], "g")), s = k) : h[3] !== void 0 && (s = k) : s === k ? h[0] === ">" ? (s = o ?? M, b = -1) : h[1] === void 0 ? b = -2 : (b = s.lastIndex - h[2].length, d = h[1], s = h[3] === void 0 ? k : h[3] === '"' ? ue : we) : s === ue || s === we ? s = k : s === fe || s === he ? s = M : (s = k, o = void 0);
+    for (; g < l.length && (s.lastIndex = g, h = s.exec(l), h !== null); ) g = s.lastIndex, s === M ? h[1] === "!--" ? s = fe : h[1] !== void 0 ? s = he : h[2] !== void 0 ? (Ee.test(h[2]) && (o = RegExp("</" + h[2], "g")), s = k) : h[3] !== void 0 && (s = k) : s === k ? h[0] === ">" ? (s = o ?? M, b = -1) : h[1] === void 0 ? b = -2 : (b = s.lastIndex - h[2].length, d = h[1], s = h[3] === void 0 ? k : h[3] === '"' ? ue : we) : s === ue || s === we ? s = k : s === fe || s === he ? s = M : (s = k, o = void 0);
     const _ = s === k && n[a + 1].startsWith("/>") ? " " : "";
     r += s === M ? l + je : b >= 0 ? (i.push(d), l.slice(0, b) + ke + l.slice(b) + y + _) : l + y + (b === -2 ? a : _);
   }
-  return [Ee(n, r + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
+  return [Se(n, r + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
 };
 class j {
   constructor({ strings: e, _$litType$: t }, i) {
@@ -319,7 +319,7 @@ class j {
           const g = h[s++], _ = o.getAttribute(b).split(y), D = /([.?@])?(.*)/.exec(g);
           l.push({ type: 1, index: r, name: D[2], strings: _, ctor: D[1] === "." ? qe : D[1] === "?" ? Ge : D[1] === "@" ? We : V }), o.removeAttribute(b);
         } else b.startsWith(y) && (l.push({ type: 6, index: r }), o.removeAttribute(b));
-        if (Se.test(o.tagName)) {
+        if (Ee.test(o.tagName)) {
           const b = o.textContent.split(y), g = b.length - 1;
           if (g > 0) {
             o.textContent = G ? G.emptyScript : "";
@@ -336,7 +336,7 @@ class j {
     }
   }
   static createElement(e, t) {
-    const i = E.createElement("template");
+    const i = S.createElement("template");
     return i.innerHTML = e, i;
   }
 }
@@ -358,7 +358,7 @@ class Fe {
     return this._$AM._$AU;
   }
   u(e) {
-    const { el: { content: t }, parts: i } = this._$AD, o = ((e == null ? void 0 : e.creationScope) ?? E).importNode(t, !0);
+    const { el: { content: t }, parts: i } = this._$AD, o = ((e == null ? void 0 : e.creationScope) ?? S).importNode(t, !0);
     C.currentNode = o;
     let r = C.nextNode(), s = 0, a = 0, l = i[0];
     for (; l !== void 0; ) {
@@ -368,7 +368,7 @@ class Fe {
       }
       s !== (l == null ? void 0 : l.index) && (r = C.nextNode(), s++);
     }
-    return C.currentNode = E, o;
+    return C.currentNode = S, o;
   }
   p(e) {
     let t = 0;
@@ -404,11 +404,11 @@ class B {
     this._$AH !== e && (this._$AR(), this._$AH = this.O(e));
   }
   _(e) {
-    this._$AH !== c && H(this._$AH) ? this._$AA.nextSibling.data = e : this.T(E.createTextNode(e)), this._$AH = e;
+    this._$AH !== c && H(this._$AH) ? this._$AA.nextSibling.data = e : this.T(S.createTextNode(e)), this._$AH = e;
   }
   $(e) {
     var r;
-    const { values: t, _$litType$: i } = e, o = typeof i == "number" ? this._$AC(e) : (i.el === void 0 && (i.el = j.createElement(Ee(i.h, i.h[0]), this.options)), i);
+    const { values: t, _$litType$: i } = e, o = typeof i == "number" ? this._$AC(e) : (i.el === void 0 && (i.el = j.createElement(Se(i.h, i.h[0]), this.options)), i);
     if (((r = this._$AH) == null ? void 0 : r._$AD) === o) this._$AH.p(t);
     else {
       const s = new Fe(o, this), a = s.u(this.options);
@@ -520,7 +520,7 @@ const Ke = (n, e, t) => {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const S = globalThis;
+const E = globalThis;
 class $ extends z {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
@@ -547,10 +547,10 @@ class $ extends z {
   }
 }
 var xe;
-$._$litElement$ = !0, $.finalized = !0, (xe = S.litElementHydrateSupport) == null || xe.call(S, { LitElement: $ });
-const Q = S.litElementPolyfillSupport;
+$._$litElement$ = !0, $.finalized = !0, (xe = E.litElementHydrateSupport) == null || xe.call(E, { LitElement: $ });
+const Q = E.litElementPolyfillSupport;
 Q == null || Q({ LitElement: $ });
-(S.litElementVersions ?? (S.litElementVersions = [])).push("4.2.1");
+(E.litElementVersions ?? (E.litElementVersions = [])).push("4.2.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -2432,7 +2432,8 @@ const tt = A`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
+   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2441,6 +2442,7 @@ const tt = A`
     width: 1em;
     height: 1em;
     font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
