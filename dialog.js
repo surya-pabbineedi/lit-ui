@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const F = globalThis, X = F.ShadowRoot && (F.ShadyCSS === void 0 || F.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, ee = Symbol(), ae = /* @__PURE__ */ new WeakMap();
+const F = globalThis, Y = F.ShadowRoot && (F.ShadyCSS === void 0 || F.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, ee = Symbol(), ae = /* @__PURE__ */ new WeakMap();
 let Ae = class {
   constructor(e, t, i) {
     if (this._$cssResult$ = !0, i !== ee) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
@@ -12,7 +12,7 @@ let Ae = class {
   get styleSheet() {
     let e = this.o;
     const t = this.t;
-    if (X && e === void 0) {
+    if (Y && e === void 0) {
       const i = t !== void 0 && t.length === 1;
       i && (e = ae.get(t)), e === void 0 && ((this.o = e = new CSSStyleSheet()).replaceSync(this.cssText), i && ae.set(t, e));
     }
@@ -30,12 +30,12 @@ const Te = (n) => new Ae(typeof n == "string" ? n : n + "", void 0, ee), A = (n,
   })(o) + n[r + 1], n[0]);
   return new Ae(t, n, ee);
 }, Oe = (n, e) => {
-  if (X) n.adoptedStyleSheets = e.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
+  if (Y) n.adoptedStyleSheets = e.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
   else for (const t of e) {
     const i = document.createElement("style"), o = F.litNonce;
     o !== void 0 && i.setAttribute("nonce", o), i.textContent = t.cssText, n.appendChild(i);
   }
-}, ce = X ? (n) => n : (n) => n instanceof CSSStyleSheet ? ((e) => {
+}, ce = Y ? (n) => n : (n) => n instanceof CSSStyleSheet ? ((e) => {
   let t = "";
   for (const i of e.cssRules) t += i.cssText;
   return Te(t);
@@ -45,7 +45,7 @@ const Te = (n) => new Ae(typeof n == "string" ? n : n + "", void 0, ee), A = (n,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Pe, defineProperty: Me, getOwnPropertyDescriptor: Ie, getOwnPropertyNames: Ue, getOwnPropertySymbols: Ne, getPrototypeOf: Re } = Object, v = globalThis, be = v.trustedTypes, He = be ? be.emptyScript : "", J = v.reactiveElementPolyfillSupport, U = (n, e) => n, q = { toAttribute(n, e) {
+const { is: Pe, defineProperty: Me, getOwnPropertyDescriptor: Ue, getOwnPropertyNames: Re, getOwnPropertySymbols: Ie, getPrototypeOf: Ne } = Object, v = globalThis, be = v.trustedTypes, He = be ? be.emptyScript : "", J = v.reactiveElementPolyfillSupport, R = (n, e) => n, q = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
       n = n ? He : null;
@@ -89,7 +89,7 @@ let z = class extends HTMLElement {
     }
   }
   static getPropertyDescriptor(e, t, i) {
-    const { get: o, set: r } = Ie(this.prototype, e) ?? { get() {
+    const { get: o, set: r } = Ue(this.prototype, e) ?? { get() {
       return this[t];
     }, set(s) {
       this[t] = s;
@@ -103,14 +103,14 @@ let z = class extends HTMLElement {
     return this.elementProperties.get(e) ?? me;
   }
   static _$Ei() {
-    if (this.hasOwnProperty(U("elementProperties"))) return;
-    const e = Re(this);
+    if (this.hasOwnProperty(R("elementProperties"))) return;
+    const e = Ne(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
-    if (this.hasOwnProperty(U("finalized"))) return;
-    if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(U("properties"))) {
-      const t = this.properties, i = [...Ue(t), ...Ne(t)];
+    if (this.hasOwnProperty(R("finalized"))) return;
+    if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(R("properties"))) {
+      const t = this.properties, i = [...Re(t), ...Ie(t)];
       for (const o of i) this.createProperty(o, t[o]);
     }
     const e = this[Symbol.metadata];
@@ -278,13 +278,13 @@ let z = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-z.elementStyles = [], z.shadowRootOptions = { mode: "open" }, z[U("elementProperties")] = /* @__PURE__ */ new Map(), z[U("finalized")] = /* @__PURE__ */ new Map(), J == null || J({ ReactiveElement: z }), (v.reactiveElementVersions ?? (v.reactiveElementVersions = [])).push("2.1.1");
+z.elementStyles = [], z.shadowRootOptions = { mode: "open" }, z[R("elementProperties")] = /* @__PURE__ */ new Map(), z[R("finalized")] = /* @__PURE__ */ new Map(), J == null || J({ ReactiveElement: z }), (v.reactiveElementVersions ?? (v.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const N = globalThis, G = N.trustedTypes, de = G ? G.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ce = "?" + y, je = `<${Ce}>`, S = document, R = () => S.createComment(""), H = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, Be = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
+const I = globalThis, G = I.trustedTypes, de = G ? G.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ce = "?" + y, je = `<${Ce}>`, S = document, N = () => S.createComment(""), H = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, Be = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
 \f\r]`, M = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, he = />/g, k = RegExp(`>|${Z}(?:([^\\s"'>=/]+)(${Z}*=${Z}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), we = /'/g, ue = /"/g, Ee = /^(?:script|style|textarea|title)$/i, Le = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), w = Le(1), T = Symbol.for("lit-noChange"), c = Symbol.for("lit-nothing"), ge = /* @__PURE__ */ new WeakMap(), C = S.createTreeWalker(S, 129);
 function Se(n, e) {
@@ -323,8 +323,8 @@ class j {
           const b = o.textContent.split(y), g = b.length - 1;
           if (g > 0) {
             o.textContent = G ? G.emptyScript : "";
-            for (let _ = 0; _ < g; _++) o.append(b[_], R()), C.nextNode(), l.push({ type: 2, index: ++r });
-            o.append(b[g], R());
+            for (let _ = 0; _ < g; _++) o.append(b[_], N()), C.nextNode(), l.push({ type: 2, index: ++r });
+            o.append(b[g], N());
           }
         }
       } else if (o.nodeType === 8) if (o.data === Ce) l.push({ type: 2, index: r });
@@ -423,7 +423,7 @@ class B {
     ie(this._$AH) || (this._$AH = [], this._$AR());
     const t = this._$AH;
     let i, o = 0;
-    for (const r of e) o === t.length ? t.push(i = new B(this.O(R()), this.O(R()), this, this.options)) : i = t[o], i._$AI(r), o++;
+    for (const r of e) o === t.length ? t.push(i = new B(this.O(N()), this.O(N()), this, this.options)) : i = t[o], i._$AI(r), o++;
     o < t.length && (this._$AR(i && i._$AB.nextSibling, o), t.length = o);
   }
   _$AR(e = this._$AA.nextSibling, t) {
@@ -504,14 +504,14 @@ class Ve {
     O(this, e);
   }
 }
-const Y = N.litHtmlPolyfillSupport;
-Y == null || Y(j, B), (N.litHtmlVersions ?? (N.litHtmlVersions = [])).push("3.3.1");
+const Q = I.litHtmlPolyfillSupport;
+Q == null || Q(j, B), (I.litHtmlVersions ?? (I.litHtmlVersions = [])).push("3.3.1");
 const Ke = (n, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
   let o = i._$litPart$;
   if (o === void 0) {
     const r = (t == null ? void 0 : t.renderBefore) ?? null;
-    i._$litPart$ = o = new B(e.insertBefore(R(), r), r, void 0, t ?? {});
+    i._$litPart$ = o = new B(e.insertBefore(N(), r), r, void 0, t ?? {});
   }
   return o._$AI(n), o;
 };
@@ -548,8 +548,8 @@ class $ extends z {
 }
 var xe;
 $._$litElement$ = !0, $.finalized = !0, (xe = E.litElementHydrateSupport) == null || xe.call(E, { LitElement: $ });
-const Q = E.litElementPolyfillSupport;
-Q == null || Q({ LitElement: $ });
+const X = E.litElementPolyfillSupport;
+X == null || X({ LitElement: $ });
 (E.litElementVersions ?? (E.litElementVersions = [])).push("4.2.1");
 /**
  * @license
@@ -596,19 +596,19 @@ function oe(n) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Ye = (n, e, t) => (t.configurable = !0, t.enumerable = !0, Reflect.decorate && typeof e != "object" && Object.defineProperty(n, e, t), t);
+const Qe = (n, e, t) => (t.configurable = !0, t.enumerable = !0, Reflect.decorate && typeof e != "object" && Object.defineProperty(n, e, t), t);
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function Qe(n, e) {
+function Xe(n, e) {
   return (t, i, o) => {
     const r = (s) => {
       var a;
       return ((a = s.renderRoot) == null ? void 0 : a.querySelector(n)) ?? null;
     };
-    return Ye(t, i, { get() {
+    return Qe(t, i, { get() {
       return r(this);
     } });
   };
@@ -892,7 +892,7 @@ const ze = A`
   .swim-scroll-muted:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgb(80, 92, 117);
   }
-`, Xe = [
+`, Ye = [
   K,
   ze,
   A`
@@ -1089,7 +1089,7 @@ const ze = A`
     }
   `
 ];
-var I = /* @__PURE__ */ ((n) => (n.Regular = "regular", n.Medium = "medium", n.Large = "large", n))(I || {});
+var U = /* @__PURE__ */ ((n) => (n.Regular = "regular", n.Medium = "medium", n.Large = "large", n))(U || {});
 function pe(n) {
   return n != null && `${n}` != "false";
 }
@@ -2432,8 +2432,8 @@ const tt = A`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
-   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
+  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
+   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2441,8 +2441,8 @@ const tt = A`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 'swim-lit-icon';
-    font-family: 'swim-lit-icon', sans-serif;
+    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
+    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2608,7 +2608,7 @@ var lt = Object.defineProperty, at = Object.getOwnPropertyDescriptor, u = (n, e,
 };
 const ye = "swim-dialog", re = class re extends $ {
   constructor() {
-    super(...arguments), this.dialogTitle = "", this.content = "", this.class = "", this.cssClass = "", this.format = I.Regular, this.showBackdrop = !0, this._closeButton = !0, this._visible = !1, this._zIndex = 991, this._contentId = `swim-dialog-content-${Math.random().toString(36).slice(2, 11)}`, this._titleId = `swim-dialog-title-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null;
+    super(...arguments), this.dialogTitle = "", this.content = "", this.class = "", this.cssClass = "", this.format = U.Regular, this.showBackdrop = !0, this._closeButton = !0, this._visible = !1, this._zIndex = 991, this._contentId = `swim-dialog-content-${Math.random().toString(36).slice(2, 11)}`, this._titleId = `swim-dialog-title-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null;
   }
   get title() {
     return this.dialogTitle;
@@ -2663,7 +2663,7 @@ const ye = "swim-dialog", re = class re extends $ {
   }
   render() {
     if (!this.visible) return c;
-    const e = this.format === I.Regular || this.format === "regular", t = this.format === I.Large || this.format === "large", i = this.format === I.Medium || this.format === "medium", o = [
+    const e = this.format === U.Regular || this.format === "regular", t = this.format === U.Large || this.format === "large", i = this.format === U.Medium || this.format === "medium", o = [
       "swim-dialog__content",
       this.cssClass,
       t ? "swim-dialog__content--large" : "",
@@ -2714,7 +2714,7 @@ const ye = "swim-dialog", re = class re extends $ {
     `;
   }
 };
-re.styles = Xe;
+re.styles = Ye;
 let f = re;
 u([
   m({ type: String, attribute: "dialog-title" })
@@ -2764,7 +2764,7 @@ u([
   oe()
 ], f.prototype, "_titleId", 2);
 u([
-  Qe(".swim-dialog__content")
+  Xe(".swim-dialog__content")
 ], f.prototype, "_contentEl", 2);
 customElements.get(ye) || customElements.define(ye, f);
 const ct = [
@@ -3027,7 +3027,7 @@ ft([
 ], W.prototype, "format");
 customElements.get($e) || customElements.define($e, W);
 export {
-  I as DialogFormat,
+  U as DialogFormat,
   f as SwimDialog,
   p as SwimLargeFormatDialogContent,
   W as SwimLargeFormatDialogFooter

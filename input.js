@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const D = globalThis, ee = D.ShadowRoot && (D.ShadyCSS === void 0 || D.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, te = Symbol(), re = /* @__PURE__ */ new WeakMap();
+const L = globalThis, ee = L.ShadowRoot && (L.ShadyCSS === void 0 || L.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, te = Symbol(), re = /* @__PURE__ */ new WeakMap();
 let ye = class {
   constructor(e, t, i) {
     if (this._$cssResult$ = !0, i !== te) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
@@ -22,7 +22,7 @@ let ye = class {
     return this.cssText;
   }
 };
-const Se = (n) => new ye(typeof n == "string" ? n : n + "", void 0, te), M = (n, ...e) => {
+const Se = (n) => new ye(typeof n == "string" ? n : n + "", void 0, te), R = (n, ...e) => {
   const t = n.length === 1 ? n[0] : e.reduce((i, o, s) => i + ((r) => {
     if (r._$cssResult$ === !0) return r.cssText;
     if (typeof r == "number") return r;
@@ -32,7 +32,7 @@ const Se = (n) => new ye(typeof n == "string" ? n : n + "", void 0, te), M = (n,
 }, Ce = (n, e) => {
   if (ee) n.adoptedStyleSheets = e.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
   else for (const t of e) {
-    const i = document.createElement("style"), o = D.litNonce;
+    const i = document.createElement("style"), o = L.litNonce;
     o !== void 0 && i.setAttribute("nonce", o), i.textContent = t.cssText, n.appendChild(i);
   }
 }, se = ee ? (n) => n : (n) => n instanceof CSSStyleSheet ? ((e) => {
@@ -45,10 +45,10 @@ const Se = (n) => new ye(typeof n == "string" ? n : n + "", void 0, te), M = (n,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Te, defineProperty: ze, getOwnPropertyDescriptor: Pe, getOwnPropertyNames: Oe, getOwnPropertySymbols: Ue, getPrototypeOf: Me } = Object, x = globalThis, le = x.trustedTypes, Re = le ? le.emptyScript : "", J = x.reactiveElementPolyfillSupport, N = (n, e) => n, W = { toAttribute(n, e) {
+const { is: Te, defineProperty: ze, getOwnPropertyDescriptor: Pe, getOwnPropertyNames: Oe, getOwnPropertySymbols: Ue, getPrototypeOf: Re } = Object, x = globalThis, le = x.trustedTypes, Me = le ? le.emptyScript : "", J = x.reactiveElementPolyfillSupport, N = (n, e) => n, W = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
-      n = n ? Re : null;
+      n = n ? Me : null;
       break;
     case Object:
     case Array:
@@ -104,7 +104,7 @@ let P = class extends HTMLElement {
   }
   static _$Ei() {
     if (this.hasOwnProperty(N("elementProperties"))) return;
-    const e = Me(this);
+    const e = Re(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
@@ -316,8 +316,8 @@ class V {
     for (; (o = S.nextNode()) !== null && l.length < a; ) {
       if (o.nodeType === 1) {
         if (o.hasAttributes()) for (const m of o.getAttributeNames()) if (m.endsWith(ve)) {
-          const g = p[r++], v = o.getAttribute(m).split($), L = /([.?@])?(.*)/.exec(g);
-          l.push({ type: 1, index: s, name: L[2], strings: v, ctor: L[1] === "." ? Ve : L[1] === "?" ? je : L[1] === "@" ? Fe : Y }), o.removeAttribute(m);
+          const g = p[r++], v = o.getAttribute(m).split($), F = /([.?@])?(.*)/.exec(g);
+          l.push({ type: 1, index: s, name: F[2], strings: v, ctor: F[1] === "." ? Ve : F[1] === "?" ? je : F[1] === "@" ? De : Y }), o.removeAttribute(m);
         } else m.startsWith($) && (l.push({ type: 6, index: s }), o.removeAttribute(m));
         if ($e.test(o.tagName)) {
           const m = o.textContent.split($), g = m.length - 1;
@@ -364,7 +364,7 @@ class qe {
     for (; l !== void 0; ) {
       if (r === l.index) {
         let f;
-        l.type === 2 ? f = new j(s, s.nextSibling, this, e) : l.type === 1 ? f = new l.ctor(s, l.name, l.strings, this, e) : l.type === 6 && (f = new Le(s, this, e)), this._$AV.push(f), l = i[++a];
+        l.type === 2 ? f = new j(s, s.nextSibling, this, e) : l.type === 1 ? f = new l.ctor(s, l.name, l.strings, this, e) : l.type === 6 && (f = new Fe(s, this, e)), this._$AV.push(f), l = i[++a];
       }
       r !== (l == null ? void 0 : l.index) && (s = S.nextNode(), r++);
     }
@@ -479,7 +479,7 @@ class je extends Y {
     this.element.toggleAttribute(this.name, !!e && e !== d);
   }
 }
-class Fe extends Y {
+class De extends Y {
   constructor(e, t, i, o, s) {
     super(e, t, i, o, s), this.type = 5;
   }
@@ -493,7 +493,7 @@ class Fe extends Y {
     typeof this._$AH == "function" ? this._$AH.call(((t = this.options) == null ? void 0 : t.host) ?? this.element, e) : this._$AH.handleEvent(e);
   }
 }
-class Le {
+class Fe {
   constructor(e, t, i) {
     this.element = e, this.type = 6, this._$AN = void 0, this._$AM = t, this.options = i;
   }
@@ -506,7 +506,7 @@ class Le {
 }
 const Q = B.litHtmlPolyfillSupport;
 Q == null || Q(V, j), (B.litHtmlVersions ?? (B.litHtmlVersions = [])).push("3.3.1");
-const De = (n, e, t) => {
+const Le = (n, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
   let o = i._$litPart$;
   if (o === void 0) {
@@ -532,7 +532,7 @@ let O = class extends P {
   }
   update(e) {
     const t = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = De(t, this.renderRoot, this.renderOptions);
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = Le(t, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     var e;
@@ -588,7 +588,7 @@ function h(n) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function R(n) {
+function M(n) {
   return h({ ...n, state: !0, attribute: !1 });
 }
 /**
@@ -670,7 +670,7 @@ const pe = Je(class extends Ze {
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const _ = (n) => n ?? d, Ae = M`
+const _ = (n) => n ?? d, Ae = R`
   :host {
     /* Colors - Blue */
     --blue-100: rgb(224, 239, 255);
@@ -826,12 +826,12 @@ const _ = (n) => n ?? d, Ae = M`
     --shadow-3: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
   }
 `;
-M`
+R`
   * {
     box-sizing: border-box;
   }
 `;
-const tt = M`
+const tt = R`
   .swim-icon.lit-3d-rotate::before {
     content: '\\ea01';
   }
@@ -2101,7 +2101,7 @@ const tt = M`
   .swim-icon.lit-x-small::before {
     content: '\\eba7';
   }
-`, it = M`
+`, it = R`
   :host {
     display: inline-block;
     vertical-align: baseline;
@@ -2167,8 +2167,8 @@ const tt = M`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
-   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
+  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
+   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2176,8 +2176,8 @@ const tt = M`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 'swim-lit-icon';
-    font-family: 'swim-lit-icon', sans-serif;
+    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
+    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2242,7 +2242,7 @@ class nt {
   }
 }
 const rt = new nt();
-var st = Object.defineProperty, F = (n, e, t, i) => {
+var st = Object.defineProperty, D = (n, e, t, i) => {
   for (var o = void 0, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (o = r(e, t, o) || o);
   return o && st(e, t, o), o;
@@ -2320,23 +2320,23 @@ const ue = "swim-icon", ne = class ne extends O {
 };
 ne.styles = [Ae, it];
 let A = ne;
-F([
+D([
   h({ type: String, attribute: "font-icon" })
 ], A.prototype, "fontIcon");
-F([
+D([
   h({ type: String })
 ], A.prototype, "alt");
-F([
+D([
   h({ type: String, attribute: "font-set" })
 ], A.prototype, "fontSet");
-F([
+D([
   h({ type: String, attribute: "icon-class" })
 ], A.prototype, "iconClass");
-F([
-  R()
+D([
+  M()
 ], A.prototype, "_cssClasses");
 customElements.get(ue) || customElements.define(ue, A);
-const lt = M`
+const lt = R`
   /* Only set standard scrollbar props in browsers that don't support -webkit-scrollbar.
    * Chrome 121+ disables ::-webkit-scrollbar (and thumb :hover) when scrollbar-color/width are set. */
   @supports not selector(::-webkit-scrollbar) {
@@ -2454,7 +2454,7 @@ const lt = M`
   .swim-scroll-muted:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgb(80, 92, 117);
   }
-`, at = M`
+`, at = R`
   :host {
     display: block;
     max-width: 100%;
@@ -3129,19 +3129,19 @@ b([
   h({ type: Number })
 ], c.prototype, "tabindex", 2);
 b([
-  R()
+  M()
 ], c.prototype, "_focused", 2);
 b([
-  R()
+  M()
 ], c.prototype, "_passwordVisible", 2);
 b([
-  R()
+  M()
 ], c.prototype, "_touched", 2);
 b([
-  R()
+  M()
 ], c.prototype, "_dirty", 2);
 b([
-  R()
+  M()
 ], c.prototype, "_invalid", 2);
 customElements.get(we) || customElements.define(we, c);
 export {

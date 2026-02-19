@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const R = globalThis, V = R.ShadowRoot && (R.ShadyCSS === void 0 || R.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, K = Symbol(), Z = /* @__PURE__ */ new WeakMap();
+const R = globalThis, V = R.ShadowRoot && (R.ShadyCSS === void 0 || R.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, K = Symbol(), Y = /* @__PURE__ */ new WeakMap();
 let ae = class {
   constructor(e, t, i) {
     if (this._$cssResult$ = !0, i !== K) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
@@ -14,7 +14,7 @@ let ae = class {
     const t = this.t;
     if (V && e === void 0) {
       const i = t !== void 0 && t.length === 1;
-      i && (e = Z.get(t)), e === void 0 && ((this.o = e = new CSSStyleSheet()).replaceSync(this.cssText), i && Z.set(t, e));
+      i && (e = Y.get(t)), e === void 0 && ((this.o = e = new CSSStyleSheet()).replaceSync(this.cssText), i && Y.set(t, e));
     }
     return e;
   }
@@ -22,7 +22,7 @@ let ae = class {
     return this.cssText;
   }
 };
-const de = (n) => new ae(typeof n == "string" ? n : n + "", void 0, K), j = (n, ...e) => {
+const de = (n) => new ae(typeof n == "string" ? n : n + "", void 0, K), L = (n, ...e) => {
   const t = n.length === 1 ? n[0] : e.reduce((i, o, r) => i + ((s) => {
     if (s._$cssResult$ === !0) return s.cssText;
     if (typeof s == "number") return s;
@@ -45,7 +45,7 @@ const de = (n) => new ae(typeof n == "string" ? n : n + "", void 0, K), j = (n, 
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: pe, defineProperty: ue, getOwnPropertyDescriptor: ge, getOwnPropertyNames: _e, getOwnPropertySymbols: $e, getPrototypeOf: ye } = Object, p = globalThis, X = p.trustedTypes, ve = X ? X.emptyScript : "", F = p.reactiveElementPolyfillSupport, C = (n, e) => n, I = { toAttribute(n, e) {
+const { is: pe, defineProperty: ue, getOwnPropertyDescriptor: ge, getOwnPropertyNames: _e, getOwnPropertySymbols: $e, getPrototypeOf: ye } = Object, p = globalThis, X = p.trustedTypes, ve = X ? X.emptyScript : "", D = p.reactiveElementPolyfillSupport, C = (n, e) => n, I = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
       n = n ? ve : null;
@@ -278,14 +278,14 @@ let v = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-v.elementStyles = [], v.shadowRootOptions = { mode: "open" }, v[C("elementProperties")] = /* @__PURE__ */ new Map(), v[C("finalized")] = /* @__PURE__ */ new Map(), F == null || F({ ReactiveElement: v }), (p.reactiveElementVersions ?? (p.reactiveElementVersions = [])).push("2.1.1");
+v.elementStyles = [], v.shadowRootOptions = { mode: "open" }, v[C("elementProperties")] = /* @__PURE__ */ new Map(), v[C("finalized")] = /* @__PURE__ */ new Map(), D == null || D({ ReactiveElement: v }), (p.reactiveElementVersions ?? (p.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const E = globalThis, L = E.trustedTypes, te = L ? L.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, be = "$lit$", w = `lit$${Math.random().toFixed(9).slice(2)}$`, fe = "?" + w, Ae = `<${fe}>`, y = document, P = () => y.createComment(""), O = (n) => n === null || typeof n != "object" && typeof n != "function", J = Array.isArray, xe = (n) => J(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", D = `[ 	
-\f\r]`, S = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ie = /-->/g, oe = />/g, g = RegExp(`>|${D}(?:([^\\s"'>=/]+)(${D}*=${D}*(?:[^ 	
+const E = globalThis, j = E.trustedTypes, te = j ? j.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, be = "$lit$", w = `lit$${Math.random().toFixed(9).slice(2)}$`, fe = "?" + w, Ae = `<${fe}>`, y = document, P = () => y.createComment(""), O = (n) => n === null || typeof n != "object" && typeof n != "function", J = Array.isArray, xe = (n) => J(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", F = `[ 	
+\f\r]`, S = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ie = /-->/g, oe = />/g, g = RegExp(`>|${F}(?:([^\\s"'>=/]+)(${F}*=${F}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), ne = /'/g, se = /"/g, me = /^(?:script|style|textarea|title)$/i, Se = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), N = Se(1), A = Symbol.for("lit-noChange"), f = Symbol.for("lit-nothing"), re = /* @__PURE__ */ new WeakMap(), _ = y.createTreeWalker(y, 129);
 function he(n, e) {
   if (!J(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
@@ -322,7 +322,7 @@ class z {
         if (me.test(o.tagName)) {
           const a = o.textContent.split(w), h = a.length - 1;
           if (h > 0) {
-            o.textContent = L ? L.emptyScript : "";
+            o.textContent = j ? j.emptyScript : "";
             for (let d = 0; d < h; d++) o.append(a[d], P()), _.nextNode(), c.push({ type: 2, index: ++r });
             o.append(a[h], P());
           }
@@ -591,7 +591,7 @@ function T(n) {
 function He(n) {
   return T({ ...n, state: !0, attribute: !1 });
 }
-const Ne = j`
+const Ne = L`
   :host {
     /* Colors - Blue */
     --blue-100: rgb(224, 239, 255);
@@ -747,12 +747,12 @@ const Ne = j`
     --shadow-3: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
   }
 `;
-j`
+L`
   * {
     box-sizing: border-box;
   }
 `;
-const Re = j`
+const Re = L`
   .swim-icon.lit-3d-rotate::before {
     content: '\\ea01';
   }
@@ -2022,7 +2022,7 @@ const Re = j`
   .swim-icon.lit-x-small::before {
     content: '\\eba7';
   }
-`, Ie = j`
+`, Ie = L`
   :host {
     display: inline-block;
     vertical-align: baseline;
@@ -2088,8 +2088,8 @@ const Re = j`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
-   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
+  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
+   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2097,8 +2097,8 @@ const Re = j`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 'swim-lit-icon';
-    font-family: 'swim-lit-icon', sans-serif;
+    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
+    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2130,11 +2130,11 @@ const Re = j`
   }
 
   ${Re}
-`, Le = (n) => `swim-icon ${n.trim().split(" ").map((t) => {
+`, je = (n) => `swim-icon ${n.trim().split(" ").map((t) => {
   const [i, o] = t.split(":");
   return i.length ? `${i} ${i}-${o}` : o;
 }).join(" ")}`;
-class je {
+class Le {
   constructor() {
     this._defaultFontSetClass = "lit", this._iconMap = /* @__PURE__ */ new Map();
   }
@@ -2142,7 +2142,7 @@ class je {
     return this._defaultFontSetClass = e, this._defaultFontSetClass;
   }
   get(e, t) {
-    return this.lookup(e, t).map((i) => Le(i));
+    return this.lookup(e, t).map((i) => je(i));
   }
   lookup(e, t) {
     const i = t ?? this._defaultFontSetClass;
@@ -2162,13 +2162,13 @@ class je {
     return e.split(" ").map((i) => i.includes(":") ? i : `${t}:${i}`);
   }
 }
-const Be = new je();
-var Fe = Object.defineProperty, U = (n, e, t, i) => {
+const Be = new Le();
+var De = Object.defineProperty, U = (n, e, t, i) => {
   for (var o = void 0, r = n.length - 1, s; r >= 0; r--)
     (s = n[r]) && (o = s(e, t, o) || o);
-  return o && Fe(e, t, o), o;
+  return o && De(e, t, o), o;
 };
-const ce = "swim-icon", Y = class Y extends k {
+const ce = "swim-icon", Z = class Z extends k {
   constructor() {
     super(...arguments), this.fontIcon = "", this.alt = "", this.fontSet = "lit", this.iconClass = "", this._cssClasses = [], this._iconClassTokensOnHost = [];
   }
@@ -2239,8 +2239,8 @@ const ce = "swim-icon", Y = class Y extends k {
     `;
   }
 };
-Y.styles = [Ne, Ie];
-let u = Y;
+Z.styles = [Ne, Ie];
+let u = Z;
 U([
   T({ type: String, attribute: "font-icon" })
 ], u.prototype, "fontIcon");

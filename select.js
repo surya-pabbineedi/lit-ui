@@ -22,7 +22,7 @@ let xe = class {
     return this.cssText;
   }
 };
-const Me = (n) => new xe(typeof n == "string" ? n : n + "", void 0, oe), T = (n, ...e) => {
+const Me = (n) => new xe(typeof n == "string" ? n : n + "", void 0, oe), U = (n, ...e) => {
   const t = n.length === 1 ? n[0] : e.reduce((i, o, s) => i + ((r) => {
     if (r._$cssResult$ === !0) return r.cssText;
     if (typeof r == "number") return r;
@@ -45,10 +45,10 @@ const Me = (n) => new xe(typeof n == "string" ? n : n + "", void 0, oe), T = (n,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Ie, defineProperty: Te, getOwnPropertyDescriptor: He, getOwnPropertyNames: Ue, getOwnPropertySymbols: Le, getPrototypeOf: Ne } = Object, $ = globalThis, be = $.trustedTypes, Re = be ? be.emptyScript : "", Y = $.reactiveElementPolyfillSupport, N = (n, e) => n, W = { toAttribute(n, e) {
+const { is: Te, defineProperty: Ue, getOwnPropertyDescriptor: He, getOwnPropertyNames: Ie, getOwnPropertySymbols: Le, getPrototypeOf: Re } = Object, $ = globalThis, be = $.trustedTypes, Ne = be ? be.emptyScript : "", Z = $.reactiveElementPolyfillSupport, R = (n, e) => n, W = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
-      n = n ? Re : null;
+      n = n ? Ne : null;
       break;
     case Object:
     case Array:
@@ -73,7 +73,7 @@ const { is: Ie, defineProperty: Te, getOwnPropertyDescriptor: He, getOwnProperty
       }
   }
   return t;
-} }, ne = (n, e) => !Ie(n, e), de = { attribute: !0, type: String, converter: W, reflect: !1, useDefault: !1, hasChanged: ne };
+} }, ne = (n, e) => !Te(n, e), de = { attribute: !0, type: String, converter: W, reflect: !1, useDefault: !1, hasChanged: ne };
 Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), $.litPropertyMetadata ?? ($.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let M = class extends HTMLElement {
   static addInitializer(e) {
@@ -85,7 +85,7 @@ let M = class extends HTMLElement {
   static createProperty(e, t = de) {
     if (t.state && (t.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(e) && ((t = Object.create(t)).wrapped = !0), this.elementProperties.set(e, t), !t.noAccessor) {
       const i = Symbol(), o = this.getPropertyDescriptor(e, i, t);
-      o !== void 0 && Te(this.prototype, e, o);
+      o !== void 0 && Ue(this.prototype, e, o);
     }
   }
   static getPropertyDescriptor(e, t, i) {
@@ -103,14 +103,14 @@ let M = class extends HTMLElement {
     return this.elementProperties.get(e) ?? de;
   }
   static _$Ei() {
-    if (this.hasOwnProperty(N("elementProperties"))) return;
-    const e = Ne(this);
+    if (this.hasOwnProperty(R("elementProperties"))) return;
+    const e = Re(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
-    if (this.hasOwnProperty(N("finalized"))) return;
-    if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(N("properties"))) {
-      const t = this.properties, i = [...Ue(t), ...Le(t)];
+    if (this.hasOwnProperty(R("finalized"))) return;
+    if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(R("properties"))) {
+      const t = this.properties, i = [...Ie(t), ...Le(t)];
       for (const o of i) this.createProperty(o, t[o]);
     }
     const e = this[Symbol.metadata];
@@ -278,14 +278,14 @@ let M = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-M.elementStyles = [], M.shadowRootOptions = { mode: "open" }, M[N("elementProperties")] = /* @__PURE__ */ new Map(), M[N("finalized")] = /* @__PURE__ */ new Map(), Y == null || Y({ ReactiveElement: M }), ($.reactiveElementVersions ?? ($.reactiveElementVersions = [])).push("2.1.1");
+M.elementStyles = [], M.shadowRootOptions = { mode: "open" }, M[R("elementProperties")] = /* @__PURE__ */ new Map(), M[R("finalized")] = /* @__PURE__ */ new Map(), Z == null || Z({ ReactiveElement: M }), ($.reactiveElementVersions ?? ($.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const R = globalThis, K = R.trustedTypes, he = K ? K.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ae = "?" + y, Fe = `<${Ae}>`, O = document, F = () => O.createComment(""), B = (n) => n === null || typeof n != "object" && typeof n != "function", se = Array.isArray, Be = (n) => se(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
-\f\r]`, U = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, me = />/g, k = RegExp(`>|${Z}(?:([^\\s"'>=/]+)(${Z}*=${Z}*(?:[^ 	
+const N = globalThis, K = N.trustedTypes, he = K ? K.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ke = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ae = "?" + y, Be = `<${Ae}>`, O = document, B = () => O.createComment(""), F = (n) => n === null || typeof n != "object" && typeof n != "function", se = Array.isArray, Fe = (n) => se(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Y = `[ 	
+\f\r]`, I = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, me = />/g, k = RegExp(`>|${Y}(?:([^\\s"'>=/]+)(${Y}*=${Y}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), pe = /'/g, ue = /"/g, Ce = /^(?:script|style|textarea|title)$/i, qe = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), _ = qe(1), z = Symbol.for("lit-noChange"), m = Symbol.for("lit-nothing"), we = /* @__PURE__ */ new WeakMap(), S = O.createTreeWalker(O, 129);
 function Se(n, e) {
   if (!se(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
@@ -293,13 +293,13 @@ function Se(n, e) {
 }
 const je = (n, e) => {
   const t = n.length - 1, i = [];
-  let o, s = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", r = U;
+  let o, s = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", r = I;
   for (let c = 0; c < t; c++) {
     const l = n[c];
     let b, w, a = -1, p = 0;
-    for (; p < l.length && (r.lastIndex = p, w = r.exec(l), w !== null); ) p = r.lastIndex, r === U ? w[1] === "!--" ? r = fe : w[1] !== void 0 ? r = me : w[2] !== void 0 ? (Ce.test(w[2]) && (o = RegExp("</" + w[2], "g")), r = k) : w[3] !== void 0 && (r = k) : r === k ? w[0] === ">" ? (r = o ?? U, a = -1) : w[1] === void 0 ? a = -2 : (a = r.lastIndex - w[2].length, b = w[1], r = w[3] === void 0 ? k : w[3] === '"' ? ue : pe) : r === ue || r === pe ? r = k : r === fe || r === me ? r = U : (r = k, o = void 0);
+    for (; p < l.length && (r.lastIndex = p, w = r.exec(l), w !== null); ) p = r.lastIndex, r === I ? w[1] === "!--" ? r = fe : w[1] !== void 0 ? r = me : w[2] !== void 0 ? (Ce.test(w[2]) && (o = RegExp("</" + w[2], "g")), r = k) : w[3] !== void 0 && (r = k) : r === k ? w[0] === ">" ? (r = o ?? I, a = -1) : w[1] === void 0 ? a = -2 : (a = r.lastIndex - w[2].length, b = w[1], r = w[3] === void 0 ? k : w[3] === '"' ? ue : pe) : r === ue || r === pe ? r = k : r === fe || r === me ? r = I : (r = k, o = void 0);
     const h = r === k && n[c + 1].startsWith("/>") ? " " : "";
-    s += r === U ? l + Fe : a >= 0 ? (i.push(b), l.slice(0, a) + ke + l.slice(a) + y + h) : l + y + (a === -2 ? c : h);
+    s += r === I ? l + Be : a >= 0 ? (i.push(b), l.slice(0, a) + ke + l.slice(a) + y + h) : l + y + (a === -2 ? c : h);
   }
   return [Se(n, s + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
 };
@@ -323,8 +323,8 @@ class q {
           const a = o.textContent.split(y), p = a.length - 1;
           if (p > 0) {
             o.textContent = K ? K.emptyScript : "";
-            for (let h = 0; h < p; h++) o.append(a[h], F()), S.nextNode(), l.push({ type: 2, index: ++s });
-            o.append(a[p], F());
+            for (let h = 0; h < p; h++) o.append(a[h], B()), S.nextNode(), l.push({ type: 2, index: ++s });
+            o.append(a[p], B());
           }
         }
       } else if (o.nodeType === 8) if (o.data === Ae) l.push({ type: 2, index: s });
@@ -340,12 +340,12 @@ class q {
     return i.innerHTML = e, i;
   }
 }
-function I(n, e, t = n, i) {
+function T(n, e, t = n, i) {
   var r, c;
   if (e === z) return e;
   let o = i !== void 0 ? (r = t._$Co) == null ? void 0 : r[i] : t._$Cl;
-  const s = B(e) ? void 0 : e._$litDirective$;
-  return (o == null ? void 0 : o.constructor) !== s && ((c = o == null ? void 0 : o._$AO) == null || c.call(o, !1), s === void 0 ? o = void 0 : (o = new s(n), o._$AT(n, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = o : t._$Cl = o), o !== void 0 && (e = I(n, o._$AS(n, e.values), o, i)), e;
+  const s = F(e) ? void 0 : e._$litDirective$;
+  return (o == null ? void 0 : o.constructor) !== s && ((c = o == null ? void 0 : o._$AO) == null || c.call(o, !1), s === void 0 ? o = void 0 : (o = new s(n), o._$AT(n, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = o : t._$Cl = o), o !== void 0 && (e = T(n, o._$AS(n, e.values), o, i)), e;
 }
 let Ve = class {
   constructor(e, t) {
@@ -395,7 +395,7 @@ class H {
     return this._$AB;
   }
   _$AI(e, t = this) {
-    e = I(this, e, t), B(e) ? e === m || e == null || e === "" ? (this._$AH !== m && this._$AR(), this._$AH = m) : e !== this._$AH && e !== z && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Be(e) ? this.k(e) : this._(e);
+    e = T(this, e, t), F(e) ? e === m || e == null || e === "" ? (this._$AH !== m && this._$AR(), this._$AH = m) : e !== this._$AH && e !== z && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Fe(e) ? this.k(e) : this._(e);
   }
   O(e) {
     return this._$AA.parentNode.insertBefore(e, this._$AB);
@@ -404,7 +404,7 @@ class H {
     this._$AH !== e && (this._$AR(), this._$AH = this.O(e));
   }
   _(e) {
-    this._$AH !== m && B(this._$AH) ? this._$AA.nextSibling.data = e : this.T(O.createTextNode(e)), this._$AH = e;
+    this._$AH !== m && F(this._$AH) ? this._$AA.nextSibling.data = e : this.T(O.createTextNode(e)), this._$AH = e;
   }
   $(e) {
     var s;
@@ -423,7 +423,7 @@ class H {
     se(this._$AH) || (this._$AH = [], this._$AR());
     const t = this._$AH;
     let i, o = 0;
-    for (const s of e) o === t.length ? t.push(i = new H(this.O(F()), this.O(F()), this, this.options)) : i = t[o], i._$AI(s), o++;
+    for (const s of e) o === t.length ? t.push(i = new H(this.O(B()), this.O(B()), this, this.options)) : i = t[o], i._$AI(s), o++;
     o < t.length && (this._$AR(i && i._$AB.nextSibling, o), t.length = o);
   }
   _$AR(e = this._$AA.nextSibling, t) {
@@ -451,11 +451,11 @@ class G {
   _$AI(e, t = this, i, o) {
     const s = this.strings;
     let r = !1;
-    if (s === void 0) e = I(this, e, t, 0), r = !B(e) || e !== this._$AH && e !== z, r && (this._$AH = e);
+    if (s === void 0) e = T(this, e, t, 0), r = !F(e) || e !== this._$AH && e !== z, r && (this._$AH = e);
     else {
       const c = e;
       let l, b;
-      for (e = s[0], l = 0; l < s.length - 1; l++) b = I(this, c[i + l], t, l), b === z && (b = this._$AH[l]), r || (r = !B(b) || b !== this._$AH[l]), b === m ? e = m : e !== m && (e += (b ?? "") + s[l + 1]), this._$AH[l] = b;
+      for (e = s[0], l = 0; l < s.length - 1; l++) b = T(this, c[i + l], t, l), b === z && (b = this._$AH[l]), r || (r = !F(b) || b !== this._$AH[l]), b === m ? e = m : e !== m && (e += (b ?? "") + s[l + 1]), this._$AH[l] = b;
     }
     r && !o && this.j(e);
   }
@@ -484,7 +484,7 @@ class Qe extends G {
     super(e, t, i, o, s), this.type = 5;
   }
   _$AI(e, t = this) {
-    if ((e = I(this, e, t, 0) ?? m) === z) return;
+    if ((e = T(this, e, t, 0) ?? m) === z) return;
     const i = this._$AH, o = e === m && i !== m || e.capture !== i.capture || e.once !== i.once || e.passive !== i.passive, s = e !== m && (i === m || o);
     o && this.element.removeEventListener(this.name, this, i), s && this.element.addEventListener(this.name, this, e), this._$AH = e;
   }
@@ -501,17 +501,17 @@ class Ge {
     return this._$AM._$AU;
   }
   _$AI(e) {
-    I(this, e);
+    T(this, e);
   }
 }
-const Je = { I: H }, X = R.litHtmlPolyfillSupport;
-X == null || X(q, H), (R.litHtmlVersions ?? (R.litHtmlVersions = [])).push("3.3.1");
-const Ye = (n, e, t) => {
+const Je = { I: H }, X = N.litHtmlPolyfillSupport;
+X == null || X(q, H), (N.litHtmlVersions ?? (N.litHtmlVersions = [])).push("3.3.1");
+const Ze = (n, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
   let o = i._$litPart$;
   if (o === void 0) {
     const s = (t == null ? void 0 : t.renderBefore) ?? null;
-    i._$litPart$ = o = new H(e.insertBefore(F(), s), s, void 0, t ?? {});
+    i._$litPart$ = o = new H(e.insertBefore(B(), s), s, void 0, t ?? {});
   }
   return o._$AI(n), o;
 };
@@ -532,7 +532,7 @@ let D = class extends M {
   }
   update(e) {
     const t = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = Ye(t, this.renderRoot, this.renderOptions);
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = Ze(t, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     var e;
@@ -556,7 +556,7 @@ ee == null || ee({ LitElement: D });
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Ze = { attribute: !0, type: String, converter: W, reflect: !1, hasChanged: ne }, Xe = (n = Ze, e, t) => {
+const Ye = { attribute: !0, type: String, converter: W, reflect: !1, hasChanged: ne }, Xe = (n = Ye, e, t) => {
   const { kind: i, metadata: o } = t;
   let s = globalThis.litPropertyMetadata.get(o);
   if (s === void 0 && globalThis.litPropertyMetadata.set(o, s = /* @__PURE__ */ new Map()), i === "setter" && ((n = Object.create(n)).wrapped = !0), s.set(t.name, n), i === "accessor") {
@@ -718,7 +718,7 @@ const _e = (n, e, t) => {
     }
     return this.ut = r, rt(n, l), z;
   }
-}), Oe = T`
+}), Oe = U`
   :host {
     /* Colors - Blue */
     --blue-100: rgb(224, 239, 255);
@@ -874,12 +874,12 @@ const _e = (n, e, t) => {
     --shadow-3: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
   }
 `;
-T`
+U`
   * {
     box-sizing: border-box;
   }
 `;
-const at = T`
+const at = U`
   /* Only set standard scrollbar props in browsers that don't support -webkit-scrollbar.
    * Chrome 121+ disables ::-webkit-scrollbar (and thumb :hover) when scrollbar-color/width are set. */
   @supports not selector(::-webkit-scrollbar) {
@@ -997,7 +997,7 @@ const at = T`
   .swim-scroll-muted:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgb(80, 92, 117);
   }
-`, bt = T`
+`, bt = U`
   :host {
     display: block;
     max-width: 100%;
@@ -1380,7 +1380,7 @@ var ze = /* @__PURE__ */ ((n) => (n.legacy = "legacy", n.fill = "fill", n))(ze |
 function C(n) {
   return n != null && `${n}` != "false";
 }
-const dt = T`
+const dt = U`
   .swim-icon.lit-3d-rotate::before {
     content: '\\ea01';
   }
@@ -2650,7 +2650,7 @@ const dt = T`
   .swim-icon.lit-x-small::before {
     content: '\\eba7';
   }
-`, ht = T`
+`, ht = U`
   :host {
     display: inline-block;
     vertical-align: baseline;
@@ -2716,8 +2716,8 @@ const dt = T`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts); family must match SWIM_ICON_FONT_FAMILY.
-   * Explicit font-family so host/global 'ngx-icon' does not override via inheritance. */
+  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
+   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2725,8 +2725,8 @@ const dt = T`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 'swim-lit-icon';
-    font-family: 'swim-lit-icon', sans-serif;
+    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
+    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
