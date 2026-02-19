@@ -2096,8 +2096,7 @@ const ke = P`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2105,8 +2104,8 @@ const ke = P`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

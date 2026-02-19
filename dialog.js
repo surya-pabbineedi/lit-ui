@@ -284,9 +284,9 @@ S.elementStyles = [], S.shadowRootOptions = { mode: "open" }, S[R("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const O = globalThis, Y = O.trustedTypes, de = Y ? Y.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ze = "$lit$", A = `lit$${Math.random().toFixed(9).slice(2)}$`, ke = "?" + A, Pe = `<${ke}>`, q = document, V = () => q.createComment(""), K = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, Ue = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", L = `[ 	
+const O = globalThis, Y = O.trustedTypes, de = Y ? Y.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ze = "$lit$", A = `lit$${Math.random().toFixed(9).slice(2)}$`, ke = "?" + A, Pe = `<${ke}>`, q = document, V = () => q.createComment(""), K = (n) => n === null || typeof n != "object" && typeof n != "function", ie = Array.isArray, De = (n) => ie(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", L = `[ 	
 \f\r]`, H = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, he = />/g, I = RegExp(`>|${L}(?:([^\\s"'>=/]+)(${L}*=${L}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), we = /'/g, ge = /"/g, qe = /^(?:script|style|textarea|title)$/i, De = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), w = De(1), B = Symbol.for("lit-noChange"), a = Symbol.for("lit-nothing"), pe = /* @__PURE__ */ new WeakMap(), z = q.createTreeWalker(q, 129);
+\f\r"'\`<>=]|("|')|))|$)`, "g"), we = /'/g, ge = /"/g, qe = /^(?:script|style|textarea|title)$/i, Ue = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), w = Ue(1), B = Symbol.for("lit-noChange"), a = Symbol.for("lit-nothing"), pe = /* @__PURE__ */ new WeakMap(), z = q.createTreeWalker(q, 129);
 function Se(n, e) {
   if (!ie(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return de !== void 0 ? de.createHTML(e) : e;
@@ -364,7 +364,7 @@ class Qe {
     for (; l !== void 0; ) {
       if (s === l.index) {
         let d;
-        l.type === 2 ? d = new U(r, r.nextSibling, this, e) : l.type === 1 ? d = new l.ctor(r, l.name, l.strings, this, e) : l.type === 6 && (d = new Ne(r, this, e)), this._$AV.push(d), l = i[++c];
+        l.type === 2 ? d = new D(r, r.nextSibling, this, e) : l.type === 1 ? d = new l.ctor(r, l.name, l.strings, this, e) : l.type === 6 && (d = new Ne(r, this, e)), this._$AV.push(d), l = i[++c];
       }
       s !== (l == null ? void 0 : l.index) && (r = z.nextNode(), s++);
     }
@@ -375,7 +375,7 @@ class Qe {
     for (const i of this._$AV) i !== void 0 && (i.strings !== void 0 ? (i._$AI(e, i, t), t += i.strings.length - 2) : i._$AI(e[t])), t++;
   }
 }
-class U {
+class D {
   get _$AU() {
     var e;
     return ((e = this._$AM) == null ? void 0 : e._$AU) ?? this._$Cv;
@@ -395,7 +395,7 @@ class U {
     return this._$AB;
   }
   _$AI(e, t = this) {
-    e = J(this, e, t), K(e) ? e === a || e == null || e === "" ? (this._$AH !== a && this._$AR(), this._$AH = a) : e !== this._$AH && e !== B && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Ue(e) ? this.k(e) : this._(e);
+    e = J(this, e, t), K(e) ? e === a || e == null || e === "" ? (this._$AH !== a && this._$AR(), this._$AH = a) : e !== this._$AH && e !== B && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : De(e) ? this.k(e) : this._(e);
   }
   O(e) {
     return this._$AA.parentNode.insertBefore(e, this._$AB);
@@ -423,7 +423,7 @@ class U {
     ie(this._$AH) || (this._$AH = [], this._$AR());
     const t = this._$AH;
     let i, o = 0;
-    for (const r of e) o === t.length ? t.push(i = new U(this.O(V()), this.O(V()), this, this.options)) : i = t[o], i._$AI(r), o++;
+    for (const r of e) o === t.length ? t.push(i = new D(this.O(V()), this.O(V()), this, this.options)) : i = t[o], i._$AI(r), o++;
     o < t.length && (this._$AR(i && i._$AB.nextSibling, o), t.length = o);
   }
   _$AR(e = this._$AA.nextSibling, t) {
@@ -505,13 +505,13 @@ class Ne {
   }
 }
 const X = O.litHtmlPolyfillSupport;
-X == null || X(P, U), (O.litHtmlVersions ?? (O.litHtmlVersions = [])).push("3.3.1");
+X == null || X(P, D), (O.litHtmlVersions ?? (O.litHtmlVersions = [])).push("3.3.1");
 const Ze = (n, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
   let o = i._$litPart$;
   if (o === void 0) {
     const r = (t == null ? void 0 : t.renderBefore) ?? null;
-    i._$litPart$ = o = new U(e.insertBefore(V(), r), r, void 0, t ?? {});
+    i._$litPart$ = o = new D(e.insertBefore(V(), r), r, void 0, t ?? {});
   }
   return o._$AI(n), o;
 };
@@ -2440,8 +2440,7 @@ const tt = E`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2449,8 +2448,8 @@ const tt = E`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2515,7 +2514,7 @@ class rt {
   }
 }
 const st = new rt();
-var lt = Object.defineProperty, D = (n, e, t, i) => {
+var lt = Object.defineProperty, U = (n, e, t, i) => {
   for (var o = void 0, r = n.length - 1, s; r >= 0; r--)
     (s = n[r]) && (o = s(e, t, o) || o);
   return o && lt(e, t, o), o;
@@ -2593,19 +2592,19 @@ const ye = "swim-icon", ne = class ne extends x {
 };
 ne.styles = [Z, ot];
 let C = ne;
-D([
+U([
   m({ type: String, attribute: "font-icon" })
 ], C.prototype, "fontIcon");
-D([
+U([
   m({ type: String })
 ], C.prototype, "alt");
-D([
+U([
   m({ type: String, attribute: "font-set" })
 ], C.prototype, "fontSet");
-D([
+U([
   m({ type: String, attribute: "icon-class" })
 ], C.prototype, "iconClass");
-D([
+U([
   oe()
 ], C.prototype, "_cssClasses");
 customElements.get(ye) || customElements.define(ye, C);

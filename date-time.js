@@ -286,7 +286,7 @@ L.elementStyles = [], L.shadowRootOptions = { mode: "open" }, L[X("elementProper
  */
 const $ = globalThis, ce = $.trustedTypes, qe = ce ? ce.createPolicy("lit-html", { createHTML: (o) => o }) : void 0, it = "$lit$", H = `lit$${Math.random().toFixed(9).slice(2)}$`, ot = "?" + H, yt = `<${ot}>`, K = document, ee = () => K.createComment(""), te = (o) => o === null || typeof o != "object" && typeof o != "function", De = Array.isArray, vt = (o) => De(o) || typeof (o == null ? void 0 : o[Symbol.iterator]) == "function", be = `[ 	
 \f\r]`, Q = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Fe = /-->/g, Ve = />/g, J = RegExp(`>|${be}(?:([^\\s"'>=/]+)(${be}*=${be}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), Oe = /'/g, He = /"/g, nt = /^(?:script|style|textarea|title)$/i, _t = (o) => (e, ...t) => ({ _$litType$: o, strings: e, values: t }), f = _t(1), I = Symbol.for("lit-noChange"), h = Symbol.for("lit-nothing"), Be = /* @__PURE__ */ new WeakMap(), U = K.createTreeWalker(K, 129);
+\f\r"'\`<>=]|("|')|))|$)`, "g"), Oe = /'/g, He = /"/g, nt = /^(?:script|style|textarea|title)$/i, _t = (o) => (e, ...t) => ({ _$litType$: o, strings: e, values: t }), f = _t(1), I = Symbol.for("lit-noChange"), h = Symbol.for("lit-nothing"), Be = /* @__PURE__ */ new WeakMap(), R = K.createTreeWalker(K, 129);
 function st(o, e) {
   if (!De(o) || !o.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return qe !== void 0 ? qe.createHTML(e) : e;
@@ -309,11 +309,11 @@ class ie {
     this.parts = [];
     let r = 0, s = 0;
     const l = e.length - 1, c = this.parts, [d, v] = xt(e, t);
-    if (this.el = ie.createElement(d, i), U.currentNode = this.el.content, t === 2 || t === 3) {
+    if (this.el = ie.createElement(d, i), R.currentNode = this.el.content, t === 2 || t === 3) {
       const w = this.el.content.firstChild;
       w.replaceWith(...w.childNodes);
     }
-    for (; (n = U.nextNode()) !== null && c.length < l; ) {
+    for (; (n = R.nextNode()) !== null && c.length < l; ) {
       if (n.nodeType === 1) {
         if (n.hasAttributes()) for (const w of n.getAttributeNames()) if (w.endsWith(it)) {
           const Y = v[s++], O = n.getAttribute(w).split(H), re = /([.?@])?(.*)/.exec(Y);
@@ -323,7 +323,7 @@ class ie {
           const w = n.textContent.split(H), Y = w.length - 1;
           if (Y > 0) {
             n.textContent = ce ? ce.emptyScript : "";
-            for (let O = 0; O < Y; O++) n.append(w[O], ee()), U.nextNode(), c.push({ type: 2, index: ++r });
+            for (let O = 0; O < Y; O++) n.append(w[O], ee()), R.nextNode(), c.push({ type: 2, index: ++r });
             n.append(w[Y], ee());
           }
         }
@@ -359,16 +359,16 @@ class At {
   }
   u(e) {
     const { el: { content: t }, parts: i } = this._$AD, n = ((e == null ? void 0 : e.creationScope) ?? K).importNode(t, !0);
-    U.currentNode = n;
-    let r = U.nextNode(), s = 0, l = 0, c = i[0];
+    R.currentNode = n;
+    let r = R.nextNode(), s = 0, l = 0, c = i[0];
     for (; c !== void 0; ) {
       if (s === c.index) {
         let d;
         c.type === 2 ? d = new oe(r, r.nextSibling, this, e) : c.type === 1 ? d = new c.ctor(r, c.name, c.strings, this, e) : c.type === 6 && (d = new Et(r, this, e)), this._$AV.push(d), c = i[++l];
       }
-      s !== (c == null ? void 0 : c.index) && (r = U.nextNode(), s++);
+      s !== (c == null ? void 0 : c.index) && (r = R.nextNode(), s++);
     }
-    return U.currentNode = K, n;
+    return R.currentNode = K, n;
   }
   p(e) {
     let t = 0;
@@ -520,7 +520,7 @@ const kt = (o, e, t) => {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const R = globalThis;
+const U = globalThis;
 let F = class extends L {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
@@ -547,10 +547,10 @@ let F = class extends L {
   }
 };
 var $e;
-F._$litElement$ = !0, F.finalized = !0, ($e = R.litElementHydrateSupport) == null || $e.call(R, { LitElement: F });
-const fe = R.litElementPolyfillSupport;
+F._$litElement$ = !0, F.finalized = !0, ($e = U.litElementHydrateSupport) == null || $e.call(U, { LitElement: F });
+const fe = U.litElementPolyfillSupport;
 fe == null || fe({ LitElement: F });
-(R.litElementVersions ?? (R.litElementVersions = [])).push("4.2.1");
+(U.litElementVersions ?? (U.litElementVersions = [])).push("4.2.1");
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -2175,8 +2175,7 @@ const Ot = V`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2184,8 +2183,8 @@ const Ot = V`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2249,11 +2248,11 @@ class Jt {
     return e.split(" ").map((i) => i.includes(":") ? i : `${t}:${i}`);
   }
 }
-const Ut = new Jt();
-var Rt = Object.defineProperty, se = (o, e, t, i) => {
+const Rt = new Jt();
+var Ut = Object.defineProperty, se = (o, e, t, i) => {
   for (var n = void 0, r = o.length - 1, s; r >= 0; r--)
     (s = o[r]) && (n = s(e, t, n) || n);
-  return n && Rt(e, t, n), n;
+  return n && Ut(e, t, n), n;
 };
 const Je = "swim-icon", Ee = class Ee extends F {
   constructor() {
@@ -2289,7 +2288,7 @@ const Je = "swim-icon", Ee = class Ee extends F {
       this._cssClasses = [];
       return;
     }
-    this._cssClasses = Ut.get(e, this.fontSet);
+    this._cssClasses = Rt.get(e, this.fontSet);
   }
   render() {
     var r;
@@ -2815,7 +2814,7 @@ var Gt = Object.defineProperty, Lt = Object.getOwnPropertyDescriptor, g = (o, e,
     (s = o[r]) && (n = (i ? s(e, t, n) : s(n)) || n);
   return i && n && Gt(e, t, n), n;
 };
-const Ue = "swim-input", de = class de extends F {
+const Re = "swim-input", de = class de extends F {
   constructor() {
     super(), this.type = q.text, this.label = "", this.placeholder = "", this.hint = "", this._value = "", this.name = "", this.id = `swim-input-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._readonly = !1, this._required = !1, this._autofocus = !1, this.autocomplete = "off", this.appearance = at.legacy, this.size = lt.sm, this._withMargin = !0, this._withHint = !0, this._passwordToggleEnabled = !1, this.textareaRows = 3, this.requiredIndicator = "*", this._focused = !1, this._passwordVisible = !1, this._touched = !1, this._dirty = !1, this._invalid = !1, this._internals = this.attachInternals();
   }
@@ -3154,7 +3153,7 @@ g([
 g([
   _()
 ], p.prototype, "_invalid", 2);
-customElements.get(Ue) || customElements.define(Ue, p);
+customElements.get(Re) || customElements.define(Re, p);
 const Nt = V`
   :host {
     position: relative;
@@ -3448,7 +3447,7 @@ function ve(o, e) {
 function Wt(o, e) {
   return o.getFullYear() === e.getFullYear();
 }
-function Re(o, e) {
+function Ue(o, e) {
   return new Date(o, e + 1, 0).getDate();
 }
 function ge(o, e, t) {
@@ -3462,9 +3461,9 @@ function ge(o, e, t) {
   };
 }
 function k(o) {
-  const e = /* @__PURE__ */ new Date(), t = o.getFullYear(), i = o.getMonth(), n = Re(t, i), r = new Date(t, i, 1).getDay(), s = [];
+  const e = /* @__PURE__ */ new Date(), t = o.getFullYear(), i = o.getMonth(), n = Ue(t, i), r = new Date(t, i, 1).getDay(), s = [];
   if (r > 0) {
-    const d = Re(t, i - 1);
+    const d = Ue(t, i - 1);
     for (let v = r - 1; v >= 0; v--) {
       const w = new Date(t, i - 1, d - v);
       s.push(ge(w, i, e));

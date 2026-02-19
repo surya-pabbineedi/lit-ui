@@ -73,7 +73,7 @@ const { is: Se, defineProperty: Be, getOwnPropertyDescriptor: He, getOwnProperty
       }
   }
   return t;
-} }, ie = (n, e) => !Se(n, e), ae = { attribute: !0, type: String, converter: W, reflect: !1, useDefault: !1, hasChanged: ie };
+} }, ie = (n, e) => !Se(n, e), ce = { attribute: !0, type: String, converter: W, reflect: !1, useDefault: !1, hasChanged: ie };
 Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), E.litPropertyMetadata ?? (E.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let H = class extends HTMLElement {
   static addInitializer(e) {
@@ -82,7 +82,7 @@ let H = class extends HTMLElement {
   static get observedAttributes() {
     return this.finalize(), this._$Eh && [...this._$Eh.keys()];
   }
-  static createProperty(e, t = ae) {
+  static createProperty(e, t = ce) {
     if (t.state && (t.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(e) && ((t = Object.create(t)).wrapped = !0), this.elementProperties.set(e, t), !t.noAccessor) {
       const i = Symbol(), o = this.getPropertyDescriptor(e, i, t);
       o !== void 0 && Be(this.prototype, e, o);
@@ -95,12 +95,12 @@ let H = class extends HTMLElement {
       this[t] = s;
     } };
     return { get: o, set(s) {
-      const a = o == null ? void 0 : o.call(this);
-      r == null || r.call(this, s), this.requestUpdate(e, a, i);
+      const c = o == null ? void 0 : o.call(this);
+      r == null || r.call(this, s), this.requestUpdate(e, c, i);
     }, configurable: !0, enumerable: !0 };
   }
   static getPropertyOptions(e) {
-    return this.elementProperties.get(e) ?? ae;
+    return this.elementProperties.get(e) ?? ce;
   }
   static _$Ei() {
     if (this.hasOwnProperty(T("elementProperties"))) return;
@@ -192,9 +192,9 @@ let H = class extends HTMLElement {
     var r, s;
     const i = this.constructor, o = i._$Eh.get(e);
     if (o !== void 0 && this._$Em !== o) {
-      const a = i.getPropertyOptions(o), l = typeof a.converter == "function" ? { fromAttribute: a.converter } : ((r = a.converter) == null ? void 0 : r.fromAttribute) !== void 0 ? a.converter : W;
+      const c = i.getPropertyOptions(o), l = typeof c.converter == "function" ? { fromAttribute: c.converter } : ((r = c.converter) == null ? void 0 : r.fromAttribute) !== void 0 ? c.converter : W;
       this._$Em = o;
-      const f = l.fromAttribute(t, a.type);
+      const f = l.fromAttribute(t, c.type);
       this[o] = f ?? ((s = this._$Ej) == null ? void 0 : s.get(o)) ?? f, this._$Em = null;
     }
   }
@@ -233,8 +233,8 @@ let H = class extends HTMLElement {
       }
       const o = this.constructor.elementProperties;
       if (o.size > 0) for (const [r, s] of o) {
-        const { wrapped: a } = s, l = this[r];
-        a !== !0 || this._$AL.has(r) || l === void 0 || this.C(r, void 0, s, l);
+        const { wrapped: c } = s, l = this[r];
+        c !== !0 || this._$AL.has(r) || l === void 0 || this.C(r, void 0, s, l);
       }
     }
     let e = !1;
@@ -284,22 +284,22 @@ H.elementStyles = [], H.shadowRootOptions = { mode: "open" }, H[T("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const U = globalThis, N = U.trustedTypes, ce = N ? N.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, Ae = "$lit$", x = `lit$${Math.random().toFixed(9).slice(2)}$`, xe = "?" + x, Ge = `<${xe}>`, S = document, P = () => S.createComment(""), K = (n) => n === null || typeof n != "object" && typeof n != "function", oe = Array.isArray, Te = (n) => oe(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", X = `[ 	
+const U = globalThis, N = U.trustedTypes, ae = N ? N.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, Ae = "$lit$", x = `lit$${Math.random().toFixed(9).slice(2)}$`, xe = "?" + x, Ge = `<${xe}>`, S = document, P = () => S.createComment(""), K = (n) => n === null || typeof n != "object" && typeof n != "function", oe = Array.isArray, Te = (n) => oe(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", X = `[ 	
 \f\r]`, G = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, be = /-->/g, he = />/g, I = RegExp(`>|${X}(?:([^\\s"'>=/]+)(${X}*=${X}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), de = /'/g, me = /"/g, Ee = /^(?:script|style|textarea|title)$/i, Ue = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), u = Ue(1), w = Symbol.for("lit-noChange"), d = Symbol.for("lit-nothing"), fe = /* @__PURE__ */ new WeakMap(), q = S.createTreeWalker(S, 129);
 function Ce(n, e) {
   if (!oe(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
-  return ce !== void 0 ? ce.createHTML(e) : e;
+  return ae !== void 0 ? ae.createHTML(e) : e;
 }
 const Pe = (n, e) => {
   const t = n.length - 1, i = [];
   let o, r = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", s = G;
-  for (let a = 0; a < t; a++) {
-    const l = n[a];
+  for (let c = 0; c < t; c++) {
+    const l = n[c];
     let f, p, m = -1, g = 0;
     for (; g < l.length && (s.lastIndex = g, p = s.exec(l), p !== null); ) g = s.lastIndex, s === G ? p[1] === "!--" ? s = be : p[1] !== void 0 ? s = he : p[2] !== void 0 ? (Ee.test(p[2]) && (o = RegExp("</" + p[2], "g")), s = I) : p[3] !== void 0 && (s = I) : s === I ? p[0] === ">" ? (s = o ?? G, m = -1) : p[1] === void 0 ? m = -2 : (m = s.lastIndex - p[2].length, f = p[1], s = p[3] === void 0 ? I : p[3] === '"' ? me : de) : s === me || s === de ? s = I : s === be || s === he ? s = G : (s = I, o = void 0);
-    const v = s === I && n[a + 1].startsWith("/>") ? " " : "";
-    r += s === G ? l + Ge : m >= 0 ? (i.push(f), l.slice(0, m) + Ae + l.slice(m) + x + v) : l + x + (m === -2 ? a : v);
+    const v = s === I && n[c + 1].startsWith("/>") ? " " : "";
+    r += s === G ? l + Ge : m >= 0 ? (i.push(f), l.slice(0, m) + Ae + l.slice(m) + x + v) : l + x + (m === -2 ? c : v);
   }
   return [Ce(n, r + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
 };
@@ -308,12 +308,12 @@ class O {
     let o;
     this.parts = [];
     let r = 0, s = 0;
-    const a = e.length - 1, l = this.parts, [f, p] = Pe(e, t);
+    const c = e.length - 1, l = this.parts, [f, p] = Pe(e, t);
     if (this.el = O.createElement(f, i), q.currentNode = this.el.content, t === 2 || t === 3) {
       const m = this.el.content.firstChild;
       m.replaceWith(...m.childNodes);
     }
-    for (; (o = q.nextNode()) !== null && l.length < a; ) {
+    for (; (o = q.nextNode()) !== null && l.length < c; ) {
       if (o.nodeType === 1) {
         if (o.hasAttributes()) for (const m of o.getAttributeNames()) if (m.endsWith(Ae)) {
           const g = p[s++], v = o.getAttribute(m).split(x), F = /([.?@])?(.*)/.exec(g);
@@ -341,11 +341,11 @@ class O {
   }
 }
 function V(n, e, t = n, i) {
-  var s, a;
+  var s, c;
   if (e === w) return e;
   let o = i !== void 0 ? (s = t._$Co) == null ? void 0 : s[i] : t._$Cl;
   const r = K(e) ? void 0 : e._$litDirective$;
-  return (o == null ? void 0 : o.constructor) !== r && ((a = o == null ? void 0 : o._$AO) == null || a.call(o, !1), r === void 0 ? o = void 0 : (o = new r(n), o._$AT(n, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = o : t._$Cl = o), o !== void 0 && (e = V(n, o._$AS(n, e.values), o, i)), e;
+  return (o == null ? void 0 : o.constructor) !== r && ((c = o == null ? void 0 : o._$AO) == null || c.call(o, !1), r === void 0 ? o = void 0 : (o = new r(n), o._$AT(n, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = o : t._$Cl = o), o !== void 0 && (e = V(n, o._$AS(n, e.values), o, i)), e;
 }
 class Ke {
   constructor(e, t) {
@@ -360,11 +360,11 @@ class Ke {
   u(e) {
     const { el: { content: t }, parts: i } = this._$AD, o = ((e == null ? void 0 : e.creationScope) ?? S).importNode(t, !0);
     q.currentNode = o;
-    let r = q.nextNode(), s = 0, a = 0, l = i[0];
+    let r = q.nextNode(), s = 0, c = 0, l = i[0];
     for (; l !== void 0; ) {
       if (s === l.index) {
         let f;
-        l.type === 2 ? f = new D(r, r.nextSibling, this, e) : l.type === 1 ? f = new l.ctor(r, l.name, l.strings, this, e) : l.type === 6 && (f = new Fe(r, this, e)), this._$AV.push(f), l = i[++a];
+        l.type === 2 ? f = new D(r, r.nextSibling, this, e) : l.type === 1 ? f = new l.ctor(r, l.name, l.strings, this, e) : l.type === 6 && (f = new Fe(r, this, e)), this._$AV.push(f), l = i[++c];
       }
       s !== (l == null ? void 0 : l.index) && (r = q.nextNode(), s++);
     }
@@ -411,8 +411,8 @@ class D {
     const { values: t, _$litType$: i } = e, o = typeof i == "number" ? this._$AC(e) : (i.el === void 0 && (i.el = O.createElement(Ce(i.h, i.h[0]), this.options)), i);
     if (((r = this._$AH) == null ? void 0 : r._$AD) === o) this._$AH.p(t);
     else {
-      const s = new Ke(o, this), a = s.u(this.options);
-      s.p(t), this.T(a), this._$AH = s;
+      const s = new Ke(o, this), c = s.u(this.options);
+      s.p(t), this.T(c), this._$AH = s;
     }
   }
   _$AC(e) {
@@ -453,9 +453,9 @@ class L {
     let s = !1;
     if (r === void 0) e = V(this, e, t, 0), s = !K(e) || e !== this._$AH && e !== w, s && (this._$AH = e);
     else {
-      const a = e;
+      const c = e;
       let l, f;
-      for (e = r[0], l = 0; l < r.length - 1; l++) f = V(this, a[i + l], t, l), f === w && (f = this._$AH[l]), s || (s = !K(f) || f !== this._$AH[l]), f === d ? e = d : e !== d && (e += (f ?? "") + r[l + 1]), this._$AH[l] = f;
+      for (e = r[0], l = 0; l < r.length - 1; l++) f = V(this, c[i + l], t, l), f === w && (f = this._$AH[l]), s || (s = !K(f) || f !== this._$AH[l]), f === d ? e = d : e !== d && (e += (f ?? "") + r[l + 1]), this._$AH[l] = f;
     }
     s && !o && this.j(e);
   }
@@ -561,18 +561,18 @@ const We = { attribute: !0, type: String, converter: W, reflect: !1, hasChanged:
   let r = globalThis.litPropertyMetadata.get(o);
   if (r === void 0 && globalThis.litPropertyMetadata.set(o, r = /* @__PURE__ */ new Map()), i === "setter" && ((n = Object.create(n)).wrapped = !0), r.set(t.name, n), i === "accessor") {
     const { name: s } = t;
-    return { set(a) {
+    return { set(c) {
       const l = e.get.call(this);
-      e.set.call(this, a), this.requestUpdate(s, l, n);
-    }, init(a) {
-      return a !== void 0 && this.C(s, void 0, n, a), a;
+      e.set.call(this, c), this.requestUpdate(s, l, n);
+    }, init(c) {
+      return c !== void 0 && this.C(s, void 0, n, c), c;
     } };
   }
   if (i === "setter") {
     const { name: s } = t;
-    return function(a) {
+    return function(c) {
       const l = this[s];
-      e.call(this, a), this.requestUpdate(s, l, n);
+      e.call(this, c), this.requestUpdate(s, l, n);
     };
   }
   throw Error("Unsupported decorator location: " + i);
@@ -605,8 +605,8 @@ const Ze = (n, e, t) => (t.configurable = !0, t.enumerable = !0, Reflect.decorat
 function Le(n, e) {
   return (t, i, o) => {
     const r = (s) => {
-      var a;
-      return ((a = s.renderRoot) == null ? void 0 : a.querySelector(n)) ?? null;
+      var c;
+      return ((c = s.renderRoot) == null ? void 0 : c.querySelector(n)) ?? null;
     };
     return Ze(t, i, { get() {
       return r(this);
@@ -2175,8 +2175,7 @@ const tt = M`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2184,8 +2183,8 @@ const tt = M`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2234,9 +2233,9 @@ class st {
   lookup(e, t) {
     const i = t ?? this._defaultFontSetClass;
     return (Array.isArray(e) ? e : [e]).reduce((o, r) => {
-      const s = this._expandKeys(r, i).map((a) => {
-        const l = this._iconMap.get(a);
-        return l && l.length === 1 ? l[0] : a;
+      const s = this._expandKeys(r, i).map((c) => {
+        const l = this._iconMap.get(c);
+        return l && l.length === 1 ? l[0] : c;
       }).join(" ");
       return o.concat(this._iconMap.get(s) || [s]);
     }, []);
@@ -2320,7 +2319,7 @@ const ue = "swim-icon", ne = class ne extends J {
         aria-hidden="${t ? "false" : "true"}"
       >
         ${e.map(
-      (s, a) => u`<i part="icon icon-${a}" class="swim-icon__i swim-icon__i--${a} ${s}${o}"></i>`
+      (s, c) => u`<i part="icon icon-${c}" class="swim-icon__i swim-icon__i--${c} ${s}${o}"></i>`
     )}
       </span>
     `;
@@ -2344,7 +2343,7 @@ Q([
   R()
 ], C.prototype, "_cssClasses");
 customElements.get(ue) || customElements.define(ue, C);
-const at = M`
+const ct = M`
   /* Only set standard scrollbar props in browsers that don't support -webkit-scrollbar.
    * Chrome 121+ disables ::-webkit-scrollbar (and thumb :hover) when scrollbar-color/width are set. */
   @supports not selector(::-webkit-scrollbar) {
@@ -2462,7 +2461,7 @@ const at = M`
   .swim-scroll-muted:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgb(80, 92, 117);
   }
-`, ct = M`
+`, at = M`
   :host {
     display: block;
     max-width: 100%;
@@ -3059,102 +3058,102 @@ const we = "swim-input", Z = class Z extends J {
     this.disabled = e;
   }
 };
-Z.styles = [Ie, at, ct], Z.formAssociated = !0;
-let c = Z;
+Z.styles = [Ie, ct, at], Z.formAssociated = !0;
+let a = Z;
 b([
   Le(".input-box, .input-textarea")
-], c.prototype, "inputElement", 2);
+], a.prototype, "inputElement", 2);
 b([
   h({ type: String })
-], c.prototype, "type", 2);
+], a.prototype, "type", 2);
 b([
   h({ type: String })
-], c.prototype, "label", 2);
+], a.prototype, "label", 2);
 b([
   h({ type: String })
-], c.prototype, "placeholder", 2);
+], a.prototype, "placeholder", 2);
 b([
   h({ type: String })
-], c.prototype, "hint", 2);
+], a.prototype, "hint", 2);
 b([
   h({ type: String })
-], c.prototype, "value", 1);
+], a.prototype, "value", 1);
 b([
   h({ type: String })
-], c.prototype, "name", 2);
+], a.prototype, "name", 2);
 b([
   h({ type: String })
-], c.prototype, "id", 2);
+], a.prototype, "id", 2);
 b([
   h({ type: Boolean, reflect: !0 })
-], c.prototype, "disabled", 1);
+], a.prototype, "disabled", 1);
 b([
   h({ type: Boolean, reflect: !0 })
-], c.prototype, "readonly", 1);
+], a.prototype, "readonly", 1);
 b([
   h({ type: Boolean, reflect: !0 })
-], c.prototype, "required", 1);
+], a.prototype, "required", 1);
 b([
   h({ type: Boolean })
-], c.prototype, "autofocus", 1);
+], a.prototype, "autofocus", 1);
 b([
   h({ type: String })
-], c.prototype, "autocomplete", 2);
+], a.prototype, "autocomplete", 2);
 b([
   h({ type: String, reflect: !0 })
-], c.prototype, "appearance", 2);
+], a.prototype, "appearance", 2);
 b([
   h({ type: String, reflect: !0 })
-], c.prototype, "size", 2);
+], a.prototype, "size", 2);
 b([
   h({ type: Boolean, reflect: !0, attribute: "marginless" })
-], c.prototype, "marginless", 1);
+], a.prototype, "marginless", 1);
 b([
   h({ type: Boolean })
-], c.prototype, "withHint", 1);
+], a.prototype, "withHint", 1);
 b([
   h({ type: Boolean, attribute: "password-toggle-enabled" })
-], c.prototype, "passwordToggleEnabled", 1);
+], a.prototype, "passwordToggleEnabled", 1);
 b([
   h({ type: Number })
-], c.prototype, "min", 2);
+], a.prototype, "min", 2);
 b([
   h({ type: Number })
-], c.prototype, "max", 2);
+], a.prototype, "max", 2);
 b([
   h({ type: Number })
-], c.prototype, "minlength", 2);
+], a.prototype, "minlength", 2);
 b([
   h({ type: Number })
-], c.prototype, "maxlength", 2);
+], a.prototype, "maxlength", 2);
 b([
   h({ type: Number, attribute: "textarea-rows" })
-], c.prototype, "textareaRows", 2);
+], a.prototype, "textareaRows", 2);
 b([
   h({ type: String, attribute: "required-indicator" })
-], c.prototype, "requiredIndicator", 2);
+], a.prototype, "requiredIndicator", 2);
 b([
   h({ type: Number })
-], c.prototype, "tabindex", 2);
+], a.prototype, "tabindex", 2);
 b([
   R()
-], c.prototype, "_focused", 2);
+], a.prototype, "_focused", 2);
 b([
   R()
-], c.prototype, "_passwordVisible", 2);
+], a.prototype, "_passwordVisible", 2);
 b([
   R()
-], c.prototype, "_touched", 2);
+], a.prototype, "_touched", 2);
 b([
   R()
-], c.prototype, "_dirty", 2);
+], a.prototype, "_dirty", 2);
 b([
   R()
-], c.prototype, "_invalid", 2);
-customElements.get(we) || customElements.define(we, c);
+], a.prototype, "_invalid", 2);
+customElements.get(we) || customElements.define(we, a);
 export {
   ze as InputAppearance,
   qe as InputSize,
   y as InputTypes,
-  c as SwimInput
+  a as SwimInput
 };

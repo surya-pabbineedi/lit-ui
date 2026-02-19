@@ -286,12 +286,12 @@ M.elementStyles = [], M.shadowRootOptions = { mode: "open" }, M[F("elementProper
  */
 const V = globalThis, T = V.trustedTypes, he = T ? T.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, Ee = "$lit$", A = `lit$${Math.random().toFixed(9).slice(2)}$`, Ie = "?" + A, Ke = `<${Ie}>`, I = document, J = () => I.createComment(""), H = (n) => n === null || typeof n != "object" && typeof n != "function", ne = Array.isArray, Ge = (n) => ne(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", Z = `[ 	
 \f\r]`, Y = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, de = />/g, D = RegExp(`>|${Z}(?:([^\\s"'>=/]+)(${Z}*=${Z}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), me = /'/g, ue = /"/g, Me = /^(?:script|style|textarea|title)$/i, Ue = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), d = Ue(1), q = Symbol.for("lit-noChange"), f = Symbol.for("lit-nothing"), we = /* @__PURE__ */ new WeakMap(), C = I.createTreeWalker(I, 129);
+\f\r"'\`<>=]|("|')|))|$)`, "g"), me = /'/g, ue = /"/g, Me = /^(?:script|style|textarea|title)$/i, Pe = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), d = Pe(1), q = Symbol.for("lit-noChange"), f = Symbol.for("lit-nothing"), we = /* @__PURE__ */ new WeakMap(), C = I.createTreeWalker(I, 129);
 function ke(n, e) {
   if (!ne(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return he !== void 0 ? he.createHTML(e) : e;
 }
-const Pe = (n, e) => {
+const Ue = (n, e) => {
   const t = n.length - 1, i = [];
   let o, r = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", s = Y;
   for (let c = 0; c < t; c++) {
@@ -308,7 +308,7 @@ class B {
     let o;
     this.parts = [];
     let r = 0, s = 0;
-    const c = e.length - 1, a = this.parts, [l, h] = Pe(e, t);
+    const c = e.length - 1, a = this.parts, [l, h] = Ue(e, t);
     if (this.el = B.createElement(l, i), C.currentNode = this.el.content, t === 2 || t === 3) {
       const b = this.el.content.firstChild;
       b.replaceWith(...b.childNodes);
@@ -588,7 +588,7 @@ function w(n) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function U(n) {
+function P(n) {
   return w({ ...n, state: !0, attribute: !1 });
 }
 const ze = K`
@@ -2096,8 +2096,7 @@ const je = K`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2105,8 +2104,8 @@ const je = K`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2171,7 +2170,7 @@ class et {
   }
 }
 const tt = new et();
-var it = Object.defineProperty, P = (n, e, t, i) => {
+var it = Object.defineProperty, U = (n, e, t, i) => {
   for (var o = void 0, r = n.length - 1, s; r >= 0; r--)
     (s = n[r]) && (o = s(e, t, o) || o);
   return o && it(e, t, o), o;
@@ -2249,20 +2248,20 @@ const pe = "swim-icon", se = class se extends z {
 };
 se.styles = [ze, _e];
 let x = se;
-P([
+U([
   w({ type: String, attribute: "font-icon" })
 ], x.prototype, "fontIcon");
-P([
+U([
   w({ type: String })
 ], x.prototype, "alt");
-P([
+U([
   w({ type: String, attribute: "font-set" })
 ], x.prototype, "fontSet");
-P([
+U([
   w({ type: String, attribute: "icon-class" })
 ], x.prototype, "iconClass");
-P([
-  U()
+U([
+  P()
 ], x.prototype, "_cssClasses");
 customElements.get(pe) || customElements.define(pe, x);
 const ot = K`
@@ -3096,16 +3095,16 @@ p([
   w({ type: String, attribute: "min-view" })
 ], m.prototype, "minView", 1);
 p([
-  U()
+  P()
 ], m.prototype, "_currentView", 2);
 p([
-  U()
+  P()
 ], m.prototype, "_focusDate", 2);
 p([
-  U()
+  P()
 ], m.prototype, "_weeks", 2);
 p([
-  U()
+  P()
 ], m.prototype, "_startYear", 2);
 customElements.get(ve) || customElements.define(ve, m);
 export {

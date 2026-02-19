@@ -284,8 +284,8 @@ q.elementStyles = [], q.shadowRootOptions = { mode: "open" }, q[k("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const M = globalThis, Q = M.trustedTypes, le = Q ? Q.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, ve = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ce = "?" + y, Re = `<${Ce}>`, z = document, G = () => z.createComment(""), V = (n) => n === null || typeof n != "object" && typeof n != "function", ee = Array.isArray, Pe = (n) => ee(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", W = `[ 	
-\f\r]`, B = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ae = /-->/g, be = />/g, C = RegExp(`>|${W}(?:([^\\s"'>=/]+)(${W}*=${W}*(?:[^ 	
+const M = globalThis, Q = M.trustedTypes, le = Q ? Q.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, Ce = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, ve = "?" + y, Re = `<${ve}>`, z = document, G = () => z.createComment(""), V = (n) => n === null || typeof n != "object" && typeof n != "function", ee = Array.isArray, Pe = (n) => ee(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", W = `[ 	
+\f\r]`, B = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ae = /-->/g, be = />/g, v = RegExp(`>|${W}(?:([^\\s"'>=/]+)(${W}*=${W}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), de = /'/g, fe = /"/g, xe = /^(?:script|style|textarea|title)$/i, De = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), g = De(1), S = Symbol.for("lit-noChange"), b = Symbol.for("lit-nothing"), he = /* @__PURE__ */ new WeakMap(), x = z.createTreeWalker(z, 129);
 function Ee(n, e) {
   if (!ee(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
@@ -297,9 +297,9 @@ const Te = (n, e) => {
   for (let c = 0; c < t; c++) {
     const l = n[c];
     let d, f, a = -1, w = 0;
-    for (; w < l.length && (r.lastIndex = w, f = r.exec(l), f !== null); ) w = r.lastIndex, r === B ? f[1] === "!--" ? r = ae : f[1] !== void 0 ? r = be : f[2] !== void 0 ? (xe.test(f[2]) && (o = RegExp("</" + f[2], "g")), r = C) : f[3] !== void 0 && (r = C) : r === C ? f[0] === ">" ? (r = o ?? B, a = -1) : f[1] === void 0 ? a = -2 : (a = r.lastIndex - f[2].length, d = f[1], r = f[3] === void 0 ? C : f[3] === '"' ? fe : de) : r === fe || r === de ? r = C : r === ae || r === be ? r = B : (r = C, o = void 0);
-    const u = r === C && n[c + 1].startsWith("/>") ? " " : "";
-    s += r === B ? l + Re : a >= 0 ? (i.push(d), l.slice(0, a) + ve + l.slice(a) + y + u) : l + y + (a === -2 ? c : u);
+    for (; w < l.length && (r.lastIndex = w, f = r.exec(l), f !== null); ) w = r.lastIndex, r === B ? f[1] === "!--" ? r = ae : f[1] !== void 0 ? r = be : f[2] !== void 0 ? (xe.test(f[2]) && (o = RegExp("</" + f[2], "g")), r = v) : f[3] !== void 0 && (r = v) : r === v ? f[0] === ">" ? (r = o ?? B, a = -1) : f[1] === void 0 ? a = -2 : (a = r.lastIndex - f[2].length, d = f[1], r = f[3] === void 0 ? v : f[3] === '"' ? fe : de) : r === fe || r === de ? r = v : r === ae || r === be ? r = B : (r = v, o = void 0);
+    const u = r === v && n[c + 1].startsWith("/>") ? " " : "";
+    s += r === B ? l + Re : a >= 0 ? (i.push(d), l.slice(0, a) + Ce + l.slice(a) + y + u) : l + y + (a === -2 ? c : u);
   }
   return [Ee(n, s + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
 };
@@ -315,7 +315,7 @@ class K {
     }
     for (; (o = x.nextNode()) !== null && l.length < c; ) {
       if (o.nodeType === 1) {
-        if (o.hasAttributes()) for (const a of o.getAttributeNames()) if (a.endsWith(ve)) {
+        if (o.hasAttributes()) for (const a of o.getAttributeNames()) if (a.endsWith(Ce)) {
           const w = f[r++], u = o.getAttribute(a).split(y), D = /([.?@])?(.*)/.exec(w);
           l.push({ type: 1, index: s, name: D[2], strings: u, ctor: D[1] === "." ? Ue : D[1] === "?" ? Qe : D[1] === "@" ? Fe : F }), o.removeAttribute(a);
         } else a.startsWith(y) && (l.push({ type: 6, index: s }), o.removeAttribute(a));
@@ -327,7 +327,7 @@ class K {
             o.append(a[w], G());
           }
         }
-      } else if (o.nodeType === 8) if (o.data === Ce) l.push({ type: 2, index: s });
+      } else if (o.nodeType === 8) if (o.data === ve) l.push({ type: 2, index: s });
       else {
         let a = -1;
         for (; (a = o.data.indexOf(y, a + 1)) !== -1; ) l.push({ type: 7, index: s }), a += y.length - 1;
@@ -2363,8 +2363,7 @@ const $e = J`
     color: var(--red-500);
   }
 
-  /* Font icon base (glyphs in icon-font-glyphs.ts). Use --swim-icon-font-family to match
-   * the host's @font-face (default 'swim-lit-icon'; set to 'ngx-icon' if host only loads that). */
+  /* Font icon base (glyphs in icon-font-glyphs.ts); uses embedded swim-lit-icon font. */
   .swim-icon,
   .swim-icon__i.swim-icon {
     display: inline-flex;
@@ -2372,8 +2371,8 @@ const $e = J`
     justify-content: center;
     width: 1em;
     height: 1em;
-    font: normal normal normal 1em/1 var(--swim-icon-font-family, 'swim-lit-icon');
-    font-family: var(--swim-icon-font-family, 'swim-lit-icon'), sans-serif;
+    font: normal normal normal 1em/1 'swim-lit-icon';
+    font-family: 'swim-lit-icon', sans-serif;
     flex-shrink: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2515,23 +2514,23 @@ const me = "swim-icon", te = class te extends I {
   }
 };
 te.styles = [ze, tt];
-let v = te;
+let C = te;
 P([
   m({ type: String, attribute: "font-icon" })
-], v.prototype, "fontIcon");
+], C.prototype, "fontIcon");
 P([
   m({ type: String })
-], v.prototype, "alt");
+], C.prototype, "alt");
 P([
   m({ type: String, attribute: "font-set" })
-], v.prototype, "fontSet");
+], C.prototype, "fontSet");
 P([
   m({ type: String, attribute: "icon-class" })
-], v.prototype, "iconClass");
+], C.prototype, "iconClass");
 P([
   Ie()
-], v.prototype, "_cssClasses");
-customElements.get(me) || customElements.define(me, v);
+], C.prototype, "_cssClasses");
+customElements.get(me) || customElements.define(me, C);
 var rt = Object.defineProperty, ct = Object.getOwnPropertyDescriptor, p = (n, e, t, i) => {
   for (var o = i > 1 ? void 0 : i ? ct(e, t) : e, s = n.length - 1, r; s >= 0; s--)
     (r = n[s]) && (o = (i ? r(e, t, o) : r(o)) || o);
