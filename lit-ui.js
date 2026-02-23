@@ -3,18 +3,18 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const vt = globalThis, si = vt.ShadowRoot && (vt.ShadyCSS === void 0 || vt.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, oi = Symbol(), Ui = /* @__PURE__ */ new WeakMap();
-let ro = class {
+const yt = globalThis, ni = yt.ShadowRoot && (yt.ShadyCSS === void 0 || yt.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, ai = Symbol(), ji = /* @__PURE__ */ new WeakMap();
+let lo = class {
   constructor(e, t, i) {
-    if (this._$cssResult$ = !0, i !== oi) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
+    if (this._$cssResult$ = !0, i !== ai) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
     this.cssText = e, this.t = t;
   }
   get styleSheet() {
     let e = this.o;
     const t = this.t;
-    if (si && e === void 0) {
+    if (ni && e === void 0) {
       const i = t !== void 0 && t.length === 1;
-      i && (e = Ui.get(t)), e === void 0 && ((this.o = e = new CSSStyleSheet()).replaceSync(this.cssText), i && Ui.set(t, e));
+      i && (e = ji.get(t)), e === void 0 && ((this.o = e = new CSSStyleSheet()).replaceSync(this.cssText), i && ji.set(t, e));
     }
     return e;
   }
@@ -22,33 +22,33 @@ let ro = class {
     return this.cssText;
   }
 };
-const To = (o) => new ro(typeof o == "string" ? o : o + "", void 0, oi), _ = (o, ...e) => {
+const Mo = (o) => new lo(typeof o == "string" ? o : o + "", void 0, ai), _ = (o, ...e) => {
   const t = o.length === 1 ? o[0] : e.reduce((i, s, r) => i + ((n) => {
     if (n._$cssResult$ === !0) return n.cssText;
     if (typeof n == "number") return n;
     throw Error("Value passed to 'css' function must be a 'css' function result: " + n + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
   })(s) + o[r + 1], o[0]);
-  return new ro(t, o, oi);
-}, zo = (o, e) => {
-  if (si) o.adoptedStyleSheets = e.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
+  return new lo(t, o, ai);
+}, Oo = (o, e) => {
+  if (ni) o.adoptedStyleSheets = e.map((t) => t instanceof CSSStyleSheet ? t : t.styleSheet);
   else for (const t of e) {
-    const i = document.createElement("style"), s = vt.litNonce;
+    const i = document.createElement("style"), s = yt.litNonce;
     s !== void 0 && i.setAttribute("nonce", s), i.textContent = t.cssText, o.appendChild(i);
   }
-}, qi = si ? (o) => o : (o) => o instanceof CSSStyleSheet ? ((e) => {
+}, Gi = ni ? (o) => o : (o) => o instanceof CSSStyleSheet ? ((e) => {
   let t = "";
   for (const i of e.cssRules) t += i.cssText;
-  return To(t);
+  return Mo(t);
 })(o) : o;
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Do, defineProperty: Mo, getOwnPropertyDescriptor: Io, getOwnPropertyNames: Oo, getOwnPropertySymbols: Po, getPrototypeOf: Lo } = Object, Se = globalThis, ji = Se.trustedTypes, Fo = ji ? ji.emptyScript : "", Vt = Se.reactiveElementPolyfillSupport, lt = (o, e) => o, $t = { toAttribute(o, e) {
+const { is: Io, defineProperty: Po, getOwnPropertyDescriptor: Lo, getOwnPropertyNames: Fo, getOwnPropertySymbols: Bo, getPrototypeOf: Ro } = Object, Se = globalThis, Wi = Se.trustedTypes, Ho = Wi ? Wi.emptyScript : "", qt = Se.reactiveElementPolyfillSupport, lt = (o, e) => o, kt = { toAttribute(o, e) {
   switch (e) {
     case Boolean:
-      o = o ? Fo : null;
+      o = o ? Ho : null;
       break;
     case Object:
     case Array:
@@ -73,7 +73,7 @@ const { is: Do, defineProperty: Mo, getOwnPropertyDescriptor: Io, getOwnProperty
       }
   }
   return t;
-} }, ri = (o, e) => !Do(o, e), Gi = { attribute: !0, type: String, converter: $t, reflect: !1, useDefault: !1, hasChanged: ri };
+} }, li = (o, e) => !Io(o, e), Ki = { attribute: !0, type: String, converter: kt, reflect: !1, useDefault: !1, hasChanged: li };
 Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), Se.litPropertyMetadata ?? (Se.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let He = class extends HTMLElement {
   static addInitializer(e) {
@@ -82,14 +82,14 @@ let He = class extends HTMLElement {
   static get observedAttributes() {
     return this.finalize(), this._$Eh && [...this._$Eh.keys()];
   }
-  static createProperty(e, t = Gi) {
+  static createProperty(e, t = Ki) {
     if (t.state && (t.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(e) && ((t = Object.create(t)).wrapped = !0), this.elementProperties.set(e, t), !t.noAccessor) {
       const i = Symbol(), s = this.getPropertyDescriptor(e, i, t);
-      s !== void 0 && Mo(this.prototype, e, s);
+      s !== void 0 && Po(this.prototype, e, s);
     }
   }
   static getPropertyDescriptor(e, t, i) {
-    const { get: s, set: r } = Io(this.prototype, e) ?? { get() {
+    const { get: s, set: r } = Lo(this.prototype, e) ?? { get() {
       return this[t];
     }, set(n) {
       this[t] = n;
@@ -100,17 +100,17 @@ let He = class extends HTMLElement {
     }, configurable: !0, enumerable: !0 };
   }
   static getPropertyOptions(e) {
-    return this.elementProperties.get(e) ?? Gi;
+    return this.elementProperties.get(e) ?? Ki;
   }
   static _$Ei() {
     if (this.hasOwnProperty(lt("elementProperties"))) return;
-    const e = Lo(this);
+    const e = Ro(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
     if (this.hasOwnProperty(lt("finalized"))) return;
     if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(lt("properties"))) {
-      const t = this.properties, i = [...Oo(t), ...Po(t)];
+      const t = this.properties, i = [...Fo(t), ...Bo(t)];
       for (const s of i) this.createProperty(s, t[s]);
     }
     const e = this[Symbol.metadata];
@@ -129,8 +129,8 @@ let He = class extends HTMLElement {
     const t = [];
     if (Array.isArray(e)) {
       const i = new Set(e.flat(1 / 0).reverse());
-      for (const s of i) t.unshift(qi(s));
-    } else e !== void 0 && t.push(qi(e));
+      for (const s of i) t.unshift(Gi(s));
+    } else e !== void 0 && t.push(Gi(e));
     return t;
   }
   static _$Eu(e, t) {
@@ -159,7 +159,7 @@ let He = class extends HTMLElement {
   }
   createRenderRoot() {
     const e = this.shadowRoot ?? this.attachShadow(this.constructor.shadowRootOptions);
-    return zo(e, this.constructor.elementStyles), e;
+    return Oo(e, this.constructor.elementStyles), e;
   }
   connectedCallback() {
     var e;
@@ -184,7 +184,7 @@ let He = class extends HTMLElement {
     var r;
     const i = this.constructor.elementProperties.get(e), s = this.constructor._$Eu(e, i);
     if (s !== void 0 && i.reflect === !0) {
-      const n = (((r = i.converter) == null ? void 0 : r.toAttribute) !== void 0 ? i.converter : $t).toAttribute(t, i.type);
+      const n = (((r = i.converter) == null ? void 0 : r.toAttribute) !== void 0 ? i.converter : kt).toAttribute(t, i.type);
       this._$Em = e, n == null ? this.removeAttribute(s) : this.setAttribute(s, n), this._$Em = null;
     }
   }
@@ -192,7 +192,7 @@ let He = class extends HTMLElement {
     var r, n;
     const i = this.constructor, s = i._$Eh.get(e);
     if (s !== void 0 && this._$Em !== s) {
-      const l = i.getPropertyOptions(s), d = typeof l.converter == "function" ? { fromAttribute: l.converter } : ((r = l.converter) == null ? void 0 : r.fromAttribute) !== void 0 ? l.converter : $t;
+      const l = i.getPropertyOptions(s), d = typeof l.converter == "function" ? { fromAttribute: l.converter } : ((r = l.converter) == null ? void 0 : r.fromAttribute) !== void 0 ? l.converter : kt;
       this._$Em = s;
       const h = d.fromAttribute(t, l.type);
       this[s] = h ?? ((n = this._$Ej) == null ? void 0 : n.get(s)) ?? h, this._$Em = null;
@@ -202,7 +202,7 @@ let He = class extends HTMLElement {
     var s;
     if (e !== void 0) {
       const r = this.constructor, n = this[e];
-      if (i ?? (i = r.getPropertyOptions(e)), !((i.hasChanged ?? ri)(n, t) || i.useDefault && i.reflect && n === ((s = this._$Ej) == null ? void 0 : s.get(e)) && !this.hasAttribute(r._$Eu(e, i)))) return;
+      if (i ?? (i = r.getPropertyOptions(e)), !((i.hasChanged ?? li)(n, t) || i.useDefault && i.reflect && n === ((s = this._$Ej) == null ? void 0 : s.get(e)) && !this.hasAttribute(r._$Eu(e, i)))) return;
       this.C(e, t, i);
     }
     this.isUpdatePending === !1 && (this._$ES = this._$EP());
@@ -278,56 +278,56 @@ let He = class extends HTMLElement {
   firstUpdated(e) {
   }
 };
-He.elementStyles = [], He.shadowRootOptions = { mode: "open" }, He[lt("elementProperties")] = /* @__PURE__ */ new Map(), He[lt("finalized")] = /* @__PURE__ */ new Map(), Vt == null || Vt({ ReactiveElement: He }), (Se.reactiveElementVersions ?? (Se.reactiveElementVersions = [])).push("2.1.1");
+He.elementStyles = [], He.shadowRootOptions = { mode: "open" }, He[lt("elementProperties")] = /* @__PURE__ */ new Map(), He[lt("finalized")] = /* @__PURE__ */ new Map(), qt == null || qt({ ReactiveElement: He }), (Se.reactiveElementVersions ?? (Se.reactiveElementVersions = [])).push("2.1.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const ct = globalThis, kt = ct.trustedTypes, Wi = kt ? kt.createPolicy("lit-html", { createHTML: (o) => o }) : void 0, no = "$lit$", Ee = `lit$${Math.random().toFixed(9).slice(2)}$`, ao = "?" + Ee, Bo = `<${ao}>`, Oe = document, dt = () => Oe.createComment(""), ht = (o) => o === null || typeof o != "object" && typeof o != "function", ni = Array.isArray, Ro = (o) => ni(o) || typeof (o == null ? void 0 : o[Symbol.iterator]) == "function", Nt = `[ 	
-\f\r]`, it = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Ki = /-->/g, Zi = />/g, ze = RegExp(`>|${Nt}(?:([^\\s"'>=/]+)(${Nt}*=${Nt}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), Xi = /'/g, Ji = /"/g, lo = /^(?:script|style|textarea|title)$/i, Ho = (o) => (e, ...t) => ({ _$litType$: o, strings: e, values: t }), c = Ho(1), X = Symbol.for("lit-noChange"), u = Symbol.for("lit-nothing"), Qi = /* @__PURE__ */ new WeakMap(), Me = Oe.createTreeWalker(Oe, 129);
-function co(o, e) {
-  if (!ni(o) || !o.hasOwnProperty("raw")) throw Error("invalid template strings array");
-  return Wi !== void 0 ? Wi.createHTML(e) : e;
+const ct = globalThis, Ct = ct.trustedTypes, Zi = Ct ? Ct.createPolicy("lit-html", { createHTML: (o) => o }) : void 0, co = "$lit$", Ee = `lit$${Math.random().toFixed(9).slice(2)}$`, ho = "?" + Ee, Yo = `<${ho}>`, Ie = document, dt = () => Ie.createComment(""), ht = (o) => o === null || typeof o != "object" && typeof o != "function", ci = Array.isArray, Vo = (o) => ci(o) || typeof (o == null ? void 0 : o[Symbol.iterator]) == "function", jt = `[ 	
+\f\r]`, it = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Xi = /-->/g, Ji = />/g, ze = RegExp(`>|${jt}(?:([^\\s"'>=/]+)(${jt}*=${jt}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`, "g"), Qi = /'/g, es = /"/g, uo = /^(?:script|style|textarea|title)$/i, No = (o) => (e, ...t) => ({ _$litType$: o, strings: e, values: t }), c = No(1), X = Symbol.for("lit-noChange"), u = Symbol.for("lit-nothing"), ts = /* @__PURE__ */ new WeakMap(), Me = Ie.createTreeWalker(Ie, 129);
+function po(o, e) {
+  if (!ci(o) || !o.hasOwnProperty("raw")) throw Error("invalid template strings array");
+  return Zi !== void 0 ? Zi.createHTML(e) : e;
 }
-const Yo = (o, e) => {
+const Uo = (o, e) => {
   const t = o.length - 1, i = [];
   let s, r = e === 2 ? "<svg>" : e === 3 ? "<math>" : "", n = it;
   for (let l = 0; l < t; l++) {
     const d = o[l];
     let h, w, m = -1, g = 0;
-    for (; g < d.length && (n.lastIndex = g, w = n.exec(d), w !== null); ) g = n.lastIndex, n === it ? w[1] === "!--" ? n = Ki : w[1] !== void 0 ? n = Zi : w[2] !== void 0 ? (lo.test(w[2]) && (s = RegExp("</" + w[2], "g")), n = ze) : w[3] !== void 0 && (n = ze) : n === ze ? w[0] === ">" ? (n = s ?? it, m = -1) : w[1] === void 0 ? m = -2 : (m = n.lastIndex - w[2].length, h = w[1], n = w[3] === void 0 ? ze : w[3] === '"' ? Ji : Xi) : n === Ji || n === Xi ? n = ze : n === Ki || n === Zi ? n = it : (n = ze, s = void 0);
+    for (; g < d.length && (n.lastIndex = g, w = n.exec(d), w !== null); ) g = n.lastIndex, n === it ? w[1] === "!--" ? n = Xi : w[1] !== void 0 ? n = Ji : w[2] !== void 0 ? (uo.test(w[2]) && (s = RegExp("</" + w[2], "g")), n = ze) : w[3] !== void 0 && (n = ze) : n === ze ? w[0] === ">" ? (n = s ?? it, m = -1) : w[1] === void 0 ? m = -2 : (m = n.lastIndex - w[2].length, h = w[1], n = w[3] === void 0 ? ze : w[3] === '"' ? es : Qi) : n === es || n === Qi ? n = ze : n === Xi || n === Ji ? n = it : (n = ze, s = void 0);
     const $ = n === ze && o[l + 1].startsWith("/>") ? " " : "";
-    r += n === it ? d + Bo : m >= 0 ? (i.push(h), d.slice(0, m) + no + d.slice(m) + Ee + $) : d + Ee + (m === -2 ? l : $);
+    r += n === it ? d + Yo : m >= 0 ? (i.push(h), d.slice(0, m) + co + d.slice(m) + Ee + $) : d + Ee + (m === -2 ? l : $);
   }
-  return [co(o, r + (o[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
+  return [po(o, r + (o[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
 };
 class ut {
   constructor({ strings: e, _$litType$: t }, i) {
     let s;
     this.parts = [];
     let r = 0, n = 0;
-    const l = e.length - 1, d = this.parts, [h, w] = Yo(e, t);
+    const l = e.length - 1, d = this.parts, [h, w] = Uo(e, t);
     if (this.el = ut.createElement(h, i), Me.currentNode = this.el.content, t === 2 || t === 3) {
       const m = this.el.content.firstChild;
       m.replaceWith(...m.childNodes);
     }
     for (; (s = Me.nextNode()) !== null && d.length < l; ) {
       if (s.nodeType === 1) {
-        if (s.hasAttributes()) for (const m of s.getAttributeNames()) if (m.endsWith(no)) {
+        if (s.hasAttributes()) for (const m of s.getAttributeNames()) if (m.endsWith(co)) {
           const g = w[n++], $ = s.getAttribute(m).split(Ee), M = /([.?@])?(.*)/.exec(g);
-          d.push({ type: 1, index: r, name: M[2], strings: $, ctor: M[1] === "." ? No : M[1] === "?" ? Uo : M[1] === "@" ? qo : Bt }), s.removeAttribute(m);
+          d.push({ type: 1, index: r, name: M[2], strings: $, ctor: M[1] === "." ? jo : M[1] === "?" ? Go : M[1] === "@" ? Wo : Ht }), s.removeAttribute(m);
         } else m.startsWith(Ee) && (d.push({ type: 6, index: r }), s.removeAttribute(m));
-        if (lo.test(s.tagName)) {
+        if (uo.test(s.tagName)) {
           const m = s.textContent.split(Ee), g = m.length - 1;
           if (g > 0) {
-            s.textContent = kt ? kt.emptyScript : "";
+            s.textContent = Ct ? Ct.emptyScript : "";
             for (let $ = 0; $ < g; $++) s.append(m[$], dt()), Me.nextNode(), d.push({ type: 2, index: ++r });
             s.append(m[g], dt());
           }
         }
-      } else if (s.nodeType === 8) if (s.data === ao) d.push({ type: 2, index: r });
+      } else if (s.nodeType === 8) if (s.data === ho) d.push({ type: 2, index: r });
       else {
         let m = -1;
         for (; (m = s.data.indexOf(Ee, m + 1)) !== -1; ) d.push({ type: 7, index: r }), m += Ee.length - 1;
@@ -336,7 +336,7 @@ class ut {
     }
   }
   static createElement(e, t) {
-    const i = Oe.createElement("template");
+    const i = Ie.createElement("template");
     return i.innerHTML = e, i;
   }
 }
@@ -347,7 +347,7 @@ function qe(o, e, t = o, i) {
   const r = ht(e) ? void 0 : e._$litDirective$;
   return (s == null ? void 0 : s.constructor) !== r && ((l = s == null ? void 0 : s._$AO) == null || l.call(s, !1), r === void 0 ? s = void 0 : (s = new r(o), s._$AT(o, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = s : t._$Cl = s), s !== void 0 && (e = qe(o, s._$AS(o, e.values), s, i)), e;
 }
-let Vo = class {
+let qo = class {
   constructor(e, t) {
     this._$AV = [], this._$AN = void 0, this._$AD = e, this._$AM = t;
   }
@@ -358,17 +358,17 @@ let Vo = class {
     return this._$AM._$AU;
   }
   u(e) {
-    const { el: { content: t }, parts: i } = this._$AD, s = ((e == null ? void 0 : e.creationScope) ?? Oe).importNode(t, !0);
+    const { el: { content: t }, parts: i } = this._$AD, s = ((e == null ? void 0 : e.creationScope) ?? Ie).importNode(t, !0);
     Me.currentNode = s;
     let r = Me.nextNode(), n = 0, l = 0, d = i[0];
     for (; d !== void 0; ) {
       if (n === d.index) {
         let h;
-        d.type === 2 ? h = new Ze(r, r.nextSibling, this, e) : d.type === 1 ? h = new d.ctor(r, d.name, d.strings, this, e) : d.type === 6 && (h = new jo(r, this, e)), this._$AV.push(h), d = i[++l];
+        d.type === 2 ? h = new Ze(r, r.nextSibling, this, e) : d.type === 1 ? h = new d.ctor(r, d.name, d.strings, this, e) : d.type === 6 && (h = new Ko(r, this, e)), this._$AV.push(h), d = i[++l];
       }
       n !== (d == null ? void 0 : d.index) && (r = Me.nextNode(), n++);
     }
-    return Me.currentNode = Oe, s;
+    return Me.currentNode = Ie, s;
   }
   p(e) {
     let t = 0;
@@ -395,7 +395,7 @@ class Ze {
     return this._$AB;
   }
   _$AI(e, t = this) {
-    e = qe(this, e, t), ht(e) ? e === u || e == null || e === "" ? (this._$AH !== u && this._$AR(), this._$AH = u) : e !== this._$AH && e !== X && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Ro(e) ? this.k(e) : this._(e);
+    e = qe(this, e, t), ht(e) ? e === u || e == null || e === "" ? (this._$AH !== u && this._$AR(), this._$AH = u) : e !== this._$AH && e !== X && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Vo(e) ? this.k(e) : this._(e);
   }
   O(e) {
     return this._$AA.parentNode.insertBefore(e, this._$AB);
@@ -404,23 +404,23 @@ class Ze {
     this._$AH !== e && (this._$AR(), this._$AH = this.O(e));
   }
   _(e) {
-    this._$AH !== u && ht(this._$AH) ? this._$AA.nextSibling.data = e : this.T(Oe.createTextNode(e)), this._$AH = e;
+    this._$AH !== u && ht(this._$AH) ? this._$AA.nextSibling.data = e : this.T(Ie.createTextNode(e)), this._$AH = e;
   }
   $(e) {
     var r;
-    const { values: t, _$litType$: i } = e, s = typeof i == "number" ? this._$AC(e) : (i.el === void 0 && (i.el = ut.createElement(co(i.h, i.h[0]), this.options)), i);
+    const { values: t, _$litType$: i } = e, s = typeof i == "number" ? this._$AC(e) : (i.el === void 0 && (i.el = ut.createElement(po(i.h, i.h[0]), this.options)), i);
     if (((r = this._$AH) == null ? void 0 : r._$AD) === s) this._$AH.p(t);
     else {
-      const n = new Vo(s, this), l = n.u(this.options);
+      const n = new qo(s, this), l = n.u(this.options);
       n.p(t), this.T(l), this._$AH = n;
     }
   }
   _$AC(e) {
-    let t = Qi.get(e.strings);
-    return t === void 0 && Qi.set(e.strings, t = new ut(e)), t;
+    let t = ts.get(e.strings);
+    return t === void 0 && ts.set(e.strings, t = new ut(e)), t;
   }
   k(e) {
-    ni(this._$AH) || (this._$AH = [], this._$AR());
+    ci(this._$AH) || (this._$AH = [], this._$AR());
     const t = this._$AH;
     let i, s = 0;
     for (const r of e) s === t.length ? t.push(i = new Ze(this.O(dt()), this.O(dt()), this, this.options)) : i = t[s], i._$AI(r), s++;
@@ -438,7 +438,7 @@ class Ze {
     this._$AM === void 0 && (this._$Cv = e, (t = this._$AP) == null || t.call(this, e));
   }
 }
-class Bt {
+class Ht {
   get tagName() {
     return this.element.tagName;
   }
@@ -463,7 +463,7 @@ class Bt {
     e === u ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, e ?? "");
   }
 }
-class No extends Bt {
+class jo extends Ht {
   constructor() {
     super(...arguments), this.type = 3;
   }
@@ -471,7 +471,7 @@ class No extends Bt {
     this.element[this.name] = e === u ? void 0 : e;
   }
 }
-class Uo extends Bt {
+class Go extends Ht {
   constructor() {
     super(...arguments), this.type = 4;
   }
@@ -479,7 +479,7 @@ class Uo extends Bt {
     this.element.toggleAttribute(this.name, !!e && e !== u);
   }
 }
-class qo extends Bt {
+class Wo extends Ht {
   constructor(e, t, i, s, r) {
     super(e, t, i, s, r), this.type = 5;
   }
@@ -493,7 +493,7 @@ class qo extends Bt {
     typeof this._$AH == "function" ? this._$AH.call(((t = this.options) == null ? void 0 : t.host) ?? this.element, e) : this._$AH.handleEvent(e);
   }
 }
-class jo {
+class Ko {
   constructor(e, t, i) {
     this.element = e, this.type = 6, this._$AN = void 0, this._$AM = t, this.options = i;
   }
@@ -504,9 +504,9 @@ class jo {
     qe(this, e);
   }
 }
-const Go = { I: Ze }, Ut = ct.litHtmlPolyfillSupport;
-Ut == null || Ut(ut, Ze), (ct.litHtmlVersions ?? (ct.litHtmlVersions = [])).push("3.3.1");
-const Wo = (o, e, t) => {
+const Zo = { I: Ze }, Gt = ct.litHtmlPolyfillSupport;
+Gt == null || Gt(ut, Ze), (ct.litHtmlVersions ?? (ct.litHtmlVersions = [])).push("3.3.1");
+const Xo = (o, e, t) => {
   const i = (t == null ? void 0 : t.renderBefore) ?? e;
   let s = i._$litPart$;
   if (s === void 0) {
@@ -520,7 +520,7 @@ const Wo = (o, e, t) => {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Ie = globalThis;
+const Oe = globalThis;
 let f = class extends He {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
@@ -532,7 +532,7 @@ let f = class extends He {
   }
   update(e) {
     const t = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = Wo(t, this.renderRoot, this.renderOptions);
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(e), this._$Do = Xo(t, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     var e;
@@ -546,17 +546,17 @@ let f = class extends He {
     return X;
   }
 };
-var oo;
-f._$litElement$ = !0, f.finalized = !0, (oo = Ie.litElementHydrateSupport) == null || oo.call(Ie, { LitElement: f });
-const qt = Ie.litElementPolyfillSupport;
-qt == null || qt({ LitElement: f });
-(Ie.litElementVersions ?? (Ie.litElementVersions = [])).push("4.2.1");
+var ao;
+f._$litElement$ = !0, f.finalized = !0, (ao = Oe.litElementHydrateSupport) == null || ao.call(Oe, { LitElement: f });
+const Wt = Oe.litElementPolyfillSupport;
+Wt == null || Wt({ LitElement: f });
+(Oe.litElementVersions ?? (Oe.litElementVersions = [])).push("4.2.1");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Ko = { attribute: !0, type: String, converter: $t, reflect: !1, hasChanged: ri }, Zo = (o = Ko, e, t) => {
+const Jo = { attribute: !0, type: String, converter: kt, reflect: !1, hasChanged: li }, Qo = (o = Jo, e, t) => {
   const { kind: i, metadata: s } = t;
   let r = globalThis.litPropertyMetadata.get(s);
   if (r === void 0 && globalThis.litPropertyMetadata.set(s, r = /* @__PURE__ */ new Map()), i === "setter" && ((o = Object.create(o)).wrapped = !0), r.set(t.name, o), i === "accessor") {
@@ -578,7 +578,7 @@ const Ko = { attribute: !0, type: String, converter: $t, reflect: !1, hasChanged
   throw Error("Unsupported decorator location: " + i);
 };
 function a(o) {
-  return (e, t) => typeof t == "object" ? Zo(o, e, t) : ((i, s, r) => {
+  return (e, t) => typeof t == "object" ? Qo(o, e, t) : ((i, s, r) => {
     const n = s.hasOwnProperty(r);
     return s.constructor.createProperty(r, i), n ? Object.getOwnPropertyDescriptor(s, r) : void 0;
   })(o, e, t);
@@ -596,7 +596,7 @@ function b(o) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Xo = (o, e, t) => (t.configurable = !0, t.enumerable = !0, Reflect.decorate && typeof e != "object" && Object.defineProperty(o, e, t), t);
+const er = (o, e, t) => (t.configurable = !0, t.enumerable = !0, Reflect.decorate && typeof e != "object" && Object.defineProperty(o, e, t), t);
 /**
  * @license
  * Copyright 2017 Google LLC
@@ -608,7 +608,7 @@ function R(o, e) {
       var l;
       return ((l = n.renderRoot) == null ? void 0 : l.querySelector(o)) ?? null;
     };
-    return Xo(t, i, { get() {
+    return er(t, i, { get() {
       return r(this);
     } });
   };
@@ -768,11 +768,11 @@ const y = _`
     --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     --shadow-3: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
   }
-`, al = _`
+`, ul = _`
   * {
     box-sizing: border-box;
   }
-`, Jo = _`
+`, tr = _`
   :host {
     display: inline-block;
     cursor: pointer;
@@ -1028,33 +1028,33 @@ function p(o) {
 function A(o, e = null) {
   return isNaN(parseFloat(o)) || isNaN(Number(o)) ? e : Number(o);
 }
-const Qo = _`
+const ir = _`
   .swim-icon.lit-3d-rotate::before {
-    content: '\\ea02';
+    content: '\\ea01';
   }
   .swim-icon.lit-action::before {
-    content: '\\ea09';
+    content: '\\ea02';
   }
   .swim-icon.lit-action-close::before {
     content: '\\ea03';
   }
   .swim-icon.lit-action-maximize::before {
-    content: '\\ea05';
+    content: '\\ea04';
   }
   .swim-icon.lit-action-maximize-inverse::before {
-    content: '\\ea04';
+    content: '\\ea05';
   }
   .swim-icon.lit-action-minimize::before {
     content: '\\ea06';
   }
   .swim-icon.lit-action-outline::before {
-    content: '\\ea08';
-  }
-  .swim-icon.lit-action-outline-small::before {
     content: '\\ea07';
   }
+  .swim-icon.lit-action-outline-small::before {
+    content: '\\ea08';
+  }
   .swim-icon.lit-add-circle::before {
-    content: '\\ea0d';
+    content: '\\ea09';
   }
   .swim-icon.lit-add-circle-filled::before {
     content: '\\ea0a';
@@ -1066,394 +1066,391 @@ const Qo = _`
     content: '\\ea0c';
   }
   .swim-icon.lit-add-edge::before {
-    content: '\\ea0e';
+    content: '\\ea0d';
   }
   .swim-icon.lit-add-new::before {
-    content: '\\ea0f';
+    content: '\\ea0e';
   }
   .swim-icon.lit-add-node::before {
-    content: '\\eb33';
+    content: '\\ea0f';
   }
   .swim-icon.lit-advanced-pie::before {
-    content: '\\ea11';
-  }
-  .swim-icon.lit-ai-agent::before {
-    content: '\\ea12';
+    content: '\\ea10';
   }
   .swim-icon.lit-alert::before {
-    content: '\\ea13';
+    content: '\\ea11';
   }
   .swim-icon.lit-app-store::before {
-    content: '\\ea14';
+    content: '\\ea12';
   }
   .swim-icon.lit-app-workspaces::before {
-    content: '\\ea15';
+    content: '\\ea13';
   }
   .swim-icon.lit-applet::before {
-    content: '\\ea16';
+    content: '\\ea14';
   }
   .swim-icon.lit-applets::before {
-    content: '\\ea17';
+    content: '\\ea15';
   }
   .swim-icon.lit-application::before {
-    content: '\\ea18';
+    content: '\\ea16';
   }
   .swim-icon.lit-apps::before {
-    content: '\\ea19';
+    content: '\\ea17';
   }
   .swim-icon.lit-area-chart::before {
-    content: '\\ea1a';
+    content: '\\ea18';
   }
   .swim-icon.lit-arrow-bold-circle-left::before {
-    content: '\\ea1b';
+    content: '\\ea19';
   }
   .swim-icon.lit-arrow-bold-circle-right::before {
-    content: '\\ea1c';
+    content: '\\ea1a';
   }
   .swim-icon.lit-arrow-bold-down::before {
-    content: '\\ea1d';
+    content: '\\ea1b';
   }
   .swim-icon.lit-arrow-bold-left::before {
-    content: '\\ea1e';
+    content: '\\ea1c';
   }
   .swim-icon.lit-arrow-bold-right::before {
-    content: '\\ea1f';
+    content: '\\ea1d';
   }
   .swim-icon.lit-arrow-bold-up::before {
-    content: '\\ea20';
+    content: '\\ea1e';
   }
   .swim-icon.lit-arrow-down::before {
-    content: '\\ea21';
+    content: '\\ea1f';
   }
   .swim-icon.lit-arrow-input::before {
-    content: '\\ea22';
+    content: '\\ea20';
   }
   .swim-icon.lit-arrow-left::before {
-    content: '\\ea23';
+    content: '\\ea21';
   }
   .swim-icon.lit-arrow-output::before {
-    content: '\\ea24';
+    content: '\\ea22';
   }
   .swim-icon.lit-arrow-right::before {
-    content: '\\ea27';
+    content: '\\ea23';
   }
   .swim-icon.lit-arrow-right-down-medium::before {
-    content: '\\ea25';
+    content: '\\ea24';
   }
   .swim-icon.lit-arrow-right-medium::before {
-    content: '\\ea26';
+    content: '\\ea25';
   }
   .swim-icon.lit-arrow-tail-left::before {
-    content: '\\ea28';
+    content: '\\ea26';
   }
   .swim-icon.lit-arrow-tail-right::before {
-    content: '\\ea29';
+    content: '\\ea27';
   }
   .swim-icon.lit-arrow-tail-solid-left::before {
-    content: '\\ea2a';
+    content: '\\ea28';
   }
   .swim-icon.lit-arrow-tail-solid-right::before {
-    content: '\\ea2b';
+    content: '\\ea29';
   }
   .swim-icon.lit-arrow-tail-subright::before {
-    content: '\\ea2c';
+    content: '\\ea2a';
   }
   .swim-icon.lit-arrow-up::before {
-    content: '\\ea2d';
+    content: '\\ea2b';
   }
   .swim-icon.lit-asset-outline::before {
-    content: '\\ea2f';
+    content: '\\ea2c';
   }
   .swim-icon.lit-asset-outline-small::before {
-    content: '\\ea2e';
+    content: '\\ea2d';
   }
   .swim-icon.lit-assets::before {
-    content: '\\ea30';
+    content: '\\ea2e';
   }
   .swim-icon.lit-attachment::before {
-    content: '\\ea31';
+    content: '\\ea2f';
   }
   .swim-icon.lit-automation::before {
-    content: '\\ea33';
+    content: '\\ea30';
   }
   .swim-icon.lit-automation-alternate::before {
-    content: '\\ea32';
+    content: '\\ea31';
   }
   .swim-icon.lit-back-arrow::before {
-    content: '\\ea35';
+    content: '\\ea32';
   }
   .swim-icon.lit-back-arrow-filled::before {
-    content: '\\ea34';
+    content: '\\ea33';
   }
   .swim-icon.lit-bars::before {
-    content: '\\ea36';
+    content: '\\ea34';
   }
   .swim-icon.lit-bell::before {
-    content: '\\ea38';
+    content: '\\ea35';
   }
   .swim-icon.lit-bell-alarm::before {
-    content: '\\ea37';
+    content: '\\ea36';
   }
   .swim-icon.lit-bold::before {
-    content: '\\ea39';
+    content: '\\ea37';
   }
   .swim-icon.lit-bolt::before {
-    content: '\\ea3a';
+    content: '\\ea38';
   }
   .swim-icon.lit-branch-node::before {
-    content: '\\ea3c';
+    content: '\\ea39';
   }
   .swim-icon.lit-branch-node-vert::before {
-    content: '\\ea3b';
+    content: '\\ea3a';
   }
   .swim-icon.lit-broom::before {
-    content: '\\ea3d';
+    content: '\\ea3b';
   }
   .swim-icon.lit-browser-size::before {
-    content: '\\ea3e';
+    content: '\\ea3c';
   }
   .swim-icon.lit-bug::before {
-    content: '\\ea3f';
+    content: '\\ea3d';
   }
   .swim-icon.lit-builder::before {
-    content: '\\ea41';
+    content: '\\ea3e';
   }
   .swim-icon.lit-builder-outline::before {
-    content: '\\ea40';
+    content: '\\ea3f';
   }
   .swim-icon.lit-button-push-outline::before {
-    content: '\\ea44';
+    content: '\\ea40';
   }
   .swim-icon.lit-button-push-outline-large::before {
-    content: '\\ea42';
+    content: '\\ea41';
   }
   .swim-icon.lit-button-push-outline-small::before {
-    content: '\\ea43';
+    content: '\\ea42';
   }
   .swim-icon.lit-calendar::before {
-    content: '\\ea46';
+    content: '\\ea43';
   }
   .swim-icon.lit-calendar-clock::before {
-    content: '\\ea45';
+    content: '\\ea44';
   }
   .swim-icon.lit-calender-clock::before {
-    content: '\\ea47';
+    content: '\\ea45';
   }
   .swim-icon.lit-cards::before {
-    content: '\\ea48';
+    content: '\\ea46';
   }
   .swim-icon.lit-center-align::before {
-    content: '\\ea49';
+    content: '\\ea47';
   }
   .swim-icon.lit-chart-area::before {
-    content: '\\ea4a';
+    content: '\\ea48';
   }
   .swim-icon.lit-chart-bar-bar::before {
-    content: '\\ea4b';
+    content: '\\ea49';
   }
   .swim-icon.lit-chart-bubble::before {
-    content: '\\ea4c';
+    content: '\\ea4a';
   }
   .swim-icon.lit-chart-donut::before {
-    content: '\\ea4d';
+    content: '\\ea4b';
   }
   .swim-icon.lit-chart-full-stacked-area::before {
-    content: '\\ea4e';
+    content: '\\ea4c';
   }
   .swim-icon.lit-chart-heat::before {
-    content: '\\ea4f';
+    content: '\\ea4d';
   }
   .swim-icon.lit-chart-horz-full-stack-bar::before {
-    content: '\\ea50';
+    content: '\\ea4e';
   }
   .swim-icon.lit-chart-number-card::before {
-    content: '\\ea51';
+    content: '\\ea4f';
   }
   .swim-icon.lit-chart-pie::before {
-    content: '\\ea53';
+    content: '\\ea50';
   }
   .swim-icon.lit-chart-pie-grid::before {
-    content: '\\ea52';
+    content: '\\ea51';
   }
   .swim-icon.lit-chart-scatter::before {
-    content: '\\ea54';
+    content: '\\ea52';
   }
   .swim-icon.lit-chart-spider::before {
-    content: '\\ea55';
+    content: '\\ea53';
   }
   .swim-icon.lit-chart-stacked-area::before {
-    content: '\\ea56';
+    content: '\\ea54';
   }
   .swim-icon.lit-chart-vert-bar::before {
-    content: '\\ea57';
+    content: '\\ea55';
   }
   .swim-icon.lit-chart-vert-bar2::before {
-    content: '\\ea58';
+    content: '\\ea56';
   }
   .swim-icon.lit-chart-vert-stacked-bar::before {
-    content: '\\ea59';
+    content: '\\ea57';
   }
   .swim-icon.lit-check::before {
-    content: '\\ea5d';
+    content: '\\ea58';
   }
   .swim-icon.lit-check-filled::before {
-    content: '\\ea5b';
+    content: '\\ea59';
   }
   .swim-icon.lit-check-filled-sm::before {
     content: '\\ea5a';
   }
   .swim-icon.lit-check-square-filled::before {
-    content: '\\ea5c';
+    content: '\\ea5b';
   }
   .swim-icon.lit-checklist::before {
-    content: '\\ea5e';
+    content: '\\ea5c';
   }
   .swim-icon.lit-chevron-bold-down::before {
-    content: '\\ea5f';
+    content: '\\ea5d';
   }
   .swim-icon.lit-chevron-bold-left::before {
-    content: '\\ea60';
+    content: '\\ea5e';
   }
   .swim-icon.lit-chevron-bold-right::before {
-    content: '\\ea61';
+    content: '\\ea5f';
   }
   .swim-icon.lit-chevron-bold-up::before {
-    content: '\\ea62';
+    content: '\\ea60';
   }
   .swim-icon.lit-circle::before {
-    content: '\\ea64';
+    content: '\\ea61';
   }
   .swim-icon.lit-circle-filled::before {
-    content: '\\ea63';
+    content: '\\ea62';
   }
   .swim-icon.lit-circles::before {
-    content: '\\ea65';
+    content: '\\ea63';
   }
   .swim-icon.lit-circuit-board::before {
-    content: '\\ea66';
+    content: '\\ea64';
   }
   .swim-icon.lit-clipboard::before {
-    content: '\\ea67';
+    content: '\\ea65';
   }
   .swim-icon.lit-clock::before {
-    content: '\\ea68';
+    content: '\\ea66';
   }
   .swim-icon.lit-cloud-download::before {
-    content: '\\ea69';
+    content: '\\ea67';
   }
   .swim-icon.lit-cloud-upload::before {
-    content: '\\ea6a';
+    content: '\\ea68';
   }
   .swim-icon.lit-code::before {
-    content: '\\ea6b';
+    content: '\\ea69';
   }
   .swim-icon.lit-cog::before {
-    content: '\\ea6c';
+    content: '\\ea6a';
   }
   .swim-icon.lit-collapse::before {
-    content: '\\ea6d';
+    content: '\\ea6b';
   }
   .swim-icon.lit-commandline::before {
-    content: '\\ea6e';
+    content: '\\ea6c';
   }
   .swim-icon.lit-comments::before {
-    content: '\\ea6f';
+    content: '\\ea6d';
   }
   .swim-icon.lit-component::before {
-    content: '\\ea71';
+    content: '\\ea6e';
   }
   .swim-icon.lit-component-create::before {
-    content: '\\ea70';
+    content: '\\ea6f';
   }
   .swim-icon.lit-condition::before {
-    content: '\\ea72';
+    content: '\\ea70';
   }
   .swim-icon.lit-copy::before {
-    content: '\\ea75';
+    content: '\\ea71';
   }
   .swim-icon.lit-copy-app::before {
-    content: '\\ea73';
+    content: '\\ea72';
   }
   .swim-icon.lit-copy-filled::before {
-    content: '\\ea74';
+    content: '\\ea73';
   }
   .swim-icon.lit-credit-card::before {
-    content: '\\ea76';
+    content: '\\ea74';
   }
   .swim-icon.lit-dashboard::before {
-    content: '\\ea78';
+    content: '\\ea75';
   }
   .swim-icon.lit-dashboard-outline::before {
-    content: '\\ea77';
+    content: '\\ea76';
   }
   .swim-icon.lit-database::before {
-    content: '\\ea79';
+    content: '\\ea77';
   }
   .swim-icon.lit-debug::before {
-    content: '\\ea7a';
+    content: '\\ea78';
   }
   .swim-icon.lit-devil::before {
-    content: '\\ea7b';
+    content: '\\ea79';
   }
   .swim-icon.lit-disable::before {
-    content: '\\ea7c';
+    content: '\\ea7a';
   }
   .swim-icon.lit-document::before {
-    content: '\\ea7d';
+    content: '\\ea7b';
   }
   .swim-icon.lit-documentation::before {
-    content: '\\ea7e';
+    content: '\\ea7c';
   }
   .swim-icon.lit-domain::before {
-    content: '\\ea7f';
+    content: '\\ea7d';
   }
   .swim-icon.lit-dots-horz::before {
-    content: '\\ea80';
+    content: '\\ea7e';
   }
   .swim-icon.lit-dots-vert::before {
-    content: '\\ea82';
+    content: '\\ea7f';
   }
   .swim-icon.lit-dots-vert-round::before {
-    content: '\\ea81';
+    content: '\\ea80';
   }
   .swim-icon.lit-double-down::before {
-    content: '\\ea83';
+    content: '\\ea81';
   }
   .swim-icon.lit-double-left::before {
-    content: '\\ea84';
+    content: '\\ea82';
   }
   .swim-icon.lit-double-right::before {
-    content: '\\ea85';
+    content: '\\ea83';
   }
   .swim-icon.lit-double-up::before {
-    content: '\\ea86';
+    content: '\\ea84';
   }
   .swim-icon.lit-downgrade::before {
-    content: '\\ea88';
+    content: '\\ea85';
   }
   .swim-icon.lit-downgrade-horizontal::before {
-    content: '\\ea87';
+    content: '\\ea86';
   }
   .swim-icon.lit-download-outline::before {
-    content: '\\ea8b';
+    content: '\\ea87';
   }
   .swim-icon.lit-download-outline-large::before {
-    content: '\\ea89';
+    content: '\\ea88';
   }
   .swim-icon.lit-download-outline-small::before {
-    content: '\\ea8a';
+    content: '\\ea89';
   }
   .swim-icon.lit-drag::before {
-    content: '\\ea8c';
+    content: '\\ea8a';
   }
   .swim-icon.lit-edit::before {
-    content: '\\ea91';
+    content: '\\ea8b';
   }
   .swim-icon.lit-edit-app::before {
-    content: '\\ea8d';
+    content: '\\ea8c';
   }
   .swim-icon.lit-edit-outline::before {
-    content: '\\ea90';
+    content: '\\ea8d';
   }
   .swim-icon.lit-edit-outline-large::before {
     content: '\\ea8e';
@@ -1462,34 +1459,34 @@ const Qo = _`
     content: '\\ea8f';
   }
   .swim-icon.lit-email::before {
-    content: '\\ea92';
+    content: '\\ea90';
   }
   .swim-icon.lit-enrich-small::before {
-    content: '\\ea93';
+    content: '\\ea91';
   }
   .swim-icon.lit-escalate::before {
-    content: '\\ea94';
+    content: '\\ea92';
   }
   .swim-icon.lit-events-outline::before {
-    content: '\\ea96';
+    content: '\\ea93';
   }
   .swim-icon.lit-events-outline-small::before {
-    content: '\\ea95';
+    content: '\\ea94';
   }
   .swim-icon.lit-expand::before {
-    content: '\\ea97';
+    content: '\\ea95';
   }
   .swim-icon.lit-explore::before {
-    content: '\\ea98';
+    content: '\\ea96';
   }
   .swim-icon.lit-export::before {
-    content: '\\ea9d';
+    content: '\\ea97';
   }
   .swim-icon.lit-export-filled::before {
-    content: '\\ea99';
+    content: '\\ea98';
   }
   .swim-icon.lit-export-outline::before {
-    content: '\\ea9c';
+    content: '\\ea99';
   }
   .swim-icon.lit-export-outline-large::before {
     content: '\\ea9a';
@@ -1498,499 +1495,505 @@ const Qo = _`
     content: '\\ea9b';
   }
   .swim-icon.lit-eye::before {
-    content: '\\eaa0';
+    content: '\\ea9c';
   }
   .swim-icon.lit-eye-disabled::before {
-    content: '\\ea9e';
+    content: '\\ea9d';
   }
   .swim-icon.lit-eye-hidden::before {
-    content: '\\ea9f';
+    content: '\\ea9e';
   }
   .swim-icon.lit-field-created-by::before {
-    content: '\\eaa1';
+    content: '\\ea9f';
   }
   .swim-icon.lit-field-created-date::before {
-    content: '\\eaa2';
+    content: '\\eaa0';
   }
   .swim-icon.lit-field-date::before {
-    content: '\\eaa3';
+    content: '\\eaa1';
   }
   .swim-icon.lit-field-double-select::before {
-    content: '\\eaa4';
+    content: '\\eaa2';
   }
   .swim-icon.lit-field-dynamic::before {
-    content: '\\eaa5';
+    content: '\\eaa3';
   }
   .swim-icon.lit-field-edited-by::before {
-    content: '\\eaa6';
+    content: '\\eaa4';
   }
   .swim-icon.lit-field-edited-date::before {
-    content: '\\eaa7';
+    content: '\\eaa5';
   }
   .swim-icon.lit-field-grid::before {
-    content: '\\eaa8';
+    content: '\\eaa6';
   }
   .swim-icon.lit-field-html::before {
-    content: '\\eaa9';
+    content: '\\eaa7';
   }
   .swim-icon.lit-field-json::before {
-    content: '\\eaaa';
+    content: '\\eaa8';
   }
   .swim-icon.lit-field-list::before {
-    content: '\\eaac';
+    content: '\\eaa9';
   }
   .swim-icon.lit-field-list-small::before {
-    content: '\\eaab';
+    content: '\\eaaa';
   }
   .swim-icon.lit-field-lists::before {
-    content: '\\eaad';
+    content: '\\eaab';
   }
   .swim-icon.lit-field-multiselect::before {
-    content: '\\eaae';
+    content: '\\eaac';
   }
   .swim-icon.lit-field-number::before {
-    content: '\\eaaf';
+    content: '\\eaad';
   }
   .swim-icon.lit-field-numeric::before {
-    content: '\\eab0';
+    content: '\\eaae';
   }
   .swim-icon.lit-field-richtext::before {
-    content: '\\eab1';
+    content: '\\eaaf';
   }
   .swim-icon.lit-field-single-select::before {
-    content: '\\eab2';
+    content: '\\eab0';
   }
   .swim-icon.lit-field-singleline::before {
-    content: '\\eab3';
+    content: '\\eab1';
   }
   .swim-icon.lit-field-text::before {
-    content: '\\eab4';
+    content: '\\eab2';
   }
   .swim-icon.lit-field-textarea::before {
-    content: '\\eab5';
+    content: '\\eab3';
   }
   .swim-icon.lit-field-textual::before {
-    content: '\\eab6';
+    content: '\\eab4';
   }
   .swim-icon.lit-field-users::before {
-    content: '\\eab7';
+    content: '\\eab5';
   }
   .swim-icon.lit-filter::before {
-    content: '\\eab9';
+    content: '\\eab6';
   }
   .swim-icon.lit-filter-bar::before {
-    content: '\\eab8';
+    content: '\\eab7';
   }
   .swim-icon.lit-find-page::before {
-    content: '\\eaba';
+    content: '\\eab8';
   }
   .swim-icon.lit-flame::before {
-    content: '\\eabb';
+    content: '\\eab9';
   }
   .swim-icon.lit-folder::before {
-    content: '\\eabe';
+    content: '\\eaba';
   }
   .swim-icon.lit-folder-closed-small::before {
-    content: '\\eabc';
+    content: '\\eabb';
   }
   .swim-icon.lit-folder-open-small::before {
-    content: '\\eabd';
+    content: '\\eabc';
   }
   .swim-icon.lit-folders::before {
-    content: '\\eabf';
+    content: '\\eabd';
   }
   .swim-icon.lit-font::before {
-    content: '\\eac0';
+    content: '\\eabe';
   }
   .swim-icon.lit-format-indent-decrease::before {
-    content: '\\eac1';
+    content: '\\eabf';
   }
   .swim-icon.lit-format-indent-increase::before {
-    content: '\\eac2';
+    content: '\\eac0';
   }
   .swim-icon.lit-formula::before {
-    content: '\\eac3';
+    content: '\\eac1';
   }
   .swim-icon.lit-forward-arrow::before {
-    content: '\\eac5';
+    content: '\\eac2';
   }
   .swim-icon.lit-forward-arrow-filled::before {
-    content: '\\eac4';
+    content: '\\eac3';
   }
   .swim-icon.lit-full-align::before {
-    content: '\\eac6';
+    content: '\\eac4';
   }
   .swim-icon.lit-gauge::before {
-    content: '\\eac7';
+    content: '\\eac5';
   }
   .swim-icon.lit-gear::before {
-    content: '\\eaca';
+    content: '\\eac6';
   }
   .swim-icon.lit-gear-small::before {
-    content: '\\eac8';
+    content: '\\eac7';
   }
   .swim-icon.lit-gear-square::before {
-    content: '\\eac9';
+    content: '\\eac8';
   }
   .swim-icon.lit-globe::before {
-    content: '\\eacb';
+    content: '\\eac9';
   }
   .swim-icon.lit-graph::before {
-    content: '\\eacd';
+    content: '\\eaca';
   }
   .swim-icon.lit-graph-alt1::before {
-    content: '\\eacc';
+    content: '\\eacb';
   }
   .swim-icon.lit-grid-view::before {
-    content: '\\eace';
+    content: '\\eacc';
   }
   .swim-icon.lit-hand::before {
-    content: '\\eacf';
+    content: '\\eacd';
   }
   .swim-icon.lit-handle::before {
-    content: '\\ead0';
+    content: '\\eace';
   }
   .swim-icon.lit-heat::before {
-    content: '\\ead1';
+    content: '\\eacf';
   }
   .swim-icon.lit-helper::before {
-    content: '\\ead2';
+    content: '\\ead0';
   }
   .swim-icon.lit-history::before {
-    content: '\\ead3';
+    content: '\\ead1';
   }
   .swim-icon.lit-horz-bar-graph-grouped::before {
-    content: '\\ead4';
+    content: '\\ead2';
   }
   .swim-icon.lit-horz-stacked-bar::before {
-    content: '\\ead5';
+    content: '\\ead3';
   }
   .swim-icon.lit-html-code::before {
-    content: '\\ead6';
+    content: '\\ead4';
   }
   .swim-icon.lit-icon-chart-bar-horizontal::before {
-    content: '\\ead7';
+    content: '\\ead5';
   }
   .swim-icon.lit-icon-chart-horz-bar::before {
-    content: '\\ead8';
+    content: '\\ead6';
   }
   .swim-icon.lit-import-outline::before {
-    content: '\\eadb';
+    content: '\\ead7';
   }
   .swim-icon.lit-import-outline-large::before {
-    content: '\\ead9';
+    content: '\\ead8';
   }
   .swim-icon.lit-import-outline-small::before {
-    content: '\\eada';
+    content: '\\ead9';
   }
   .swim-icon.lit-info-filled::before {
-    content: '\\eade';
+    content: '\\eada';
   }
   .swim-icon.lit-info-filled-2::before {
-    content: '\\eadc';
+    content: '\\eadb';
   }
   .swim-icon.lit-info-filled-small::before {
-    content: '\\eadd';
+    content: '\\eadc';
   }
   .swim-icon.lit-ingest-small::before {
-    content: '\\eadf';
+    content: '\\eadd';
   }
   .swim-icon.lit-inspect::before {
-    content: '\\eae0';
+    content: '\\eade';
   }
   .swim-icon.lit-integration::before {
-    content: '\\eae1';
+    content: '\\eadf';
   }
   .swim-icon.lit-integrations::before {
-    content: '\\eae2';
+    content: '\\eae0';
   }
   .swim-icon.lit-ip::before {
-    content: '\\eae3';
+    content: '\\eae1';
   }
   .swim-icon.lit-italic::before {
-    content: '\\eae4';
+    content: '\\eae2';
   }
   .swim-icon.lit-key::before {
-    content: '\\eae7';
+    content: '\\eae3';
   }
   .swim-icon.lit-key-outline::before {
-    content: '\\eae6';
+    content: '\\eae4';
   }
   .swim-icon.lit-key-outline-small::before {
     content: '\\eae5';
   }
   .swim-icon.lit-keyboard::before {
-    content: '\\eae9';
+    content: '\\eae6';
   }
   .swim-icon.lit-keyboard-return::before {
-    content: '\\eae8';
+    content: '\\eae7';
   }
   .swim-icon.lit-layer::before {
-    content: '\\eaea';
+    content: '\\eae8';
   }
   .swim-icon.lit-left-align::before {
-    content: '\\eaeb';
+    content: '\\eae9';
   }
   .swim-icon.lit-library::before {
-    content: '\\eaec';
+    content: '\\eaea';
   }
   .swim-icon.lit-line-chart::before {
-    content: '\\eaed';
+    content: '\\eaeb';
   }
   .swim-icon.lit-line-graph::before {
-    content: '\\eaee';
+    content: '\\eaec';
   }
   .swim-icon.lit-linear-gauge::before {
-    content: '\\eaef';
+    content: '\\eaed';
   }
   .swim-icon.lit-link::before {
-    content: '\\eaf0';
+    content: '\\eaee';
   }
   .swim-icon.lit-list::before {
-    content: '\\eaf3';
+    content: '\\eaef';
   }
   .swim-icon.lit-list-1::before {
-    content: '\\eaf1';
+    content: '\\eaf0';
   }
   .swim-icon.lit-list-view::before {
-    content: '\\eaf2';
+    content: '\\eaf1';
   }
   .swim-icon.lit-loading::before {
-    content: '\\eaf4';
+    content: '\\eaf2';
   }
   .swim-icon.lit-locate-filled::before {
-    content: '\\eaf5';
+    content: '\\eaf3';
   }
   .swim-icon.lit-locate-outline::before {
-    content: '\\eaf7';
+    content: '\\eaf4';
   }
   .swim-icon.lit-locate-outline-large::before {
-    content: '\\eaf6';
+    content: '\\eaf5';
   }
   .swim-icon.lit-location::before {
-    content: '\\eaf8';
+    content: '\\eaf6';
   }
   .swim-icon.lit-lock::before {
-    content: '\\eafa';
+    content: '\\eaf7';
   }
   .swim-icon.lit-lock-sm::before {
+    content: '\\eaf8';
+  }
+  .swim-icon.lit-mail::before {
     content: '\\eaf9';
   }
   .swim-icon.lit-mail-1::before {
-    content: '\\eafc';
+    content: '\\eafa';
   }
   .swim-icon.lit-map::before {
-    content: '\\eafd';
+    content: '\\eafb';
   }
   .swim-icon.lit-marketplace::before {
-    content: '\\eafe';
+    content: '\\eafc';
   }
   .swim-icon.lit-menu::before {
-    content: '\\eaff';
+    content: '\\eafd';
   }
   .swim-icon.lit-mfa::before {
-    content: '\\eb00';
+    content: '\\eafe';
   }
   .swim-icon.lit-mic::before {
-    content: '\\eb01';
+    content: '\\eaff';
   }
   .swim-icon.lit-minus::before {
-    content: '\\eb02';
+    content: '\\eb00';
   }
   .swim-icon.lit-money::before {
-    content: '\\eb03';
+    content: '\\eb01';
   }
   .swim-icon.lit-mouse-hold::before {
-    content: '\\eb04';
+    content: '\\eb02';
   }
   .swim-icon.lit-multi-line::before {
-    content: '\\eb05';
+    content: '\\eb03';
   }
   .swim-icon.lit-new-app::before {
-    content: '\\eb06';
+    content: '\\eb04';
   }
   .swim-icon.lit-notation-arrow-down-left::before {
-    content: '\\eb07';
+    content: '\\eb05';
   }
   .swim-icon.lit-notation-arrow-up::before {
-    content: '\\eb08';
+    content: '\\eb06';
   }
   .swim-icon.lit-numbered-list::before {
-    content: '\\eb09';
+    content: '\\eb07';
   }
   .swim-icon.lit-open::before {
-    content: '\\eb0a';
+    content: '\\eb08';
   }
   .swim-icon.lit-orchestration::before {
-    content: '\\eb0b';
+    content: '\\eb09';
   }
   .swim-icon.lit-paragraph::before {
-    content: '\\eb0c';
+    content: '\\eb0a';
   }
   .swim-icon.lit-pause::before {
-    content: '\\eb0e';
+    content: '\\eb0b';
   }
   .swim-icon.lit-pause-circle::before {
-    content: '\\eb0d';
+    content: '\\eb0c';
   }
   .swim-icon.lit-percent-gauge::before {
-    content: '\\eb0f';
+    content: '\\eb0d';
   }
   .swim-icon.lit-phone::before {
-    content: '\\eb10';
+    content: '\\eb0e';
   }
   .swim-icon.lit-photo::before {
-    content: '\\eb11';
+    content: '\\eb0f';
   }
   .swim-icon.lit-pie-chart::before {
-    content: '\\eb12';
+    content: '\\eb10';
   }
   .swim-icon.lit-pin::before {
-    content: '\\eb13';
+    content: '\\eb11';
   }
   .swim-icon.lit-plane::before {
-    content: '\\eb14';
+    content: '\\eb12';
   }
   .swim-icon.lit-play::before {
-    content: '\\eb16';
+    content: '\\eb13';
   }
   .swim-icon.lit-play-circle::before {
-    content: '\\eb15';
+    content: '\\eb14';
   }
   .swim-icon.lit-playbook-outline::before {
-    content: '\\eb18';
+    content: '\\eb15';
   }
   .swim-icon.lit-playbook-outline-small::before {
-    content: '\\eb17';
+    content: '\\eb16';
   }
   .swim-icon.lit-plugin::before {
-    content: '\\eb1b';
+    content: '\\eb17';
   }
   .swim-icon.lit-plugin-outline::before {
-    content: '\\eb1a';
+    content: '\\eb18';
   }
   .swim-icon.lit-plugin-outline-small::before {
     content: '\\eb19';
   }
   .swim-icon.lit-plus::before {
-    content: '\\eb1d';
+    content: '\\eb1a';
   }
   .swim-icon.lit-plus-bold::before {
-    content: '\\eb1c';
+    content: '\\eb1b';
   }
   .swim-icon.lit-prev::before {
-    content: '\\eb1e';
+    content: '\\eb1c';
   }
   .swim-icon.lit-printer::before {
-    content: '\\eb1f';
+    content: '\\eb1d';
   }
   .swim-icon.lit-profile::before {
-    content: '\\eb21';
+    content: '\\eb1e';
   }
   .swim-icon.lit-profile-filled::before {
-    content: '\\eb20';
+    content: '\\eb1f';
   }
   .swim-icon.lit-promote::before {
-    content: '\\eb23';
+    content: '\\eb20';
   }
   .swim-icon.lit-promote-horizontal::before {
-    content: '\\eb22';
+    content: '\\eb21';
   }
   .swim-icon.lit-question::before {
-    content: '\\eb26';
+    content: '\\eb22';
   }
   .swim-icon.lit-question-filled::before {
-    content: '\\eb25';
+    content: '\\eb23';
   }
   .swim-icon.lit-question-filled-sm::before {
     content: '\\eb24';
   }
   .swim-icon.lit-radio-button::before {
-    content: '\\eb27';
+    content: '\\eb25';
   }
   .swim-icon.lit-redo::before {
-    content: '\\eb29';
+    content: '\\eb26';
   }
   .swim-icon.lit-redo-all::before {
-    content: '\\eb28';
+    content: '\\eb27';
   }
   .swim-icon.lit-reference::before {
-    content: '\\eb2e';
+    content: '\\eb28';
   }
   .swim-icon.lit-reference-grid::before {
-    content: '\\eb2a';
+    content: '\\eb29';
   }
   .swim-icon.lit-reference-multi::before {
-    content: '\\eb2b';
+    content: '\\eb2a';
   }
   .swim-icon.lit-reference-single::before {
-    content: '\\eb2c';
+    content: '\\eb2b';
   }
   .swim-icon.lit-reference-tree::before {
-    content: '\\eb2d';
+    content: '\\eb2c';
   }
   .swim-icon.lit-refresh::before {
-    content: '\\eb31';
+    content: '\\eb2d';
   }
   .swim-icon.lit-refresh-circle::before {
-    content: '\\eb2f';
+    content: '\\eb2e';
   }
   .swim-icon.lit-refresh-small::before {
-    content: '\\eb30';
+    content: '\\eb2f';
   }
   .swim-icon.lit-remove::before {
-    content: '\\eb35';
+    content: '\\eb30';
   }
   .swim-icon.lit-remove-edge::before {
+    content: '\\eb31';
+  }
+  .swim-icon.lit-remove-node::before {
     content: '\\eb32';
   }
   .swim-icon.lit-remove-users::before {
-    content: '\\eb34';
+    content: '\\eb33';
   }
   .swim-icon.lit-repeat::before {
-    content: '\\eb36';
+    content: '\\eb34';
   }
   .swim-icon.lit-replace::before {
-    content: '\\eb37';
+    content: '\\eb35';
   }
   .swim-icon.lit-reports::before {
-    content: '\\eb39';
+    content: '\\eb36';
   }
   .swim-icon.lit-reports-outline::before {
-    content: '\\eb38';
+    content: '\\eb37';
   }
   .swim-icon.lit-resize::before {
-    content: '\\eb3a';
+    content: '\\eb38';
   }
   .swim-icon.lit-right-align::before {
-    content: '\\eb3b';
+    content: '\\eb39';
   }
   .swim-icon.lit-rocket::before {
-    content: '\\eb3c';
+    content: '\\eb3a';
   }
   .swim-icon.lit-rotate::before {
-    content: '\\eb3d';
+    content: '\\eb3b';
   }
   .swim-icon.lit-rule-outline::before {
-    content: '\\eb3e';
+    content: '\\eb3c';
   }
   .swim-icon.lit-runner::before {
-    content: '\\eb3f';
+    content: '\\eb3d';
   }
   .swim-icon.lit-runs-outline::before {
-    content: '\\eb41';
+    content: '\\eb3e';
   }
   .swim-icon.lit-runs-outline-small::before {
-    content: '\\eb40';
+    content: '\\eb3f';
   }
   .swim-icon.lit-sankey::before {
-    content: '\\eb42';
+    content: '\\eb40';
   }
   .swim-icon.lit-save::before {
-    content: '\\eb46';
+    content: '\\eb41';
   }
   .swim-icon.lit-save-outline::before {
-    content: '\\eb45';
+    content: '\\eb42';
   }
   .swim-icon.lit-save-outline-large::before {
     content: '\\eb43';
@@ -1999,277 +2002,277 @@ const Qo = _`
     content: '\\eb44';
   }
   .swim-icon.lit-screen::before {
-    content: '\\eb48';
+    content: '\\eb45';
   }
   .swim-icon.lit-screen-1::before {
-    content: '\\eb47';
+    content: '\\eb46';
   }
   .swim-icon.lit-search::before {
-    content: '\\eb49';
+    content: '\\eb47';
   }
   .swim-icon.lit-section::before {
-    content: '\\eb4a';
+    content: '\\eb48';
   }
   .swim-icon.lit-select-all::before {
-    content: '\\eb4b';
+    content: '\\eb49';
   }
   .swim-icon.lit-select-user::before {
-    content: '\\eb4c';
+    content: '\\eb4a';
   }
   .swim-icon.lit-select-users::before {
-    content: '\\eb4d';
+    content: '\\eb4b';
   }
   .swim-icon.lit-sensor-outline::before {
-    content: '\\eb4f';
+    content: '\\eb4c';
   }
   .swim-icon.lit-sensor-outline-small::before {
-    content: '\\eb4e';
+    content: '\\eb4d';
   }
   .swim-icon.lit-server::before {
-    content: '\\eb50';
+    content: '\\eb4e';
   }
   .swim-icon.lit-shield::before {
-    content: '\\eb51';
+    content: '\\eb4f';
   }
   .swim-icon.lit-shrink::before {
-    content: '\\eb52';
+    content: '\\eb50';
   }
   .swim-icon.lit-skip::before {
-    content: '\\eb53';
+    content: '\\eb51';
   }
   .swim-icon.lit-slide-left::before {
-    content: '\\eb54';
+    content: '\\eb52';
   }
   .swim-icon.lit-slide-right::before {
-    content: '\\eb55';
+    content: '\\eb53';
   }
   .swim-icon.lit-sliders::before {
-    content: '\\eb56';
+    content: '\\eb54';
   }
   .swim-icon.lit-smartphone::before {
-    content: '\\eb57';
+    content: '\\eb55';
   }
   .swim-icon.lit-smiley-frown::before {
-    content: '\\eb58';
+    content: '\\eb56';
   }
   .swim-icon.lit-snapshot::before {
-    content: '\\eb59';
+    content: '\\eb57';
   }
   .swim-icon.lit-solution::before {
-    content: '\\eb5a';
+    content: '\\eb58';
   }
   .swim-icon.lit-sort-ascending::before {
-    content: '\\eb5b';
+    content: '\\eb59';
   }
   .swim-icon.lit-sort-descending::before {
-    content: '\\eb5c';
+    content: '\\eb5a';
   }
   .swim-icon.lit-spaces::before {
-    content: '\\eb60';
+    content: '\\eb5b';
   }
   .swim-icon.lit-spaces-list::before {
-    content: '\\eb5d';
+    content: '\\eb5c';
   }
   .swim-icon.lit-spaces-outline::before {
-    content: '\\eb5f';
+    content: '\\eb5d';
   }
   .swim-icon.lit-spaces-outline-large::before {
     content: '\\eb5e';
   }
   .swim-icon.lit-speedometer::before {
-    content: '\\eb61';
+    content: '\\eb5f';
   }
   .swim-icon.lit-split-handle::before {
-    content: '\\eb62';
+    content: '\\eb60';
   }
   .swim-icon.lit-square::before {
-    content: '\\eb64';
+    content: '\\eb61';
   }
   .swim-icon.lit-square-filled::before {
-    content: '\\eb63';
+    content: '\\eb62';
   }
   .swim-icon.lit-star::before {
-    content: '\\eb66';
+    content: '\\eb63';
   }
   .swim-icon.lit-star-filled::before {
-    content: '\\eb65';
+    content: '\\eb64';
   }
   .swim-icon.lit-stars::before {
-    content: '\\eb67';
+    content: '\\eb65';
   }
   .swim-icon.lit-stopwatch::before {
-    content: '\\eb68';
+    content: '\\eb66';
   }
   .swim-icon.lit-superscript::before {
-    content: '\\eb69';
+    content: '\\eb67';
   }
   .swim-icon.lit-swap::before {
-    content: '\\eb6a';
+    content: '\\eb68';
   }
   .swim-icon.lit-switch::before {
-    content: '\\eb6b';
+    content: '\\eb69';
   }
   .swim-icon.lit-system-diagnostics::before {
-    content: '\\eb6d';
+    content: '\\eb6a';
   }
   .swim-icon.lit-system-diagnostics-2::before {
-    content: '\\eb6c';
+    content: '\\eb6b';
   }
   .swim-icon.lit-table::before {
-    content: '\\eb6e';
+    content: '\\eb6c';
   }
   .swim-icon.lit-tabs::before {
-    content: '\\eb6f';
+    content: '\\eb6d';
   }
   .swim-icon.lit-tag-filled::before {
-    content: '\\eb70';
+    content: '\\eb6e';
   }
   .swim-icon.lit-tags-outline::before {
-    content: '\\eb71';
+    content: '\\eb6f';
   }
   .swim-icon.lit-target::before {
-    content: '\\eb72';
+    content: '\\eb70';
   }
   .swim-icon.lit-task-outline::before {
-    content: '\\eb73';
+    content: '\\eb71';
   }
   .swim-icon.lit-thumb-down-filled::before {
-    content: '\\eb74';
+    content: '\\eb72';
   }
   .swim-icon.lit-thumb-down-outline::before {
-    content: '\\eb76';
+    content: '\\eb73';
   }
   .swim-icon.lit-thumb-down-outline-large::before {
-    content: '\\eb75';
+    content: '\\eb74';
   }
   .swim-icon.lit-thumb-up-filled::before {
-    content: '\\eb77';
+    content: '\\eb75';
   }
   .swim-icon.lit-thumb-up-outline::before {
-    content: '\\eb79';
+    content: '\\eb76';
   }
   .swim-icon.lit-thumb-up-outline-large::before {
-    content: '\\eb78';
+    content: '\\eb77';
   }
   .swim-icon.lit-tracking-id::before {
-    content: '\\eb7a';
+    content: '\\eb78';
   }
   .swim-icon.lit-transfer::before {
-    content: '\\eb7b';
+    content: '\\eb79';
   }
   .swim-icon.lit-trash::before {
-    content: '\\eb7c';
+    content: '\\eb7a';
   }
   .swim-icon.lit-tree::before {
-    content: '\\eb7f';
+    content: '\\eb7b';
   }
   .swim-icon.lit-tree-collapse::before {
-    content: '\\eb7d';
+    content: '\\eb7c';
   }
   .swim-icon.lit-tree-expand::before {
-    content: '\\eb7e';
+    content: '\\eb7d';
   }
   .swim-icon.lit-trend-down::before {
-    content: '\\eb80';
+    content: '\\eb7e';
   }
   .swim-icon.lit-trend-level::before {
-    content: '\\eb81';
+    content: '\\eb7f';
   }
   .swim-icon.lit-trend-up::before {
-    content: '\\eb82';
+    content: '\\eb80';
   }
   .swim-icon.lit-trending::before {
-    content: '\\eb83';
+    content: '\\eb81';
   }
   .swim-icon.lit-underline::before {
-    content: '\\eb84';
+    content: '\\eb82';
   }
   .swim-icon.lit-undo::before {
-    content: '\\eb86';
+    content: '\\eb83';
   }
   .swim-icon.lit-undo-all::before {
-    content: '\\eb85';
+    content: '\\eb84';
   }
   .swim-icon.lit-unlink::before {
-    content: '\\eb87';
+    content: '\\eb85';
   }
   .swim-icon.lit-upload-outline::before {
-    content: '\\eb8a';
+    content: '\\eb86';
   }
   .swim-icon.lit-upload-outline-large::before {
-    content: '\\eb88';
+    content: '\\eb87';
   }
   .swim-icon.lit-upload-outline-small::before {
-    content: '\\eb89';
+    content: '\\eb88';
   }
   .swim-icon.lit-user::before {
-    content: '\\eb8e';
+    content: '\\eb89';
   }
   .swim-icon.lit-user-add::before {
-    content: '\\eb8b';
+    content: '\\eb8a';
   }
   .swim-icon.lit-user-circle::before {
-    content: '\\eb8c';
+    content: '\\eb8b';
   }
   .swim-icon.lit-user-groups::before {
-    content: '\\eb8d';
+    content: '\\eb8c';
   }
   .swim-icon.lit-users::before {
-    content: '\\eb8f';
+    content: '\\eb8d';
   }
   .swim-icon.lit-version::before {
-    content: '\\eb90';
+    content: '\\eb8e';
   }
   .swim-icon.lit-vert-bar-graph-grouped::before {
-    content: '\\eb91';
+    content: '\\eb8f';
   }
   .swim-icon.lit-vert-full-stack-bar::before {
-    content: '\\eb92';
+    content: '\\eb90';
   }
   .swim-icon.lit-view-code::before {
-    content: '\\eb93';
+    content: '\\eb91';
   }
   .swim-icon.lit-view-designer::before {
-    content: '\\eb94';
+    content: '\\eb92';
   }
   .swim-icon.lit-view-split::before {
-    content: '\\eb95';
+    content: '\\eb93';
   }
   .swim-icon.lit-wand::before {
-    content: '\\eb96';
+    content: '\\eb94';
   }
   .swim-icon.lit-warning-filled::before {
-    content: '\\eb98';
+    content: '\\eb95';
   }
   .swim-icon.lit-warning-filled-sm::before {
-    content: '\\eb97';
+    content: '\\eb96';
   }
   .swim-icon.lit-warning-thin::before {
-    content: '\\eb99';
+    content: '\\eb97';
   }
   .swim-icon.lit-web-api::before {
-    content: '\\eb9a';
+    content: '\\eb98';
   }
   .swim-icon.lit-webhook-outline::before {
-    content: '\\eb9d';
+    content: '\\eb99';
   }
   .swim-icon.lit-webhook-outline-large::before {
-    content: '\\eb9b';
+    content: '\\eb9a';
   }
   .swim-icon.lit-webhook-outline-small::before {
-    content: '\\eb9c';
+    content: '\\eb9b';
   }
   .swim-icon.lit-widget::before {
-    content: '\\eb9e';
+    content: '\\eb9c';
   }
   .swim-icon.lit-worker::before {
-    content: '\\eb9f';
+    content: '\\eb9d';
   }
   .swim-icon.lit-workflow::before {
-    content: '\\eba3';
+    content: '\\eb9e';
   }
   .swim-icon.lit-workflow-alternate::before {
-    content: '\\eba2';
+    content: '\\eb9f';
   }
   .swim-icon.lit-workflow-alternate-large::before {
     content: '\\eba0';
@@ -2278,18 +2281,24 @@ const Qo = _`
     content: '\\eba1';
   }
   .swim-icon.lit-workspaces::before {
-    content: '\\eba4';
+    content: '\\eba2';
   }
   .swim-icon.lit-workstation::before {
-    content: '\\eba5';
+    content: '\\eba3';
   }
   .swim-icon.lit-wrench::before {
-    content: '\\eba6';
+    content: '\\eba4';
+  }
+  .swim-icon.lit-x::before {
+    content: '\\eba5';
   }
   .swim-icon.lit-x-filled::before {
+    content: '\\eba6';
+  }
+  .swim-icon.lit-x-small::before {
     content: '\\eba7';
   }
-`, er = _`
+`, sr = _`
   :host {
     display: inline-block;
     vertical-align: baseline;
@@ -2403,12 +2412,12 @@ const Qo = _`
     animation: swim-icon-spin 1s linear infinite;
   }
 
-  ${Qo}
-`, tr = (o) => `swim-icon ${o.trim().split(" ").map((t) => {
+  ${ir}
+`, or = (o) => `swim-icon ${o.trim().split(" ").map((t) => {
   const [i, s] = t.split(":");
   return i.length ? `${i} ${i}-${s}` : s;
 }).join(" ")}`;
-class ir {
+class rr {
   constructor() {
     this._defaultFontSetClass = "lit", this._iconMap = /* @__PURE__ */ new Map();
   }
@@ -2416,7 +2425,7 @@ class ir {
     return this._defaultFontSetClass = e, this._defaultFontSetClass;
   }
   get(e, t) {
-    return this.lookup(e, t).map((i) => tr(i));
+    return this.lookup(e, t).map((i) => or(i));
   }
   lookup(e, t) {
     const i = t ?? this._defaultFontSetClass;
@@ -2436,13 +2445,13 @@ class ir {
     return e.split(" ").map((i) => i.includes(":") ? i : `${t}:${i}`);
   }
 }
-const sr = new ir();
-var or = Object.defineProperty, _t = (o, e, t, i) => {
+const nr = new rr();
+var ar = Object.defineProperty, _t = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && or(e, t, s), s;
+  return s && ar(e, t, s), s;
 };
-const es = "swim-icon", bi = class bi extends f {
+const is = "swim-icon", fi = class fi extends f {
   constructor() {
     super(...arguments), this.fontIcon = "", this.alt = "", this.fontSet = "lit", this.iconClass = "", this._cssClasses = [], this._iconClassTokensOnHost = [];
   }
@@ -2476,7 +2485,7 @@ const es = "swim-icon", bi = class bi extends f {
       this._cssClasses = [];
       return;
     }
-    this._cssClasses = sr.get(e, this.fontSet);
+    this._cssClasses = nr.get(e, this.fontSet);
   }
   render() {
     var r;
@@ -2513,8 +2522,8 @@ const es = "swim-icon", bi = class bi extends f {
     `;
   }
 };
-bi.styles = [y, er];
-let Ae = bi;
+fi.styles = [y, sr];
+let Ae = fi;
 _t([
   a({ type: String, attribute: "font-icon" })
 ], Ae.prototype, "fontIcon");
@@ -2530,15 +2539,15 @@ _t([
 _t([
   b()
 ], Ae.prototype, "_cssClasses");
-customElements.get(es) || customElements.define(es, Ae);
-var rr = Object.defineProperty, nr = Object.getOwnPropertyDescriptor, de = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? nr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+customElements.get(is) || customElements.define(is, Ae);
+var lr = Object.defineProperty, cr = Object.getOwnPropertyDescriptor, de = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? cr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && rr(e, t, s), s;
+  return i && s && lr(e, t, s), s;
 };
-const ts = "swim-button", gi = class gi extends f {
+const ss = "swim-button", Dt = class Dt extends f {
   constructor() {
-    super(...arguments), this.variant = "default", this.size = "medium", this._disabled = !1, this._state = N.Active, this.type = "button", this._inProgress = !1, this._success = !1, this._fail = !1;
+    super(), this.variant = "default", this.size = "medium", this._disabled = !1, this._state = N.Active, this.type = "button", this._inProgress = !1, this._success = !1, this._fail = !1, this._internals = this.attachInternals();
   }
   get disabled() {
     return this._disabled;
@@ -2572,7 +2581,7 @@ const ts = "swim-button", gi = class gi extends f {
   }
   render() {
     return c`
-      <button part="button" type="${this.type}" ?disabled="${this.disabled}" @click="${this._handleClick}">
+      <button part="button" type="button" ?disabled="${this.disabled}" @click="${this._handleClick}">
         <span class="content">
           <slot></slot>
         </span>
@@ -2588,6 +2597,8 @@ const ts = "swim-button", gi = class gi extends f {
       e.stopPropagation(), e.preventDefault();
       return;
     }
+    const t = this._internals.form;
+    t && (this.type === "submit" ? t.requestSubmit() : this.type === "reset" && t.reset());
   }
   _updateStateFlags() {
     this._inProgress = this._state === N.InProgress, this._success = this._state === N.Success, this._fail = this._state === N.Fail;
@@ -2608,8 +2619,8 @@ const ts = "swim-button", gi = class gi extends f {
     this._timer !== void 0 && (clearTimeout(this._timer), this._timer = void 0);
   }
 };
-gi.styles = [y, Jo];
-let U = gi;
+Dt.styles = [y, tr], Dt.formAssociated = !0;
+let U = Dt;
 de([
   a({ type: String, reflect: !0 })
 ], U.prototype, "variant", 2);
@@ -2640,8 +2651,8 @@ de([
 de([
   b()
 ], U.prototype, "_fail", 2);
-customElements.get(ts) || customElements.define(ts, U);
-const ar = _`
+customElements.get(ss) || customElements.define(ss, U);
+const dr = _`
   :host {
     display: inline-flex;
     position: relative;
@@ -2749,32 +2760,32 @@ const ar = _`
     border-bottom: 1px solid var(--white);
   }
 `;
-var ho = /* @__PURE__ */ ((o) => (o.Horizontal = "horizontal", o.Vertical = "vertical", o))(ho || {}), uo = /* @__PURE__ */ ((o) => (o.Contained = "contained", o.Text = "text", o))(uo || {}), po = /* @__PURE__ */ ((o) => (o.Default = "default", o.Primary = "primary", o))(po || {}), lr = Object.defineProperty, ai = (o, e, t, i) => {
+var mo = /* @__PURE__ */ ((o) => (o.Horizontal = "horizontal", o.Vertical = "vertical", o))(mo || {}), bo = /* @__PURE__ */ ((o) => (o.Contained = "contained", o.Text = "text", o))(bo || {}), go = /* @__PURE__ */ ((o) => (o.Default = "default", o.Primary = "primary", o))(go || {}), hr = Object.defineProperty, di = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && lr(e, t, s), s;
+  return s && hr(e, t, s), s;
 };
-const is = "swim-button-group", _i = class _i extends f {
+const os = "swim-button-group", wi = class wi extends f {
   constructor() {
-    super(...arguments), this.orientation = ho.Horizontal, this.variant = uo.Contained, this.buttonGroupStyle = po.Default;
+    super(...arguments), this.orientation = mo.Horizontal, this.variant = bo.Contained, this.buttonGroupStyle = go.Default;
   }
   render() {
     return c`<slot></slot>`;
   }
 };
-_i.styles = [y, ar];
-let je = _i;
-ai([
+wi.styles = [y, dr];
+let je = wi;
+di([
   a({ type: String, reflect: !0 })
 ], je.prototype, "orientation");
-ai([
+di([
   a({ type: String, reflect: !0 })
 ], je.prototype, "variant");
-ai([
+di([
   a({ attribute: "button-group-style", type: String, reflect: !0 })
 ], je.prototype, "buttonGroupStyle");
-customElements.get(is) || customElements.define(is, je);
-const cr = _`
+customElements.get(os) || customElements.define(os, je);
+const ur = _`
   :host {
     display: inline-block;
     cursor: pointer;
@@ -2824,15 +2835,15 @@ const cr = _`
     display: block;
   }
 `;
-var dr = Object.defineProperty, hr = Object.getOwnPropertyDescriptor, Xe = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? hr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var pr = Object.defineProperty, mr = Object.getOwnPropertyDescriptor, Xe = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? mr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && dr(e, t, s), s;
+  return i && s && pr(e, t, s), s;
 };
-let ur = 0;
-const ss = "swim-button-toggle", fi = class fi extends f {
+let br = 0;
+const rs = "swim-button-toggle", vi = class vi extends f {
   constructor() {
-    super(...arguments), this._uniqueId = `swim-button-toggle-${++ur}`, this.name = this._uniqueId, this.value = !1, this._checked = !1, this._disabled = !1;
+    super(...arguments), this._uniqueId = `swim-button-toggle-${++br}`, this.name = this._uniqueId, this.value = !1, this._checked = !1, this._disabled = !1;
   }
   get id() {
     return this._id ?? this._uniqueId;
@@ -2880,8 +2891,8 @@ const ss = "swim-button-toggle", fi = class fi extends f {
     ));
   }
 };
-fi.styles = [y, cr];
-let ve = fi;
+vi.styles = [y, ur];
+let ve = vi;
 Xe([
   a({ type: String })
 ], ve.prototype, "id", 1);
@@ -2900,8 +2911,8 @@ Xe([
 Xe([
   a({ type: Boolean, reflect: !0 })
 ], ve.prototype, "disabled", 1);
-customElements.get(ss) || customElements.define(ss, ve);
-const pr = _`
+customElements.get(rs) || customElements.define(rs, ve);
+const gr = _`
   :host {
     display: inline-flex;
     transition: all 0.25s ease;
@@ -2949,16 +2960,16 @@ const pr = _`
     display: none;
   }
 `;
-var mr = Object.defineProperty, br = Object.getOwnPropertyDescriptor, Re = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? br(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var _r = Object.defineProperty, fr = Object.getOwnPropertyDescriptor, Re = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? fr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && mr(e, t, s), s;
+  return i && s && _r(e, t, s), s;
 };
-let gr = 0;
-const os = "swim-button-toggle-group", zt = class zt extends f {
+let wr = 0;
+const ns = "swim-button-toggle-group", Mt = class Mt extends f {
   constructor() {
     var e;
-    super(), this._uniqueId = `swim-button-toggle-group-${++gr}`, this._animationHolderLeft = 0, this._animationHolderWidth = 0, this.label = "", this._value = void 0, this._disabled = !1, this._slotChangeBound = () => this._onSlotChange(), this._slotForCleanup = null, this._internals = ((e = this.attachInternals) == null ? void 0 : e.call(this)) ?? {}, this.setAttribute("role", "group"), this._boundValueChange = this._onValueChangeEvent.bind(this);
+    super(), this._uniqueId = `swim-button-toggle-group-${++wr}`, this._animationHolderLeft = 0, this._animationHolderWidth = 0, this.label = "", this._value = void 0, this._disabled = !1, this._slotChangeBound = () => this._onSlotChange(), this._slotForCleanup = null, this._internals = ((e = this.attachInternals) == null ? void 0 : e.call(this)) ?? {}, this.setAttribute("role", "group"), this._boundValueChange = this._onValueChangeEvent.bind(this);
   }
   get id() {
     return this._id ?? this._uniqueId;
@@ -3062,8 +3073,8 @@ const os = "swim-button-toggle-group", zt = class zt extends f {
     `;
   }
 };
-zt.styles = [y, pr], zt.formAssociated = !0;
-let ne = zt;
+Mt.styles = [y, gr], Mt.formAssociated = !0;
+let ne = Mt;
 Re([
   R("slot")
 ], ne.prototype, "_slot", 2);
@@ -3085,8 +3096,8 @@ Re([
 Re([
   a({ type: Boolean, reflect: !0 })
 ], ne.prototype, "disabled", 1);
-customElements.get(os) || customElements.define(os, ne);
-const _r = _`
+customElements.get(ns) || customElements.define(ns, ne);
+const vr = _`
   :host {
     position: relative;
     font-size: var(--font-size-m);
@@ -3372,55 +3383,55 @@ const _r = _`
     opacity: 0.3;
     cursor: not-allowed;
   }
-`, fr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], wr = ["S", "M", "T", "W", "T", "F", "S"];
-function Xt(o, e) {
+`, yr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], xr = ["S", "M", "T", "W", "T", "F", "S"];
+function ei(o, e) {
   return o.getFullYear() === e.getFullYear() && o.getMonth() === e.getMonth() && o.getDate() === e.getDate();
 }
-function ll(o, e) {
+function pl(o, e) {
   return o.getFullYear() === e.getFullYear() && o.getMonth() === e.getMonth();
 }
-function vr(o, e) {
+function $r(o, e) {
   return o.getFullYear() === e.getFullYear();
 }
-function rs(o, e) {
+function as(o, e) {
   return new Date(o, e + 1, 0).getDate();
 }
-function jt(o, e, t) {
+function Kt(o, e, t) {
   return {
     num: o.getDate(),
     dayOfWeek: o.getDay(),
     date: new Date(o),
-    today: Xt(o, t),
+    today: ei(o, t),
     prevMonth: o.getMonth() < e || o.getMonth() === 11 && e === 0,
     nextMonth: o.getMonth() > e || o.getMonth() === 0 && e === 11
   };
 }
 function ie(o) {
-  const e = /* @__PURE__ */ new Date(), t = o.getFullYear(), i = o.getMonth(), s = rs(t, i), r = new Date(t, i, 1).getDay(), n = [];
+  const e = /* @__PURE__ */ new Date(), t = o.getFullYear(), i = o.getMonth(), s = as(t, i), r = new Date(t, i, 1).getDay(), n = [];
   if (r > 0) {
-    const h = rs(t, i - 1);
+    const h = as(t, i - 1);
     for (let w = r - 1; w >= 0; w--) {
       const m = new Date(t, i - 1, h - w);
-      n.push(jt(m, i, e));
+      n.push(Kt(m, i, e));
     }
   }
   for (let h = 1; h <= s; h++)
-    n.push(jt(new Date(t, i, h), i, e));
+    n.push(Kt(new Date(t, i, h), i, e));
   const l = n.length % 7;
   if (l > 0) {
     const h = 7 - l;
     for (let w = 1; w <= h; w++)
-      n.push(jt(new Date(t, i + 1, w), i, e));
+      n.push(Kt(new Date(t, i + 1, w), i, e));
   }
   const d = [];
   for (let h = 0; h < n.length; h += 7)
     d.push(n.slice(h, h + 7));
   return d;
 }
-function ns(o) {
+function ls(o) {
   return Math.floor(o / 20) * 20;
 }
-function Gt(o, e, t = "day") {
+function Zt(o, e, t = "day") {
   if (!e) return !1;
   switch (t) {
     case "year":
@@ -3431,7 +3442,7 @@ function Gt(o, e, t = "day") {
       return new Date(o.getFullYear(), o.getMonth(), o.getDate()) < new Date(e.getFullYear(), e.getMonth(), e.getDate());
   }
 }
-function Wt(o, e, t = "day") {
+function Xt(o, e, t = "day") {
   if (!e) return !1;
   switch (t) {
     case "year":
@@ -3443,7 +3454,7 @@ function Wt(o, e, t = "day") {
   }
 }
 var z = /* @__PURE__ */ ((o) => (o.date = "date", o.time = "time", o.datetime = "datetime", o))(z || {}), se = /* @__PURE__ */ ((o) => (o.HUMAN = "human", o.TIMEZONE = "timezone", o.LOCAL = "local", o.CUSTOM = "custom", o))(se || {});
-const yr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], xr = [
+const kr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], Cr = [
   "January",
   "February",
   "March",
@@ -3456,7 +3467,7 @@ const yr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
   "October",
   "November",
   "December"
-], $r = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], kr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], as = {
+], Er = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], Sr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], cs = {
   L: "MM/DD/YYYY",
   l: "M/D/YYYY",
   LL: "MMMM D, YYYY",
@@ -3499,7 +3510,7 @@ const yr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
 function H(o, e = 2) {
   return String(o).padStart(e, "0");
 }
-function mo(o, e) {
+function _o(o, e) {
   if (!e)
     return {
       year: o.getFullYear(),
@@ -3537,26 +3548,26 @@ function mo(o, e) {
       dow: r[s("weekday")] ?? 0
     };
   } catch {
-    return mo(o);
+    return _o(o);
   }
 }
-function ls(o, e) {
+function ds(o, e) {
   if (!e) {
     const t = -o.getTimezoneOffset();
-    return cs(t);
+    return hs(t);
   }
   try {
     const t = o.toLocaleString("en-US", { timeZone: "UTC" }), i = o.toLocaleString("en-US", { timeZone: e }), s = new Date(i).getTime() - new Date(t).getTime(), r = Math.round(s / 6e4);
-    return cs(r);
+    return hs(r);
   } catch {
     return "+00:00";
   }
 }
-function cs(o) {
+function hs(o) {
   const e = o >= 0 ? "+" : "-", t = Math.abs(o);
   return `${e}${H(Math.floor(t / 60))}:${H(t % 60)}`;
 }
-function Cr(o, e) {
+function Ar(o, e) {
   var t;
   try {
     return ((t = new Intl.DateTimeFormat("en-US", {
@@ -3567,24 +3578,24 @@ function Cr(o, e) {
     return "";
   }
 }
-function Er(o) {
+function Tr(o) {
   const e = ["LLLL", "llll", "LLL", "lll", "LTS", "LL", "ll", "LT", "L", "l"];
   let t = o;
   for (const i of e)
-    as[i] && (t = t.split(i).join(as[i]));
+    cs[i] && (t = t.split(i).join(cs[i]));
   return t;
 }
-const Sr = /(MMMM|YYYY|dddd|MMM|ddd|SSS|MM|DD|HH|hh|mm|ss|YY|ZZ|zz|M|D|H|h|A|a|Z|z)/g;
-function Ar(o, e, t, i) {
+const zr = /(MMMM|YYYY|dddd|MMM|ddd|SSS|MM|DD|HH|hh|mm|ss|YY|ZZ|zz|M|D|H|h|A|a|Z|z)/g;
+function Dr(o, e, t, i) {
   switch (o) {
     case "YYYY":
       return String(e.year);
     case "YY":
       return String(e.year).slice(-2);
     case "MMMM":
-      return xr[e.month];
+      return Cr[e.month];
     case "MMM":
-      return yr[e.month];
+      return kr[e.month];
     case "MM":
       return H(e.month + 1);
     case "M":
@@ -3594,9 +3605,9 @@ function Ar(o, e, t, i) {
     case "D":
       return String(e.day);
     case "dddd":
-      return kr[e.dow];
+      return Sr[e.dow];
     case "ddd":
-      return $r[e.dow];
+      return Er[e.dow];
     case "HH":
       return H(e.hour);
     case "H":
@@ -3616,26 +3627,26 @@ function Ar(o, e, t, i) {
     case "a":
       return e.hour >= 12 ? "pm" : "am";
     case "Z":
-      return ls(t, i);
+      return ds(t, i);
     case "ZZ":
-      return ls(t, i).replace(":", "");
+      return ds(t, i).replace(":", "");
     case "zz":
     case "z":
-      return Cr(t, i);
+      return Ar(t, i);
     default:
       return o;
   }
 }
-function Tr(o) {
+function Mr(o) {
   return k[o] || o;
 }
 function st(o, e, t) {
-  const i = Jt(t);
-  let s = Er(e);
+  const i = ti(t);
+  let s = Tr(e);
   const r = [];
   s = s.replace(/\[([^\]]*)\]/g, (d, h) => (r.push(h), `\0${r.length - 1}\0`));
-  const n = mo(o, i);
-  return s.replace(Sr, (d) => Ar(d, n, o, i)).replace(/\x00(\d+)\x00/g, (d, h) => r[parseInt(h, 10)]);
+  const n = _o(o, i);
+  return s.replace(zr, (d) => Dr(d, n, o, i)).replace(/\x00(\d+)\x00/g, (d, h) => r[parseInt(h, 10)]);
 }
 function Ge(o) {
   if (o instanceof Date) return F(o) ? o : null;
@@ -3664,7 +3675,7 @@ function Ge(o) {
 function F(o) {
   return o instanceof Date && !isNaN(o.getTime());
 }
-function ds(o, e) {
+function us(o, e) {
   if (!e || !F(o)) return o;
   const t = new Date(o), i = [
     ["millisecond", () => {
@@ -3703,7 +3714,7 @@ function ds(o, e) {
   ], s = i.findIndex(([r]) => r === e);
   return s >= 0 && i[s][1](), t;
 }
-function zr(o, e, t) {
+function Or(o, e, t) {
   switch (o) {
     case se.HUMAN:
     case se.TIMEZONE:
@@ -3737,7 +3748,7 @@ function zr(o, e, t) {
       return k.localeDate;
   }
 }
-function cl(o, e, t) {
+function ml(o, e, t) {
   switch (o) {
     case se.HUMAN:
     case se.TIMEZONE:
@@ -3771,11 +3782,11 @@ function cl(o, e, t) {
       return k.localeDate;
   }
 }
-function Jt(o) {
+function ti(o) {
   if (o)
     return o.toLowerCase() === "utc" ? "UTC" : o;
 }
-function dl(o, e) {
+function bl(o, e) {
   if (!o || !F(o)) return "";
   const t = o.getFullYear(), i = H(o.getMonth() + 1), s = H(o.getDate()), r = H(o.getHours()), n = H(o.getMinutes()), l = H(o.getSeconds());
   switch (e) {
@@ -3790,17 +3801,17 @@ function dl(o, e) {
       return `${t}-${i}-${s}`;
   }
 }
-function hs(o, e, t) {
+function ps(o, e, t) {
   if (!F(o)) return !1;
   const i = e ? Ge(e) : null, s = t ? Ge(t) : null;
   return !!(i && F(i) && o < i || s && F(s) && o > s);
 }
-var Dr = Object.defineProperty, Mr = Object.getOwnPropertyDescriptor, he = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Mr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Ir = Object.defineProperty, Pr = Object.getOwnPropertyDescriptor, he = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Pr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Dr(e, t, s), s;
+  return i && s && Ir(e, t, s), s;
 };
-const us = "swim-calendar", wi = class wi extends f {
+const ms = "swim-calendar", yi = class yi extends f {
   constructor() {
     super(...arguments), this._value = null, this.disabled = !1, this._currentView = "date", this._focusDate = /* @__PURE__ */ new Date(), this._weeks = [], this._startYear = 0, this._currentDate = /* @__PURE__ */ new Date(), this._onDayKeyDown = (e) => {
       let t = !1;
@@ -3919,7 +3930,7 @@ const us = "swim-calendar", wi = class wi extends f {
     super.connectedCallback(), this._init();
   }
   updated(e) {
-    super.updated(e), e.has("value") && this._value && (this._focusDate = new Date(this._value), this._weeks = ie(this._focusDate), this._startYear = ns(this._focusDate.getFullYear()));
+    super.updated(e), e.has("value") && this._value && (this._focusDate = new Date(this._value), this._weeks = ie(this._focusDate), this._startYear = ls(this._focusDate.getFullYear()));
   }
   // ---------------------------------------------------------------------------
   // Public methods
@@ -3968,7 +3979,7 @@ const us = "swim-calendar", wi = class wi extends f {
             <swim-icon font-icon="arrow-right"></swim-icon>
           </button>
         </div>
-        <div class="day-name-row">${wr.map((t) => c`<div class="day-name text-center">${t}</div>`)}</div>
+        <div class="day-name-row">${xr.map((t) => c`<div class="day-name text-center">${t}</div>`)}</div>
         <table class="day-container" role="grid">
           ${this._weeks.map(
       (t) => c`
@@ -3976,7 +3987,7 @@ const us = "swim-calendar", wi = class wi extends f {
                 ${t.map((i) => {
         if (!i.num)
           return c`<td class="day-cell text-center" role="gridcell"></td>`;
-        const s = this._value ? Xt(i.date, this._value) : !1, r = Xt(i.date, this._focusDate), n = this.disabled || this._isDayDisabled(i.date), l = ["day"];
+        const s = this._value ? ei(i.date, this._value) : !1, r = ei(i.date, this._focusDate), n = this.disabled || this._isDayDisabled(i.date), l = ["day"];
         return i.prevMonth && l.push("prev-month"), i.nextMonth && l.push("next-month"), i.today && l.push("today"), s && l.push("active"), r && !n && l.push("focus"), c`
                     <td class="day-cell text-center" role="gridcell">
                       <button
@@ -4026,8 +4037,8 @@ const us = "swim-calendar", wi = class wi extends f {
         </div>
         <table class="months-container" role="grid">
           <tr class="months-row" role="row">
-            ${fr.map((t, i) => {
-      const s = this._isMonthActive(i), r = this._isCurrentMonth(i), n = this._focusDate.getMonth() === i && vr(this._focusDate, this._focusDate), l = this.disabled || this._isMonthDisabled(i), d = ["month"];
+            ${yr.map((t, i) => {
+      const s = this._isMonthActive(i), r = this._isCurrentMonth(i), n = this._focusDate.getMonth() === i && $r(this._focusDate, this._focusDate), l = this.disabled || this._isMonthDisabled(i), d = ["month"];
       return s && d.push("active"), r && d.push("current"), n && d.push("focus"), c`
                 <td class="month-cell text-center" role="gridcell">
                   <button
@@ -4103,7 +4114,7 @@ const us = "swim-calendar", wi = class wi extends f {
   // Internal helpers
   // ---------------------------------------------------------------------------
   _init() {
-    this._value && (this._focusDate = new Date(this._value)), this._weeks = ie(this._focusDate), this._currentDate = /* @__PURE__ */ new Date(), this._startYear = ns(this._focusDate.getFullYear()), this._validateView();
+    this._value && (this._focusDate = new Date(this._value)), this._weeks = ie(this._focusDate), this._currentDate = /* @__PURE__ */ new Date(), this._startYear = ls(this._focusDate.getFullYear()), this._validateView();
   }
   _validateView() {
     [
@@ -4139,15 +4150,15 @@ const us = "swim-calendar", wi = class wi extends f {
     return this.maxDate ? this.maxDate instanceof Date ? this.maxDate : Ge(this.maxDate) : null;
   }
   _isDayDisabled(e) {
-    return Gt(e, this._resolveMin(), "day") || Wt(e, this._resolveMax(), "day");
+    return Zt(e, this._resolveMin(), "day") || Xt(e, this._resolveMax(), "day");
   }
   _isMonthDisabled(e) {
     const t = new Date(this._focusDate.getFullYear(), e, 1);
-    return Gt(t, this._resolveMin(), "month") || Wt(t, this._resolveMax(), "month");
+    return Zt(t, this._resolveMin(), "month") || Xt(t, this._resolveMax(), "month");
   }
   _isYearDisabled(e) {
     const t = new Date(e, 0, 1);
-    return Gt(t, this._resolveMin(), "year") || Wt(t, this._resolveMax(), "year");
+    return Zt(t, this._resolveMin(), "year") || Xt(t, this._resolveMax(), "year");
   }
   _isMonthActive(e) {
     return this._value ? this._value.getMonth() === e && this._value.getFullYear() === this._focusDate.getFullYear() : !1;
@@ -4222,8 +4233,8 @@ const us = "swim-calendar", wi = class wi extends f {
     this._focusDate = i, this._weeks = ie(this._focusDate), this._focusDate.getFullYear() < this._startYear ? this._prevTwoDecades() : this._focusDate.getFullYear() > this._startYear + 20 && this._nextTwoDecades(), this.requestUpdate(), this.updateComplete.then(() => this.focusDay());
   }
 };
-wi.styles = [y, _r];
-let q = wi;
+yi.styles = [y, vr];
+let q = yi;
 he([
   a({ attribute: !1 })
 ], q.prototype, "value", 1);
@@ -4254,8 +4265,8 @@ he([
 he([
   b()
 ], q.prototype, "_startYear", 2);
-customElements.get(us) || customElements.define(us, q);
-const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
+customElements.get(ms) || customElements.define(ms, q);
+const Et = 4, Jt = 3, bs = 25, Lr = 30, Fr = 15, gs = 27, Br = _`
   @keyframes cardSlideIn {
     0% {
       opacity: 0;
@@ -4324,7 +4335,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     right: -5px;
     left: -5px;
     bottom: -5px;
-    border: ${Kt}px solid var(--blue-400);
+    border: ${Jt}px solid var(--blue-400);
     border-radius: var(--radius-6);
   }
 
@@ -4341,7 +4352,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     right: -5px;
     left: -5px;
     bottom: -5px;
-    border: ${Kt}px solid var(--blue-400);
+    border: ${Jt}px solid var(--blue-400);
     border-bottom: 0;
     border-radius: var(--radius-6);
   }
@@ -4366,7 +4377,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
   .swim-card__outline-text-inner::before,
   .swim-card__outline-text-inner::after {
     content: '';
-    height: ${Kt}px;
+    height: ${Jt}px;
     background: var(--blue-400);
   }
 
@@ -4401,13 +4412,12 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
   .swim-card__select swim-checkbox::part(box) {
     margin-right: 0;
   }
-`, Lr = _`
+`, Rr = _`
   :host([orientation='horizontal']) {
     position: relative;
     width: 100%;
     min-width: var(--swim-card-min-width, 500px);
     min-height: 80px;
-    height: 80px;
     transition: all 0.2s ease-in-out;
     animation: 0.2s ease-in-out cardSlideIn;
   }
@@ -4419,13 +4429,13 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
   }
 
   :host([orientation='horizontal']) .swim-card__select {
-    margin-left: ${ps}px;
+    margin-left: ${bs}px;
   }
 
   :host([orientation='horizontal']) .swim-card__accent {
     position: absolute;
-    width: ${Ct}px;
-    min-width: ${Ct}px;
+    width: ${Et}px;
+    min-width: ${Et}px;
     right: 0;
     height: 100%;
     border-radius: var(--radius-0) var(--radius-2) var(--radius-2) var(--radius-0);
@@ -4434,7 +4444,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
   :host([orientation='horizontal']) ::slotted(swim-card-header) {
     display: flex;
     align-items: center;
-    padding: var(--spacing-0) ${ps}px;
+    padding: var(--spacing-0) ${bs}px;
     flex-grow: 1;
     overflow: hidden;
     cursor: pointer;
@@ -4449,7 +4459,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: var(--spacing-0) ${Ir}px;
+    padding: var(--spacing-0) ${Lr}px;
   }
 
   :host([orientation='horizontal']) .swim-card__outline,
@@ -4459,7 +4469,7 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     left: -5px;
     bottom: -5px;
   }
-`, Fr = _`
+`, Hr = _`
   :host([orientation='vertical']) {
     position: relative;
     flex-direction: column;
@@ -4470,14 +4480,14 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
   }
 
   :host([orientation='vertical']) .swim-card__status {
-    margin: ${Or}px auto var(--spacing-0) auto;
+    margin: ${Fr}px auto var(--spacing-0) auto;
   }
 
   :host([orientation='vertical']) .swim-card__accent {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: ${Ct}px;
+    height: ${Et}px;
     border-radius: var(--radius-0) var(--radius-0) var(--radius-6) var(--radius-6);
   }
 
@@ -4498,8 +4508,8 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     align-items: center;
     flex-grow: 1;
     padding: var(--spacing-20) var(--spacing-0);
-    padding-left: ${ms}px;
-    padding-right: ${ms}px;
+    padding-left: ${gs}px;
+    padding-right: ${gs}px;
   }
 
   :host([orientation='vertical']) ::slotted(swim-card-footer) {
@@ -4509,14 +4519,14 @@ const Ct = 4, Kt = 3, ps = 25, Ir = 30, Or = 15, ms = 27, Pr = _`
     height: 50px;
     padding: var(--spacing-20) var(--spacing-0);
     margin-top: 15px;
-    margin-bottom: ${Ct}px;
+    margin-bottom: ${Et}px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-`, Br = [y, Pr, Lr, Fr];
-var pt = /* @__PURE__ */ ((o) => (o.Success = "success", o.Error = "error", o.Disabled = "disabled", o))(pt || {}), bo = /* @__PURE__ */ ((o) => (o.Horizontal = "horizontal", o.Vertical = "vertical", o))(bo || {}), go = /* @__PURE__ */ ((o) => (o.Normal = "normal", o.Flat = "flat", o))(go || {});
-const Rr = _`
+`, Yr = [y, Br, Rr, Hr];
+var pt = /* @__PURE__ */ ((o) => (o.Success = "success", o.Error = "error", o.Disabled = "disabled", o))(pt || {}), fo = /* @__PURE__ */ ((o) => (o.Horizontal = "horizontal", o.Vertical = "vertical", o))(fo || {}), wo = /* @__PURE__ */ ((o) => (o.Normal = "normal", o.Flat = "flat", o))(wo || {});
+const Vr = _`
   :host {
     display: inline-flex;
   }
@@ -4614,15 +4624,15 @@ const Rr = _`
     line-height: var(--font-line-height-200);
   }
 `;
-var Hr = Object.defineProperty, Yr = Object.getOwnPropertyDescriptor, xe = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Yr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Nr = Object.defineProperty, Ur = Object.getOwnPropertyDescriptor, xe = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Ur(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Hr(e, t, s), s;
+  return i && s && Nr(e, t, s), s;
 };
-let Vr = 0;
-const bs = "swim-checkbox", Dt = class Dt extends f {
+let qr = 0;
+const _s = "swim-checkbox", Ot = class Ot extends f {
   constructor() {
-    super(), this.id = `swim-checkbox-${++Vr}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
+    super(), this.id = `swim-checkbox-${++qr}`, this.name = "", this.diameter = "18px", this._checked = !1, this._indeterminate = !1, this._tabindex = 0, this._disabled = !1, this._round = !1, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -4732,8 +4742,8 @@ const bs = "swim-checkbox", Dt = class Dt extends f {
     `;
   }
 };
-Dt.styles = [y, Rr], Dt.formAssociated = !0;
-let J = Dt;
+Ot.styles = [y, Vr], Ot.formAssociated = !0;
+let J = Ot;
 xe([
   R(".swim-checkbox__roving")
 ], J.prototype, "_roving", 2);
@@ -4761,15 +4771,15 @@ xe([
 xe([
   a({ type: Boolean, reflect: !0 })
 ], J.prototype, "round", 1);
-customElements.get(bs) || customElements.define(bs, J);
-var Nr = Object.defineProperty, Ur = Object.getOwnPropertyDescriptor, ue = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Ur(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+customElements.get(_s) || customElements.define(_s, J);
+var jr = Object.defineProperty, Gr = Object.getOwnPropertyDescriptor, ue = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Gr(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Nr(e, t, s), s;
+  return i && s && jr(e, t, s), s;
 };
-const gs = "swim-card", vi = class vi extends f {
+const fs = "swim-card", xi = class xi extends f {
   constructor() {
-    super(...arguments), this._disabled = !1, this.orientation = bo.Horizontal, this.statusTooltip = "", this._selectable = !1, this._selected = !1, this._error = !1, this.outlineText = "", this.appearance = go.Normal, this._hideAccent = !1;
+    super(...arguments), this._disabled = !1, this.orientation = fo.Horizontal, this.statusTooltip = "", this._selectable = !1, this._selected = !1, this._error = !1, this.outlineText = "", this.appearance = wo.Normal, this._hideAccent = !1;
   }
   get disabled() {
     return this._disabled;
@@ -4870,8 +4880,8 @@ const gs = "swim-card", vi = class vi extends f {
     `;
   }
 };
-vi.styles = Br;
-let j = vi;
+xi.styles = Yr;
+let j = xi;
 ue([
   a({ type: Boolean, reflect: !0 })
 ], j.prototype, "disabled", 1);
@@ -4902,13 +4912,13 @@ ue([
 ue([
   a({ type: Boolean, attribute: "hide-accent" })
 ], j.prototype, "hideAccent", 1);
-customElements.get(gs) || customElements.define(gs, j);
-var _o = /* @__PURE__ */ ((o) => (o.Small = "small", o.Medium = "medium", o.Large = "large", o))(_o || {});
-const _s = 25, qr = _`
+customElements.get(fs) || customElements.define(fs, j);
+var vo = /* @__PURE__ */ ((o) => (o.Small = "small", o.Medium = "medium", o.Large = "large", o))(vo || {});
+const ws = 25, Wr = _`
   :host {
     display: flex;
     align-items: center;
-    padding: var(--spacing-0) ${_s}px;
+    padding: var(--spacing-0) ${ws}px;
     flex-grow: 1;
     overflow: hidden;
     cursor: pointer;
@@ -4936,7 +4946,7 @@ const _s = 25, qr = _`
   }
 
   .swim-card-header__title-group {
-    margin-left: ${_s}px;
+    margin-left: ${ws}px;
     display: flex;
     flex-direction: column;
     width: calc(100% - 79px);
@@ -5014,13 +5024,13 @@ const _s = 25, qr = _`
   .swim-card-header__label::after {
     margin-left: var(--spacing-20);
   }
-`, jr = [y, qr];
-var Gr = Object.defineProperty, fo = (o, e, t, i) => {
+`, Kr = [y, Wr];
+var Zr = Object.defineProperty, yo = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && Gr(e, t, s), s;
+  return s && Zr(e, t, s), s;
 };
-const fs = "swim-card-header", yi = class yi extends f {
+const vs = "swim-card-header", $i = class $i extends f {
   constructor() {
     super(...arguments), this.label = "", this.orientation = "horizontal";
   }
@@ -5037,16 +5047,16 @@ const fs = "swim-card-header", yi = class yi extends f {
     `;
   }
 };
-yi.styles = jr;
-let mt = yi;
-fo([
+$i.styles = Kr;
+let mt = $i;
+yo([
   a({ type: String })
 ], mt.prototype, "label");
-fo([
+yo([
   a({ type: String, reflect: !0 })
 ], mt.prototype, "orientation");
-customElements.get(fs) || customElements.define(fs, mt);
-const Wr = _`
+customElements.get(vs) || customElements.define(vs, mt);
+const Xr = _`
   :host {
     position: relative;
     display: flex;
@@ -5091,13 +5101,13 @@ const Wr = _`
   ::slotted(swim-button) {
     width: auto;
   }
-`, Kr = [y, Wr];
-var Zr = Object.defineProperty, Xr = (o, e, t, i) => {
+`, Jr = [y, Xr];
+var Qr = Object.defineProperty, en = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && Zr(e, t, s), s;
+  return s && Qr(e, t, s), s;
 };
-const ws = "swim-card-footer", xi = class xi extends f {
+const ys = "swim-card-footer", ki = class ki extends f {
   constructor() {
     super(...arguments), this.label = "";
   }
@@ -5108,13 +5118,13 @@ const ws = "swim-card-footer", xi = class xi extends f {
     `;
   }
 };
-xi.styles = Kr;
-let Et = xi;
-Xr([
+ki.styles = Jr;
+let St = ki;
+en([
   a({ type: String })
-], Et.prototype, "label");
-customElements.get(ws) || customElements.define(ws, Et);
-const vs = 3, Jr = _`
+], St.prototype, "label");
+customElements.get(ys) || customElements.define(ys, St);
+const xs = 3, tn = _`
   :host {
     width: 54px;
     height: 54px;
@@ -5144,7 +5154,7 @@ const vs = 3, Jr = _`
     display: flex;
     height: 100%;
     width: 100%;
-    border: ${vs}px solid transparent;
+    border: ${xs}px solid transparent;
     border-radius: 100%;
     overflow: hidden;
     position: relative;
@@ -5157,7 +5167,7 @@ const vs = 3, Jr = _`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: ${vs}px solid var(--grey-800);
+    border: ${xs}px solid var(--grey-800);
     background-color: var(--white);
     z-index: 2;
   }
@@ -5191,13 +5201,13 @@ const vs = 3, Jr = _`
     color: var(--grey-100);
     font-weight: var(--font-weight-bold);
   }
-`, Qr = [y, Jr];
-var en = Object.defineProperty, li = (o, e, t, i) => {
+`, sn = [y, tn];
+var on = Object.defineProperty, hi = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && en(e, t, s), s;
+  return s && on(e, t, s), s;
 };
-const ys = "swim-card-avatar", $i = class $i extends f {
+const $s = "swim-card-avatar", Ci = class Ci extends f {
   constructor() {
     super(...arguments), this.src = "", this.removeImageBackground = !1;
   }
@@ -5225,19 +5235,19 @@ const ys = "swim-card-avatar", $i = class $i extends f {
     `;
   }
 };
-$i.styles = Qr;
-let We = $i;
-li([
+Ci.styles = sn;
+let We = Ci;
+hi([
   a({ type: String })
 ], We.prototype, "src");
-li([
+hi([
   a({ type: String, reflect: !0 })
 ], We.prototype, "status");
-li([
+hi([
   a({ type: Boolean, attribute: "remove-image-background" })
 ], We.prototype, "removeImageBackground");
-customElements.get(ys) || customElements.define(ys, We);
-const tn = _`
+customElements.get($s) || customElements.define($s, We);
+const rn = _`
   :host {
     display: inline-block;
     background-color: var(--grey-750);
@@ -5263,54 +5273,49 @@ const tn = _`
     width: 50%;
     min-width: 150px;
   }
-`, sn = [y, tn];
-var on = Object.defineProperty, rn = (o, e, t, i) => {
+`, nn = [y, rn];
+var an = Object.defineProperty, ln = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && on(e, t, s), s;
+  return s && an(e, t, s), s;
 };
-const xs = "swim-card-placeholder", ki = class ki extends f {
+const ks = "swim-card-placeholder", Ei = class Ei extends f {
   constructor() {
-    super(...arguments), this.size = _o.Medium;
+    super(...arguments), this.size = vo.Medium;
   }
   render() {
     return c``;
   }
 };
-ki.styles = sn;
-let St = ki;
-rn([
+Ei.styles = nn;
+let At = Ei;
+ln([
   a({ type: String, reflect: !0 })
-], St.prototype, "size");
-customElements.get(xs) || customElements.define(xs, St);
-const $s = 27, nn = _`
+], At.prototype, "size");
+customElements.get(ks) || customElements.define(ks, At);
+const Cs = 27, cn = _`
   :host {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-grow: 1;
-    padding: var(--spacing-20) var(--spacing-0);
-    padding-left: ${$s}px;
-    padding-right: ${$s}px;
+    padding: var(--spacing-20);
+    padding-left: ${Cs}px;
+    padding-right: ${Cs}px;
     box-sizing: border-box;
+    overflow: auto;
   }
 
   ::slotted(*) {
-    font-weight: var(--font-weight-semibold);
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
   }
-`, an = [y, nn], ks = "swim-card-body", Ci = class Ci extends f {
+`, dn = [y, cn], Es = "swim-card-body", Si = class Si extends f {
   render() {
     return c`<slot></slot>`;
   }
 };
-Ci.styles = an;
-let Qt = Ci;
-customElements.get(ks) || customElements.define(ks, Qt);
+Si.styles = dn;
+let ii = Si;
+customElements.get(Es) || customElements.define(Es, ii);
 /**
  * @license
  * Copyright 2018 Google LLC
@@ -5322,8 +5327,8 @@ const ge = (o) => o ?? u;
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Ce = { ATTRIBUTE: 1, CHILD: 2, PROPERTY: 3, BOOLEAN_ATTRIBUTE: 4 }, ci = (o) => (...e) => ({ _$litDirective$: o, values: e });
-class di {
+const Ce = { ATTRIBUTE: 1, CHILD: 2, PROPERTY: 3, BOOLEAN_ATTRIBUTE: 4 }, ui = (o) => (...e) => ({ _$litDirective$: o, values: e });
+class pi {
   constructor(e) {
   }
   get _$AU() {
@@ -5344,12 +5349,12 @@ class di {
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { I: ln } = Go, cn = (o) => o.strings === void 0, Cs = () => document.createComment(""), ot = (o, e, t) => {
+const { I: hn } = Zo, un = (o) => o.strings === void 0, Ss = () => document.createComment(""), ot = (o, e, t) => {
   var r;
   const i = o._$AA.parentNode, s = e === void 0 ? o._$AB : e._$AA;
   if (t === void 0) {
-    const n = i.insertBefore(Cs(), s), l = i.insertBefore(Cs(), s);
-    t = new ln(n, l, o, o.options);
+    const n = i.insertBefore(Ss(), s), l = i.insertBefore(Ss(), s);
+    t = new hn(n, l, o, o.options);
   } else {
     const n = t._$AB.nextSibling, l = t._$AM, d = l !== o;
     if (d) {
@@ -5365,7 +5370,7 @@ const { I: ln } = Go, cn = (o) => o.strings === void 0, Cs = () => document.crea
     }
   }
   return t;
-}, De = (o, e, t = o) => (o._$AI(e, t), o), dn = {}, wo = (o, e = dn) => o._$AH = e, hn = (o) => o._$AH, Zt = (o) => {
+}, De = (o, e, t = o) => (o._$AI(e, t), o), pn = {}, xo = (o, e = pn) => o._$AH = e, mn = (o) => o._$AH, Qt = (o) => {
   o._$AR(), o._$AA.remove();
 };
 /**
@@ -5373,10 +5378,10 @@ const { I: ln } = Go, cn = (o) => o.strings === void 0, Cs = () => document.crea
  * Copyright 2020 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Es = ci(class extends di {
+const As = ui(class extends pi {
   constructor(o) {
     if (super(o), o.type !== Ce.PROPERTY && o.type !== Ce.ATTRIBUTE && o.type !== Ce.BOOLEAN_ATTRIBUTE) throw Error("The `live` directive is not allowed on child or event bindings");
-    if (!cn(o)) throw Error("`live` bindings can only contain a single expression");
+    if (!un(o)) throw Error("`live` bindings can only contain a single expression");
   }
   render(o) {
     return o;
@@ -5389,7 +5394,7 @@ const Es = ci(class extends di {
     } else if (o.type === Ce.BOOLEAN_ATTRIBUTE) {
       if (!!e === t.hasAttribute(i)) return X;
     } else if (o.type === Ce.ATTRIBUTE && t.getAttribute(i) === e + "") return X;
-    return wo(o), e;
+    return xo(o), e;
   }
 }), ft = _`
   /* Only set standard scrollbar props in browsers that don't support -webkit-scrollbar.
@@ -5509,7 +5514,7 @@ const Es = ci(class extends di {
   .swim-scroll-muted:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgb(80, 92, 117);
   }
-`, un = _`
+`, bn = _`
   :host {
     display: block;
     max-width: 100%;
@@ -5850,14 +5855,14 @@ const Es = ci(class extends di {
     font-size: 1em;
   }
 `;
-var _e = /* @__PURE__ */ ((o) => (o.text = "text", o.password = "password", o.email = "email", o.number = "number", o.tel = "tel", o.url = "url", o.textarea = "textarea", o))(_e || {}), hi = /* @__PURE__ */ ((o) => (o.legacy = "legacy", o.fill = "fill", o))(hi || {}), ui = /* @__PURE__ */ ((o) => (o.sm = "sm", o.md = "md", o.lg = "lg", o))(ui || {}), pn = Object.defineProperty, mn = Object.getOwnPropertyDescriptor, S = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? mn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var _e = /* @__PURE__ */ ((o) => (o.text = "text", o.password = "password", o.email = "email", o.number = "number", o.tel = "tel", o.url = "url", o.textarea = "textarea", o))(_e || {}), mi = /* @__PURE__ */ ((o) => (o.legacy = "legacy", o.fill = "fill", o))(mi || {}), bi = /* @__PURE__ */ ((o) => (o.sm = "sm", o.md = "md", o.lg = "lg", o))(bi || {}), gn = Object.defineProperty, _n = Object.getOwnPropertyDescriptor, S = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? _n(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && pn(e, t, s), s;
+  return i && s && gn(e, t, s), s;
 };
-const Ss = "swim-input", Mt = class Mt extends f {
+const Ts = "swim-input", It = class It extends f {
   constructor() {
-    super(), this.type = _e.text, this.label = "", this.placeholder = "", this.hint = "", this._value = "", this.name = "", this.id = `swim-input-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._readonly = !1, this._required = !1, this._autofocus = !1, this.autocomplete = "off", this.appearance = hi.legacy, this.size = ui.sm, this._withMargin = !0, this._withHint = !0, this._passwordToggleEnabled = !1, this.textareaRows = 3, this.requiredIndicator = "*", this._focused = !1, this._passwordVisible = !1, this._touched = !1, this._dirty = !1, this._invalid = !1, this._internals = this.attachInternals();
+    super(), this.type = _e.text, this.label = "", this.placeholder = "", this.hint = "", this._value = "", this.name = "", this.id = `swim-input-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._readonly = !1, this._required = !1, this._autofocus = !1, this.autocomplete = "off", this.appearance = mi.legacy, this.size = bi.sm, this._withMargin = !0, this._withHint = !0, this._passwordToggleEnabled = !1, this.textareaRows = 3, this.requiredIndicator = "*", this._focused = !1, this._passwordVisible = !1, this._touched = !1, this._dirty = !1, this._invalid = !1, this._internals = this.attachInternals();
   }
   get value() {
     return this._value;
@@ -5991,7 +5996,7 @@ const Ss = "swim-input", Mt = class Mt extends f {
         type="${e}"
         id="${this.id}"
         name="${this.name}"
-        .value="${Es(this.value)}"
+        .value="${As(this.value)}"
         placeholder="${this.placeholder}"
         ?disabled="${this.disabled}"
         ?readonly="${this.readonly}"
@@ -6016,7 +6021,7 @@ const Ss = "swim-input", Mt = class Mt extends f {
         class="input-textarea swim-scroll"
         id="${this.id}"
         name="${this.name}"
-        .value="${Es(this.value)}"
+        .value="${As(this.value)}"
         placeholder="${this.placeholder}"
         ?disabled="${this.disabled}"
         ?readonly="${this.readonly}"
@@ -6102,8 +6107,8 @@ const Ss = "swim-input", Mt = class Mt extends f {
     this.disabled = e;
   }
 };
-Mt.styles = [y, ft, un], Mt.formAssociated = !0;
-let C = Mt;
+It.styles = [y, ft, bn], It.formAssociated = !0;
+let C = It;
 S([
   R(".input-box, .input-textarea")
 ], C.prototype, "inputElement", 2);
@@ -6194,8 +6199,8 @@ S([
 S([
   b()
 ], C.prototype, "_invalid", 2);
-customElements.get(Ss) || customElements.define(Ss, C);
-const bn = [
+customElements.get(Ts) || customElements.define(Ts, C);
+const fn = [
   y,
   ft,
   _`
@@ -6392,12 +6397,12 @@ const bn = [
     }
   `
 ];
-var nt = /* @__PURE__ */ ((o) => (o.Regular = "regular", o.Medium = "medium", o.Large = "large", o))(nt || {}), gn = Object.defineProperty, _n = Object.getOwnPropertyDescriptor, Y = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? _n(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var nt = /* @__PURE__ */ ((o) => (o.Regular = "regular", o.Medium = "medium", o.Large = "large", o))(nt || {}), wn = Object.defineProperty, vn = Object.getOwnPropertyDescriptor, Y = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? vn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && gn(e, t, s), s;
+  return i && s && wn(e, t, s), s;
 };
-const As = "swim-dialog", Ei = class Ei extends f {
+const zs = "swim-dialog", Ai = class Ai extends f {
   constructor() {
     super(...arguments), this.dialogTitle = "", this.content = "", this.class = "", this.cssClass = "", this.format = nt.Regular, this.showBackdrop = !0, this._closeButton = !0, this._visible = !1, this._zIndex = 991, this._contentId = `swim-dialog-content-${Math.random().toString(36).slice(2, 11)}`, this._titleId = `swim-dialog-title-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null;
   }
@@ -6505,8 +6510,8 @@ const As = "swim-dialog", Ei = class Ei extends f {
     `;
   }
 };
-Ei.styles = bn;
-let P = Ei;
+Ai.styles = fn;
+let P = Ai;
 Y([
   a({ type: String, attribute: "dialog-title" })
 ], P.prototype, "dialogTitle", 2);
@@ -6557,8 +6562,8 @@ Y([
 Y([
   R(".swim-dialog__content")
 ], P.prototype, "_contentEl", 2);
-customElements.get(As) || customElements.define(As, P);
-const fn = _`
+customElements.get(zs) || customElements.define(zs, P);
+const yn = _`
   :host {
     position: relative;
     display: block;
@@ -6890,18 +6895,18 @@ const fn = _`
     margin-right: 16px;
   }
 `;
-var wn = Object.defineProperty, vn = Object.getOwnPropertyDescriptor, x = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? vn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var xn = Object.defineProperty, $n = Object.getOwnPropertyDescriptor, x = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? $n(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && wn(e, t, s), s;
+  return i && s && xn(e, t, s), s;
 };
-let yn = 0;
-const Ts = "swim-date-time", It = class It extends f {
+let kn = 0;
+const Ds = "swim-date-time", Pt = class Pt extends f {
   // ---------------------------------------------------------------------------
   // Lifecycle
   // ---------------------------------------------------------------------------
   constructor() {
-    super(), this.id = `swim-date-time-${++yn}`, this.name = "", this.label = "", this.hint = "", this.placeholder = "", this.size = "sm", this.appearance = "legacy", this._disabled = !1, this._required = !1, this.requiredIndicator = "*", this._autofocus = !1, this._autosize = !1, this._minWidth = 60, this._marginless = !1, this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._focused = !1, this._dialogOpen = !1, this._dialogModel = null, this._dialogHour = 12, this._dialogMinute = "00", this._dialogSecond = "00", this._dialogMillisecond = "000", this._dialogAmPm = "AM", this._modes = ["millisecond", "second", "minute", "hour", "date", "month", "year"], this._apply = () => {
+    super(), this.id = `swim-date-time-${++kn}`, this.name = "", this.label = "", this.hint = "", this.placeholder = "", this.size = "sm", this.appearance = "legacy", this._disabled = !1, this._required = !1, this.requiredIndicator = "*", this._autofocus = !1, this._autosize = !1, this._minWidth = 60, this._marginless = !1, this._value = null, this._displayValue = "", this._dateInvalid = !1, this._dateOutOfRange = !1, this._focused = !1, this._dialogOpen = !1, this._dialogModel = null, this._dialogHour = 12, this._dialogMinute = "00", this._dialogSecond = "00", this._dialogMillisecond = "000", this._dialogAmPm = "AM", this._modes = ["millisecond", "second", "minute", "hour", "date", "month", "year"], this._apply = () => {
       this._dialogModel && (this.value = this._dialogModel, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: this.value, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: this.value, bubbles: !0, composed: !0 }))), this._close();
     }, this._clear = () => {
       this.value = void 0, this._update(), this.dispatchEvent(new CustomEvent("date-time-selected", { detail: void 0, bubbles: !0, composed: !0 })), this.dispatchEvent(new CustomEvent("change", { detail: void 0, bubbles: !0, composed: !0 })), this._close();
@@ -7015,7 +7020,7 @@ const Ts = "swim-date-time", It = class It extends f {
       const s = Ge(e);
       s && (e = s, i = !0);
     }
-    if (i && e instanceof Date && this.precision && (e = ds(e, this.precision)), this._value = e, this._update(), this._internals) {
+    if (i && e instanceof Date && this.precision && (e = us(e, this.precision)), this._value = e, this._update(), this._internals) {
       const s = this._value instanceof Date ? this._value.toISOString() : String(this._value ?? "");
       this._internals.setFormValue(s);
     }
@@ -7031,7 +7036,7 @@ const Ts = "swim-date-time", It = class It extends f {
     return this._displayMode ? this._displayMode : this.timezone ? se.TIMEZONE : se.LOCAL;
   }
   get _effectiveFormat() {
-    return this.format ? Tr(this.format) : zr(
+    return this.format ? Mr(this.format) : Or(
       this._effectiveDisplayMode,
       this._effectiveInputType,
       this.precision
@@ -7258,7 +7263,7 @@ const Ts = "swim-date-time", It = class It extends f {
   _getDialogHeaderText() {
     if (!this._dialogModel)
       return "No value";
-    const e = this._effectiveInputType, t = Jt(this.timezone);
+    const e = this._effectiveInputType, t = ti(this.timezone);
     if (e === z.time)
       return st(this._dialogModel, "h:mm a", t);
     if (e === z.datetime) {
@@ -7302,10 +7307,10 @@ const Ts = "swim-date-time", It = class It extends f {
     this._displayValue = i;
     const s = Ge(i), r = this._value;
     if (s) {
-      const n = this.precision ? ds(s, this.precision) : s;
+      const n = this.precision ? us(s, this.precision) : s;
       this._value = n, this._dateInvalid = !1;
     } else i ? (this._value = i, this._dateInvalid = !0) : (this._value = null, this._dateInvalid = !1);
-    this._dateOutOfRange = !this._dateInvalid && this._value instanceof Date ? hs(this._value, this.minDate, this.maxDate) : !1, this._updateFormValue(), this.dispatchEvent(new CustomEvent("input-change", { detail: this._value, bubbles: !0, composed: !0 })), this._value !== r && this.dispatchEvent(new CustomEvent("value-change", { detail: this._value, bubbles: !0, composed: !0 })), !this._dateInvalid && this._value !== r && this.dispatchEvent(new CustomEvent("change", { detail: this._value, bubbles: !0, composed: !0 }));
+    this._dateOutOfRange = !this._dateInvalid && this._value instanceof Date ? ps(this._value, this.minDate, this.maxDate) : !1, this._updateFormValue(), this.dispatchEvent(new CustomEvent("input-change", { detail: this._value, bubbles: !0, composed: !0 })), this._value !== r && this.dispatchEvent(new CustomEvent("value-change", { detail: this._value, bubbles: !0, composed: !0 })), !this._dateInvalid && this._value !== r && this.dispatchEvent(new CustomEvent("change", { detail: this._value, bubbles: !0, composed: !0 }));
   }
   _handleFocus(e) {
     e.stopPropagation(), this._focused = !0, this.dispatchEvent(new FocusEvent("focus", { bubbles: !0, composed: !0 }));
@@ -7322,8 +7327,8 @@ const Ts = "swim-date-time", It = class It extends f {
   _update() {
     const e = this._value, t = e instanceof Date && F(e);
     if (this._dateInvalid = !!e && !t, this._displayValue = e ? String(e) : "", this._dateOutOfRange = !1, !t) return;
-    const i = Jt(this.timezone);
-    this._displayValue = st(e, this._effectiveFormat, i), this._dateOutOfRange = hs(e, this.minDate, this.maxDate);
+    const i = ti(this.timezone);
+    this._displayValue = st(e, this._effectiveFormat, i), this._dateOutOfRange = ps(e, this.minDate, this.maxDate);
   }
   _validate() {
     let e = {}, t = "";
@@ -7344,8 +7349,8 @@ const Ts = "swim-date-time", It = class It extends f {
     this.disabled = e;
   }
 };
-It.styles = [y, fn], It.formAssociated = !0;
-let v = It;
+Pt.styles = [y, yn], Pt.formAssociated = !0;
+let v = Pt;
 x([
   R("swim-input")
 ], v.prototype, "_swimInput", 2);
@@ -7451,8 +7456,8 @@ x([
 x([
   b()
 ], v.prototype, "_dialogAmPm", 2);
-customElements.get(Ts) || customElements.define(Ts, v);
-const xn = [
+customElements.get(Ds) || customElements.define(Ds, v);
+const Cn = [
   y,
   _`
     :host {
@@ -7608,12 +7613,12 @@ const xn = [
     }
   `
 ];
-var $n = Object.defineProperty, Je = (o, e, t, i) => {
+var En = Object.defineProperty, Je = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && $n(e, t, s), s;
+  return s && En(e, t, s), s;
 };
-const zs = "swim-large-format-dialog-content", Si = class Si extends f {
+const Ms = "swim-large-format-dialog-content", Ti = class Ti extends f {
   constructor() {
     super(...arguments), this.format = "large", this.dialogTitle = "", this.dialogSubtitle = "", this.dialogActionTitle = "Close", this.dialogDirtyActionTitle = "Cancel", this.dirty = !1;
   }
@@ -7654,8 +7659,8 @@ const zs = "swim-large-format-dialog-content", Si = class Si extends f {
     `;
   }
 };
-Si.styles = [ft, xn];
-let ye = Si;
+Ti.styles = [ft, Cn];
+let ye = Ti;
 Je([
   a({ type: String, reflect: !0 })
 ], ye.prototype, "format");
@@ -7674,8 +7679,8 @@ Je([
 Je([
   a({ type: Boolean, reflect: !0 })
 ], ye.prototype, "dirty");
-customElements.get(zs) || customElements.define(zs, ye);
-const kn = [
+customElements.get(Ms) || customElements.define(Ms, ye);
+const Sn = [
   y,
   _`
     :host {
@@ -7692,12 +7697,12 @@ const kn = [
     }
   `
 ];
-var Cn = Object.defineProperty, En = (o, e, t, i) => {
+var An = Object.defineProperty, Tn = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && Cn(e, t, s), s;
+  return s && An(e, t, s), s;
 };
-const Ds = "swim-large-format-dialog-footer", Ai = class Ai extends f {
+const Os = "swim-large-format-dialog-footer", zi = class zi extends f {
   constructor() {
     super(...arguments), this.format = "large";
   }
@@ -7705,13 +7710,13 @@ const Ds = "swim-large-format-dialog-footer", Ai = class Ai extends f {
     return c` <div class="format-dialog-footer"><slot></slot></div> `;
   }
 };
-Ai.styles = kn;
-let At = Ai;
-En([
+zi.styles = Sn;
+let Tt = zi;
+Tn([
   a({ type: String, reflect: !0 })
-], At.prototype, "format");
-customElements.get(Ds) || customElements.define(Ds, At);
-const Sn = [
+], Tt.prototype, "format");
+customElements.get(Os) || customElements.define(Os, Tt);
+const zn = [
   y,
   ft,
   _`
@@ -7847,12 +7852,12 @@ const Sn = [
     }
   `
 ];
-var Ve = /* @__PURE__ */ ((o) => (o.Left = "left", o.Right = "right", o.Bottom = "bottom", o))(Ve || {}), An = Object.defineProperty, Tn = Object.getOwnPropertyDescriptor, pe = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Tn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Ve = /* @__PURE__ */ ((o) => (o.Left = "left", o.Right = "right", o.Bottom = "bottom", o))(Ve || {}), Dn = Object.defineProperty, Mn = Object.getOwnPropertyDescriptor, pe = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Mn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && An(e, t, s), s;
+  return i && s && Dn(e, t, s), s;
 };
-const Ms = "swim-drawer", Ti = class Ti extends f {
+const Is = "swim-drawer", Di = class Di extends f {
   constructor() {
     super(...arguments), this.cssClass = "", this.direction = Ve.Left, this._size = 80, this._zIndex = 998, this._closeOnOutsideClick = !0, this._isRoot = !0, this._open = !1, this._closing = !1, this._contentId = `swim-drawer-content-${Math.random().toString(36).slice(2, 11)}`, this._previousActiveElement = null, this._backdropClickBound = () => this._onBackdropClick(), this._keydownBound = (e) => this._onKeydown(e), this._portalTarget = null;
   }
@@ -7970,8 +7975,8 @@ const Ms = "swim-drawer", Ti = class Ti extends f {
     ` : u;
   }
 };
-Ti.styles = Sn;
-let G = Ti;
+Di.styles = zn;
+let G = Di;
 pe([
   a({ type: String, attribute: "css-class" })
 ], G.prototype, "cssClass", 2);
@@ -8006,9 +8011,9 @@ pe([
 pe([
   R(".swim-drawer__content")
 ], G.prototype, "_contentEl", 2);
-customElements.get(Ms) || customElements.define(Ms, G);
-var zn = /* @__PURE__ */ ((o) => (o.Fixed = "fixed", o.Absolute = "absolute", o))(zn || {});
-function hl(o) {
+customElements.get(Is) || customElements.define(Is, G);
+var On = /* @__PURE__ */ ((o) => (o.Fixed = "fixed", o.Absolute = "absolute", o))(On || {});
+function gl(o) {
   const {
     direction: e = Ve.Left,
     size: t = 80,
@@ -8041,7 +8046,7 @@ function hl(o) {
     { once: !0 }
   ), h.show(), { close: m, drawer: h };
 }
-const ul = "ngx-icon", Dn = _`
+const _l = "ngx-icon", In = _`
   :host {
     display: block;
     width: 100%;
@@ -8281,29 +8286,29 @@ const ul = "ngx-icon", Dn = _`
     background: var(--grey-775);
     border-radius: var(--radius-0) var(--radius-0) var(--radius-8) var(--radius-8);
   }
-`, Mn = [y, Dn];
-var vo = /* @__PURE__ */ ((o) => (o.Legacy = "legacy", o.Outline = "outline", o.Light = "light", o.Minimal = "minimal", o))(vo || {}), yt = /* @__PURE__ */ ((o) => (o.Left = "left", o.Right = "right", o.None = "none", o))(yt || {}), In = Object.defineProperty, On = Object.getOwnPropertyDescriptor, me = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? On(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+`, Pn = [y, In];
+var $o = /* @__PURE__ */ ((o) => (o.Legacy = "legacy", o.Outline = "outline", o.Light = "light", o.Minimal = "minimal", o))($o || {}), xt = /* @__PURE__ */ ((o) => (o.Left = "left", o.Right = "right", o.None = "none", o))(xt || {}), Ln = Object.defineProperty, Fn = Object.getOwnPropertyDescriptor, me = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Fn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && In(e, t, s), s;
+  return i && s && Ln(e, t, s), s;
 };
-const Pn = {
+const Bn = {
   fromAttribute: (o) => o !== "false" && o !== "",
   toAttribute: (o) => o ? "true" : "false"
-}, yo = {
+}, ko = {
   fromAttribute: (o) => o !== null && o !== "false",
   toAttribute: (o) => o ? "true" : "false"
 };
-let Is = 0;
-const Os = "swim-section", zi = class zi extends f {
+let Ps = 0;
+const Ls = "swim-section", Mi = class Mi extends f {
   constructor() {
-    super(...arguments), this._id = `section-${++Is}`, this._sectionCollapsed = !1, this._sectionCollapsible = !0, this._headerToggle = !1, this.sectionTitle = "", this.padding = "1.8em", this.appearance = vo.Legacy, this.togglePosition = yt.Left, this._hasHeaderSlot = !1, this._headerSlotChangeBound = () => this._checkHeaderSlot();
+    super(...arguments), this._id = `section-${++Ps}`, this._sectionCollapsed = !1, this._sectionCollapsible = !0, this._headerToggle = !1, this.sectionTitle = "", this.padding = "1.8em", this.appearance = $o.Legacy, this.togglePosition = xt.Left, this._hasHeaderSlot = !1, this._headerSlotChangeBound = () => this._checkHeaderSlot();
   }
   get id() {
     return this._id;
   }
   set id(e) {
-    this._id = e || `section-${++Is}`;
+    this._id = e || `section-${++Ps}`;
   }
   get sectionCollapsed() {
     return this._sectionCollapsed;
@@ -8374,7 +8379,7 @@ const Os = "swim-section", zi = class zi extends f {
   }
   render() {
     var n;
-    const e = this.sectionCollapsible, t = e && this.togglePosition !== yt.None, i = this.togglePosition === yt.Right, s = [
+    const e = this.sectionCollapsible, t = e && this.togglePosition !== xt.None, i = this.togglePosition === xt.Right, s = [
       "swim-section__header",
       this.sectionCollapsed ? "swim-section__header--collapsed" : "",
       e ? "swim-section__header--collapsible" : "",
@@ -8431,8 +8436,8 @@ const Os = "swim-section", zi = class zi extends f {
     `;
   }
 };
-zi.styles = Mn;
-let W = zi;
+Mi.styles = Pn;
+let W = Mi;
 me([
   a({ type: String, reflect: !0 })
 ], W.prototype, "id", 1);
@@ -8440,21 +8445,21 @@ me([
   a({
     reflect: !0,
     attribute: "section-collapsed",
-    converter: yo
+    converter: ko
   })
 ], W.prototype, "sectionCollapsed", 1);
 me([
   a({
     reflect: !0,
     attribute: "section-collapsible",
-    converter: Pn
+    converter: Bn
   })
 ], W.prototype, "sectionCollapsible", 1);
 me([
   a({
     reflect: !0,
     attribute: "header-toggle",
-    converter: yo
+    converter: ko
   })
 ], W.prototype, "headerToggle", 1);
 me([
@@ -8475,20 +8480,20 @@ me([
 me([
   R('slot[name="header"]')
 ], W.prototype, "_headerSlot", 2);
-customElements.get(Os) || customElements.define(Os, W);
-const Ln = _`
+customElements.get(Ls) || customElements.define(Ls, W);
+const Rn = _`
   :host {
     display: contents;
   }
-`, Ps = "swim-section-header", Di = class Di extends f {
+`, Fs = "swim-section-header", Oi = class Oi extends f {
   render() {
     return c`<slot></slot>`;
   }
 };
-Di.styles = Ln;
-let ei = Di;
-customElements.get(Ps) || customElements.define(Ps, ei);
-const Fn = _`
+Oi.styles = Rn;
+let si = Oi;
+customElements.get(Fs) || customElements.define(Fs, si);
+const Hn = _`
   :host {
     display: block;
   }
@@ -8610,7 +8615,7 @@ const Fn = _`
   :host([disabled]) .swim-radio__checkmark--checked::after {
     opacity: 1;
   }
-`, Bn = _`
+`, Yn = _`
   :host {
     display: block;
   }
@@ -8628,15 +8633,15 @@ const Fn = _`
     outline: none;
   }
 `;
-var Rn = Object.defineProperty, Hn = Object.getOwnPropertyDescriptor, be = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Hn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Vn = Object.defineProperty, Nn = Object.getOwnPropertyDescriptor, be = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Nn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Rn(e, t, s), s;
+  return i && s && Vn(e, t, s), s;
 };
-let Yn = 0;
-const Ls = "swim-radio", Mi = class Mi extends f {
+let Un = 0;
+const Bs = "swim-radio", Ii = class Ii extends f {
   constructor() {
-    super(...arguments), this.id = `swim-radio-${++Yn}`, this.name = "", this.radioId = "", this._tabindex = 0, this._checked = !1, this.value = "", this._disabled = !1, this.groupDisabled = !1, this.isInGroup = !1;
+    super(...arguments), this.id = `swim-radio-${++Un}`, this.name = "", this.radioId = "", this._tabindex = 0, this._checked = !1, this.value = "", this._disabled = !1, this.groupDisabled = !1, this.isInGroup = !1;
   }
   get tabindex() {
     return this._tabindex;
@@ -8743,8 +8748,8 @@ const Ls = "swim-radio", Mi = class Mi extends f {
     `;
   }
 };
-Mi.styles = [y, Fn];
-let K = Mi;
+Ii.styles = [y, Hn];
+let K = Ii;
 be([
   R(".swim-radio__roving")
 ], K.prototype, "_roving", 2);
@@ -8775,19 +8780,19 @@ be([
 be([
   a({ type: Boolean, attribute: !1 })
 ], K.prototype, "isInGroup", 2);
-customElements.get(Ls) || customElements.define(Ls, K);
-var Vn = Object.defineProperty, Nn = Object.getOwnPropertyDescriptor, Te = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Nn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+customElements.get(Bs) || customElements.define(Bs, K);
+var qn = Object.defineProperty, jn = Object.getOwnPropertyDescriptor, Te = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? jn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Vn(e, t, s), s;
+  return i && s && qn(e, t, s), s;
 };
-let Un = 0;
-function qn(o, e) {
+let Gn = 0;
+function Wn(o, e) {
   return (o % e + e) % e;
 }
-const Fs = "swim-radio-group", Ot = class Ot extends f {
+const Rs = "swim-radio-group", Lt = class Lt extends f {
   constructor() {
-    super(), this.id = `swim-radio-group-${++Un}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
+    super(), this.id = `swim-radio-group-${++Gn}`, this._disabled = !1, this._value = "", this.name = "", this._focusIndex = -1, this._tabindex = 0, this._radios = [], this._changeHandler = (e) => this._onRadioChange(e), this._slotChangeBound = () => this._syncRadios(), this._onGroupFocus = (e) => {
       if (e.target !== this._slotWrapper) return;
       const t = this._radios.find((i) => i.checked);
       t ? (this._focusIndex = this._radios.indexOf(t), this._focusOn(this._focusIndex)) : this._focusFirst();
@@ -8894,7 +8899,7 @@ const Fs = "swim-radio-group", Ot = class Ot extends f {
     if (this.disabled || !this._radios.length) return;
     const t = this._radios.length;
     for (let i = 1; i <= t; i++) {
-      const s = qn(this._focusIndex + e * i, t);
+      const s = Wn(this._focusIndex + e * i, t);
       if (!this._radios[s].disabled) {
         this._focusIndex = s, this._focusOn(s);
         return;
@@ -8927,8 +8932,8 @@ const Fs = "swim-radio-group", Ot = class Ot extends f {
     `;
   }
 };
-Ot.styles = [y, Bn], Ot.formAssociated = !0;
-let oe = Ot;
+Lt.styles = [y, Yn], Lt.formAssociated = !0;
+let oe = Lt;
 Te([
   R("slot")
 ], oe.prototype, "_slot", 2);
@@ -8953,17 +8958,17 @@ Te([
 Te([
   a({ type: Number })
 ], oe.prototype, "tabindex", 1);
-customElements.get(Fs) || customElements.define(Fs, oe);
+customElements.get(Rs) || customElements.define(Rs, oe);
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const Bs = (o, e, t) => {
+const Hs = (o, e, t) => {
   const i = /* @__PURE__ */ new Map();
   for (let s = e; s <= t; s++) i.set(o[s], s);
   return i;
-}, jn = ci(class extends di {
+}, Kn = ui(class extends pi {
   constructor(o) {
     if (super(o), o.type !== Ce.CHILD) throw Error("repeat() can only be used in text expressions");
   }
@@ -8979,7 +8984,7 @@ const Bs = (o, e, t) => {
     return this.dt(o, e, t).values;
   }
   update(o, [e, t, i]) {
-    const s = hn(o), { values: r, keys: n } = this.dt(e, t, i);
+    const s = mn(o), { values: r, keys: n } = this.dt(e, t, i);
     if (!Array.isArray(s)) return this.ut = n, r;
     const l = this.ut ?? (this.ut = []), d = [];
     let h, w, m = 0, g = s.length - 1, $ = 0, M = r.length - 1;
@@ -8989,26 +8994,26 @@ const Bs = (o, e, t) => {
     else if (l[g] === n[M]) d[M] = De(s[g], r[M]), g--, M--;
     else if (l[m] === n[M]) d[M] = De(s[m], r[M]), ot(o, d[M + 1], s[m]), m++, M--;
     else if (l[g] === n[$]) d[$] = De(s[g], r[$]), ot(o, s[m], s[g]), g--, $++;
-    else if (h === void 0 && (h = Bs(n, $, M), w = Bs(l, m, g)), h.has(l[m])) if (h.has(l[g])) {
+    else if (h === void 0 && (h = Hs(n, $, M), w = Hs(l, m, g)), h.has(l[m])) if (h.has(l[g])) {
       const te = w.get(n[$]), et = te !== void 0 ? s[te] : null;
       if (et === null) {
         const tt = ot(o, s[m]);
         De(tt, r[$]), d[$] = tt;
       } else d[$] = De(et, r[$]), ot(o, s[m], et), s[te] = null;
       $++;
-    } else Zt(s[g]), g--;
-    else Zt(s[m]), m++;
+    } else Qt(s[g]), g--;
+    else Qt(s[m]), m++;
     for (; $ <= M; ) {
       const te = ot(o, d[M + 1]);
       De(te, r[$]), d[$++] = te;
     }
     for (; m <= g; ) {
       const te = s[m++];
-      te !== null && Zt(te);
+      te !== null && Qt(te);
     }
-    return this.ut = n, wo(o, d), X;
+    return this.ut = n, xo(o, d), X;
   }
-}), Gn = _`
+}), Zn = _`
   :host {
     display: block;
     max-width: 100%;
@@ -9148,6 +9153,7 @@ const Bs = (o, e, t) => {
   .select-caret {
     transition: transform 200ms ease-in-out;
     transform: rotate(0deg);
+    margin-right: var(--spacing-8);
   }
 
   :host([open]) .select-caret {
@@ -9387,14 +9393,69 @@ const Bs = (o, e, t) => {
     font-size: inherit;
   }
 `;
-var Wn = Object.defineProperty, Kn = Object.getOwnPropertyDescriptor, T = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Kn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Xn = Object.defineProperty, Jn = Object.getOwnPropertyDescriptor, Yt = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Jn(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Wn(e, t, s), s;
+  return i && s && Xn(e, t, s), s;
 };
-const Rs = "swim-select", Pt = class Pt extends f {
+const Ys = "swim-option";
+class wt extends f {
   constructor() {
-    super(), this.label = "", this.placeholder = "Select...", this.hint = "", this.emptyPlaceholder = "No options available", this.filterPlaceholder = "Filter options...", this.options = [], this._value = [], this.name = "", this.id = `swim-select-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._required = !1, this.appearance = hi.legacy, this.size = ui.sm, this._withMargin = !0, this._withHint = !0, this._filterable = !0, this._multiple = !1, this._allowClear = !0, this.requiredIndicator = "*", this._open = !1, this._focused = !1, this._touched = !1, this._invalid = !1, this._filterQuery = "", this._focusedIndex = -1, this._internals = this.attachInternals();
+    super(...arguments), this.name = "", this._disabled = !1, this._hidden = !1;
+  }
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(e) {
+    this._disabled = p(e);
+  }
+  get hidden() {
+    return this._hidden;
+  }
+  set hidden(e) {
+    this._hidden = p(e);
+  }
+  createRenderRoot() {
+    return this;
+  }
+  render() {
+    return c``;
+  }
+  connectedCallback() {
+    super.connectedCallback(), this.style.display = "none", this._notifyParent();
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback(), this._notifyParent();
+  }
+  updated() {
+    this._notifyParent();
+  }
+  _notifyParent() {
+    const e = this.closest("swim-select");
+    e && typeof e._onSlottedOptionsChange == "function" && e._onSlottedOptionsChange();
+  }
+}
+Yt([
+  a({ type: String })
+], wt.prototype, "name", 2);
+Yt([
+  a()
+], wt.prototype, "value", 2);
+Yt([
+  a({ type: Boolean, reflect: !0 })
+], wt.prototype, "disabled", 1);
+Yt([
+  a({ type: Boolean, reflect: !0 })
+], wt.prototype, "hidden", 1);
+customElements.get(Ys) || customElements.define(Ys, wt);
+var Qn = Object.defineProperty, ea = Object.getOwnPropertyDescriptor, T = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? ea(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+    (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
+  return i && s && Qn(e, t, s), s;
+};
+const Vs = "swim-select", Ft = class Ft extends f {
+  constructor() {
+    super(), this.label = "", this.placeholder = "Select...", this.hint = "", this.emptyPlaceholder = "No options available", this.filterPlaceholder = "Filter options...", this.options = [], this._value = [], this.name = "", this.id = `swim-select-${Math.random().toString(36).substr(2, 9)}`, this._disabled = !1, this._required = !1, this.appearance = mi.legacy, this.size = bi.sm, this._withMargin = !0, this._withHint = !0, this._filterable = !0, this._multiple = !1, this._allowClear = !0, this.requiredIndicator = "*", this._slottedOptions = [], this._open = !1, this._focused = !1, this._touched = !1, this._invalid = !1, this._filterQuery = "", this._focusedIndex = -1, this._internals = this.attachInternals();
   }
   get value() {
     return this.multiple ? this._value : this._value[0] ?? null;
@@ -9445,11 +9506,39 @@ const Rs = "swim-select", Pt = class Pt extends f {
   set allowClear(e) {
     this._allowClear = p(e);
   }
+  /**
+   * Combined options from both the `options` property and slotted `swim-option` children.
+   * Slotted children take precedence when `options` property is empty.
+   */
+  get _allOptions() {
+    return this.options.length > 0 && this._slottedOptions.length > 0 ? [...this.options, ...this._slottedOptions] : this.options.length > 0 ? this.options : this._slottedOptions;
+  }
   connectedCallback() {
-    super.connectedCallback(), this._updateActiveState();
+    super.connectedCallback(), this._collectSlottedOptions(), this._setupChildObserver(), this._updateActiveState();
   }
   disconnectedCallback() {
-    super.disconnectedCallback(), this._removeClickOutsideListener();
+    var e;
+    super.disconnectedCallback(), this._removeClickOutsideListener(), (e = this._childObserver) == null || e.disconnect();
+  }
+  /** Called by swim-option children when they connect/disconnect/update */
+  _onSlottedOptionsChange() {
+    this._collectSlottedOptions();
+  }
+  _collectSlottedOptions() {
+    const e = Array.from(this.querySelectorAll(":scope > swim-option"));
+    this._slottedOptions = e.filter((t) => !t.hasAttribute("hidden")).map((t) => {
+      const i = t.getAttribute("name") || "", s = t.getAttribute("value");
+      return {
+        name: i,
+        value: s !== null ? s : i,
+        disabled: t.hasAttribute("disabled")
+      };
+    });
+  }
+  _setupChildObserver() {
+    this._childObserver = new MutationObserver(() => {
+      this._collectSlottedOptions();
+    }), this._childObserver.observe(this, { childList: !0, subtree: !1 });
   }
   updated(e) {
     super.updated(e), e.has("value") && (this._updateActiveState(), this._validate()), e.has("_open") && (this._open ? (this.setAttribute("open", ""), this._addClickOutsideListener(), setTimeout(() => {
@@ -9527,7 +9616,7 @@ const Rs = "swim-select", Pt = class Pt extends f {
                     ` : u}
                 ${t.length > 0 ? c`
                       <ul class="select-options">
-                        ${jn(
+                        ${Kn(
       t,
       (s) => this._getOptionValue(s),
       (s, r) => this._renderOption(s, r)
@@ -9545,12 +9634,12 @@ const Rs = "swim-select", Pt = class Pt extends f {
     if (this.multiple)
       return c`
         ${this._value.map((e) => {
-        const t = this.options.find((i) => this._getOptionValue(i) === e);
+        const t = this._allOptions.find((i) => this._getOptionValue(i) === e);
         return this._renderChip(t || { name: e, value: e });
       })}
       `;
     {
-      const e = this.options.find((t) => this._getOptionValue(t) === this._value[0]);
+      const e = this._allOptions.find((t) => this._getOptionValue(t) === this._value[0]);
       return c`${(e == null ? void 0 : e.name) || this._value[0]}`;
     }
   }
@@ -9674,9 +9763,9 @@ const Rs = "swim-select", Pt = class Pt extends f {
   }
   _getFilteredOptions() {
     if (!this._filterQuery)
-      return this.options;
+      return this._allOptions;
     const e = this._filterQuery.toLowerCase();
-    return this.options.filter((t) => t.name.toLowerCase().includes(e));
+    return this._allOptions.filter((t) => t.name.toLowerCase().includes(e));
   }
   _getOptionValue(e) {
     return e.value !== void 0 ? e.value : e.name;
@@ -9719,8 +9808,8 @@ const Rs = "swim-select", Pt = class Pt extends f {
     this.disabled = e;
   }
 };
-Pt.styles = [y, ft, Gn], Pt.formAssociated = !0;
-let E = Pt;
+Ft.styles = [y, ft, Zn], Ft.formAssociated = !0;
+let E = Ft;
 T([
   R(".select-input")
 ], E.prototype, "selectInput", 2);
@@ -9786,6 +9875,9 @@ T([
 ], E.prototype, "requiredIndicator", 2);
 T([
   b()
+], E.prototype, "_slottedOptions", 2);
+T([
+  b()
 ], E.prototype, "_open", 2);
 T([
   b()
@@ -9802,12 +9894,12 @@ T([
 T([
   b()
 ], E.prototype, "_focusedIndex", 2);
-customElements.get(Rs) || customElements.define(Rs, E);
-const Zn = 2, Xn = 4, Jn = 16, Qn = _`
+customElements.get(Vs) || customElements.define(Vs, E);
+const ta = 2, ia = 4, sa = 16, oa = _`
   :host {
-    --slider-track-height: ${Zn}px;
-    --slider-fill-height: ${Xn}px;
-    --slider-thumb-size: ${Jn}px;
+    --slider-track-height: ${ta}px;
+    --slider-fill-height: ${ia}px;
+    --slider-thumb-size: ${sa}px;
     display: inline-block;
   }
 
@@ -9982,15 +10074,15 @@ const Zn = 2, Xn = 4, Jn = 16, Qn = _`
     transform-origin: top left;
   }
 `;
-var ea = Object.defineProperty, ta = Object.getOwnPropertyDescriptor, V = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? ta(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var ra = Object.defineProperty, na = Object.getOwnPropertyDescriptor, V = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? na(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && ea(e, t, s), s;
+  return i && s && ra(e, t, s), s;
 };
-let ia = 0;
-const Hs = "swim-slider", Lt = class Lt extends f {
+let aa = 0;
+const Ns = "swim-slider", Bt = class Bt extends f {
   constructor() {
-    super(), this.id = `swim-slider-${++ia}`, this._min = 0, this._max = 100, this._step = 1, this.orientation = "horizontal", this._filled = !1, this._multiple = !1, this._disabled = !1, this._showTicks = !1, this.ariaLabel = "", this._values = [0], this._active = [], this._internals = this.attachInternals();
+    super(), this.id = `swim-slider-${++aa}`, this._min = 0, this._max = 100, this._step = 1, this.orientation = "horizontal", this._filled = !1, this._multiple = !1, this._disabled = !1, this._showTicks = !1, this.ariaLabel = "", this._values = [0], this._active = [], this._internals = this.attachInternals();
   }
   get min() {
     return this._min;
@@ -10187,8 +10279,8 @@ const Hs = "swim-slider", Lt = class Lt extends f {
     `;
   }
 };
-Lt.styles = [y, Qn], Lt.formAssociated = !0;
-let L = Lt;
+Bt.styles = [y, oa], Bt.formAssociated = !0;
+let L = Bt;
 V([
   a({ type: String })
 ], L.prototype, "id", 2);
@@ -10231,8 +10323,8 @@ V([
 V([
   b()
 ], L.prototype, "_active", 2);
-customElements.get(Hs) || customElements.define(Hs, L);
-const sa = _`
+customElements.get(Ns) || customElements.define(Ns, L);
+const la = _`
   :host {
     display: flex;
     height: 100%;
@@ -10251,7 +10343,7 @@ const sa = _`
   slot {
     display: contents;
   }
-`, oa = [y, sa];
+`, ca = [y, la];
 var Ne = /* @__PURE__ */ ((o) => (o.Row = "row", o.Column = "column", o))(Ne || {});
 function Ke(o) {
   const e = String(o).indexOf("calc") > -1;
@@ -10260,22 +10352,22 @@ function Ke(o) {
 function re(o) {
   return typeof o == "string" ? Number(o.replace(/%/g, "").replace(/px/g, "").trim()) : o;
 }
-function xo(o, e, t, i, s, r) {
+function Co(o, e, t, i, s, r) {
   let n = o ? Ke(o) ? re(o) : re(o) / r : 0, l = e ? Ke(e) ? re(e) : re(e) / r : 100;
   return n = Math.max(n, i === "0" ? s : 0), l = Math.min(l, t === "0" ? s : 100), [n, l];
 }
-function Ys(o, e, t) {
+function Us(o, e, t) {
   const [i, s, r] = o.currentFlexParts, n = Ke(r), l = re(r), d = o.initialFlexParts[2], h = Ke(d) ? re(d) : re(d) / t, w = n ? l * t : l;
   let m = w + e, g = m / t;
-  const [$, M] = xo(o.minBasis, o.maxBasis, i, s, h, t);
+  const [$, M] = Co(o.minBasis, o.maxBasis, i, s, h, t);
   return g = Math.max(g, $), g = Math.min(g, M), m = g * t, o.updateBasis(n ? g + "%" : m + "px"), m - w;
 }
-var ra = Object.defineProperty, $o = (o, e, t, i) => {
+var da = Object.defineProperty, Eo = (o, e, t, i) => {
   for (var s = void 0, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && ra(e, t, s), s;
+  return s && da(e, t, s), s;
 };
-const Vs = "swim-split", Ii = class Ii extends f {
+const qs = "swim-split", Pi = class Pi extends f {
   constructor() {
     super(...arguments), this.direction = Ne.Row, this._areas = [], this._handles = [], this._handleListeners = /* @__PURE__ */ new Map(), this._onSlotChange = () => {
       this._collectAreasAndHandles(), this._removeHandleListeners(), this._attachHandleListeners();
@@ -10330,8 +10422,8 @@ const Vs = "swim-split", Ii = class Ii extends f {
     if (r.length === 0) return;
     const [n, ...l] = r;
     let d = e;
-    d = Ys(n, d, s), l.forEach((h) => {
-      d += Ys(h, -d, s);
+    d = Us(n, d, s), l.forEach((h) => {
+      d += Us(h, -d, s);
     });
   }
   _onDrag(e) {
@@ -10341,37 +10433,37 @@ const Vs = "swim-split", Ii = class Ii extends f {
   _onDblClick() {
     const i = (this.direction === Ne.Row ? this.clientWidth : this.clientHeight) / 100, r = this._areas[0];
     if (!r) return;
-    const [n, l, d] = r.currentFlexParts, h = Ke(d), w = re(d), g = (h ? w * i : w) / i, $ = r.initialFlexParts[2], M = Ke($) ? re($) : re($) / i, [te, et] = xo(
+    const [n, l, d] = r.currentFlexParts, h = Ke(d), w = re(d), g = (h ? w * i : w) / i, $ = r.initialFlexParts[2], M = Ke($) ? re($) : re($) / i, [te, et] = Co(
       r.minBasis,
       r.maxBasis,
       n,
       l,
       M,
       i
-    ), tt = g - te, Ni = et - g, Ao = (tt < Ni ? Ni : -tt) * i;
-    this._resize(Ao);
+    ), tt = g - te, qi = et - g, Do = (tt < qi ? qi : -tt) * i;
+    this._resize(Do);
   }
   render() {
     return c`<slot></slot>`;
   }
 };
-Ii.styles = oa;
-let bt = Ii;
-$o([
+Pi.styles = ca;
+let bt = Pi;
+Eo([
   a({ type: String, reflect: !0 })
 ], bt.prototype, "direction");
-$o([
+Eo([
   R("slot")
 ], bt.prototype, "slotEl");
-customElements.get(Vs) || customElements.define(Vs, bt);
-const na = _`
+customElements.get(qs) || customElements.define(qs, bt);
+const ha = _`
   :host {
     overflow: hidden;
     box-sizing: border-box;
     min-height: 0;
   }
-`, aa = [y, na];
-function ko(o) {
+`, ua = [y, ha];
+function So(o) {
   const [e, t, i] = o;
   return `${e} ${t} ${i}`;
 }
@@ -10379,12 +10471,12 @@ function Ue(o, e, t) {
   const i = t.split(" ");
   return i.length === 3 ? i : [o, e, t];
 }
-var la = Object.defineProperty, ca = Object.getOwnPropertyDescriptor, Rt = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? ca(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var pa = Object.defineProperty, ma = Object.getOwnPropertyDescriptor, Vt = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? ma(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && la(e, t, s), s;
+  return i && s && pa(e, t, s), s;
 };
-const rt = "1 1 1e-9px", Ns = "swim-split-area", Oi = class Oi extends f {
+const rt = "1 1 1e-9px", js = "swim-split-area", Li = class Li extends f {
   constructor() {
     super(...arguments), this._areaBasis = rt, this.shouldAdjustMaxMin = !1, this.initialFlexParts = Ue("1", "1", rt), this.currentFlexParts = Ue("1", "1", rt);
   }
@@ -10398,7 +10490,7 @@ const rt = "1 1 1e-9px", Ns = "swim-split-area", Oi = class Oi extends f {
     super.connectedCallback(), this._applyBasis();
   }
   updated() {
-    this.style.flex = ko(this.currentFlexParts), this.shouldAdjustMaxMin && this.currentFlexParts[2] ? (this.style.minWidth = this.currentFlexParts[2], this.style.maxWidth = this.currentFlexParts[2]) : (this.style.minWidth = "", this.style.maxWidth = "");
+    this.style.flex = So(this.currentFlexParts), this.shouldAdjustMaxMin && this.currentFlexParts[2] ? (this.style.minWidth = this.currentFlexParts[2], this.style.maxWidth = this.currentFlexParts[2]) : (this.style.minWidth = "", this.style.maxWidth = "");
   }
   updateBasis(e) {
     this.currentFlexParts[2] = e, this.requestUpdate();
@@ -10411,22 +10503,22 @@ const rt = "1 1 1e-9px", Ns = "swim-split-area", Oi = class Oi extends f {
     return c`<slot></slot>`;
   }
 };
-Oi.styles = aa;
-let Pe = Oi;
-Rt([
+Li.styles = ua;
+let Pe = Li;
+Vt([
   a({ type: String, attribute: "area-basis" })
 ], Pe.prototype, "areaBasis", 1);
-Rt([
+Vt([
   a({ type: String, attribute: "min-basis" })
 ], Pe.prototype, "minBasis", 2);
-Rt([
+Vt([
   a({ type: String, attribute: "max-basis" })
 ], Pe.prototype, "maxBasis", 2);
-Rt([
+Vt([
   a({ type: Boolean, attribute: "should-adjust-max-min" })
 ], Pe.prototype, "shouldAdjustMaxMin", 2);
-customElements.get(Ns) || customElements.define(Ns, Pe);
-const da = _`
+customElements.get(js) || customElements.define(js, Pe);
+const ba = _`
   :host {
     position: relative;
     box-sizing: border-box;
@@ -10472,30 +10564,30 @@ const da = _`
     top: -3px;
     transform: translateX(-50%) rotate(270deg);
   }
-`, ha = [y, da];
-var ua = Object.defineProperty, pa = Object.getOwnPropertyDescriptor, Co = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? pa(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+`, ga = [y, ba];
+var _a = Object.defineProperty, fa = Object.getOwnPropertyDescriptor, Ao = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? fa(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && ua(e, t, s), s;
+  return i && s && _a(e, t, s), s;
 };
-const wt = "0 0 15px", Us = "swim-split-handle", Pi = class Pi extends f {
+const vt = "0 0 15px", Gs = "swim-split-handle", Fi = class Fi extends f {
   constructor() {
-    super(...arguments), this._handleBasis = wt, this.direction = Ne.Row, this.currentFlexParts = Ue("0", "0", wt), this._boundMouseUp = this._onMouseUp.bind(this), this._boundMouseMove = this._onMouseMove.bind(this);
+    super(...arguments), this._handleBasis = vt, this.direction = Ne.Row, this.currentFlexParts = Ue("0", "0", vt), this._boundMouseUp = this._onMouseUp.bind(this), this._boundMouseMove = this._onMouseMove.bind(this);
   }
   get handleBasis() {
     return this._handleBasis;
   }
   set handleBasis(e) {
-    this._handleBasis !== e && (this._handleBasis = e || wt, this.currentFlexParts = Ue("0", "0", this._handleBasis), this.requestUpdate());
+    this._handleBasis !== e && (this._handleBasis = e || vt, this.currentFlexParts = Ue("0", "0", this._handleBasis), this.requestUpdate());
   }
   connectedCallback() {
-    super.connectedCallback(), this.currentFlexParts = Ue("0", "0", this._handleBasis || wt);
+    super.connectedCallback(), this.currentFlexParts = Ue("0", "0", this._handleBasis || vt);
   }
   disconnectedCallback() {
     super.disconnectedCallback(), document.removeEventListener("mouseup", this._boundMouseUp, !0), document.removeEventListener("mousemove", this._boundMouseMove, !0);
   }
   updated() {
-    this.style.flex = ko(this.currentFlexParts);
+    this.style.flex = So(this.currentFlexParts);
   }
   _onMouseDown(e) {
     e.preventDefault(), document.addEventListener("mouseup", this._boundMouseUp, !0), document.addEventListener("mousemove", this._boundMouseMove, !0), this.dispatchEvent(new CustomEvent("dragstart", { detail: e, bubbles: !0, composed: !0 }));
@@ -10523,16 +10615,16 @@ const wt = "0 0 15px", Us = "swim-split-handle", Pi = class Pi extends f {
     `;
   }
 };
-Pi.styles = ha;
-let gt = Pi;
-Co([
+Fi.styles = ga;
+let gt = Fi;
+Ao([
   a({ type: String, attribute: "handle-basis" })
 ], gt.prototype, "handleBasis", 1);
-Co([
+Ao([
   a({ type: String, reflect: !0 })
 ], gt.prototype, "direction", 2);
-customElements.get(Us) || customElements.define(Us, gt);
-const ma = _`
+customElements.get(Gs) || customElements.define(Gs, gt);
+const wa = _`
   ${y}
 
   @keyframes swim-progress-spinner--rotate {
@@ -10614,12 +10706,12 @@ const ma = _`
     animation: swim-progress-spinner--rotate 1s linear infinite;
   }
 `;
-var Ye = /* @__PURE__ */ ((o) => (o.Indeterminate = "indeterminate", o.Determinate = "determinate", o))(Ye || {}), fe = /* @__PURE__ */ ((o) => (o.Default = "default", o.Icon = "icon", o))(fe || {}), ba = Object.defineProperty, ga = Object.getOwnPropertyDescriptor, Z = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? ga(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Ye = /* @__PURE__ */ ((o) => (o.Indeterminate = "indeterminate", o.Determinate = "determinate", o))(Ye || {}), fe = /* @__PURE__ */ ((o) => (o.Default = "default", o.Icon = "icon", o))(fe || {}), va = Object.defineProperty, ya = Object.getOwnPropertyDescriptor, Z = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? ya(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && ba(e, t, s), s;
+  return i && s && va(e, t, s), s;
 };
-const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "cloud-upload", ya = "check", xa = "x", qs = "swim-progress-spinner", Li = class Li extends f {
+const xa = 50, $a = 100, oi = 100, $t = oi / 2, ka = $t * 2 * Math.PI, Ca = "cloud-upload", Ea = "check", Sa = "x", Ws = "swim-progress-spinner", Bi = class Bi extends f {
   constructor() {
     super(...arguments), this.mode = Ye.Indeterminate, this.color = "var(--blue-500)", this.failStatusColor = "var(--red-500)", this.appearance = fe.Default, this.inProgressIconName = "", this.completeIconName = "", this.failIconName = "", this._isFailure = !1, this._value = 0, this._total = 100, this._diameter = 100, this._strokeWidth = 3, this._boundSlotChange = () => this.requestUpdate();
   }
@@ -10659,13 +10751,13 @@ const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "clo
   }
   /** Circumference in viewBox units for stroke-dasharray/offset (fixed viewBox 0 0 100 100). */
   get circumference() {
-    return wa;
+    return ka;
   }
   get modeValue() {
-    return this.mode === Ye.Determinate || this.isComplete ? this.value : _a;
+    return this.mode === Ye.Determinate || this.isComplete ? this.value : xa;
   }
   get modeTotal() {
-    return this.mode === Ye.Determinate || this.isComplete ? this.total : fa;
+    return this.mode === Ye.Determinate || this.isComplete ? this.total : $a;
   }
   get percentage() {
     return 100 / this.modeTotal * this.modeValue;
@@ -10695,15 +10787,15 @@ const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "clo
   }
   /** Resolved icon name for in-progress: slot/prop or default. */
   get effectiveInProgressIcon() {
-    return this.hasSlotContent("in-progress-icon") ? "" : this.inProgressIconName || (this.appearance === fe.Icon ? va : "");
+    return this.hasSlotContent("in-progress-icon") ? "" : this.inProgressIconName || (this.appearance === fe.Icon ? Ca : "");
   }
   /** Resolved icon name for complete: slot/prop or default. */
   get effectiveCompleteIcon() {
-    return this.hasSlotContent("complete-icon") ? "" : this.completeIconName || (this.appearance === fe.Icon ? ya : "");
+    return this.hasSlotContent("complete-icon") ? "" : this.completeIconName || (this.appearance === fe.Icon ? Ea : "");
   }
   /** Resolved icon name for failure: slot/prop or default. */
   get effectiveFailIcon() {
-    return this.hasSlotContent("fail-icon") ? "" : this.failIconName || (this.appearance === fe.Icon ? xa : "");
+    return this.hasSlotContent("fail-icon") ? "" : this.failIconName || (this.appearance === fe.Icon ? Sa : "");
   }
   render() {
     const e = this.appearance === fe.Icon && !this.isComplete && (this.effectiveInProgressIcon || this.hasSlotContent("in-progress-icon")), t = this.appearance === fe.Icon && this.isComplete && !this.isFailure && (this.effectiveCompleteIcon || this.hasSlotContent("complete-icon")), i = this.appearance === fe.Icon && this.isComplete && this.isFailure && (this.effectiveFailIcon || this.hasSlotContent("fail-icon"));
@@ -10720,7 +10812,7 @@ const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "clo
       >
         <svg
           class="swim-progress-spinner__svg"
-          viewBox="0 0 ${ti} ${ti}"
+          viewBox="0 0 ${oi} ${oi}"
           width="${this.diameter}"
           height="${this.diameter}"
           aria-hidden="true"
@@ -10731,9 +10823,9 @@ const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "clo
             stroke-width="${this.strokeWidth}"
             stroke-dasharray="${this.strokeDasharray}"
             stroke-dashoffset="${this.strokeDashoffset}"
-            r="${xt}"
-            cx="${xt}"
-            cy="${xt}"
+            r="${$t}"
+            cx="${$t}"
+            cy="${$t}"
           ></circle>
         </svg>
 
@@ -10760,8 +10852,8 @@ const _a = 50, fa = 100, ti = 100, xt = ti / 2, wa = xt * 2 * Math.PI, va = "clo
     `;
   }
 };
-Li.styles = ma;
-let B = Li;
+Bi.styles = wa;
+let B = Bi;
 Z([
   a({ type: String, reflect: !0 })
 ], B.prototype, "mode", 2);
@@ -10801,8 +10893,8 @@ Z([
 Z([
   a({ attribute: "stroke-width", type: Number })
 ], B.prototype, "strokeWidth", 1);
-customElements.get(qs) || customElements.define(qs, B);
-const $a = _`
+customElements.get(Ws) || customElements.define(Ws, B);
+const Aa = _`
   :host {
     display: block;
   }
@@ -10815,15 +10907,15 @@ const $a = _`
     display: none;
   }
 `;
-var ka = Object.defineProperty, Ca = Object.getOwnPropertyDescriptor, Qe = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Ca(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Ta = Object.defineProperty, za = Object.getOwnPropertyDescriptor, Qe = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? za(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && ka(e, t, s), s;
+  return i && s && Ta(e, t, s), s;
 };
-let Ea = 0;
-const js = "swim-tab", Fi = class Fi extends f {
+let Da = 0;
+const Ks = "swim-tab", Ri = class Ri extends f {
   constructor() {
-    super(...arguments), this._instanceId = ++Ea, this._generatedPanelId = `tab-panel-${this._instanceId}`, this._generatedTabId = `tab-${this._instanceId}`, this.tabId = this._generatedTabId, this.label = "", this._active = !1, this._disabled = !1;
+    super(...arguments), this._instanceId = ++Da, this._generatedPanelId = `tab-panel-${this._instanceId}`, this._generatedTabId = `tab-${this._instanceId}`, this.tabId = this._generatedTabId, this.label = "", this._active = !1, this._disabled = !1;
   }
   get id() {
     return this._id ?? this._generatedPanelId;
@@ -10870,8 +10962,8 @@ const js = "swim-tab", Fi = class Fi extends f {
     `;
   }
 };
-Fi.styles = [y, $a];
-let ae = Fi;
+Ri.styles = [y, Aa];
+let ae = Ri;
 Qe([
   a({ type: String })
 ], ae.prototype, "id", 1);
@@ -10890,8 +10982,8 @@ Qe([
 Qe([
   a({ type: Boolean, reflect: !0 })
 ], ae.prototype, "disabled", 1);
-customElements.get(js) || customElements.define(js, ae);
-const Sa = _`
+customElements.get(Ks) || customElements.define(Ks, ae);
+const Ma = _`
   :host {
     display: block;
     margin-bottom: 2em;
@@ -11048,14 +11140,14 @@ const Sa = _`
     background-color: var(--grey-750);
   }
 `;
-var Eo = /* @__PURE__ */ ((o) => (o.Legacy = "legacy", o.Light = "light", o))(Eo || {}), Aa = Object.defineProperty, Ta = Object.getOwnPropertyDescriptor, Ht = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Ta(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var To = /* @__PURE__ */ ((o) => (o.Legacy = "legacy", o.Light = "light", o))(To || {}), Oa = Object.defineProperty, Ia = Object.getOwnPropertyDescriptor, Nt = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Ia(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Aa(e, t, s), s;
+  return i && s && Oa(e, t, s), s;
 };
-const Gs = "swim-tabs", Bi = class Bi extends f {
+const Zs = "swim-tabs", Hi = class Hi extends f {
   constructor() {
-    super(...arguments), this._vertical = !1, this.appearance = Eo.Legacy, this._tabs = [], this._slotChangeBound = () => this._syncTabs(), this._tabActiveChangeBound = () => this.requestUpdate();
+    super(...arguments), this._vertical = !1, this.appearance = To.Legacy, this._tabs = [], this._slotChangeBound = () => this._syncTabs(), this._tabActiveChangeBound = () => this.requestUpdate();
   }
   get vertical() {
     return this._vertical;
@@ -11152,22 +11244,22 @@ const Gs = "swim-tabs", Bi = class Bi extends f {
     `;
   }
 };
-Bi.styles = [y, Sa];
-let Le = Bi;
-Ht([
+Hi.styles = [y, Ma];
+let Le = Hi;
+Nt([
   R("slot")
 ], Le.prototype, "slotEl", 2);
-Ht([
+Nt([
   a({ type: Boolean, reflect: !0 })
 ], Le.prototype, "vertical", 1);
-Ht([
+Nt([
   a({ type: String, reflect: !0 })
 ], Le.prototype, "appearance", 2);
-Ht([
+Nt([
   b()
 ], Le.prototype, "_tabs", 2);
-customElements.get(Gs) || customElements.define(Gs, Le);
-const za = _`
+customElements.get(Zs) || customElements.define(Zs, Le);
+const Pa = _`
   :host {
     display: inline-block;
   }
@@ -11306,19 +11398,19 @@ const za = _`
     margin: 0;
   }
 `;
-var Da = Object.defineProperty, Ma = Object.getOwnPropertyDescriptor, $e = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Ma(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var La = Object.defineProperty, Fa = Object.getOwnPropertyDescriptor, $e = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Fa(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Da(e, t, s), s;
+  return i && s && La(e, t, s), s;
 };
-const Ia = {
+const Ba = {
   fromAttribute: (o) => o !== "false" && o !== "",
   toAttribute: (o) => o ? "true" : "false"
 };
-let Oa = 0;
-const Ws = "swim-toggle", Ft = class Ft extends f {
+let Ra = 0;
+const Xs = "swim-toggle", Rt = class Rt extends f {
   constructor() {
-    super(), this.id = `swim-toggle-${++Oa}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
+    super(), this.id = `swim-toggle-${++Ra}`, this.name = "", this.label = "", this._checked = !1, this._disabled = !1, this._required = !1, this._showIcons = !0, this._tabindex = 0, this._internals = this.attachInternals();
   }
   get checked() {
     return this._checked;
@@ -11444,8 +11536,8 @@ const Ws = "swim-toggle", Ft = class Ft extends f {
     `;
   }
 };
-Ft.styles = [y, za], Ft.formAssociated = !0;
-let Q = Ft;
+Rt.styles = [y, Pa], Rt.formAssociated = !0;
+let Q = Rt;
 $e([
   R(".swim-toggle__roving")
 ], Q.prototype, "_roving", 2);
@@ -11468,18 +11560,18 @@ $e([
   a({ type: Boolean, reflect: !0 })
 ], Q.prototype, "required", 1);
 $e([
-  a({ type: Boolean, attribute: "show-icons", converter: Ia })
+  a({ type: Boolean, attribute: "show-icons", converter: Ba })
 ], Q.prototype, "showIcons", 1);
 $e([
   a({ type: Number })
 ], Q.prototype, "tabindex", 1);
-customElements.get(Ws) || customElements.define(Ws, Q);
+customElements.get(Xs) || customElements.define(Xs, Q);
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-class ii extends di {
+class ri extends pi {
   constructor(e) {
     if (super(e), this.it = u, e.type !== Ce.CHILD) throw Error(this.constructor.directiveName + "() can only be used in child bindings");
   }
@@ -11493,8 +11585,8 @@ class ii extends di {
     return t.raw = t, this._t = { _$litType$: this.constructor.resultType, strings: t, values: [] };
   }
 }
-ii.directiveName = "unsafeHTML", ii.resultType = 1;
-const Pa = ci(ii), La = _`
+ri.directiveName = "unsafeHTML", ri.resultType = 1;
+const Ha = ui(ri), Ya = _`
   :host {
     display: inline-block;
   }
@@ -11604,57 +11696,57 @@ const Pa = ci(ii), La = _`
   .swim-tooltip__content {
     display: block;
   }
-`, Fa = [y, La];
-var I = /* @__PURE__ */ ((o) => (o.top = "top", o.bottom = "bottom", o.left = "left", o.right = "right", o))(I || {}), le = /* @__PURE__ */ ((o) => (o.top = "top", o.bottom = "bottom", o.left = "left", o.right = "right", o.center = "center", o))(le || {}), So = /* @__PURE__ */ ((o) => (o.popover = "popover", o.tooltip = "tooltip", o))(So || {}), we = /* @__PURE__ */ ((o) => (o.all = "all", o.focus = "focus", o.click = "click", o.mouseover = "mouseover", o))(we || {});
+`, Va = [y, Ya];
+var O = /* @__PURE__ */ ((o) => (o.top = "top", o.bottom = "bottom", o.left = "left", o.right = "right", o))(O || {}), le = /* @__PURE__ */ ((o) => (o.top = "top", o.bottom = "bottom", o.left = "left", o.right = "right", o.center = "center", o))(le || {}), zo = /* @__PURE__ */ ((o) => (o.popover = "popover", o.tooltip = "tooltip", o))(zo || {}), we = /* @__PURE__ */ ((o) => (o.all = "all", o.focus = "focus", o.click = "click", o.mouseover = "mouseover", o))(we || {});
 const ce = 7;
-function Tt(o, e, t) {
+function zt(o, e, t) {
   return t === le.left ? (o.left ?? 0) - ce : t === le.right ? (o.left ?? 0) + (o.width ?? 0) - (e.width ?? 0) + ce : (o.left ?? 0) + (o.width ?? 0) / 2 - (e.width ?? 0) / 2;
 }
-function pi(o, e, t) {
+function gi(o, e, t) {
   return t === le.top ? (o.top ?? 0) - ce : t === le.bottom ? (o.top ?? 0) + (o.height ?? 0) - (e.height ?? 0) + ce : (o.top ?? 0) + (o.height ?? 0) / 2 - (e.height ?? 0) / 2;
 }
-function Ks(o, e, t) {
-  let i = Tt(o, e, t);
+function Js(o, e, t) {
+  let i = zt(o, e, t);
   return i + (e.width ?? 0) > window.innerWidth && (i = window.innerWidth - (e.width ?? 0)), i;
 }
-function Zs(o, e, t) {
-  let i = pi(o, e, t);
+function Qs(o, e, t) {
+  let i = gi(o, e, t);
   return i + (e.height ?? 0) > window.innerHeight && (i = window.innerHeight - (e.height ?? 0)), i;
 }
-function Ba(o, e, t, i, s) {
-  return t === I.right ? Tt(o, e, i) + (e.width ?? 0) + s > window.innerWidth : t === I.left ? Tt(o, e, i) - s < 0 : t === I.top ? (o.top ?? 0) - (e.height ?? 0) - s < 0 : t === I.bottom ? pi(o, e, i) + (e.height ?? 0) + s > window.innerHeight : !1;
+function Na(o, e, t, i, s) {
+  return t === O.right ? zt(o, e, i) + (e.width ?? 0) + s > window.innerWidth : t === O.left ? zt(o, e, i) - s < 0 : t === O.top ? (o.top ?? 0) - (e.height ?? 0) - s < 0 : t === O.bottom ? gi(o, e, i) + (e.height ?? 0) + s > window.innerHeight : !1;
 }
-function Ra(o, e, t, i, s) {
-  return Ba(t, e, o, s, i) ? o === I.right ? I.left : o === I.left ? I.right : o === I.top ? I.bottom : I.top : o;
+function Ua(o, e, t, i, s) {
+  return Na(t, e, o, s, i) ? o === O.right ? O.left : o === O.left ? O.right : o === O.top ? O.bottom : O.top : o;
 }
-function Ha(o, e, t, i, s) {
+function qa(o, e, t, i, s) {
   let r = 0, n = 0;
-  return o === I.right ? (n = (t.left ?? 0) + (t.width ?? 0) + i, r = Zs(t, e, s)) : o === I.left ? (n = (t.left ?? 0) - (e.width ?? 0) - i, r = Zs(t, e, s)) : o === I.top ? (r = (t.top ?? 0) - (e.height ?? 0) - i, n = Ks(t, e, s)) : (r = (t.top ?? 0) + (t.height ?? 0) + i, n = Ks(t, e, s)), { top: r, left: n };
+  return o === O.right ? (n = (t.left ?? 0) + (t.width ?? 0) + i, r = Qs(t, e, s)) : o === O.left ? (n = (t.left ?? 0) - (e.width ?? 0) - i, r = Qs(t, e, s)) : o === O.top ? (r = (t.top ?? 0) - (e.height ?? 0) - i, n = Js(t, e, s)) : (r = (t.top ?? 0) + (t.height ?? 0) + i, n = Js(t, e, s)), { top: r, left: n };
 }
-function Xs(o, e, t, i) {
+function eo(o, e, t, i) {
   let s;
   i === le.left ? s = (o.width ?? 0) / 2 - (t.width ?? 0) / 2 + ce : i === le.right ? s = (e.width ?? 0) - (o.width ?? 0) / 2 - (t.width ?? 0) / 2 - ce : s = (e.width ?? 0) / 2 - (t.width ?? 0) / 2;
-  const r = Tt(o, e, i);
+  const r = zt(o, e, i);
   return r + (e.width ?? 0) > window.innerWidth && (s += r + (e.width ?? 0) - window.innerWidth), s;
 }
-function Js(o, e, t, i) {
+function to(o, e, t, i) {
   let s;
   i === le.top ? s = (o.height ?? 0) / 2 - (t.height ?? 0) / 2 + ce : i === le.bottom ? s = (e.height ?? 0) - (o.height ?? 0) / 2 - (t.height ?? 0) / 2 - ce : s = (e.height ?? 0) / 2 - (t.height ?? 0) / 2;
-  const r = pi(o, e, i);
+  const r = gi(o, e, i);
   return r + (e.height ?? 0) > window.innerHeight && (s += r + (e.height ?? 0) - window.innerHeight), s;
 }
-function Ya(o, e, t, i, s) {
+function ja(o, e, t, i, s) {
   let r = 0, n = 0;
-  return o === I.right ? (n = -ce, r = Js(t, e, i, s)) : o === I.left ? (n = e.width ?? 0, r = Js(t, e, i, s)) : o === I.top ? (r = e.height ?? 0, n = Xs(t, e, i, s)) : (r = -ce, n = Xs(t, e, i, s)), { top: r, left: n };
+  return o === O.right ? (n = -ce, r = to(t, e, i, s)) : o === O.left ? (n = e.width ?? 0, r = to(t, e, i, s)) : o === O.top ? (r = e.height ?? 0, n = eo(t, e, i, s)) : (r = -ce, n = eo(t, e, i, s)), { top: r, left: n };
 }
-var Va = Object.defineProperty, Na = Object.getOwnPropertyDescriptor, O = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Na(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var Ga = Object.defineProperty, Wa = Object.getOwnPropertyDescriptor, I = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? Wa(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Va(e, t, s), s;
+  return i && s && Ga(e, t, s), s;
 };
-const Qs = "swim-tooltip", Ri = class Ri extends f {
+const io = "swim-tooltip", Yi = class Yi extends f {
   constructor() {
-    super(...arguments), this.content = "", this.placement = I.top, this.alignment = le.center, this.type = So.popover, this.showEvent = we.all, this._spacing = 10, this._showCaret = !0, this._disabled = !1, this._closeOnClickOutside = !0, this._closeOnMouseLeave = !0, this._hideTimeout = 300, this._showTimeout = 100, this.cssClass = "", this._open = !1, this._panelTop = 0, this._panelLeft = 0, this._effectivePlacement = I.top, this._caretTop = 0, this._caretLeft = 0, this._animate = !1, this._triggerRef = null, this._panelRef = null, this._caretRef = null, this._boundDocumentClick = null, this._openFromClick = !1, this._tooltipId = `swim-tooltip-${Math.random().toString(36).slice(2, 11)}`, this._throttledPosition = () => {
+    super(...arguments), this.content = "", this.placement = O.top, this.alignment = le.center, this.type = zo.popover, this.showEvent = we.all, this._spacing = 10, this._showCaret = !0, this._disabled = !1, this._closeOnClickOutside = !0, this._closeOnMouseLeave = !0, this._hideTimeout = 300, this._showTimeout = 100, this.cssClass = "", this._open = !1, this._panelTop = 0, this._panelLeft = 0, this._effectivePlacement = O.top, this._caretTop = 0, this._caretLeft = 0, this._animate = !1, this._triggerRef = null, this._panelRef = null, this._caretRef = null, this._boundDocumentClick = null, this._openFromClick = !1, this._tooltipId = `swim-tooltip-${Math.random().toString(36).slice(2, 11)}`, this._throttledPosition = () => {
       this._throttleTimeout == null && (this._throttleTimeout = window.setTimeout(() => {
         this._throttleTimeout = void 0, this._open && this._position();
       }, 100));
@@ -11781,10 +11873,10 @@ const Qs = "swim-tooltip", Ri = class Ri extends f {
     const s = e.getBoundingClientRect();
     if (!s.height && !s.width) return;
     const r = t.getBoundingClientRect();
-    this._effectivePlacement = Ra(this.placement, r, s, this.spacing, this.alignment);
-    const { top: n, left: l } = Ha(this._effectivePlacement, r, s, this.spacing, this.alignment);
+    this._effectivePlacement = Ua(this.placement, r, s, this.spacing, this.alignment);
+    const { top: n, left: l } = qa(this._effectivePlacement, r, s, this.spacing, this.alignment);
     if (this._panelTop = n, this._panelLeft = l, this.showCaret && i) {
-      const m = i.getBoundingClientRect(), g = Ya(this._effectivePlacement, r, s, m, this.alignment);
+      const m = i.getBoundingClientRect(), g = ja(this._effectivePlacement, r, s, m, this.alignment);
       this._caretTop = g.top, this._caretLeft = g.left;
     }
   }
@@ -11849,34 +11941,34 @@ const Qs = "swim-tooltip", Ri = class Ri extends f {
                     ></span>
                   ` : ""}
               <div part="content" class="swim-tooltip__content">
-                ${e ? c`<slot name="content"></slot>` : c`${Pa(this.content)}`}
+                ${e ? c`<slot name="content"></slot>` : c`${Ha(this.content)}`}
               </div>
             </div>
           ` : ""}
     `;
   }
 };
-Ri.styles = Fa;
-let D = Ri;
-O([
+Yi.styles = Va;
+let D = Yi;
+I([
   a({ type: String })
 ], D.prototype, "content", 2);
-O([
+I([
   a({ type: String, reflect: !0, attribute: "placement" })
 ], D.prototype, "placement", 2);
-O([
+I([
   a({ type: String, reflect: !0, attribute: "alignment" })
 ], D.prototype, "alignment", 2);
-O([
+I([
   a({ type: String, reflect: !0, attribute: "type" })
 ], D.prototype, "type", 2);
-O([
+I([
   a({ type: String, attribute: "show-event" })
 ], D.prototype, "showEvent", 2);
-O([
+I([
   a({ type: Number, attribute: "spacing" })
 ], D.prototype, "spacing", 1);
-O([
+I([
   a({
     type: Boolean,
     attribute: "show-caret",
@@ -11886,50 +11978,50 @@ O([
     }
   })
 ], D.prototype, "showCaret", 1);
-O([
+I([
   a({ type: Boolean, reflect: !0 })
 ], D.prototype, "disabled", 1);
-O([
+I([
   a({ type: Boolean, attribute: "close-on-click-outside" })
 ], D.prototype, "closeOnClickOutside", 1);
-O([
+I([
   a({ type: Boolean, attribute: "close-on-mouse-leave" })
 ], D.prototype, "closeOnMouseLeave", 1);
-O([
+I([
   a({ type: Number, attribute: "hide-timeout" })
 ], D.prototype, "hideTimeout", 1);
-O([
+I([
   a({ type: Number, attribute: "show-timeout" })
 ], D.prototype, "showTimeout", 1);
-O([
+I([
   a({ type: String, attribute: "css-class" })
 ], D.prototype, "cssClass", 2);
-O([
+I([
   b()
 ], D.prototype, "_open", 2);
-O([
+I([
   b()
 ], D.prototype, "_panelTop", 2);
-O([
+I([
   b()
 ], D.prototype, "_panelLeft", 2);
-O([
+I([
   b()
 ], D.prototype, "_effectivePlacement", 2);
-O([
+I([
   b()
 ], D.prototype, "_caretTop", 2);
-O([
+I([
   b()
 ], D.prototype, "_caretLeft", 2);
-O([
+I([
   b()
 ], D.prototype, "_animate", 2);
-customElements.get(Qs) || customElements.define(Qs, D);
-const Ua = 40, qa = 2, ja = _`
+customElements.get(io) || customElements.define(io, D);
+const Ka = 40, Za = 2, Xa = _`
   :host {
-    --swim-navbar-bar-size: ${Ua}px;
-    --swim-navbar-bar-thickness: ${qa}px;
+    --swim-navbar-bar-size: ${Ka}px;
+    --swim-navbar-bar-thickness: ${Za}px;
     display: inline-flex;
     align-items: center;
     min-height: 50px;
@@ -11972,7 +12064,7 @@ const Ua = 40, qa = 2, ja = _`
     top: 0;
     bottom: auto;
   }
-`, Ga = _`
+`, Ja = _`
   :host {
     display: flex;
     font-size: var(--font-size-xl);
@@ -11998,12 +12090,12 @@ const Ua = 40, qa = 2, ja = _`
     color: var(--blue-400);
   }
 `;
-var Wa = Object.defineProperty, Ka = Object.getOwnPropertyDescriptor, mi = (o, e, t, i) => {
-  for (var s = Ka(e, t), r = o.length - 1, n; r >= 0; r--)
+var Qa = Object.defineProperty, el = Object.getOwnPropertyDescriptor, _i = (o, e, t, i) => {
+  for (var s = el(e, t), r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = n(e, t, s) || s);
-  return s && Wa(e, t, s), s;
+  return s && Qa(e, t, s), s;
 };
-const eo = "swim-navbar-item", Hi = class Hi extends f {
+const so = "swim-navbar-item", Vi = class Vi extends f {
   constructor() {
     super(...arguments), this._active = 0, this._total = 0, this._index = 0, this._clickBound = () => this._handleClick();
   }
@@ -12073,24 +12165,24 @@ const eo = "swim-navbar-item", Hi = class Hi extends f {
     (e.key === "Enter" || e.key === " ") && (e.preventDefault(), this.setActive());
   }
 };
-Hi.styles = [y, Ga];
-let Fe = Hi;
-mi([
+Vi.styles = [y, Ja];
+let Fe = Vi;
+_i([
   a({ type: Number })
 ], Fe.prototype, "active");
-mi([
+_i([
   a({ type: Number })
 ], Fe.prototype, "total");
-mi([
+_i([
   a({ type: Number })
 ], Fe.prototype, "index");
-customElements.get(eo) || customElements.define(eo, Fe);
-var Za = Object.defineProperty, Xa = Object.getOwnPropertyDescriptor, Yt = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? Xa(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+customElements.get(so) || customElements.define(so, Fe);
+var tl = Object.defineProperty, il = Object.getOwnPropertyDescriptor, Ut = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? il(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && Za(e, t, s), s;
+  return i && s && tl(e, t, s), s;
 };
-const Ja = 40, to = "swim-navbar", Yi = class Yi extends f {
+const sl = 40, oo = "swim-navbar", Ni = class Ni extends f {
   constructor() {
     super(...arguments), this._barAtTop = !1, this._active = 0, this._navItems = [], this._slotChangeBound = () => this._syncFromSlot(), this._activeChangeBound = (e) => this._onItemActiveChange(e);
   }
@@ -12169,7 +12261,7 @@ const Ja = 40, to = "swim-navbar", Yi = class Yi extends f {
   }
   _getBarTransform() {
     const e = this._navItems.filter((t, i) => i < this._active).length;
-    return `translateX(${Ja * e}px)`;
+    return `translateX(${sl * e}px)`;
   }
   render() {
     const e = this._barAtTop;
@@ -12187,22 +12279,22 @@ const Ja = 40, to = "swim-navbar", Yi = class Yi extends f {
     `;
   }
 };
-Yi.styles = [y, ja];
-let Be = Yi;
-Yt([
+Ni.styles = [y, Xa];
+let Be = Ni;
+Ut([
   R("slot")
 ], Be.prototype, "_slotEl", 2);
-Yt([
+Ut([
   a({ type: Boolean, reflect: !0, attribute: "bar-at-top" })
 ], Be.prototype, "barAtTop", 1);
-Yt([
+Ut([
   a({ type: Number })
 ], Be.prototype, "active", 1);
-Yt([
+Ut([
   b()
 ], Be.prototype, "_navItems", 2);
-customElements.get(to) || customElements.define(to, Be);
-const Qa = [
+customElements.get(oo) || customElements.define(oo, Be);
+const ol = [
   y,
   _`
     :host {
@@ -12288,12 +12380,12 @@ const Qa = [
     }
   `
 ];
-var at = /* @__PURE__ */ ((o) => (o.Error = "error", o.Success = "success", o.Warning = "warning", o))(at || {}), el = Object.defineProperty, tl = Object.getOwnPropertyDescriptor, ke = (o, e, t, i) => {
-  for (var s = i > 1 ? void 0 : i ? tl(e, t) : e, r = o.length - 1, n; r >= 0; r--)
+var at = /* @__PURE__ */ ((o) => (o.Error = "error", o.Success = "success", o.Warning = "warning", o))(at || {}), rl = Object.defineProperty, nl = Object.getOwnPropertyDescriptor, ke = (o, e, t, i) => {
+  for (var s = i > 1 ? void 0 : i ? nl(e, t) : e, r = o.length - 1, n; r >= 0; r--)
     (n = o[r]) && (s = (i ? n(e, t, s) : n(s)) || s);
-  return i && s && el(e, t, s), s;
+  return i && s && rl(e, t, s), s;
 };
-const io = 44, so = "swim-list", Vi = class Vi extends f {
+const ro = 44, no = "swim-list", Ui = class Ui extends f {
   constructor() {
     super(...arguments), this.columnLayout = "", this.dataSource = [], this.defaultRowStatus = at.Error, this.headerLabels = [], this.columns = [], this._hasScrollbar = !1, this._page = 1, this._rowsContainer = null, this._scrollBound = (e) => this._emitScrollChanges(e);
   }
@@ -12312,7 +12404,7 @@ const io = 44, so = "swim-list", Vi = class Vi extends f {
       var t;
       if (this._updateScrollbarState(), (t = this.paginationConfig) != null && t.index && this.paginationConfig.index > 1 && this.paginationConfig.pageSize > 0) {
         this._page = this.paginationConfig.index;
-        const i = io * (this.paginationConfig.pageSize * (this._page - 1));
+        const i = ro * (this.paginationConfig.pageSize * (this._page - 1));
         this._rowsContainer.scrollTo({ top: i });
       }
     }));
@@ -12332,7 +12424,7 @@ const io = 44, so = "swim-list", Vi = class Vi extends f {
     this.dispatchEvent(new CustomEvent("scroll", { detail: i, bubbles: !0 }));
     const s = (r = this.paginationConfig) == null ? void 0 : r.pageSize;
     if (s) {
-      const n = Math.floor(i / io), l = Math.floor(n / s) + 1;
+      const n = Math.floor(i / ro), l = Math.floor(n / s) + 1;
       l !== this._page && (this._page = l, this.dispatchEvent(new CustomEvent("page-change", { detail: l, bubbles: !0 })));
     }
   }
@@ -12375,8 +12467,8 @@ const io = 44, so = "swim-list", Vi = class Vi extends f {
     `;
   }
 };
-Vi.styles = Qa;
-let ee = Vi;
+Ui.styles = ol;
+let ee = Ui;
 ke([
   a({ type: String, attribute: "column-layout" })
 ], ee.prototype, "columnLayout", 2);
@@ -12404,8 +12496,8 @@ ke([
 ke([
   b()
 ], ee.prototype, "_page", 2);
-customElements.get(so) || customElements.define(so, ee);
-const pl = {
+customElements.get(no) || customElements.define(no, ee);
+const fl = {
   // Blue
   blue100: "rgb(224, 239, 255)",
   blue200: "rgb(173, 212, 255)",
@@ -12492,7 +12584,7 @@ const pl = {
   // Base
   white: "rgb(255, 255, 255)",
   black: "rgb(0, 0, 0)"
-}, ml = {
+}, wl = {
   // Font sizes
   fontSizeBase: "16px",
   fontSizeXXS: "0.625rem",
@@ -12527,7 +12619,7 @@ const pl = {
   fontWeightRegular: "400",
   fontWeightSemibold: "600",
   fontWeightBold: "700"
-}, bl = {
+}, vl = {
   spacing0: "0",
   spacing2: "2px",
   spacing4: "4px",
@@ -12536,40 +12628,40 @@ const pl = {
   spacing16: "16px",
   spacing24: "24px",
   spacing32: "32px"
-}, gl = {
+}, yl = {
   radius2: "2px",
   radius4: "4px",
   radius8: "8px"
 };
 export {
   le as AlignmentType,
-  ho as ButtonGroupOrientation,
-  po as ButtonGroupStyle,
-  uo as ButtonGroupVariant,
+  mo as ButtonGroupOrientation,
+  go as ButtonGroupStyle,
+  bo as ButtonGroupVariant,
   N as ButtonState,
-  go as CardAppearance,
-  bo as CardOrientation,
-  _o as CardPlaceholderSize,
+  wo as CardAppearance,
+  fo as CardOrientation,
+  vo as CardPlaceholderSize,
   pt as CardStatus,
-  wr as DAYS_OF_WEEK,
+  xr as DAYS_OF_WEEK,
   se as DateDisplayType,
   z as DateTimeType,
   nt as DialogFormat,
   Ve as DrawerDirection,
-  zn as DrawerPosition,
-  hi as InputAppearance,
-  ui as InputSize,
+  On as DrawerPosition,
+  mi as InputAppearance,
+  bi as InputSize,
   _e as InputTypes,
   at as ListRowStatus,
-  fr as MONTHS_SHORT,
-  I as PlacementType,
+  yr as MONTHS_SHORT,
+  O as PlacementType,
   Ye as ProgressSpinnerMode,
-  ul as SWIM_ICON_FONT_FAMILY,
-  vo as SectionAppearance,
+  _l as SWIM_ICON_FONT_FAMILY,
+  $o as SectionAppearance,
   we as ShowType,
   fe as SpinnerAppearance,
   Ne as SplitDirection,
-  So as StyleType,
+  zo as StyleType,
   U as SwimButton,
   je as SwimButtonGroup,
   ve as SwimButtonToggle,
@@ -12577,10 +12669,10 @@ export {
   q as SwimCalendar,
   j as SwimCard,
   We as SwimCardAvatar,
-  Qt as SwimCardBody,
-  Et as SwimCardFooter,
+  ii as SwimCardBody,
+  St as SwimCardFooter,
   mt as SwimCardHeader,
-  St as SwimCardPlaceholder,
+  At as SwimCardPlaceholder,
   J as SwimCheckbox,
   v as SwimDateTime,
   P as SwimDialog,
@@ -12588,15 +12680,16 @@ export {
   Ae as SwimIcon,
   C as SwimInput,
   ye as SwimLargeFormatDialogContent,
-  At as SwimLargeFormatDialogFooter,
+  Tt as SwimLargeFormatDialogFooter,
   ee as SwimList,
   Be as SwimNavbar,
   Fe as SwimNavbarItem,
+  wt as SwimOption,
   B as SwimProgressSpinner,
   K as SwimRadio,
   oe as SwimRadioGroup,
   W as SwimSection,
-  ei as SwimSectionHeader,
+  si as SwimSectionHeader,
   E as SwimSelect,
   L as SwimSlider,
   bt as SwimSplit,
@@ -12606,39 +12699,39 @@ export {
   Le as SwimTabs,
   Q as SwimToggle,
   D as SwimTooltip,
-  Eo as TabsAppearance,
-  yt as TogglePosition,
+  To as TabsAppearance,
+  xt as TogglePosition,
   y as baseStyles,
-  Br as cardComponentStyles,
-  Lr as cardHorizontalStyles,
-  Pr as cardStyles,
-  Fr as cardVerticalStyles,
+  Yr as cardComponentStyles,
+  Rr as cardHorizontalStyles,
+  Br as cardStyles,
+  Hr as cardVerticalStyles,
   p as coerceBooleanProperty,
   A as coerceNumberProperty,
-  pl as colors,
-  tr as convertClass,
+  fl as colors,
+  or as convertClass,
   st as formatDate,
-  ns as getDecadeStartYear,
-  cl as getEffectiveDisplayFormat,
-  zr as getEffectiveInputFormat,
+  ls as getDecadeStartYear,
+  ml as getEffectiveDisplayFormat,
+  Or as getEffectiveInputFormat,
   ie as getMonth,
-  al as globalStyles,
-  sr as iconRegistry,
-  Wt as isAfterDate,
-  Gt as isBeforeDate,
-  hs as isOutOfRange,
-  Xt as isSameDay,
-  ll as isSameMonth,
-  vr as isSameYear,
+  ul as globalStyles,
+  nr as iconRegistry,
+  Xt as isAfterDate,
+  Zt as isBeforeDate,
+  ps as isOutOfRange,
+  ei as isSameDay,
+  pl as isSameMonth,
+  $r as isSameYear,
   F as isValidDate,
-  Jt as normalizeTimezone,
-  hl as openDrawer,
+  ti as normalizeTimezone,
+  gl as openDrawer,
   Ge as parseDate,
-  gl as radius,
-  Tr as resolveFormat,
-  ds as roundToPrecision,
+  yl as radius,
+  Mr as resolveFormat,
+  us as roundToPrecision,
   ft as scrollbarStyles,
-  bl as spacing,
-  dl as toNativeInputValue,
-  ml as typography
+  vl as spacing,
+  bl as toNativeInputValue,
+  wl as typography
 };

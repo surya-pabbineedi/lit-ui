@@ -918,7 +918,6 @@ const K = 4, se = 3, ke = 25, mt = 30, ft = 15, Se = 27, vt = f`
     width: 100%;
     min-width: var(--swim-card-min-width, 500px);
     min-height: 80px;
-    height: 80px;
     transition: all 0.2s ease-in-out;
     animation: 0.2s ease-in-out cardSlideIn;
   }
@@ -1804,21 +1803,16 @@ const Ne = 27, Ft = f`
   :host {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-grow: 1;
-    padding: var(--spacing-20) var(--spacing-0);
+    padding: var(--spacing-20);
     padding-left: ${Ne}px;
     padding-right: ${Ne}px;
     box-sizing: border-box;
+    overflow: auto;
   }
 
   ::slotted(*) {
-    font-weight: var(--font-weight-semibold);
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
   }
 `, Gt = [z, Ft], Be = "swim-card-body", be = class be extends m {
   render() {
