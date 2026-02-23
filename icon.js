@@ -2110,13 +2110,13 @@ const Re = L`
     line-height: 1;
   }
 
-[class^='icon-']:before,
-[class*='icon-']:before {
-  line-height: 1;
-  font: normal normal normal 1em/1 'ngx-icon';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  [class^='icon-']:before,
+  [class*='icon-']:before {
+    line-height: 1;
+    font: normal normal normal 1em/1 'ngx-icon';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
   /* Loading spinner: animate only the inner glyph inside this shadow root */
   @keyframes swim-icon-spin {
