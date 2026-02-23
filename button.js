@@ -45,7 +45,7 @@ const ve = (n) => new ue(typeof n == "string" ? n : n + "", void 0, Z), M = (n, 
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Ae, defineProperty: xe, getOwnPropertyDescriptor: Se, getOwnPropertyNames: ke, getOwnPropertySymbols: Ce, getPrototypeOf: Ee } = Object, v = globalThis, ne = v.trustedTypes, Pe = ne ? ne.emptyScript : "", W = v.reactiveElementPolyfillSupport, T = (n, e) => n, L = { toAttribute(n, e) {
+const { is: xe, defineProperty: Ae, getOwnPropertyDescriptor: Se, getOwnPropertyNames: ke, getOwnPropertySymbols: Ce, getPrototypeOf: Ee } = Object, v = globalThis, ne = v.trustedTypes, Pe = ne ? ne.emptyScript : "", W = v.reactiveElementPolyfillSupport, T = (n, e) => n, L = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
       n = n ? Pe : null;
@@ -73,7 +73,7 @@ const { is: Ae, defineProperty: xe, getOwnPropertyDescriptor: Se, getOwnProperty
       }
   }
   return t;
-} }, Q = (n, e) => !Ae(n, e), se = { attribute: !0, type: String, converter: L, reflect: !1, useDefault: !1, hasChanged: Q };
+} }, Q = (n, e) => !xe(n, e), se = { attribute: !0, type: String, converter: L, reflect: !1, useDefault: !1, hasChanged: Q };
 Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), v.litPropertyMetadata ?? (v.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 let C = class extends HTMLElement {
   static addInitializer(e) {
@@ -85,7 +85,7 @@ let C = class extends HTMLElement {
   static createProperty(e, t = se) {
     if (t.state && (t.attribute = !1), this._$Ei(), this.prototype.hasOwnProperty(e) && ((t = Object.create(t)).wrapped = !0), this.elementProperties.set(e, t), !t.noAccessor) {
       const i = Symbol(), o = this.getPropertyDescriptor(e, i, t);
-      o !== void 0 && xe(this.prototype, e, o);
+      o !== void 0 && Ae(this.prototype, e, o);
     }
   }
   static getPropertyDescriptor(e, t, i) {
@@ -285,8 +285,8 @@ C.elementStyles = [], C.shadowRootOptions = { mode: "open" }, C[T("elementProper
  * SPDX-License-Identifier: BSD-3-Clause
  */
 const I = globalThis, B = I.trustedTypes, re = B ? B.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, pe = "$lit$", _ = `lit$${Math.random().toFixed(9).slice(2)}$`, we = "?" + _, ze = `<${we}>`, k = document, H = () => k.createComment(""), N = (n) => n === null || typeof n != "object" && typeof n != "function", Y = Array.isArray, Oe = (n) => Y(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", J = `[ 	
-\f\r]`, O = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ce = /-->/g, ae = />/g, A = RegExp(`>|${J}(?:([^\\s"'>=/]+)(${J}*=${J}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), le = /'/g, be = /"/g, ge = /^(?:script|style|textarea|title)$/i, Te = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), y = Te(1), P = Symbol.for("lit-noChange"), b = Symbol.for("lit-nothing"), fe = /* @__PURE__ */ new WeakMap(), x = k.createTreeWalker(k, 129);
+\f\r]`, O = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, ce = /-->/g, ae = />/g, x = RegExp(`>|${J}(?:([^\\s"'>=/]+)(${J}*=${J}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`, "g"), le = /'/g, be = /"/g, ge = /^(?:script|style|textarea|title)$/i, Te = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), y = Te(1), P = Symbol.for("lit-noChange"), b = Symbol.for("lit-nothing"), fe = /* @__PURE__ */ new WeakMap(), A = k.createTreeWalker(k, 129);
 function _e(n, e) {
   if (!Y(n) || !n.hasOwnProperty("raw")) throw Error("invalid template strings array");
   return re !== void 0 ? re.createHTML(e) : e;
@@ -297,8 +297,8 @@ const Ie = (n, e) => {
   for (let a = 0; a < t; a++) {
     const c = n[a];
     let f, m, l = -1, w = 0;
-    for (; w < c.length && (s.lastIndex = w, m = s.exec(c), m !== null); ) w = s.lastIndex, s === O ? m[1] === "!--" ? s = ce : m[1] !== void 0 ? s = ae : m[2] !== void 0 ? (ge.test(m[2]) && (o = RegExp("</" + m[2], "g")), s = A) : m[3] !== void 0 && (s = A) : s === A ? m[0] === ">" ? (s = o ?? O, l = -1) : m[1] === void 0 ? l = -2 : (l = s.lastIndex - m[2].length, f = m[1], s = m[3] === void 0 ? A : m[3] === '"' ? be : le) : s === be || s === le ? s = A : s === ce || s === ae ? s = O : (s = A, o = void 0);
-    const g = s === A && n[a + 1].startsWith("/>") ? " " : "";
+    for (; w < c.length && (s.lastIndex = w, m = s.exec(c), m !== null); ) w = s.lastIndex, s === O ? m[1] === "!--" ? s = ce : m[1] !== void 0 ? s = ae : m[2] !== void 0 ? (ge.test(m[2]) && (o = RegExp("</" + m[2], "g")), s = x) : m[3] !== void 0 && (s = x) : s === x ? m[0] === ">" ? (s = o ?? O, l = -1) : m[1] === void 0 ? l = -2 : (l = s.lastIndex - m[2].length, f = m[1], s = m[3] === void 0 ? x : m[3] === '"' ? be : le) : s === be || s === le ? s = x : s === ce || s === ae ? s = O : (s = x, o = void 0);
+    const g = s === x && n[a + 1].startsWith("/>") ? " " : "";
     r += s === O ? c + ze : l >= 0 ? (i.push(f), c.slice(0, l) + pe + c.slice(l) + _ + g) : c + _ + (l === -2 ? a : g);
   }
   return [_e(n, r + (n[t] || "<?>") + (e === 2 ? "</svg>" : e === 3 ? "</math>" : "")), i];
@@ -309,11 +309,11 @@ class U {
     this.parts = [];
     let r = 0, s = 0;
     const a = e.length - 1, c = this.parts, [f, m] = Ie(e, t);
-    if (this.el = U.createElement(f, i), x.currentNode = this.el.content, t === 2 || t === 3) {
+    if (this.el = U.createElement(f, i), A.currentNode = this.el.content, t === 2 || t === 3) {
       const l = this.el.content.firstChild;
       l.replaceWith(...l.childNodes);
     }
-    for (; (o = x.nextNode()) !== null && c.length < a; ) {
+    for (; (o = A.nextNode()) !== null && c.length < a; ) {
       if (o.nodeType === 1) {
         if (o.hasAttributes()) for (const l of o.getAttributeNames()) if (l.endsWith(pe)) {
           const w = m[s++], g = o.getAttribute(l).split(_), D = /([.?@])?(.*)/.exec(w);
@@ -323,7 +323,7 @@ class U {
           const l = o.textContent.split(_), w = l.length - 1;
           if (w > 0) {
             o.textContent = B ? B.emptyScript : "";
-            for (let g = 0; g < w; g++) o.append(l[g], H()), x.nextNode(), c.push({ type: 2, index: ++r });
+            for (let g = 0; g < w; g++) o.append(l[g], H()), A.nextNode(), c.push({ type: 2, index: ++r });
             o.append(l[w], H());
           }
         }
@@ -359,16 +359,16 @@ class He {
   }
   u(e) {
     const { el: { content: t }, parts: i } = this._$AD, o = ((e == null ? void 0 : e.creationScope) ?? k).importNode(t, !0);
-    x.currentNode = o;
-    let r = x.nextNode(), s = 0, a = 0, c = i[0];
+    A.currentNode = o;
+    let r = A.nextNode(), s = 0, a = 0, c = i[0];
     for (; c !== void 0; ) {
       if (s === c.index) {
         let f;
         c.type === 2 ? f = new R(r, r.nextSibling, this, e) : c.type === 1 ? f = new c.ctor(r, c.name, c.strings, this, e) : c.type === 6 && (f = new Re(r, this, e)), this._$AV.push(f), c = i[++a];
       }
-      s !== (c == null ? void 0 : c.index) && (r = x.nextNode(), s++);
+      s !== (c == null ? void 0 : c.index) && (r = A.nextNode(), s++);
     }
-    return x.currentNode = k, o;
+    return A.currentNode = k, o;
   }
   p(e) {
     let t = 0;
@@ -2347,7 +2347,7 @@ const Ve = M`
   /* Font icon base (glyphs in icon-font-glyphs.ts); uses same font as ngx-ui ('ngx-icon'). */
   .swim-icon,
   .swim-icon__i.swim-icon {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     width: 1em;
@@ -2365,6 +2365,14 @@ const Ve = M`
     display: block;
     line-height: 1;
   }
+
+[class^='icon-']:before,
+[class*='icon-']:before {
+  line-height: 1;
+  font: normal normal normal 1em/1 'ngx-icon';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
   /* Loading spinner: animate only the inner glyph inside this shadow root */
   @keyframes swim-icon-spin {

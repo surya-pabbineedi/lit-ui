@@ -2091,7 +2091,7 @@ const Ne = D`
   /* Font icon base (glyphs in icon-font-glyphs.ts); uses same font as ngx-ui ('ngx-icon'). */
   .swim-icon,
   .swim-icon__i.swim-icon {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     width: 1em;
@@ -2109,6 +2109,14 @@ const Ne = D`
     display: block;
     line-height: 1;
   }
+
+[class^='icon-']:before,
+[class*='icon-']:before {
+  line-height: 1;
+  font: normal normal normal 1em/1 'ngx-icon';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
   /* Loading spinner: animate only the inner glyph inside this shadow root */
   @keyframes swim-icon-spin {

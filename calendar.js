@@ -45,7 +45,7 @@ const Me = (n) => new De(typeof n == "string" ? n : n + "", void 0, ie), H = (n,
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: Fe, defineProperty: Ye, getOwnPropertyDescriptor: Pe, getOwnPropertyNames: Te, getOwnPropertySymbols: Oe, getPrototypeOf: ze } = Object, v = globalThis, le = v.trustedTypes, Ue = le ? le.emptyScript : "", K = v.reactiveElementPolyfillSupport, P = (n, e) => n, L = { toAttribute(n, e) {
+const { is: Fe, defineProperty: Ye, getOwnPropertyDescriptor: Pe, getOwnPropertyNames: Te, getOwnPropertySymbols: ze, getPrototypeOf: Oe } = Object, v = globalThis, le = v.trustedTypes, Ue = le ? le.emptyScript : "", K = v.reactiveElementPolyfillSupport, P = (n, e) => n, L = { toAttribute(n, e) {
   switch (e) {
     case Boolean:
       n = n ? Ue : null;
@@ -104,13 +104,13 @@ let S = class extends HTMLElement {
   }
   static _$Ei() {
     if (this.hasOwnProperty(P("elementProperties"))) return;
-    const e = ze(this);
+    const e = Oe(this);
     e.finalize(), e.l !== void 0 && (this.l = [...e.l]), this.elementProperties = new Map(e.elementProperties);
   }
   static finalize() {
     if (this.hasOwnProperty(P("finalized"))) return;
     if (this.finalized = !0, this._$Ei(), this.hasOwnProperty(P("properties"))) {
-      const t = this.properties, i = [...Te(t), ...Oe(t)];
+      const t = this.properties, i = [...Te(t), ...ze(t)];
       for (const o of i) this.createProperty(o, t[o]);
     }
     const e = this[Symbol.metadata];
@@ -284,7 +284,7 @@ S.elementStyles = [], S.shadowRootOptions = { mode: "open" }, S[P("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const T = globalThis, q = T.trustedTypes, he = q ? q.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, xe = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ae = "?" + y, He = `<${Ae}>`, k = document, O = () => k.createComment(""), z = (n) => n === null || typeof n != "object" && typeof n != "function", ne = Array.isArray, Ie = (n) => ne(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", W = `[ 	
+const T = globalThis, q = T.trustedTypes, he = q ? q.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, xe = "$lit$", y = `lit$${Math.random().toFixed(9).slice(2)}$`, Ae = "?" + y, He = `<${Ae}>`, k = document, z = () => k.createComment(""), O = (n) => n === null || typeof n != "object" && typeof n != "function", ne = Array.isArray, Ie = (n) => ne(n) || typeof (n == null ? void 0 : n[Symbol.iterator]) == "function", W = `[ 	
 \f\r]`, Y = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, fe = /-->/g, de = />/g, D = RegExp(`>|${W}(?:([^\\s"'>=/]+)(${W}*=${W}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), ue = /'/g, me = /"/g, ke = /^(?:script|style|textarea|title)$/i, Ne = (n) => (e, ...t) => ({ _$litType$: n, strings: e, values: t }), d = Ne(1), E = Symbol.for("lit-noChange"), f = Symbol.for("lit-nothing"), we = /* @__PURE__ */ new WeakMap(), x = k.createTreeWalker(k, 129);
 function Se(n, e) {
@@ -323,8 +323,8 @@ class U {
           const b = o.textContent.split(y), g = b.length - 1;
           if (g > 0) {
             o.textContent = q ? q.emptyScript : "";
-            for (let _ = 0; _ < g; _++) o.append(b[_], O()), x.nextNode(), a.push({ type: 2, index: ++r });
-            o.append(b[g], O());
+            for (let _ = 0; _ < g; _++) o.append(b[_], z()), x.nextNode(), a.push({ type: 2, index: ++r });
+            o.append(b[g], z());
           }
         }
       } else if (o.nodeType === 8) if (o.data === Ae) a.push({ type: 2, index: r });
@@ -344,7 +344,7 @@ function F(n, e, t = n, i) {
   var s, c;
   if (e === E) return e;
   let o = i !== void 0 ? (s = t._$Co) == null ? void 0 : s[i] : t._$Cl;
-  const r = z(e) ? void 0 : e._$litDirective$;
+  const r = O(e) ? void 0 : e._$litDirective$;
   return (o == null ? void 0 : o.constructor) !== r && ((c = o == null ? void 0 : o._$AO) == null || c.call(o, !1), r === void 0 ? o = void 0 : (o = new r(n), o._$AT(n, t, i)), i !== void 0 ? (t._$Co ?? (t._$Co = []))[i] = o : t._$Cl = o), o !== void 0 && (e = F(n, o._$AS(n, e.values), o, i)), e;
 }
 class Re {
@@ -395,7 +395,7 @@ class I {
     return this._$AB;
   }
   _$AI(e, t = this) {
-    e = F(this, e, t), z(e) ? e === f || e == null || e === "" ? (this._$AH !== f && this._$AR(), this._$AH = f) : e !== this._$AH && e !== E && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Ie(e) ? this.k(e) : this._(e);
+    e = F(this, e, t), O(e) ? e === f || e == null || e === "" ? (this._$AH !== f && this._$AR(), this._$AH = f) : e !== this._$AH && e !== E && this._(e) : e._$litType$ !== void 0 ? this.$(e) : e.nodeType !== void 0 ? this.T(e) : Ie(e) ? this.k(e) : this._(e);
   }
   O(e) {
     return this._$AA.parentNode.insertBefore(e, this._$AB);
@@ -404,7 +404,7 @@ class I {
     this._$AH !== e && (this._$AR(), this._$AH = this.O(e));
   }
   _(e) {
-    this._$AH !== f && z(this._$AH) ? this._$AA.nextSibling.data = e : this.T(k.createTextNode(e)), this._$AH = e;
+    this._$AH !== f && O(this._$AH) ? this._$AA.nextSibling.data = e : this.T(k.createTextNode(e)), this._$AH = e;
   }
   $(e) {
     var r;
@@ -423,7 +423,7 @@ class I {
     ne(this._$AH) || (this._$AH = [], this._$AR());
     const t = this._$AH;
     let i, o = 0;
-    for (const r of e) o === t.length ? t.push(i = new I(this.O(O()), this.O(O()), this, this.options)) : i = t[o], i._$AI(r), o++;
+    for (const r of e) o === t.length ? t.push(i = new I(this.O(z()), this.O(z()), this, this.options)) : i = t[o], i._$AI(r), o++;
     o < t.length && (this._$AR(i && i._$AB.nextSibling, o), t.length = o);
   }
   _$AR(e = this._$AA.nextSibling, t) {
@@ -451,11 +451,11 @@ class B {
   _$AI(e, t = this, i, o) {
     const r = this.strings;
     let s = !1;
-    if (r === void 0) e = F(this, e, t, 0), s = !z(e) || e !== this._$AH && e !== E, s && (this._$AH = e);
+    if (r === void 0) e = F(this, e, t, 0), s = !O(e) || e !== this._$AH && e !== E, s && (this._$AH = e);
     else {
       const c = e;
       let a, l;
-      for (e = r[0], a = 0; a < r.length - 1; a++) l = F(this, c[i + a], t, a), l === E && (l = this._$AH[a]), s || (s = !z(l) || l !== this._$AH[a]), l === f ? e = f : e !== f && (e += (l ?? "") + r[a + 1]), this._$AH[a] = l;
+      for (e = r[0], a = 0; a < r.length - 1; a++) l = F(this, c[i + a], t, a), l === E && (l = this._$AH[a]), s || (s = !O(l) || l !== this._$AH[a]), l === f ? e = f : e !== f && (e += (l ?? "") + r[a + 1]), this._$AH[a] = l;
     }
     s && !o && this.j(e);
   }
@@ -511,7 +511,7 @@ const Ke = (n, e, t) => {
   let o = i._$litPart$;
   if (o === void 0) {
     const r = (t == null ? void 0 : t.renderBefore) ?? null;
-    i._$litPart$ = o = new I(e.insertBefore(O(), r), r, void 0, t ?? {});
+    i._$litPart$ = o = new I(e.insertBefore(z(), r), r, void 0, t ?? {});
   }
   return o._$AI(n), o;
 };
@@ -2091,7 +2091,7 @@ const Ge = H`
   /* Font icon base (glyphs in icon-font-glyphs.ts); uses same font as ngx-ui ('ngx-icon'). */
   .swim-icon,
   .swim-icon__i.swim-icon {
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     width: 1em;
@@ -2109,6 +2109,14 @@ const Ge = H`
     display: block;
     line-height: 1;
   }
+
+[class^='icon-']:before,
+[class*='icon-']:before {
+  line-height: 1;
+  font: normal normal normal 1em/1 'ngx-icon';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
   /* Loading spinner: animate only the inner glyph inside this shadow root */
   @keyframes swim-icon-spin {
