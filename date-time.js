@@ -4523,8 +4523,11 @@ const li = [
     /* Full screen variant (class="swim-dialog--full-screen" on host or wrapper) */
     :host(.swim-dialog--full-screen) .swim-dialog,
     .swim-dialog.swim-dialog--full-screen {
-      width: 100vw;
+      width: 100%;
       height: 100%;
+      align-items: stretch;
+      justify-content: flex-start;
+      overflow-x: hidden;
       overflow-y: auto;
     }
 
@@ -4532,7 +4535,7 @@ const li = [
     .swim-dialog.swim-dialog--full-screen .swim-dialog__content {
       box-shadow: none;
       width: 100%;
-      min-height: 100vh;
+      min-height: 100%;
     }
 
     :host(.swim-dialog--full-screen) .swim-dialog__close,

@@ -938,9 +938,9 @@ const De = R`
     opacity: 1;
   }
 
-  /* State: Success (clickable so parent can re-initiate transition) */
+  /* State: Success */
   :host([state='success']) {
-    cursor: pointer;
+    cursor: wait !important;
   }
 
   :host([state='success']) button {
@@ -948,6 +948,7 @@ const De = R`
     background-color: var(--green-500) !important;
     background: var(--green-500) !important;
     border: 1px solid var(--green-500) !important;
+    pointer-events: none;
   }
 
   :host([state='success']) .content {
@@ -959,9 +960,9 @@ const De = R`
     color: var(--white);
   }
 
-  /* State: Fail (clickable so parent can re-initiate transition) */
+  /* State: Fail */
   :host([state='fail']) {
-    cursor: pointer;
+    cursor: wait !important;
   }
 
   :host([state='fail']) button {
@@ -969,6 +970,7 @@ const De = R`
     background-color: var(--red-500) !important;
     background: var(--red-500) !important;
     border: 1px solid var(--red-500) !important;
+    pointer-events: none;
   }
 
   :host([state='fail']) .content {
