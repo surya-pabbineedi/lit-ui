@@ -3081,7 +3081,7 @@
 
   .swim-tabs__tab {
     flex: 0 1 auto;
-    min-width: 0;
+    min-width: 5em;
     max-width: 100%;
     display: inline-block;
     border: none;
