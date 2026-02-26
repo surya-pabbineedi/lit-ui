@@ -3074,8 +3074,7 @@
 
   /* Tab list – horizontal by default, responsive to container */
   .swim-tabs__list {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     border-bottom: solid 2px var(--grey-700);
   }
 
@@ -3177,16 +3176,24 @@
   }
 
   /* Vertical layout */
+  :host([vertical]) {
+    min-height: 0;
+  }
+
   :host([vertical]) .swim-tabs {
     display: flex;
+    min-height: 0;
+    height: 100%;
   }
 
   :host([vertical]) .swim-tabs__list {
-    flex: 0 1 var(--swim-tabs-list-width, 160px);
+    flex: 0 0 var(--swim-tabs-list-width, 160px);
     min-width: var(--swim-tabs-list-min-width, 120px);
     max-width: var(--swim-tabs-list-max-width, 320px);
+    width: var(--swim-tabs-list-width, 160px);
     border: none;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   :host([vertical]) .swim-tabs__tab {
@@ -3210,7 +3217,10 @@
   }
 
   :host([vertical]) .swim-tabs__content {
-    flex: 1 1 100%;
+    flex: 1 1 0%;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
   }
 
   /* Vertical + light */
