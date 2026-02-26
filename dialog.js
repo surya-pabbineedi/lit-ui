@@ -1057,6 +1057,7 @@ const ze = k`
     .swim-dialog.swim-dialog--full-screen {
       width: 100%;
       height: 100%;
+      height: 100dvh; /* avoid scroll from 100vh vs visible area */
       align-items: stretch;
       justify-content: flex-start;
       overflow-x: hidden;
@@ -1066,8 +1067,15 @@ const ze = k`
     :host(.swim-dialog--full-screen) .swim-dialog__content,
     .swim-dialog.swim-dialog--full-screen .swim-dialog__content {
       box-shadow: none;
+      box-sizing: border-box;
       width: 100%;
       min-height: 100%;
+    }
+
+    :host(.swim-dialog--full-screen) .swim-dialog__body,
+    .swim-dialog.swim-dialog--full-screen .swim-dialog__body {
+      max-height: none;
+      overflow: visible;
     }
 
     :host(.swim-dialog--full-screen) .swim-dialog__close,
